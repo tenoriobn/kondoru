@@ -27,12 +27,52 @@ class UserService {
   };
 
   async getAllUsers() {
-    const users = await database.users.findAll();
+    const users = await database.users.findAll({
+      include: [
+        {
+          model: database.roles,
+          as: 'user_roles',
+          attributes: ['id', 'name', 'description'],
+          through: {
+              attributes: [],
+          },
+          include: [
+            {
+              model: database.permissions,
+              as: 'role_permissions',
+              attributes: ['id', 'name', 'description'],
+            }
+          ],
+        },
+      ]
+    });
+
     return users;
   } ;
 
   async getUserById(id) {
-    const user = await database.users.findOne({ where: { id: id }});
+    const user = await database.users.findOne({ 
+      include: [
+        {
+          model: database.roles,
+          as: 'user_roles',
+          attributes: ['id', 'name', 'description'],
+          through: {
+              attributes: [],
+          },
+          include: [
+            {
+              model: database.permissions,
+              as: 'role_permissions',
+              attributes: ['id', 'name', 'description'],
+            }
+          ],
+        },
+      ],
+      where: { 
+        id: id 
+      }
+    });
 
     if (!user) {
       throw new Error('Usuário informado não cadastrado!')
