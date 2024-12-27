@@ -4,10 +4,10 @@ const PermissionController = require('../controllers/permissionController');
 const router = Router();
 
 router
-  .post('/permission', PermissionController.register)
-  .get('/permissions', PermissionController.getAllPermissions)
-  .get('/permission/:id', PermissionController.getPermissionById)
-  .put('/permission/:id', PermissionController.updatePermission)
-  .delete('/permission/:id', PermissionController.deletePermission)
+  .post('/permissoes', PermissionController.register)
+  .get('/permissoes', PermissionController.getAllPermissions)
+  .get('/permissoes/:id', PermissionController.getPermissionById)
+  .put('/permissoes/:id', PermissionController.updatePermission)
+  .delete('/permissoes/:id', PermissionController.deletePermission)
 
 module.exports = router;
