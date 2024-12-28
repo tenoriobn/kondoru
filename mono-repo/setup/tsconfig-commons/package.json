@@ -1,0 +1,12 @@
+{
+  "name": "@kondoru/tsconfig-commons",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "echo 'Not necessary'"
+  },
+  "files": [
+    "tsconfig.base.json"
+  ]
+}

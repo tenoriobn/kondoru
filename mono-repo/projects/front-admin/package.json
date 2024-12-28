@@ -1,0 +1,27 @@
+{
+  "name": "@kondoru/front-admin",
+  "version": "0.1.0",
+  "private": true,
+  "keywords": [],
+  "author": "Bruno Tenório",
+  "license": "ISC",
+  "description": "KondoRu Admin: Uma interface administrativa poderosa e intuitiva para gerenciar imóveis, usuários e permissões. Desenvolvida com Next.js, esta aplicação permite a gestão de propriedades, cadastro de novos imóveis, controle de usuários e atribuição de roles, tudo de forma simplificada. Com foco em usabilidade e eficiência, o front-admin foi projetado para facilitar a administração e otimizar o fluxo de trabalho no setor imobiliário.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@kondoru/tsconfig-commons": "*",
+    "@kondoru/eslint-commons": "*"
+  }
+}
