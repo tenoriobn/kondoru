@@ -10,7 +10,7 @@ router.use(authenticated);
 
 router
   .post('/usuarios', permissionsRole(["Adicionar"]), UserController.register)
-  .get('/usuarios', permissionsRole(["Buscar"]), UserController.getAllUsers)
+  .get('/usuarios', UserController.getAllUsers)
   .get('/usuarios/:id', permissionsRole(["Buscar"]), UserController.getUserById)
   .put('/usuarios/:id', permissionsRole(["Editar"]), UserController.updateUser)
   .delete('/usuarios/:id', permissionsRole(["Deletar"]), UserController.deleteUser)
