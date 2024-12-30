@@ -15,14 +15,12 @@
   },
   "scripts": {
     "lint": "yarn workspaces run lint",
-
     "front-user": "yarn workspace @kondoru/front-user",
     "dev:user": "yarn front-user dev",
     "start:user": "yarn front-user start",
     "lint:user": "yarn front-user lint",
     "lint:user-fix": "yarn front-user lint --fix",
     "build:user": "yarn lint:user & yarn front-user build & cd projects/front-user & move ./out ./build",
-
     "front-admin": "yarn workspace @kondoru/front-admin",
     "dev:admin": "yarn front-admin dev",
     "start:admin": "yarn front-admin start",
@@ -32,8 +30,9 @@
   },
   "dependencies": {
     "next": "^15.1.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recoil": "^0.7.7"
   },
   "devDependencies": {
     "eslint": "^9.17.0",
