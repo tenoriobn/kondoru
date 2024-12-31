@@ -18,10 +18,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kondoru/eslint-commons": "*",
+    "@kondoru/tsconfig-commons": "*",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@kondoru/tsconfig-commons": "*",
-    "@kondoru/eslint-commons": "*"
+    "@types/react-dom": "^19"
   }
 }

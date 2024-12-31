@@ -29,14 +29,21 @@
     "build:admin": "yarn lint:admin & yarn front-admin build & cd projects/front-admin & move ./out ./build"
   },
   "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "jwt-decode": "^4.0.0",
     "next": "^15.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "styled-components": "^6.1.13",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "eslint": "^9.17.0",
     "typescript": "^5.7.2"
+  },
+  "resoluções": {
+    "styled-components": "^5"
   },
   "files": [
     "tsconfig.base.json"
