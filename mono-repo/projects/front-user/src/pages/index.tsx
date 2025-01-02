@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { stateUser } from '../store/atom';
 import { jwtDecode } from 'jwt-decode';
 import styled from 'styled-components';
-import Theme from '../styles/theme/Theme';
+import Theme from '../styles/Theme';
 
 const StyledButton = styled.button`
   background-color: ${Theme.colors.black};
