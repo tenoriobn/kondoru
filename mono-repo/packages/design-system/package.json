@@ -1,0 +1,14 @@
+{
+  "name": "@kondoru/design-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint \"./**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "@kondoru/tsconfig-commons": "*",
+    "@kondoru/eslint-commons": "*"
+  }
+}

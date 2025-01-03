@@ -15,18 +15,23 @@
   },
   "scripts": {
     "lint": "yarn workspaces run lint",
+
     "front-user": "yarn workspace @kondoru/front-user",
     "dev:user": "yarn front-user dev",
     "start:user": "yarn front-user start",
     "lint:user": "yarn front-user lint",
     "lint:user-fix": "yarn front-user lint --fix",
     "build:user": "yarn lint:user & yarn front-user build & cd projects/front-user & move ./out ./build",
+
     "front-admin": "yarn workspace @kondoru/front-admin",
     "dev:admin": "yarn front-admin dev",
     "start:admin": "yarn front-admin start",
     "lint:admin": "yarn front-admin lint",
     "lint:admin-fix": "yarn front-admin lint --fix",
-    "build:admin": "yarn lint:admin & yarn front-admin build & cd projects/front-admin & move ./out ./build"
+    "build:admin": "yarn lint:admin & yarn front-admin build & cd projects/front-admin & move ./out ./build",
+
+    "design-system": "yarn workspace @kondoru/design-system",
+    "lint:design-system": "yarn design-system lint"
   },
   "dependencies": {
     "@types/uuid": "^10.0.0",

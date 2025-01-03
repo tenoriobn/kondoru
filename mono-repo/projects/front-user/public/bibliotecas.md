@@ -1,2 +1,0 @@
-React Toastify
-framemotion

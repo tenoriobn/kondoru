@@ -15,7 +15,8 @@
   "dependencies": {
     "next": "15.1.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@kondoru/design-system": "*"
   },
   "devDependencies": {
     "@kondoru/eslint-commons": "*",

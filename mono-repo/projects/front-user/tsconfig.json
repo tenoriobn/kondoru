@@ -3,9 +3,18 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "next.config.js", "src/store/atom.ts"  ],
+    "**/*.tsx", 
+    "next.config.js", 
+    "src/store/atom.ts"  
+  ],
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "public/*": ["public/*"],
+      "src/*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"]
+    },  
   }
 }
