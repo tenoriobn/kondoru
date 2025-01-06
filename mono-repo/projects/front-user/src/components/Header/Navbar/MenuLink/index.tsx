@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { transition } from 'src/styles/transitions';
-import { IMenuLink } from 'src/interfaces/IMenu';
+import { useHomePageData } from 'src/context/HomePageContext';
 
 const StyledMenuLinkContainer = styled.ul`
   display: flex;
@@ -33,7 +33,8 @@ const StyledMenuLinks = styled(Link)`
     }
 `;
 
-export default function MenuLink({ menuLinks }: { menuLinks: IMenuLink[] }) {
+export default function MenuLink() {
+  const { menuLinks } = useHomePageData();
   const pathname = usePathname();
 
   return (

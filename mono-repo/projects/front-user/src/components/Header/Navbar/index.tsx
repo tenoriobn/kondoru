@@ -6,8 +6,7 @@ import CloseIcon from 'public/icons/close.svg';
 import MenuLink from './MenuLink';
 import { Container } from 'src/styles/container';
 import Button from 'components/Button';
-import { IMenuLink, IMenuMobile } from 'src/interfaces/IMenu';
-import { IHomePageData } from 'src/interfaces/IHomePageData';
+import { IMenuMobile } from 'src/interfaces/IMenu';
 
 const MobileMenuButtonContainer = styled.div`
   display: flex;
@@ -69,48 +68,50 @@ const ButtonsAuthContainer = styled.div`
   }
 `;
 
-export default function Navbar({ menuLinks }: { menuLinks: IMenuLink[] }) {
+export default function Navbar() {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   return (
-    <Container> 
-      <MobileMenuButtonContainer> 
-        <Button onClick={() => setIsMenuActive(true)}>
-          <Image src={MenuIcon} alt="Menu button" />
-        </Button>
-      </MobileMenuButtonContainer>
-
-      <MenuContainer $isMenuActive={isMenuActive}>
-        <CloseButtonContainer>
-          <Button onClick={() => setIsMenuActive(false)}>
-            <Image src={CloseIcon} alt="Close Menu button" />
+    <nav>
+      <Container> 
+        <MobileMenuButtonContainer> 
+          <Button onClick={() => setIsMenuActive(true)}>
+            <Image src={MenuIcon} alt="Menu button" />
           </Button>
-        </CloseButtonContainer>
+        </MobileMenuButtonContainer>
 
-        <MenuLink menuLinks={menuLinks} />
+        <MenuContainer $isMenuActive={isMenuActive}>
+          <CloseButtonContainer>
+            <Button onClick={() => setIsMenuActive(false)}>
+              <Image src={CloseIcon} alt="Close Menu button" />
+            </Button>
+          </CloseButtonContainer>
 
-        <ButtonsAuthContainer> 
-          <Button 
-            $color="gray-400"
-            $hoverColor="white-80"
-            $activeColor="white"
-          >
-            Login
-          </Button>
+          <MenuLink />
 
-          <Button
-            $backgroundColor="white"
-            $color="dark-slate-900"
-            $borderRadius="rounded-48"
-            $padding="0 2rem"
-            $height="52px"
-            $hoverBackgroundColor="white-80"
-            $activeBackgroundColor="white"
-          >
-            Cadastre-se
-          </Button>
-        </ButtonsAuthContainer>
-      </MenuContainer>
-    </Container>
+          <ButtonsAuthContainer> 
+            <Button 
+              $color="gray-400"
+              $hoverColor="white-80"
+              $activeColor="white"
+            >
+              Login
+            </Button>
+
+            <Button
+              $backgroundColor="white"
+              $color="dark-slate-900"
+              $borderRadius="rounded-48"
+              $padding="0 2rem"
+              $height="52px"
+              $hoverBackgroundColor="white-80"
+              $activeBackgroundColor="white"
+            >
+              Cadastre-se
+            </Button>
+          </ButtonsAuthContainer>
+        </MenuContainer>
+      </Container>
+    </nav>
   );
 }
