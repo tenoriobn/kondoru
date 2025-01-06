@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import { v4 as uuidv4 } from 'uuid';
 
-export const stateUser = atom({
+export const stateHomePage = atom({
   key: `${uuidv4()}`,
-  default: 1,
+  default: undefined,
 });

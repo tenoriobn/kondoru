@@ -2,7 +2,7 @@ export interface IMenuMobile {
   $isMenuActive: boolean;
 }
 
-export interface IMenuList {
+export interface IMenuLink {
   id: number;
   text: string;
   href: string;

@@ -3,10 +3,11 @@ import Image from 'next/image';
 import { useState } from 'react';
 import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import CloseIcon from 'public/icons/close.svg';
-import MenuList from './MenuList';
+import MenuLink from './MenuLink';
 import { Container } from 'src/styles/container';
-import Button from '../Button';
-import { IMenuMobile } from 'src/interfaces/IMenu';
+import Button from 'components/Button';
+import { IMenuLink, IMenuMobile } from 'src/interfaces/IMenu';
+import { IHomePageData } from 'src/interfaces/IHomePageData';
 
 const MobileMenuButtonContainer = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const ButtonsAuthContainer = styled.div`
   }
 `;
 
-export default function Navbar() {
+export default function Navbar({ menuLinks }: { menuLinks: IMenuLink[] }) {
   const [isMenuActive, setIsMenuActive] = useState(false);
 
   return (
@@ -86,10 +87,16 @@ export default function Navbar() {
           </Button>
         </CloseButtonContainer>
 
-        <MenuList />
+        <MenuLink menuLinks={menuLinks} />
 
         <ButtonsAuthContainer> 
-          <Button $color="white">Login</Button>
+          <Button 
+            $color="gray-400"
+            $hoverColor="white-80"
+            $activeColor="white"
+          >
+            Login
+          </Button>
 
           <Button
             $backgroundColor="white"
@@ -97,6 +104,8 @@ export default function Navbar() {
             $borderRadius="rounded-48"
             $padding="0 2rem"
             $height="52px"
+            $hoverBackgroundColor="white-80"
+            $activeBackgroundColor="white"
           >
             Cadastre-se
           </Button>

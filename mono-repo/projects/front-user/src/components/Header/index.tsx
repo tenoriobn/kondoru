@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import Navbar from '../Navbar';
+import Navbar from './Navbar';
+import { IHomePageData } from 'src/interfaces/IHomePageData';
+import { IMenuLink } from 'src/interfaces/IMenu';
 
 const StyledContainerHeader = styled.header`
   display: grid;
@@ -11,10 +13,10 @@ const StyledContainerHeader = styled.header`
   min-height: 100vh;
 `;
 
-export default function Header() {
+export default function Header({ menuLinks }: { menuLinks: IMenuLink[] }) {
   return (
     <StyledContainerHeader>
-      <Navbar /> 
+      <Navbar menuLinks={menuLinks} /> 
       <p>Olá</p>
     </StyledContainerHeader>
   );
