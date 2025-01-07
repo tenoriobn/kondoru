@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { transition } from 'src/styles/transitions';
-import { useHomePageData } from 'src/context/HomePageContext';
+import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledMenuLinkContainer = styled.ul`
   display: flex;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import { useState } from 'react';
 import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import CloseIcon from 'public/icons/close.svg';
 import MenuLink from './MenuLink';
 import { Container } from 'src/styles/container';
 import Button from 'components/Button';
 import { IMenuMobile } from 'src/interfaces/IMenu';
+import useResponsiveMenu from 'src/hooks/Header/useResponsiveMenu';
 
 const MobileMenuButtonContainer = styled.div`
   display: flex;
@@ -28,14 +28,16 @@ const MenuContainer = styled.div<IMenuMobile>`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 6rem;
 
-  position: absolute;
+  position: fixed;
   left: ${({ $isMenuActive: isActive }) => (isActive ? '0' : '-100%')};
   top: 0;
   transition: left .3s ease-in-out;
   padding: 2rem 1.5rem;
-  height: 100%;
   width: 100%;
+  height: 100vh;
+  overflow-y: auto;
 
   @media (min-width: 992px) {
     background: none;
@@ -44,6 +46,7 @@ const MenuContainer = styled.div<IMenuMobile>`
     flex-direction: row;
     left: 0%;
     padding: 0;
+    height: 100%;
   }
 `;
 
@@ -69,7 +72,7 @@ const ButtonsAuthContainer = styled.div`
 `;
 
 export default function Navbar() {
-  const [isMenuActive, setIsMenuActive] = useState(false);
+  const { isMenuActive, setIsMenuActive } = useResponsiveMenu(992);
 
   return (
     <nav>
