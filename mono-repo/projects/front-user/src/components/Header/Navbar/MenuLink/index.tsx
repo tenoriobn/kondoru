@@ -44,7 +44,7 @@ export default function MenuLink() {
           <StyledMenuLinks 
             href={link.href}
             className={`${pathname === link.href ? 'active' : ''}`} 
-            >
+          >
             {link.text}
           </StyledMenuLinks>
         </li>

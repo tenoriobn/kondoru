@@ -4,7 +4,10 @@ import { IHomePageData } from 'src/interfaces/IHomePageData';
 
 const HomePageContext = createContext<IHomePageData | undefined>(undefined);
 
-export const HomePageProvider: React.FC<{ homeData: IHomePageData; children: React.ReactNode }> = ({ homeData, children }) => {
+export const HomePageProvider: React.FC<{ 
+  homeData: IHomePageData; 
+  children: React.ReactNode;
+}> = ({ homeData, children }) => {
   return (
     <HomePageContext.Provider value={ homeData }>
       {children}

@@ -7,8 +7,8 @@ import { HomePageProvider } from 'src/contexts/HomePageContext';
 
 export async function getStaticProps() {
   const homeData: IHomePageData = {
-    menuLinks: links
-  }
+    menuLinks: links,
+  };
 
   return {
     props: { homeData },

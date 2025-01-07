@@ -6,3 +6,6 @@ OK - Remover Scroll com Menu Mobile Aberto
 OK - Receber restante dos dados relacionado ao Header via SSG
 
  * Corrigir fundo do Header e fundo do Menu Mobile
+
+ * Adicionar alguns principios de CI/CD.
+ * Desenvolver a seção de chamada!!! 

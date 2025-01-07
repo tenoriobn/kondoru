@@ -44,7 +44,7 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
 
     // Limitar comprimento de linhas a 80 caracteres
-    "max-len": ["warn", { "code": 80 }],
+    "max-len": ["warn", { "code": 120 }],
 
     // Não permitir variáveis não utilizadas
     "no-unused-vars": ["error"],

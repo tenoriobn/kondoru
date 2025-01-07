@@ -20,7 +20,7 @@ function useResponsiveMenu(breakpoint: number = 992) {
 
   // Impede rolagem no body quando o menu é `true`.
   useEffect(() => {
-    const body = document.body
+    const body = document.body;
     body.style.overflow = `${isMenuActive ? 'hidden' : ''}`;
 
     return () => {

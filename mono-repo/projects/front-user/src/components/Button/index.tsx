@@ -5,13 +5,13 @@ import styled from 'styled-components';
 const StyledButton = styled.button<IButtonProps>`
   background-color: ${({ $backgroundColor, theme }) => 
     $backgroundColor ? theme.colors[$backgroundColor] : ''
-  };
+};
   border-radius: ${({ $borderRadius, theme }) => 
     $borderRadius ? theme.borderRadius[$borderRadius] : ''
-  };
+};
   color: ${({ $color, theme }) => 
     $color ? theme.colors[$color] : ''
-  };
+};
   padding: ${({ $padding }) => $padding || ''};
   height: ${({ $height }) => $height || ''};
   border: none;
@@ -23,22 +23,22 @@ const StyledButton = styled.button<IButtonProps>`
 
   &:hover {
     color: ${({ $hoverColor, theme}) => 
-      $hoverColor ? theme.colors[$hoverColor] : ''
-    };
+    $hoverColor ? theme.colors[$hoverColor] : ''
+};
 
     background-color: ${({ $hoverBackgroundColor, theme }) => 
-      $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
-    };
+    $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
+};
   }
 
   &:active {
     color: ${({ $activeColor, theme}) => 
-      $activeColor ? theme.colors[$activeColor] : ''
-    };
+    $activeColor ? theme.colors[$activeColor] : ''
+};
 
     background-color: ${({ $activeBackgroundColor, theme }) => 
-      $activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''
-    };
+    $activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''
+};
   }
 `;
 
