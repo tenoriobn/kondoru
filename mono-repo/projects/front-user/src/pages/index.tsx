@@ -18,6 +18,7 @@ export default function HomePage({ homeData }: { homeData: IHomePageData }) {
   return (
     <HomePageProvider homeData={homeData}>
       <Header />
+      <p>testando</p>
     </HomePageProvider>
   );
 }
