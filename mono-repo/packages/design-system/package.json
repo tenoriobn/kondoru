@@ -1,27 +1,14 @@
 {
   "name": "@kondoru/design-system",
   "version": "1.0.0",
-  "private": true,
   "main": "index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint \"./**/*.{ts,tsx}\"",
-    "build": "tsc",
-    "test": "jest"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "styled-components": "^5.3.10"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "styled-components": "^5.0.0"
+    "test": "jest",
+    "lint": "eslint \"./**/*.{ts,tsx}\""
   },
   "devDependencies": {
     "@kondoru/tsconfig-commons": "*",
-    "@kondoru/eslint-commons": "*",
-    "typescript": "^5.0.0"
+    "@kondoru/eslint-commons": "*"
   }
 }
