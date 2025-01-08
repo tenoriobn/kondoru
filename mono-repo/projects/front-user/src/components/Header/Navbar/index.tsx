@@ -39,6 +39,10 @@ const MenuContainer = styled.div<IMenuMobile>`
   height: 100vh;
   overflow-y: auto;
 
+  @media (min-width: 768px) {
+    padding: 2rem 4rem;
+  }
+
   @media (min-width: 992px) {
     background: none;
     position: relative;
@@ -72,25 +76,30 @@ const ButtonsAuthContainer = styled.div`
 `;
 
 export default function Navbar() {
-  const { isMenuActive, setIsMenuActive } = useResponsiveMenu(992);
+  const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu(992);
 
   return (
     <nav>
       <Container> 
         <MobileMenuButtonContainer> 
-          <Button onClick={() => setIsMenuActive(true)}>
-            <Image src={MenuIcon} alt="Menu button" />
-          </Button>
+
+          {isMobile &&          
+            <Button onClick={() => setIsMenuActive(true)}>
+              <Image src={MenuIcon} alt="Menu button" width={30} height={24} />
+            </Button>
+          }
         </MobileMenuButtonContainer>
 
         <MenuContainer $isMenuActive={isMenuActive}>
-          <CloseButtonContainer>
-            <Button onClick={() => setIsMenuActive(false)}>
-              <Image src={CloseIcon} alt="Close Menu button" />
-            </Button>
-          </CloseButtonContainer>
+          {isMobile &&     
+            <CloseButtonContainer>
+              <Button onClick={() => setIsMenuActive(false)}>
+                <Image src={CloseIcon} alt="Close Menu button" />
+              </Button>
+            </CloseButtonContainer>
+          }
 
-          <MenuLink />
+          <MenuLink $setIsMenuActive={setIsMenuActive} />
 
           <ButtonsAuthContainer> 
             <Button 

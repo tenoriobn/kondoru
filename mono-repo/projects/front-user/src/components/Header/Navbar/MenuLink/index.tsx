@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { transition } from 'src/styles/transitions';
 import { useHomePageData } from 'src/contexts/HomePageContext';
+import { IMenuMobile } from 'src/interfaces/IMenu';
 
 const StyledMenuLinkContainer = styled.ul`
   display: flex;
@@ -33,7 +34,7 @@ const StyledMenuLinks = styled(Link)`
     }
 `;
 
-export default function MenuLink() {
+export default function MenuLink({ $setIsMenuActive }: IMenuMobile) {
   const { menuLinks } = useHomePageData();
   const pathname = usePathname();
 
@@ -44,6 +45,7 @@ export default function MenuLink() {
           <StyledMenuLinks 
             href={link.href}
             className={`${pathname === link.href ? 'active' : ''}`} 
+            onClick={() => $setIsMenuActive?.(false)}
           >
             {link.text}
           </StyledMenuLinks>

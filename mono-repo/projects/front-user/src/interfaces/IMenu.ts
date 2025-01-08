@@ -1,5 +1,6 @@
 export interface IMenuMobile {
-  $isMenuActive: boolean;
+  $isMenuActive?: boolean;
+  $setIsMenuActive?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IMenuLink {
