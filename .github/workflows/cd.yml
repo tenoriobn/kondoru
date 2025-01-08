@@ -17,6 +17,7 @@ jobs:
 
       - name: Run Installation
         working-directory: ./mono-repo
+        
         run: yarn install
 
       - name: Run Deploy
