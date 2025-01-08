@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Run Installation
-        working-directory: ./Portfólio/5-KondoRu/mono-repo
+        working-directory: ./mono-repo
         run: yarn install
 
       # Runs a single command using the runners shell
