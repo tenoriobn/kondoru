@@ -21,9 +21,8 @@
     "start:user": "yarn front-user start",
     "lint:user": "yarn front-user lint",
     "lint:user-fix": "yarn front-user lint --fix",
-    "build:user": "yarn lint:user && rm -rf projects/front-user/next build && next build projects/front-user",
+    "build:user": "yarn lint:user && rm -rf front-user next build",
     "deploy:user": "yarn build:user && npx vercel ./projects/front-user/out --confirm --no-clipboard --token=$VERCEL_TOKEN --prod",
-
 
     "front-admin": "yarn workspace @kondoru/front-admin",
     "dev:admin": "yarn front-admin dev",
