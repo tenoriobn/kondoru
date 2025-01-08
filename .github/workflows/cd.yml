@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: |
-          yarn install
+
+      - name: Run Installation
+        working-directory: ./mono-repo
+        run: yarn install
+
       - name: Run Deploy
         working-directory: ./mono-repo
-        run: | 
-          yarn build:user
-          npx vercel ./projects/front-user/out --confirm --no-clipboard --token=$VERCEL_TOKEN --prod
+        run: yarn build:user
