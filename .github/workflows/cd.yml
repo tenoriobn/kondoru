@@ -21,4 +21,4 @@ jobs:
 
       - name: Run Deploy
         working-directory: ./mono-repo
-        run: yarn build:user
+        run: yarn deploy:user
