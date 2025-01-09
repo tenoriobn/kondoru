@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <StyledContainerHeader>
       <Navbar /> 
-      <p>Olá Mundo</p>
+      <p>Olá Universo da Programação</p>
     </StyledContainerHeader>
   );
 }
