@@ -1,0 +1,24 @@
+name: "CD (Entrega/Delivery Continua): Main Workflow"
+
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  push:
+    branches: [main, desenvolvimento]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Installation
+        working-directory: ./mono-repo
+        run: yarn install
+
+      - name: Run Deploy
+        working-directory: ./mono-repo
+        run: yarn deploy:user
