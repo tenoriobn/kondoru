@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <StyledContainerHeader>
       <Navbar /> 
-      <p>Olá</p>
+      <p>Olá Mundo</p>
     </StyledContainerHeader>
   );
 }
