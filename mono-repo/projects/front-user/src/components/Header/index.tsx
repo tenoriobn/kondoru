@@ -1,21 +1,40 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
+import HeroSection from './HeroSection';
+import { Container } from 'src/styles/container';
 
-const StyledContainerHeader = styled.header`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+const StyledHeader = styled.header`
   background-color: ${({theme}) => theme.colors.zinc - 950};
   background-image: url('/images/background-header.png');
   background-size: cover;
   background-position: center;
+`;
+
+const StyledContainerHeader = styled(Container)`
+  display: grid;
+  grid-template-rows: auto 1fr 344px;
+  gap: 6.25rem;
   min-height: 100vh;
+  padding-bottom: 6.25rem;
+
+  @media (min-width: 768px) {
+    grid-template-rows: auto 1fr 248px;
+    gap: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-rows: auto 1fr 64px;
+  }
 `;
 
 export default function Header() {
   return (
-    <StyledContainerHeader>
-      <Navbar /> 
-      <p>Olá Universo da Programação!!!</p>
-    </StyledContainerHeader>
+    <StyledHeader>
+      <StyledContainerHeader>
+        <Navbar /> 
+        <HeroSection />
+      </StyledContainerHeader>
+    </StyledHeader>
   );
 }
