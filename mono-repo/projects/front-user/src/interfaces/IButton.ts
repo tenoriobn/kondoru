@@ -7,7 +7,9 @@ export interface IButtonProps {
   $hoverColor?: string;
   $activeColor?: string;
   $hoverBackgroundColor?: string;
-$activeBackgroundColor?: string;
+  $width?: string;
+  $maxWidth?: string,
+  $activeBackgroundColor?: string;
   onClick?: () => void;
   children: React.ReactNode;
 }
