@@ -23,6 +23,9 @@ const Theme = {
     'text-xl': '1.25rem',
     'text-2xl': '1.5rem',
     'text-3xl': '2rem',
+  },
+  transitions: {
+    smoothTransition: 'all .3s ease-in-out',
   }
 };
 

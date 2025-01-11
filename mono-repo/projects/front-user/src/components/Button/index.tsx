@@ -12,13 +12,16 @@ const StyledButton = styled.button<IButtonProps>`
   color: ${({ $color, theme }) => 
     $color ? theme.colors[$color] : ''
 };
-  padding: ${({ $padding }) => $padding || ''};
-  height: ${({ $height }) => $height || ''};
   border: none;
-  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
+  width: ${({ $width }) => $width || ''};
+  max-width: ${({ $maxWidth }) => $maxWidth || ''};
+  
+  padding: ${({ $padding }) => $padding || ''};
+  height: ${({ $height }) => $height || ''};
   ${transition};
 
   &:hover {
@@ -53,6 +56,8 @@ export default function Button({
   $activeColor,
   $hoverBackgroundColor,
   $activeBackgroundColor,
+  $width,
+  $maxWidth,
   onClick: onClick, 
 }: IButtonProps) {
   return (
@@ -66,6 +71,8 @@ export default function Button({
       $activeColor={$activeColor}
       $hoverBackgroundColor={$hoverBackgroundColor}
       $activeBackgroundColor={$activeBackgroundColor}
+      $width={$width}
+      $maxWidth={$maxWidth}
       onClick={onClick} 
     >
       {children}
