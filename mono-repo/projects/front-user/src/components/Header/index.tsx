@@ -4,10 +4,10 @@ import HeroSection from './HeroSection';
 import { Container } from 'src/styles/container';
 
 const StyledHeader = styled.header`
-  background-color: ${({theme}) => theme.colors.zinc - 950};
   background-image: url('/images/background-header.png');
   background-size: cover;
   background-position: center;
+  z-index: 99;
 `;
 
 const StyledContainerHeader = styled(Container)`

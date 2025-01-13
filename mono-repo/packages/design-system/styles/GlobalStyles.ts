@@ -24,6 +24,17 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.black};
     background-color: ${({ theme }) => theme.colors.white};
     letter-spacing: -.8px;
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: ${({ theme }) => theme.colors['white-80']};
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: ${({ theme }) => theme.colors['dark-slate-58']}; 
+      border-radius: .125rem;
+    }
   }
 
   /* 4. Configura largura e altura padrão */
