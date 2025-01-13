@@ -1,4 +1,4 @@
-import Filter from '../Filter';
+import Filter from './Filter';
 import styled from 'styled-components';
 
 const HeroContent = styled.div`
@@ -32,7 +32,6 @@ export default function HeroSection() {
         <StyledTitle>KondoRu</StyledTitle>
         <StyledSlogan>Viva o melhor da vida<br /> no lugar certo</StyledSlogan>
       </HeroContent>
-
       <Filter />
     </>
   );
