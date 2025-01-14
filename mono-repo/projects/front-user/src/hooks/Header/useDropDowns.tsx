@@ -1,8 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-function useDropdowns(initialOptions: { [key: string]: string } = {}) {
+function useDropdowns() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>(initialOptions);
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>(
+    {
+      contrato: '',
+      imovel: '',
+      preco: '',
+      localidade: '',
+    },
+  );
 
   const handleToggleDropdown = useCallback((id: string) => {
     setOpenDropdown((prev) => (prev === id ? null : id));

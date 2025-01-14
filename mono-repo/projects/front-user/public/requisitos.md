@@ -13,7 +13,7 @@ OK - NÃO PERMITIR PUSH DIRETO NO MAIN
 
    
   * Desenvolver a seção de chamada!!! 
-    - Dados por SSG no filter
+    OK - Dados por SSG no filter
     OK - Tornar Filter responsivo com Mobile First
     OK - Cada Filtro Solto
     OK - Filtro Duplo Unido
@@ -24,4 +24,3 @@ OK - NÃO PERMITIR PUSH DIRETO NO MAIN
     OK - Estilos de cor `Hover, Opção Selecionada`
     OK - Estabelecer um limite de texto, no limite (adicionar reticências...) ou só cortar
     OK - Adicioar um pop-up padrão que mostra o que está escrito.
-    - TESTAR DEIXAR FILTROS AZUIS AO SELECIONAR UMA OPÇÃO

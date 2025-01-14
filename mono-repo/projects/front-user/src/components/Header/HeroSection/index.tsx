@@ -1,7 +1,7 @@
 import Filter from './Filter';
 import styled from 'styled-components';
 
-const HeroContent = styled.div`
+const StyledHeroContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,10 +28,11 @@ const StyledSlogan = styled.h3`
 export default function HeroSection() {
   return (
     <>
-      <HeroContent>
+      <StyledHeroContent>
         <StyledTitle>KondoRu</StyledTitle>
         <StyledSlogan>Viva o melhor da vida<br /> no lugar certo</StyledSlogan>
-      </HeroContent>
+      </StyledHeroContent>
+      
       <Filter />
     </>
   );
