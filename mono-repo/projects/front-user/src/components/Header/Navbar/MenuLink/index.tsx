@@ -22,7 +22,7 @@ const StyledMenuLinks = styled(Link)`
     ${transition};
 
     &.active {
-      color: ${({theme}) => theme.colors.white};
+      color: ${({theme}) => theme.colors.white}!important;
     }
 
     &:hover {

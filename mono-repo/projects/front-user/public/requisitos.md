@@ -13,11 +13,15 @@ OK - NÃO PERMITIR PUSH DIRETO NO MAIN
 
    
   * Desenvolver a seção de chamada!!! 
-    - Tornar Filter responsivo com Mobile First
-    - Cada Filtro Solto
-    - Filtro Duplo Unido
-    - Filtro Completo de uma linha
-    - Botão No Mobile e Tablet não tem fundo e Mobile ocupa 100% largura
-    - Lógica para reunir os dados dos select em um objeto
-    - Ao clicar fora fechar filtro
-    - Estilos de cor `Hover, Opção Selecionada`
+    - Dados por SSG no filter
+    OK - Tornar Filter responsivo com Mobile First
+    OK - Cada Filtro Solto
+    OK - Filtro Duplo Unido
+    OK - Filtro Completo de uma linha
+    OK - Botão No Mobile e Tablet não tem fundo e Mobile ocupa 100% largura
+    OK - Lógica para reunir os dados dos select em um objeto
+    OK - Ao clicar fora fechar filtro
+    OK - Estilos de cor `Hover, Opção Selecionada`
+    OK - Estabelecer um limite de texto, no limite (adicionar reticências...) ou só cortar
+    OK - Adicioar um pop-up padrão que mostra o que está escrito.
+    - TESTAR DEIXAR FILTROS AZUIS AO SELECIONAR UMA OPÇÃO
