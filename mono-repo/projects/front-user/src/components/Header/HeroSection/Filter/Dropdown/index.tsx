@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
-import { IArrowProps, IDropdownListProps, IDropdownProps } from 'src/interfaces/IDropdown';
+import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/IDropdown';
 
-const DropdownContainer = styled.div`
+const StyledDropdownContainer = styled.div`
   position: relative;
   width: 100%;
   max-height: 56px;
@@ -15,7 +15,7 @@ const DropdownContainer = styled.div`
   }
 `;
 
-const StyledDropdown = styled.div<{ $isOpen: boolean }>`
+const StyledDropdown = styled.div<{ $isOpen: boolean, $selectedOption: string }>`
   display: grid;
   grid-template-columns: repeat(2, auto);
   align-items: center;
@@ -51,11 +51,11 @@ const StyledDropdown = styled.div<{ $isOpen: boolean }>`
   @media (min-width: 768px) {
     border-radius: 0;
 
-    ${DropdownContainer}:nth-of-type(odd) & {
+    ${StyledDropdownContainer}:nth-of-type(odd) & {
       border-radius: 3rem 0 0 3rem;
     }
 
-    ${DropdownContainer}:nth-of-type(even) & {
+    ${StyledDropdownContainer}:nth-of-type(even) & {
       border-radius: 0 3rem 3rem 0;
     }
   }
@@ -63,22 +63,22 @@ const StyledDropdown = styled.div<{ $isOpen: boolean }>`
   @media (min-width: 992px) {
     border-radius: 0;
 
-    ${DropdownContainer}:nth-of-type(n+2) & {
+    ${StyledDropdownContainer}:nth-of-type(n+2) & {
       border-radius: 0;
     }
 
-    ${DropdownContainer}:nth-of-type(4) & {
+    ${StyledDropdownContainer}:nth-of-type(4) & {
       border: none;
     }
   }
 `;
 
-const Arrow = styled(Image)<IArrowProps>`
+const StyledArrowIcon = styled(Image)<IDropdownVisibility>`
   transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 `;
 
-const DropdownList = styled.ul<IDropdownListProps>`
+const StyledDropdownList = styled.ul<IDropdownVisibility>`
   display: block;
   background-color: ${({ theme }) => theme.colors['dark-slate-800']};
   border-radius: 0.75rem;
@@ -92,7 +92,7 @@ const DropdownList = styled.ul<IDropdownListProps>`
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 `;
 
-const DropdownListItem = styled.li`
+const StyledDropdownListItem = styled.li`
   cursor: pointer;
   color: ${({ theme }) => theme.colors['white-80']};
   padding: 0.75rem 1.5rem;
@@ -116,36 +116,44 @@ export default function Dropdown({
   isOpen,
   onToggle,
   onSelect,
-}: IDropdownProps) {
+}: IDropdownHandlers) {
   return (
-    <DropdownContainer>
-      <StyledDropdown onClick={onToggle} $isOpen={isOpen} title={selectedOption || label}>
-        <label>{selectedOption || label}</label>
-        <Arrow src={ArrowIcon} alt="Icone de expandir/ocultar dropdown" $isOpen={isOpen} />
+    <StyledDropdownContainer>
+      <StyledDropdown 
+        onClick={onToggle} 
+        $isOpen={isOpen} 
+        $selectedOption={selectedOption} 
+        title={selectedOption || label}
+      >
+        <label>
+          {selectedOption || label}
+        </label>
+
+        <StyledArrowIcon src={ArrowIcon} alt="Icone de expandir/ocultar dropdown" $isOpen={isOpen} />
       </StyledDropdown>
 
-      <DropdownList $isOpen={isOpen}>
+      <StyledDropdownList $isOpen={isOpen}>
         {selectedOption &&
-            <DropdownListItem
+            <StyledDropdownListItem
               onClick={() => onSelect('')}
               title="Limpar Filtro"
             >
               Limpar Filtro
-            </DropdownListItem>
+            </StyledDropdownListItem>
         }
 
         {options.map((option) => (
-          <DropdownListItem
+          <StyledDropdownListItem
             key={option}
             className={selectedOption === option ? 'selected' : ''}
             onClick={() => onSelect(option)}
             title={option}
           >
             {option}
-          </DropdownListItem>
+          </StyledDropdownListItem>
         ))}
-      </DropdownList>
+      </StyledDropdownList>
 
-    </DropdownContainer>
+    </StyledDropdownContainer>
   );
 };

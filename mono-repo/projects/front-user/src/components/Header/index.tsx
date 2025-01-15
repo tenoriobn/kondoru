@@ -7,7 +7,6 @@ const StyledHeader = styled.header`
   background-image: url('/images/background-header.png');
   background-size: cover;
   background-position: center;
-  z-index: 99;
 `;
 
 const StyledContainerHeader = styled(Container)`
@@ -16,6 +15,7 @@ const StyledContainerHeader = styled(Container)`
   gap: 6.25rem;
   min-height: 100vh;
   padding-bottom: 6.25rem;
+  width: 100%;
 
   @media (min-width: 768px) {
     grid-template-rows: auto 1fr 248px;

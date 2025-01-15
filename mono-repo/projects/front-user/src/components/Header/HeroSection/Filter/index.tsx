@@ -2,6 +2,7 @@ import Button from 'src/components/Button';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
 import useDropdowns from 'src/hooks/Header/useDropDowns';
+import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledContainerFilter = styled.form`
   display: grid;
@@ -20,14 +21,18 @@ const StyledContainerFilter = styled.form`
   }
 `;
 
-const ButtonContainer = styled.div`
+const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
+  max-height: 48px;
+  height: 100%;
   
   @media (min-width: 768px) {
-    max-height: 56px;
-    height: 100%;
     grid-column: span 2;
+    
+    button {
+      max-width: 250px;
+    }
   }
 
   @media (min-width: 992px) {
@@ -40,37 +45,31 @@ const ButtonContainer = styled.div`
     padding: .5rem;
   }
 `;
-
-const dropdowns = [
-  {
-    id: 'contrato',
-    label: 'Contrato',
-    options: ['Venda', 'Aluguel', 'Temporada', 'Permuta'],
-  },
-  {
-    id: 'imovel',
-    label: 'Imóvel',
-    options: ['Apartamento', 'Casa', 'Terreno', 'Comercial', 'Galpão', 'Sítio', 'Chácara'],
-  },
-  {
-    id: 'preco',
-    label: 'Preço',
-    options: ['Até R$ 100.000', 'R$ 100.000 - R$ 300.000', 'R$ 300.000 - R$ 500.000', 'Acima de R$ 500.000'],
-  },
-  {
-    id: 'localidade',
-    label: 'Localidade',
-    options: ['Centro', 'Zona Sul', 'Zona Norte', 'Zona Leste', 'Zona Oeste', 'Região Metropolitana'],
-  },
-];
+//   {
+//     id: 'contrato',
+//     label: 'Contrato',
+//     options: ['Venda', 'Aluguel', 'Temporada', 'Permuta'],
+//   },
+//   {
+//     id: 'imovel',
+//     label: 'Imóvel',
+//     options: ['Apartamento', 'Casa', 'Terreno', 'Comercial', 'Galpão', 'Sítio', 'Chácara'],
+//   },
+//   {
+//     id: 'preco',
+//     label: 'Preço',
+//     options: ['Até R$ 100.000', 'R$ 100.000 - R$ 300.000', 'R$ 300.000 - R$ 500.000', 'Acima de R$ 500.000'],
+//   },
+//   {
+//     id: 'localidade',
+//     label: 'Localidade',
+//     options: ['Centro', 'Zona Sul', 'Zona Norte', 'Zona Leste', 'Zona Oeste', 'Região Metropolitana'],
+//   },
+// ];
 
 export default function Filter() {
-  const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } = useDropdowns({
-    contrato: '',
-    imovel: '',
-    preco: '',
-    localidade: '',
-  });
+  const { dropdowns } = useHomePageData();
+  const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } = useDropdowns();
 
   return (
     <StyledContainerFilter ref={dropdownRef}>
@@ -87,7 +86,7 @@ export default function Filter() {
         />
       ))}
 
-      <ButtonContainer>
+      <StyledButtonContainer>
         <Button
           $backgroundColor="dark-slate-800"
           $color="white"
@@ -100,7 +99,7 @@ export default function Filter() {
         >
           Filtrar
         </Button>
-      </ButtonContainer>
+      </StyledButtonContainer>
     </StyledContainerFilter>
   );
 }
