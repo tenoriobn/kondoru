@@ -4,4 +4,7 @@ import { IMenuLink } from './IMenu';
 export interface IHomePageData {
   menuLinks: IMenuLink[];
   dropdowns: IDropdownProps[];
+  heroSection: { 
+    titulo: string
+  }
 }

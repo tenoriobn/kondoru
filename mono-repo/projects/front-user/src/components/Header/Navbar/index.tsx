@@ -37,6 +37,7 @@ const MenuContainer = styled.div<IMenuMobile>`
   width: 100%;
   height: 100vh;
   overflow-y: auto;
+  z-index: 99;
 
   @media (min-width: 768px) {
     padding: 2rem 4rem;
