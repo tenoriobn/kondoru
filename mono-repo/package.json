@@ -15,7 +15,6 @@
   },
   "scripts": {
     "lint": "yarn workspaces run lint",
-
     "front-user": "yarn workspace @kondoru/front-user",
     "dev:user": "yarn front-user dev",
     "start:user": "yarn front-user start",
@@ -23,18 +22,17 @@
     "lint:user-fix": "yarn front-user lint --fix",
     "build:user": "yarn lint:user && rm -rf build && yarn front-user next build && cd projects/front-user && mv ./out ./build",
     "deploy:user": "yarn build:user && npx vercel ./projects/front-user/build --confirm --no-clipboard --token=$VERCEL_TOKEN --prod",
-
     "front-admin": "yarn workspace @kondoru/front-admin",
     "dev:admin": "yarn front-admin dev",
     "start:admin": "yarn front-admin start",
     "lint:admin": "yarn front-admin lint",
     "lint:admin-fix": "yarn front-admin lint --fix",
     "build:admin": "yarn lint:admin & yarn front-admin build & cd projects/front-admin & move ./out ./build",
-
     "design-system": "yarn workspace @kondoru/design-system",
     "lint:design-system": "yarn design-system lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/uuid": "^10.0.0",
     "jwt-decode": "^4.0.0",
     "next": "^15.1.3",
