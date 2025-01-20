@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
   html, body {
     font-size: 16px;
     font-family: ${({ theme }) => theme.font.mulish};
-    line-height: 1.5;
+    line-height: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

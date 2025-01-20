@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
 import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/IDropdown';
@@ -73,7 +72,7 @@ const StyledDropdown = styled.div<{ $isOpen: boolean, $selectedOption: string }>
   }
 `;
 
-const StyledArrowIcon = styled(Image)<IDropdownVisibility>`
+const StyledArrowIcon = styled(ArrowIcon)<IDropdownVisibility>`
   transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 `;
@@ -129,7 +128,7 @@ export default function Dropdown({
           {selectedOption || label}
         </label>
 
-        <StyledArrowIcon src={ArrowIcon} alt="Icone de expandir/ocultar dropdown" $isOpen={isOpen} />
+        <StyledArrowIcon $isOpen={isOpen} />
       </StyledDropdown>
 
       <StyledDropdownList $isOpen={isOpen}>

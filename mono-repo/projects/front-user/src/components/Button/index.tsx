@@ -3,6 +3,7 @@ import { transition } from 'src/styles/transitions';
 import styled from 'styled-components';
 
 const StyledButton = styled.button<IButtonProps>`
+  border: none;
   background-color: ${({ $backgroundColor, theme }) => 
     $backgroundColor ? theme.colors[$backgroundColor] : ''
 };
@@ -12,16 +13,20 @@ const StyledButton = styled.button<IButtonProps>`
   color: ${({ $color, theme }) => 
     $color ? theme.colors[$color] : ''
 };
-  border: none;
+  font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
+  line-height: ${({ $lineHeight }) => $lineHeight || '1.5rem'};
+  font-weight: ${({ $fontWeight }) => $fontWeight || ''};
+  text-decoration: ${({ $textDecoration }) => $textDecoration || '1.5rem'};
+
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+
   width: ${({ $width }) => $width || ''};
   max-width: ${({ $maxWidth }) => $maxWidth || ''};
+  height: ${({ $height }) => $height || ''};
   
   padding: ${({ $padding }) => $padding || ''};
-  height: ${({ $height }) => $height || ''};
   ${transition};
 
   &:hover {
@@ -29,7 +34,7 @@ const StyledButton = styled.button<IButtonProps>`
     $hoverColor ? theme.colors[$hoverColor] : ''
 };
 
-    background-color: ${({ $hoverBackgroundColor, theme }) => 
+      background-color: ${({ $hoverBackgroundColor, theme }) => 
     $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
 };
   }
@@ -58,6 +63,10 @@ export default function Button({
   $activeBackgroundColor,
   $width,
   $maxWidth,
+  $fontSize,
+  $fontWeight,
+  $lineHeight,
+  $textDecoration,
   onClick: onClick, 
 }: IButtonProps) {
   return (
@@ -73,6 +82,10 @@ export default function Button({
       $activeBackgroundColor={$activeBackgroundColor}
       $width={$width}
       $maxWidth={$maxWidth}
+      $fontSize={$fontSize}
+      $lineHeight={$lineHeight}
+      $fontWeight={$fontWeight}
+      $textDecoration={$textDecoration}
       onClick={onClick} 
     >
       {children}

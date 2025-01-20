@@ -1,6 +1,7 @@
 const Theme = {
   colors: {
     'black': 'rgb(0, 0, 0)',
+    'black-82': 'rgba(0, 0, 0, 0.82)', /* #000000d1 */
     'white': 'hsl(0, 0.00%, 100.00%)',
     'white-80': 'rgba(255, 255, 255, 0.8)', /* fff 80% */
     'slate-14': 'rgba(248, 248, 248, 0.14)', /* f8f8f8 14% */
@@ -11,7 +12,8 @@ const Theme = {
     'dark-slate-900': 'rgb(35, 50, 62)', /* 23323e */
     'dark-slate-58': 'rgba(36, 51, 63, 0.58)', /* 24333f 58% */
     'zinc-400': 'rgb(126, 126, 126)', /* 7E7E7E */
-    'zinc-950': 'rgb(24, 24, 23)' /* 181817 */
+    'zinc-950': 'rgb(24, 24, 23)', /* 181817 */
+    'gradient-dark-slate': 'linear-gradient(180deg, rgba(35, 50, 62, 1) 0%, rgba(45, 59, 70, 1) 100%)',
   },
   borderRadius: {
     'rounded-24': '1.5rem',

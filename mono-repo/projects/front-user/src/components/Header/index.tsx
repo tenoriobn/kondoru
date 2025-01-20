@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 import { Container } from 'src/styles/container';
+import RegistrationModal from './Modal/RegistrationModal';
 
 const StyledHeader = styled.header`
   background-image: url('/images/background-header.png');
@@ -34,6 +35,8 @@ export default function Header() {
       <StyledContainerHeader>
         <Navbar /> 
         <HeroSection />
+        {/* <LoginModal /> */}
+        <RegistrationModal />
       </StyledContainerHeader>
     </StyledHeader>
   );

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import CloseIcon from 'public/icons/close.svg';
 import MenuLink from './MenuLink';
@@ -55,13 +54,22 @@ const MenuContainer = styled.div<IMenuMobile>`
 `;
 
 const CloseButtonContainer = styled.div`
-    display: flex;
-    justify-content: end;
-    width: 100%;
+  display: flex;
+  justify-content: end;
+  width: 100%;
 
-    @media (min-width: 992px) {
-      display: none;
-    }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
+const StyledCloseIcon = styled(CloseIcon)` 
+  width: 24px;
+  height: 24px;
+
+  g {
+    stroke: ${({ theme }) => theme.colors['white']};
+  }
 `;
 
 const ButtonsAuthContainer = styled.div`
@@ -83,7 +91,7 @@ export default function Navbar() {
       {isMobile &&          
         <MobileMenuButtonContainer> 
           <Button onClick={() => setIsMenuActive(true)}>
-            <Image src={MenuIcon} alt="Menu button" width={30} height={24} />
+            <MenuIcon width={30} height={24} />
           </Button>
         </MobileMenuButtonContainer>
       }
@@ -92,7 +100,7 @@ export default function Navbar() {
         {isMobile &&     
           <CloseButtonContainer>
             <Button onClick={() => setIsMenuActive(false)}>
-              <Image src={CloseIcon} alt="Close Menu button" />
+              <StyledCloseIcon />
             </Button>
           </CloseButtonContainer>
         }

@@ -10,6 +10,10 @@ export interface IButtonProps {
   $width?: string;
   $maxWidth?: string,
   $activeBackgroundColor?: string;
+  $fontSize?: string;
+  $lineHeight?: string;
+  $fontWeight?: string;
+  $textDecoration?: string;
   onClick?: () => void;
   children: React.ReactNode;
 }
