@@ -6,13 +6,13 @@ const StyledButton = styled.button<IButtonProps>`
   border: none;
   background-color: ${({ $backgroundColor, theme }) => 
     $backgroundColor ? theme.colors[$backgroundColor] : ''
-  };
+};
   border-radius: ${({ $borderRadius, theme }) => 
     $borderRadius ? theme.borderRadius[$borderRadius] : ''
-  };
+};
   color: ${({ $color, theme }) => 
     $color ? theme.colors[$color] : ''
-  };
+};
   font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
   line-height: ${({ $lineHeight }) => $lineHeight || '1.5rem'};
   font-weight: ${({ $fontWeight }) => $fontWeight || ''};
@@ -31,22 +31,22 @@ const StyledButton = styled.button<IButtonProps>`
 
   &:hover {
     color: ${({ $hoverColor, theme}) => 
-      $hoverColor ? theme.colors[$hoverColor] : ''
-    };
+    $hoverColor ? theme.colors[$hoverColor] : ''
+};
 
       background-color: ${({ $hoverBackgroundColor, theme }) => 
-        $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
-    };
+    $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
+};
   }
 
   &:active {
     color: ${({ $activeColor, theme}) => 
-      $activeColor ? theme.colors[$activeColor] : ''
-    };
+    $activeColor ? theme.colors[$activeColor] : ''
+};
 
     background-color: ${({ $activeBackgroundColor, theme }) => 
-      $activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''
-    };
+    $activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''
+};
   }
 `;
 

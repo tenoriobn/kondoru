@@ -12,7 +12,8 @@ const Theme = {
     'dark-slate-900': 'rgb(35, 50, 62)', /* 23323e */
     'dark-slate-58': 'rgba(36, 51, 63, 0.58)', /* 24333f 58% */
     'zinc-400': 'rgb(126, 126, 126)', /* 7E7E7E */
-    'zinc-950': 'rgb(24, 24, 23)' /* 181817 */
+    'zinc-950': 'rgb(24, 24, 23)', /* 181817 */
+    'gradient-dark-slate': 'linear-gradient(180deg, rgba(35, 50, 62, 1) 0%, rgba(45, 59, 70, 1) 100%)',
   },
   borderRadius: {
     'rounded-24': '1.5rem',

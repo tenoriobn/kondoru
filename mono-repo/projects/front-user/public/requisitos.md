@@ -26,9 +26,9 @@ OK - Desenvolver a seção de chamada!!!
 
   * Desenvolver Modals (LOGIN/Registro);
    - Integrar Modal de LOGIN e registro
-      - ADICIONAR ICONE NOS INPUTS
-      - BACKGROUND DEVE TER GRADIENTE
-      - "Aplicar flex row no "ainda não tem cadastro e cadastre-se" para ficar na mesma linha.
+      OK - ADICIONAR ICONE NOS INPUTS ***
+      OK - "Aplicar flex row no "ainda não tem cadastro e cadastre-se" para ficar na mesma linha.***
+      OK - BACKGROUND DEVE TER GRADIENTE ***
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
       - Adicionar rolagem para quando Modal não caber na altura disponível da tela
       - Refatorar nomeclaturas do componente, bem como reutilização do input e etc.

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
 import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/IDropdown';
