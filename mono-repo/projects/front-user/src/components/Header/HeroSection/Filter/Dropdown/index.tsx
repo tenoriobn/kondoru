@@ -116,6 +116,7 @@ export default function Dropdown({
   onToggle,
   onSelect,
 }: IDropdownHandlers) {
+
   return (
     <StyledDropdownContainer>
       <StyledDropdown 
@@ -155,4 +156,5 @@ export default function Dropdown({
 
     </StyledDropdownContainer>
   );
+  
 };

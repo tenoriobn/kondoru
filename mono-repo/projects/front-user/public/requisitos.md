@@ -29,10 +29,11 @@ OK - Desenvolver a seção de chamada!!!
       OK - ADICIONAR ICONE NOS INPUTS ***
       OK - "Aplicar flex row no "ainda não tem cadastro e cadastre-se" para ficar na mesma linha.***
       OK - BACKGROUND DEVE TER GRADIENTE ***
-      - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
-      - Adicionar rolagem para quando Modal não caber na altura disponível da tela
-      - Refatorar nomeclaturas do componente, bem como reutilização do input e etc.
+      OK - Adicionar rolagem para quando Modal não caber na altura disponível da tela
+      OK - Refatorar nomeclaturas do componente, bem como reutilização do input e etc.
       - Lógica de abrir e fechar modal
+      - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
+      - Passar conteúdo do formulário por SSG
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes

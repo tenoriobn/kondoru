@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Container } from 'src/styles/container';
+import { StyledContainer } from 'src/styles/container';
 import styled from 'styled-components';
 
 const StyledModalOverlay = styled.section`
@@ -11,14 +11,21 @@ const StyledModalOverlay = styled.section`
   width: 100%;
   height: 100%;
   z-index: 999;
+
+  display: inherit;
+  padding: 5rem 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
-const StyledModalContainer = styled(Container)`
+const StyledModalContainer = styled(StyledContainer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0;
 `;
 
 export default function Modal({ children }: { children: ReactNode }) {

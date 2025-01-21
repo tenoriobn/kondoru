@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { transition } from 'src/styles/transitions';
+import { Styledtransition } from 'src/styles/transitions';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -12,7 +12,7 @@ const Label = styled.label`
   width: 100%;
   height: 64px;
   padding: 0.5rem 2rem;
-  ${transition}
+  ${Styledtransition}
 
   &:has(input:focus), &:has(input:not(:placeholder-shown)) {
     border-color: ${({ theme }) => theme.colors['white']};
@@ -26,7 +26,7 @@ const Label = styled.label`
   }
 `;
 
-export default function InputModal({ icon, children }: {icon: ReactNode, children: ReactNode}) {
+export default function InputBox({ icon, children }: {icon: ReactNode, children: ReactNode}) {
   return (
     <Label>
       {icon}
