@@ -6,5 +6,6 @@ export interface IHomePageData {
   dropdowns: IDropdownProps[];
   heroSection: { 
     titulo: string
+    slogan: string
   }
 }

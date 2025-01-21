@@ -35,7 +35,7 @@ export default function Header() {
       <StyledContainerHeader>
         <Navbar /> 
         <HeroSection />
-
+        
         <AuthForm />
       </StyledContainerHeader>
     </StyledHeader>

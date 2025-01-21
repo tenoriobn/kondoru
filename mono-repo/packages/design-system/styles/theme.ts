@@ -14,6 +14,7 @@ const Theme = {
     'zinc-400': 'rgb(126, 126, 126)', /* 7E7E7E */
     'zinc-950': 'rgb(24, 24, 23)', /* 181817 */
     'gradient-dark-slate': 'linear-gradient(180deg, rgba(35, 50, 62, 1) 0%, rgba(45, 59, 70, 1) 100%)',
+    'gradient-dark-slate-80': 'linear-gradient(rgb(35, 50, 62, .8), rgb(35, 50, 62, .8))',
   },
   borderRadius: {
     'rounded-24': '1.5rem',

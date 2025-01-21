@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export interface IMenuMobile {
   $isMenuActive?: boolean;
-  $setIsMenuActive?: React.Dispatch<React.SetStateAction<boolean>>;
+  $setIsMenuActive?: Dispatch<SetStateAction<boolean>>;
+  $isMobile?: boolean;
 }
 
 export interface IMenuLink {

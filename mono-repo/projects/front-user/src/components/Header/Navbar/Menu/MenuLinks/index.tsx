@@ -34,8 +34,9 @@ const StyledMenuLinks = styled(Link)`
     }
 `;
 
-export default function MenuLink({ $setIsMenuActive }: IMenuMobile) {
+export default function MenuLinks({ $setIsMenuActive }: IMenuMobile) {
   const { menuLinks } = useHomePageData();
+  
   const pathname = usePathname();
 
   return (

@@ -1,57 +1,23 @@
-import { useState } from 'react';
-import EmailIcon from 'public/icons/email.svg';
-import SecurityIcon from 'public/icons/security.svg';
-import ViewIcon from 'public/icons/view.svg';
+import { useSetRecoilState } from 'recoil';
+import { stateActiveAuthForm } from 'src/store/atom';
+import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/StyledAuthFormLayout';
+import FormHeader from '../FormHeader';
 import Button from 'src/components/Button';
-import InputBox from 'src/components/InputBox';
-import { StyledParagraph, StyledSubtitle, StyledTitle } from 'src/styles/commonStyles';
-import { 
-  StyledCloseIcon, StyledInput, 
-  StyledFormBody, StyledFormFooter, 
-  StyledForm, StyledFormHeader, 
-} from '../StyledAuthFormLayout';
+import { StyledParagraph } from 'src/styles/commonStyles';
+import LoginInputs from './LoginInputs';
 
 export default function LoginForm() {
-  const [auth, setAuth] = useState({ email: '', password: ''});
+  const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
 
   return (
     <StyledForm>
-      <StyledFormHeader>
-        <StyledCloseIcon />
-
-        <div>
-          <StyledTitle>KondoRu</StyledTitle>
-          <StyledSubtitle>Olá! Acesse sua conta.</StyledSubtitle>
-        </div>
-      </StyledFormHeader>
+      <FormHeader 
+        title='KondoRu'
+        subtitle='Olá! Acesse sua conta.'
+      />
 
       <StyledFormBody>
-        <InputBox icon={<EmailIcon />}>
-          <StyledInput
-            type="email"
-            name="email"
-            id="email"
-            placeholder="E-mail"
-            minLength={6}
-            maxLength={260}
-            value={auth.email}
-            onChange={(e) => setAuth({...auth, email: e.target.value})}
-          />
-        </InputBox>
-
-        <InputBox icon={<SecurityIcon />}>
-          <StyledInput
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Senha"
-            minLength={8}
-            maxLength={260}
-            value={auth.password}
-            onChange={(e) => setAuth({...auth, password: e.target.value})}
-          />
-          <ViewIcon />
-        </InputBox>
+        <LoginInputs />
 
         <Button
           $fontSize="1.25rem"
@@ -78,11 +44,13 @@ export default function LoginForm() {
 
         <div>
           <StyledParagraph>Ainda não tem conta?</StyledParagraph>
+          
           <Button
             $fontSize="1.25rem"
             $textDecoration="underline"
             $color="gray-400"
             $hoverColor="white"
+            onClick={() => setActiveAuthForm('register')}
           >
             Cadastre-se
           </Button>
