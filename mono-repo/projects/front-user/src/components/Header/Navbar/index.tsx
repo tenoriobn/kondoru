@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import Button from 'components/Button';
-import useResponsiveMenu from 'src/hooks/Header/useResponsiveMenu';
+import useResponsiveMenu from 'src/hooks/header/useResponsiveMenu';
 import Menu from './Menu';
 
 const MobileMenuButtonContainer = styled.div`
@@ -14,7 +14,7 @@ const MobileMenuButtonContainer = styled.div`
 `;
 
 export default function Navbar() {
-  const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu(992);
+  const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu();
 
   return (
     <nav>

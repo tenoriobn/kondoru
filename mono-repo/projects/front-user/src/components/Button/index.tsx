@@ -1,4 +1,4 @@
-import { IButtonProps } from 'src/interfaces/IButton';
+import { IButtonProps } from 'src/interfaces/common/IButton';
 import { Styledtransition } from 'src/styles/transitions';
 import styled from 'styled-components';
 

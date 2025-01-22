@@ -24,7 +24,7 @@ const StyledModalContainer = styled(StyledContainer)`
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding-top: 0px;
+  padding-top: 0;
   padding-bottom: 0;
 `;
 

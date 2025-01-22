@@ -4,7 +4,7 @@ import Button from 'src/components/Button';
 import MenuLinks from './MenuLinks';
 import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
-import { IMenuMobile } from 'src/interfaces/IMenu';
+import { IMenuMobile } from 'src/interfaces/header/IMenu';
 
 const MenuContainer = styled.div<IMenuMobile>`
   background-image: ${({theme}) => theme.colors['gradient-dark-slate-80']}, 

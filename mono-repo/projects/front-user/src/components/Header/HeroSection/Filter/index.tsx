@@ -1,7 +1,7 @@
 import Button from 'src/components/Button';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
-import useDropdowns from 'src/hooks/Header/useDropDowns';
+import useDropdowns from 'src/hooks/header/useDropDowns';
 import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledContainerFilter = styled.form`

@@ -1,7 +1,7 @@
 import { IDropdownProps } from './IDropdown';
 import { IMenuLink } from './IMenu';
 
-export interface IHomePageData {
+export interface IHomePageStaticData {
   menuLinks: IMenuLink[];
   dropdowns: IDropdownProps[];
   heroSection: { 

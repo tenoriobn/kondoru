@@ -5,12 +5,18 @@ import FormHeader from '../FormHeader';
 import Button from 'src/components/Button';
 import { StyledParagraph } from 'src/styles/commonStyles';
 import LoginInputs from './LoginInputs';
+import { useClickOutside } from 'src/hooks/utils/useClickOutside';
+import { useRef } from 'react';
 
 export default function LoginForm() {
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
+  const formRef = useRef<HTMLFormElement>(null);
+  useClickOutside(formRef, () => setActiveAuthForm(''));
 
   return (
-    <StyledForm>
+    <StyledForm 
+      ref={formRef}
+    >
       <FormHeader 
         title='KondoRu'
         subtitle='Olá! Acesse sua conta.'

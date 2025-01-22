@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { Styledtransition } from 'src/styles/transitions';
 import { useHomePageData } from 'src/contexts/HomePageContext';
-import { IMenuMobile } from 'src/interfaces/IMenu';
+import { IMenuMobile } from 'src/interfaces/header/IMenu';
 
 const StyledMenuLinkContainer = styled.ul`
   display: flex;

@@ -1,4 +1,4 @@
-export interface IFormHeader {
+export interface IFormHeaderProps {
   title: string;
   subtitle: string;
 }

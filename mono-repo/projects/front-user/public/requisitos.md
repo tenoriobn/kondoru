@@ -33,7 +33,8 @@ OK - Desenvolver a seção de chamada!!!
       OK - Refatorar nomeclaturas do componente, bem como reutilização do input e etc.
       OK - Lógica de abrir e fechar modal
       OK - Inputs devem ser obrigatórios
-      - Passar conteúdo do formulário por SSG
+      OK - Passar conteúdo do formulário por SSG ***
+      OK - Fechar modal ao clicar fora dele ***
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
