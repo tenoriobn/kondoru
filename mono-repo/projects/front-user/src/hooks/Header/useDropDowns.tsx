@@ -13,7 +13,15 @@ import { useClickOutside } from '../utils/useClickOutside';
 
 function useDropdowns() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>({});
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>(
+    {
+      contrato: '',
+      imovel: '',
+      preco: '',
+      localidade: '',
+    },
+  );
+
   const dropdownRef = useRef<HTMLFormElement | null>(null);
 
   const handleToggleDropdown = (id: string) => setOpenDropdown(prev => (prev === id ? null : id));
