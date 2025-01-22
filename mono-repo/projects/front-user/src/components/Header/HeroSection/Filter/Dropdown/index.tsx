@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
-import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/IDropdown';
+import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/header/IDropdown';
 
 const StyledDropdownContainer = styled.div`
   position: relative;
@@ -116,6 +116,7 @@ export default function Dropdown({
   onToggle,
   onSelect,
 }: IDropdownHandlers) {
+
   return (
     <StyledDropdownContainer>
       <StyledDropdown 
@@ -155,4 +156,5 @@ export default function Dropdown({
 
     </StyledDropdownContainer>
   );
+  
 };

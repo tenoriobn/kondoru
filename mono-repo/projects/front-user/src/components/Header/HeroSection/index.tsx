@@ -24,6 +24,7 @@ const StyledSlogan = styled.h2`
   font-weight: 400;
   line-height: clamp(.5rem, 6.4vw, 2rem);
   text-align: center;
+  white-space: pre-line;
 `;
 
 export default function HeroSection() {
@@ -33,7 +34,7 @@ export default function HeroSection() {
     <>
       <StyledHeroContent>
         <StyledTitle rel="preload">{heroSection.titulo}</StyledTitle>
-        <StyledSlogan>Viva o melhor da vida<br /> no lugar certo</StyledSlogan>
+        <StyledSlogan>{heroSection.slogan}</StyledSlogan>
       </StyledHeroContent>
       
       <Filter />

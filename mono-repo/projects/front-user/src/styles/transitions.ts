@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
 
-export const transition = css`
+export const Styledtransition = css`
   transition: all 0.3s ease-in-out;
 `;

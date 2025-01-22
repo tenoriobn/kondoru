@@ -1,11 +1,11 @@
 // context/HomePageContext.tsx
 import React, { createContext, useContext } from 'react';
-import { IHomePageData } from 'src/interfaces/IHomePageData';
+import { IHomePageStaticData } from 'src/interfaces/header/IHomePageStaticData';
 
-const HomePageContext = createContext<IHomePageData | undefined>(undefined);
+const HomePageContext = createContext<IHomePageStaticData | undefined>(undefined);
 
 export const HomePageProvider: React.FC<{ 
-  homeData: IHomePageData; 
+  homeData: IHomePageStaticData; 
   children: React.ReactNode;
 }> = ({ homeData, children }) => {
   return (
@@ -15,7 +15,7 @@ export const HomePageProvider: React.FC<{
   );
 };
 
-export const useHomePageData = (): IHomePageData => {
+export const useHomePageData = (): IHomePageStaticData => {
   const context = useContext(HomePageContext);
 
   if (!context) {

@@ -1,5 +1,5 @@
-import { IButtonProps } from 'src/interfaces/IButton';
-import { transition } from 'src/styles/transitions';
+import { IButtonProps } from 'src/interfaces/common/IButton';
+import { Styledtransition } from 'src/styles/transitions';
 import styled from 'styled-components';
 
 const StyledButton = styled.button<IButtonProps>`
@@ -27,7 +27,7 @@ const StyledButton = styled.button<IButtonProps>`
   height: ${({ $height }) => $height || ''};
   
   padding: ${({ $padding }) => $padding || ''};
-  ${transition};
+  ${Styledtransition};
 
   &:hover {
     color: ${({ $hoverColor, theme}) => 

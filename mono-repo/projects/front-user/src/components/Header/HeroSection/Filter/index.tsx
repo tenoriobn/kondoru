@@ -1,8 +1,8 @@
 import Button from 'src/components/Button';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
-import useDropdowns from 'src/hooks/Header/useDropDowns';
 import { useHomePageData } from 'src/contexts/HomePageContext';
+import useDropdowns from 'src/hooks/useDropDowns';
 
 const StyledContainerFilter = styled.form`
   display: grid;
@@ -45,31 +45,12 @@ const StyledButtonContainer = styled.div`
     padding: .5rem;
   }
 `;
-//   {
-//     id: 'contrato',
-//     label: 'Contrato',
-//     options: ['Venda', 'Aluguel', 'Temporada', 'Permuta'],
-//   },
-//   {
-//     id: 'imovel',
-//     label: 'Imóvel',
-//     options: ['Apartamento', 'Casa', 'Terreno', 'Comercial', 'Galpão', 'Sítio', 'Chácara'],
-//   },
-//   {
-//     id: 'preco',
-//     label: 'Preço',
-//     options: ['Até R$ 100.000', 'R$ 100.000 - R$ 300.000', 'R$ 300.000 - R$ 500.000', 'Acima de R$ 500.000'],
-//   },
-//   {
-//     id: 'localidade',
-//     label: 'Localidade',
-//     options: ['Centro', 'Zona Sul', 'Zona Norte', 'Zona Leste', 'Zona Oeste', 'Região Metropolitana'],
-//   },
-// ];
 
 export default function Filter() {
   const { dropdowns } = useHomePageData();
-  const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } = useDropdowns();
+  const { 
+    openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef, 
+  } = useDropdowns();
 
   return (
     <StyledContainerFilter ref={dropdownRef}>

@@ -1,13 +1,12 @@
-
 import Header from 'src/components/Header';
-import links from 'src/data/links.json';
-import dropdowns from 'src/data/dropdowns.json';
-import heroSection from 'src/data/heroSection.json';
-import { IHomePageData } from 'src/interfaces/IHomePageData';
+import links from 'src/data/homePage/header/links.json';
+import dropdowns from 'src/data/homePage/header/dropdowns.json';
+import heroSection from 'src/data/homePage/header/heroSection.json';
+import { IHomePageStaticData } from 'src/interfaces/header/IHomePageStaticData';
 import { HomePageProvider } from 'src/contexts/HomePageContext';
 
 export async function getStaticProps() {
-  const homeData: IHomePageData = {
+  const homeData: IHomePageStaticData = {
     menuLinks: links,
     dropdowns: dropdowns,
     heroSection: heroSection,
@@ -18,7 +17,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function HomePage({ homeData }: { homeData: IHomePageData }) {
+export default function HomePage({ homeData }: { homeData: IHomePageStaticData }) {
   return (
     <HomePageProvider homeData={homeData}>
       <Header />

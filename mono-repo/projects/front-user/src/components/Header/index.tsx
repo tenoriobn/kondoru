@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
-import { Container } from 'src/styles/container';
-import RegistrationModal from './Modal/RegistrationModal';
+import { StyledContainer } from 'src/styles/container';
+import AuthForm from './AuthForm';
 
 const StyledHeader = styled.header`
   background-image: url('/images/background-header.png');
@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
   background-position: center;
 `;
 
-const StyledContainerHeader = styled(Container)`
+const StyledContainerHeader = styled(StyledContainer)`
   display: grid;
   grid-template-rows: auto 1fr 344px;
   gap: 6.25rem;
@@ -35,8 +35,8 @@ export default function Header() {
       <StyledContainerHeader>
         <Navbar /> 
         <HeroSection />
-        {/* <LoginModal /> */}
-        <RegistrationModal />
+        
+        <AuthForm />
       </StyledContainerHeader>
     </StyledHeader>
   );
