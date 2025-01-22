@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useClickOutside } from '../utils/useClickOutside';
+import { useClickOutside } from './utils/useClickOutside';
 
 /**
  * Hook customizado para executar algumas funcionalidades relacionados ao DropDowns
@@ -13,14 +13,7 @@ import { useClickOutside } from '../utils/useClickOutside';
 
 function useDropdowns() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>(
-    {
-      contrato: '',
-      imovel: '',
-      preco: '',
-      localidade: '',
-    },
-  );
+  const [selectedOptions, setSelectedOptions] = useState<{ [key: string]: string }>({});
 
   const dropdownRef = useRef<HTMLFormElement | null>(null);
 

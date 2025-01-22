@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
-import useWindowSize from '../utils/useWindowSize';
+import useWindowSize from './utils/useWindowSize';
 
 /**
  * Hook customizado para gerenciar o comportamento responsivo do menu.
