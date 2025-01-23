@@ -11,14 +11,14 @@ export const StyledTitle = styled.h2`
 
 export const StyledSubtitle = styled.h3`
   font-size: 1.5rem;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
   font-weight: 500;
   text-align: center;
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
 
 export const StyledParagraph = styled.p`
-  font-size: 20px;
+  font-size: 1.25rem;
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
 

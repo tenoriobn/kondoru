@@ -23,9 +23,7 @@ OK - Desenvolver a seção de chamada!!!
   * Corrigir fundo do Header e fundo do Menu Mobile
 
 
-
   * Desenvolver Modals (LOGIN/Registro);
-   - Integrar Modal de LOGIN e registro
       OK - ADICIONAR ICONE NOS INPUTS ***
       OK - "Aplicar flex row no "ainda não tem cadastro e cadastre-se" para ficar na mesma linha.***
       OK - BACKGROUND DEVE TER GRADIENTE ***
@@ -35,7 +33,40 @@ OK - Desenvolver a seção de chamada!!!
       OK - Inputs devem ser obrigatórios
       OK - Fechar modal ao clicar fora dele ***
       OK - Passar conteúdo do formulário por SSG ***
+      - Integrar Modal de LOGIN e registro com API
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
+
+
+
+
+
+
+
+
+
+
+      - Refatorar componente `FeaturedProperties`
+        OK - Corrigir line-height dos textos, pois está cortando
+        OK - Corrigir versão mobile para que card seja responsivo ocupando toda a tela até `425px`
+        OK - Título e subtitulo deve adicionar `...` caso seja maior que o card `(Atualmente só o titulo tem)`
+        OK - Criar SSG com informações do card, como imagem, titulo e texto.
+        OK - Criar componente para o Card e aplicar o map dentro deles com os dados do SSG
+        OK - Utilizar estrutura html semântica no Card
+        OK - Corrigir piscada da imagem estourada ao recarregar a página
+        OK - Refatorar e reutilizar estilizações em comum
+
+        - AO CLICAR NO CARD, ELE LEVARA PARA UMA PÁGINA DE ACORDO COM O SLUG DO CARD GERANDO AS INFOS 
+        DO ANUNCIO EM DESTAQUE (FAZER FUTURAMENTE)
+        
+
+
+
+
+
+
+
+
+
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
