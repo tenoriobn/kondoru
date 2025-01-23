@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useClickOutside } from './utils/useClickOutside';
+import { useClickOutside } from '../utils/useClickOutside';
 
 /**
  * Hook customizado para executar algumas funcionalidades relacionados ao DropDowns

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import Button from 'components/Button';
-import useResponsiveMenu from 'src/hooks/useResponsiveMenu';
+import useResponsiveMenu from 'src/hooks/useHeader/useResponsiveMenu';
 import Menu from './Menu';
 
 const MobileMenuButtonContainer = styled.div`

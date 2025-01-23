@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors['zinc-950']};
     background-color: ${({ theme }) => theme.colors.white};
     letter-spacing: -.8px;
 
