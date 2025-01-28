@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyledContainer } from 'src/styles/container';
+import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
 import styled from 'styled-components';
 
 const StyledModalOverlay = styled.section`
@@ -18,7 +18,7 @@ const StyledModalOverlay = styled.section`
   overflow-x: hidden;
 `;
 
-const StyledModalContainer = styled(StyledContainer)`
+const StyledModalContainer = styled(StyledLayoutWrapper)`
   display: flex;
   flex-direction: column;
   justify-content: center;

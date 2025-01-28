@@ -21,27 +21,3 @@ export const StyledParagraph = styled.p`
   font-size: 1.25rem;
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
-
-export const StyledCheckbox = styled.input`
-  &[type="checkbox"] {
-    appearance: none;
-    background-color: transparent;
-    position: relative;
-    border: .125rem solid ${({ theme }) => theme.colors['gray-400']};
-    border-radius: .5rem;
-    cursor: pointer;
-
-    width: 32px;
-    height: 32px;
-
-    &:checked::after {
-      content: "✔";
-      position: absolute;
-      color: ${({ theme }) => theme.colors['gray-400']};
-      font-size: 1.5rem;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-`;

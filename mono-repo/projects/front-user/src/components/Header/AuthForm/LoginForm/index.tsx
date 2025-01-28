@@ -1,12 +1,12 @@
 import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
-import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/StyledAuthFormLayout';
+import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/styledComponents/StyledForm';
 import FormHeader from '../FormHeader';
 import Button from 'src/components/Button';
-import { StyledParagraph } from 'src/styles/commonStyles';
 import LoginInputs from './LoginInputs';
 import { useClickOutside } from 'src/hooks/utils/useClickOutside';
 import { useRef } from 'react';
+import { StyledParagraph } from 'src/styles/styledComponents/StyledText';
 
 export default function LoginForm() {
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);

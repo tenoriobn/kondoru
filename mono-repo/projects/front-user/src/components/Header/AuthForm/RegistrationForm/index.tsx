@@ -3,7 +3,7 @@ import FormHeader from '../FormHeader';
 import RegistrationInputs from './RegistrationInputs';
 import RegistrationTerm from './RegistrationTerm';
 import Button from 'src/components/Button';
-import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/StyledAuthFormLayout';
+import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/styledComponents/StyledForm';
 import { stateActiveAuthForm } from 'src/store/atom';
 import { useRef } from 'react';
 import { useClickOutside } from 'src/hooks/utils/useClickOutside';

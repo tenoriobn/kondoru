@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
-import { Styledtransition } from 'src/styles/transitions';
 import { useHomePageData } from 'src/contexts/HomePageContext';
 import { IMenuMobile } from 'src/interfaces/header/IMenu';
 
@@ -19,7 +18,7 @@ const StyledMenuLinkContainer = styled.ul`
 const StyledMenuLinks = styled(Link)`
     color: ${({theme}) => theme.colors['gray-400']};
     font-size: 1.5rem;
-    ${Styledtransition};
+    transition: ${({ theme }) => theme.transitions.smoothTransition};
 
     &.active {
       color: ${({theme}) => theme.colors.white}!important;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Styledtransition } from 'src/styles/transitions';
 import CloseIcon from 'public/icons/close.svg';
+import horizontalPadding from '../mixins/horizontalPadding';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -12,11 +12,8 @@ export const StyledForm = styled.form`
   width: 100%;
   background: ${({ theme }) => theme.colors['gradient-dark-slate']};
   border-radius: 1.5rem;
-  padding: 2rem 1.5rem;
-
-  @media (min-width: 768px) {
-    padding: 2rem 4rem;
-  }
+  padding: 2rem 0;
+  ${horizontalPadding}
 `;
 
 export const StyledFormHeader = styled.div`
@@ -62,7 +59,7 @@ export const StyledCloseIcon = styled(CloseIcon)`
   
   g {
     stroke: ${({ theme }) => theme.colors['gray-400']};
-    ${Styledtransition}
+    transition: ${({ theme }) => theme.transitions.smoothTransition};
   }
 
   &:hover {
@@ -83,5 +80,29 @@ export const StyledInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors['gray-400']};
+  }
+`;
+
+export const StyledCheckbox = styled.input`
+  &[type="checkbox"] {
+    appearance: none;
+    background-color: transparent;
+    position: relative;
+    border: .125rem solid ${({ theme }) => theme.colors['gray-400']};
+    border-radius: .5rem;
+    cursor: pointer;
+
+    width: 32px;
+    height: 32px;
+
+    &:checked::after {
+      content: "✔";
+      position: absolute;
+      color: ${({ theme }) => theme.colors['gray-400']};
+      font-size: 1.5rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 `;

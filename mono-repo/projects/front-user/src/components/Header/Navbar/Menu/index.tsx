@@ -5,6 +5,7 @@ import MenuLinks from './MenuLinks';
 import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
 import { IMenuMobile } from 'src/interfaces/header/IMenu';
+import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 
 const MenuContainer = styled.div<IMenuMobile>`
   background-image: ${({theme}) => theme.colors['gradient-dark-slate-80']}, 
@@ -22,16 +23,14 @@ const MenuContainer = styled.div<IMenuMobile>`
   position: fixed;
   left: ${({ $isMenuActive: isActive }) => (isActive ? '0' : '-100%')};
   top: 0;
-  transition: left .3s ease-in-out;
-  padding: 2rem 1.5rem;
+  transition: ${({ theme }) => theme.transitions.smoothTransition};
   width: 100%;
   height: 100vh;
   overflow-y: auto;
   z-index: 99;
 
-  @media (min-width: 768px) {
-    padding: 2rem 4rem;
-  }
+  padding: 2rem 0;
+  ${horizontalPadding}
 
   @media (min-width: 992px) {
     background: none;
@@ -40,6 +39,7 @@ const MenuContainer = styled.div<IMenuMobile>`
     flex-direction: row;
     left: 0%;
     padding: 0;
+    width: 100%;
     height: 100%;
   }
 `;
