@@ -1,4 +1,5 @@
-import { StyledCheckbox, StyledParagraph } from 'src/styles/commonStyles';
+import { StyledCheckbox } from 'src/styles/styledComponents/StyledForm';
+import { StyledParagraph } from 'src/styles/styledComponents/StyledText';
 import styled from 'styled-components';
 
 const StyledTermContainer = styled.div`

@@ -59,8 +59,14 @@ OK - Desenvolver a seção de chamada!!!
         DO ANUNCIO EM DESTAQUE (FAZER FUTURAMENTE)
         
 
-
-
+      * Refatorar StyledContainer
+        OK - Ele deve ser desestruturado em vez de ser feito `styled(StyledContainer)`
+        OK - Deve ter outra nomeclatura como `StyledGlobalContainer` ou algo do tipo
+        OK - Os paddings gerais de bordas devem ser desestruturados para simplificar
+        
+      * Criar seção `ElegantEstates`
+        - Criar Player com Lib e adicionar vídeo em /public/video
+        - Criar conteúdo textual
 
 
 

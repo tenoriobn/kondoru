@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
-import { StyledContainer } from 'src/styles/container';
+import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
 import AuthForm from './AuthForm';
 
 const StyledHeader = styled.header`
@@ -10,11 +10,12 @@ const StyledHeader = styled.header`
   background-position: center;
 `;
 
-const StyledContainerHeader = styled(StyledContainer)`
+const StyledContainerHeader = styled(StyledLayoutWrapper)`
   display: grid;
   grid-template-rows: auto 1fr 344px;
   gap: 6.25rem;
   min-height: 100vh;
+  padding-top: 2rem;
   padding-bottom: 6.25rem;
   width: 100%;
 

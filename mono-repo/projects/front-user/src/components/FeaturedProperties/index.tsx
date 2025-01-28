@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledContainer } from 'src/styles/container';
+import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -33,7 +33,7 @@ export default function FeaturedProperties() {
   const { properties } = useHomePageData();
 
   return (
-    <StyledContainer>
+    <StyledLayoutWrapper>
       <StyledSwiper 
         slidesPerView={1}
         spaceBetween={32}
@@ -51,6 +51,6 @@ export default function FeaturedProperties() {
           </SwiperSlide>
         ))}
       </StyledSwiper>
-    </StyledContainer>
+    </StyledLayoutWrapper>
   );
 }

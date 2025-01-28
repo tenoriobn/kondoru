@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Styledtransition } from 'src/styles/transitions';
 import styled from 'styled-components';
 
 const Label = styled.label`
@@ -12,17 +11,22 @@ const Label = styled.label`
   width: 100%;
   height: 64px;
   padding: 0.5rem 2rem;
-  ${Styledtransition}
-
-  &:has(input:focus), &:has(input:not(:placeholder-shown)) {
-    border-color: ${({ theme }) => theme.colors['white']};
-    svg path {
-      stroke: ${({ theme }) => theme.colors['white']};
-    }
-  }
+  transition: ${({ theme }) => theme.transitions.smoothTransition};
 
   svg {
     flex-shrink: 0;
+
+    path {
+      transition: ${({ theme }) => theme.transitions.smoothTransition};
+    }
+  }
+
+  &:has(input:focus), &:has(input:not(:placeholder-shown)) {
+    border-color: ${({ theme }) => theme.colors['white']};
+
+    svg path {
+      stroke: ${({ theme }) => theme.colors['white']};
+    }
   }
 `;
 
