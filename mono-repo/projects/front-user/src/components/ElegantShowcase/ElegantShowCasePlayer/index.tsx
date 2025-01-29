@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledImage = styled.img`
   border-radius: 1.5rem;
@@ -11,5 +11,5 @@ export default function ElegantShowCasePlayer() {
     <>
       <StyledImage src="/images/video-player.png" alt="Imagem temporária ilustrando player" />
     </>
-  )
+  );
 }
