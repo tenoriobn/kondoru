@@ -2,7 +2,7 @@ import { StyledCloseIcon, StyledFormHeader } from 'src/styles/styledComponents/S
 import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
 import { IFormHeaderProps } from 'src/interfaces/header/IAuthForm';
-import { StyledSubtitle, StyledTitle } from 'src/styles/styledComponents/StyledText';
+import { StyledHeading, StyledSubtitle } from 'src/styles/styledComponents/StyledText';
 
 export default function FormHeader({ title, subtitle }: IFormHeaderProps) {
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
@@ -14,8 +14,8 @@ export default function FormHeader({ title, subtitle }: IFormHeaderProps) {
       />
 
       <div>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledSubtitle>{subtitle}</StyledSubtitle>
+        <StyledSubtitle>{title}</StyledSubtitle>
+        <StyledHeading>{subtitle}</StyledHeading>
       </div>
     </StyledFormHeader>
   );

@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     color: ${({ theme }) => theme.colors['zinc-950']};
     background-color: ${({ theme }) => theme.colors.white};
-    letter-spacing: -.8px;
+    letter-spacing: -1.25px;
 
     ::-webkit-scrollbar {
       width: 10px;

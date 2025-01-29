@@ -63,17 +63,21 @@ OK - Desenvolver a seção de chamada!!!
         OK - Ele deve ser desestruturado em vez de ser feito `styled(StyledContainer)`
         OK - Deve ter outra nomeclatura como `StyledGlobalContainer` ou algo do tipo
         OK - Os paddings gerais de bordas devem ser desestruturados para simplificar
+
+
+
         
-      * Criar seção `ElegantEstates`
-        - Criar Player com Lib e adicionar vídeo em /public/video
-        - Criar conteúdo textual
+      * Criar seção `ElegantShowcase`
+        OK - Criar conteúdo textual e adicionar estilização
+        - Criar player e adicionar video que está em /public/video
+        - Implementar SSG
 
 
 
 
 
 
-
+  * Adicionar verificação de identação e etc...
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
   * Acompanhar Performance e realizar correções necessárias
