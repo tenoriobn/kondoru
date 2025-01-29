@@ -1,5 +1,5 @@
 {
-  "extends": "@kondoru/tsconfig-commons/tsconfig.json",
+  "extends": "@kondoru/tsconfig-commons/tsconfig.base.json",
   "include": [
     "next-env.d.ts",
     "**/*.ts",

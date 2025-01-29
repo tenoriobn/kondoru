@@ -1,5 +1,5 @@
 {
-  "name": "mono-repo",
+  "name": "mono-repo-kondoru",
   "version": "1.0.0",
   "keywords": [],
   "author": "",
@@ -49,8 +49,5 @@
   },
   "resoluções": {
     "styled-components": "^5"
-  },
-  "files": [
-    "tsconfig.base.json"
-  ]
+  }
 }

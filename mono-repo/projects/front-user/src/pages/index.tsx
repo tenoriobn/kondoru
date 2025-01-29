@@ -6,6 +6,18 @@ import properties from 'src/data/homePage/featuredProperties/properties.json';
 import { IHomePageStaticData } from 'src/interfaces/header/IHomePageStaticData';
 import { HomePageProvider } from 'src/contexts/HomePageContext';
 import FeaturedProperties from 'src/components/FeaturedProperties';
+import styled from 'styled-components';
+import ElegantShowcase from 'src/components/ElegantShowcase';
+
+const MainContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 6.25rem;
+
+  @media (min-width: 768px) {
+    gap: 8rem;
+  }
+`;
 
 export async function getStaticProps() {
   const homeData: IHomePageStaticData = {
@@ -24,7 +36,11 @@ export default function HomePage({ homeData }: { homeData: IHomePageStaticData }
   return (
     <HomePageProvider homeData={homeData}>
       <Header />
-      <FeaturedProperties />
+
+      <MainContainer>
+        <FeaturedProperties />
+        <ElegantShowcase />
+      </MainContainer>
     </HomePageProvider>
   );
 }

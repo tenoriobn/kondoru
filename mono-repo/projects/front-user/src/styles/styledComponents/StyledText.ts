@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
-export const StyledTitle = styled.h2`
-  font-size: 3.5rem;
+export const StyledSubtitle = styled.h2`
+  font-size: 4rem;
   font-weight: 800;
-  line-height: 3.5rem;
-  letter-spacing: -3.4px;
+  line-height: 4rem;
   text-align: center;
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
 
-export const StyledSubtitle = styled.h3`
+export const StyledHeading = styled.h3`
   font-size: 1.5rem;
   line-height: 1.75rem;
   font-weight: 500;
