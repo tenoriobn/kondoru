@@ -16,6 +16,7 @@ const StyledContainer = styled(StyledLayoutWrapper)`
 const StyledTextContent = styled.div`
   display: grid;
   gap: 2rem;
+  letter-spacing: -1.25px;
 `;
 
 const StyledSubtitle = styled.h2`

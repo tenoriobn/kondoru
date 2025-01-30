@@ -63,7 +63,6 @@ export default function PropertyCard({ property }: IPropertyCardProps) {
 
         <StyledCardLocationContainer>
           <Location />
-
           <StyledCardLocation title={property.location}>
             {property.location}
           </StyledCardLocation>
