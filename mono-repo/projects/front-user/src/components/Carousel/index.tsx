@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import PropertyCard from './PropertyCard';
-import { useHomePageData } from 'src/contexts/HomePageContext';
+import { ReactNode } from 'react';
 
 const StyledSwiper = styled(Swiper)`
   .swiper-wrapper {
@@ -29,12 +28,10 @@ const StyledSwiper = styled(Swiper)`
   }
 `;
 
-export default function FeaturedProperties() {
-  const { properties } = useHomePageData();
-
+export default function Carousel({ children }: { children: ReactNode }) {
   return (
     <StyledLayoutWrapper>
-      <StyledSwiper 
+      <StyledSwiper
         slidesPerView={1}
         spaceBetween={32}
         pagination={{ clickable: true }}
@@ -45,11 +42,7 @@ export default function FeaturedProperties() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {properties.map((property, index) => (
-          <SwiperSlide key={index}>
-            <PropertyCard property={property} />
-          </SwiperSlide>
-        ))}
+        {children}
       </StyledSwiper>
     </StyledLayoutWrapper>
   );

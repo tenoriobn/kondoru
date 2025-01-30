@@ -1,4 +1,5 @@
 import { IPropertyCard } from '../featuredProperties/IPropertyCard';
+import { ITestimonialCard } from '../TestimonialCarousel/ITestimonialCard';
 import { IDropdownProps } from './IDropdown';
 import { IMenuLink } from './IMenu';
 
@@ -8,6 +9,7 @@ export interface IHomePageStaticData {
   heroSection: { 
     titulo: string
     slogan: string
-  }
-  properties: IPropertyCard[]
+  };
+  properties: IPropertyCard[];
+  testimonials: ITestimonialCard[];
 }

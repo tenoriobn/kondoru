@@ -45,7 +45,7 @@ OK - Desenvolver a seção de chamada!!!
 
 
 
-      - Refatorar componente `FeaturedProperties`
+      - Refatorar componente `PropertiesCarousel`
         OK - Corrigir line-height dos textos, pois está cortando
         OK - Corrigir versão mobile para que card seja responsivo ocupando toda a tela até `425px`
         OK - Título e subtitulo deve adicionar `...` caso seja maior que o card `(Atualmente só o titulo tem)`
@@ -73,11 +73,28 @@ OK - Desenvolver a seção de chamada!!!
         - Implementar SSG
 
 
+      * Criar seção `TestimonialCarousel`
+        OK - Reutilizar Carousel do `PropertiesCarousel`
+        OK - Criar conteúdo textual e adicionar estilização
+        OK - Implementar SSG
+        - Reutilizar estilos do `PropertiesCard`
+        - AO CLICAR NO CARD, ELE LEVARA PARA A PÁGINA DO USUÁRIO QUE FEZ O COMENTÁRIO (FAZER FUTURAMENTE)
+
+      * Criar footer
+        - O email cadastrado no final da página, será enviado para uma plataforma de marketing de email
+      que ficara responsável por automatizar o envio de artigos criados pelo dono do site.
 
 
+      * Integrar API de CADASTRO E LOGIN
 
 
-  * Adicionar verificação de identação e etc...
-  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
-  * Acompanhar Performance e realizar correções necessárias
+      * Refatorar arquitetura das INTERFACES
+      * Refatorar arquitetura das `Data` do `HomePage` (Não há necessidade de uma pasta pra cada data)
+      * Refatorar arquitetura da `index.tsx` criar uma `screen` da `HomePage` e importar na `index.tsx`
+      * Criar possível forma de reutilização do estilo da `StyledMainContainer`.
+
+
+      * Adicionar verificação de identação e etc...
+      * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
+      * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
+      * Acompanhar Performance e realizar correções necessárias
