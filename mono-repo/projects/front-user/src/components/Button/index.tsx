@@ -1,7 +1,7 @@
 import { IButtonProps } from 'src/interfaces/common/IButton';
 import styled from 'styled-components';
 
-const StyledButton = styled.button<IButtonProps>`
+export const StyledButton = styled.button<IButtonProps>`
   border: none;
   background-color: ${({ $backgroundColor, theme }) => 
     $backgroundColor ? theme.colors[$backgroundColor] : ''

@@ -33,7 +33,7 @@ export default function HeroSection() {
   return (
     <>
       <StyledHeroContent>
-        <StyledTitle rel="preload">{heroSection.titulo}</StyledTitle>
+        <StyledTitle rel="preload">{heroSection.title}</StyledTitle>
         <StyledSlogan>{heroSection.slogan}</StyledSlogan>
       </StyledHeroContent>
       

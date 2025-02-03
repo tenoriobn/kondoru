@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
+import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
 import { Swiper } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';

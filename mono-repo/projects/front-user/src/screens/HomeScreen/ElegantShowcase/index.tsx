@@ -1,6 +1,7 @@
-import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
+import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
 import styled from 'styled-components';
 import ElegantShowCasePlayer from './ElegantShowCasePlayer';
+import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledContainer = styled(StyledLayoutWrapper)`
   display: grid;
@@ -44,16 +45,16 @@ const StyledParagraph = styled.p`
 `;
 
 export default function ElegantShowcase() {
+  const { elegantShowcase } = useHomePageData();
+  
   return (
     <StyledContainer>
       <ElegantShowCasePlayer />
 
       <StyledTextContent>
-        <StyledSubtitle>Viva a Elegância em {'\n'} Cada Detalhe</StyledSubtitle>
+        <StyledSubtitle>{elegantShowcase.title}</StyledSubtitle>
         <StyledParagraph>
-          Apresentamos uma coleção única de imóveis com design inteligente, 
-          acabamentos de alta qualidade e situados nas melhores áreas. 
-          Eleve seu estilo de vida com o que há de mais sofisticado no mercado imobiliário.
+          {elegantShowcase.description}
         </StyledParagraph>
       </StyledTextContent>
     </StyledContainer>

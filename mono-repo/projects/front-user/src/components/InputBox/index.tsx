@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { IInputBoxProps, ILabelProps } from 'src/interfaces/common/IInputBox';
 import styled from 'styled-components';
 
-const Label = styled.label`
+const Label = styled.label<ILabelProps>`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -10,7 +10,7 @@ const Label = styled.label`
   cursor: text;
   width: 100%;
   height: 64px;
-  padding: 0.5rem 2rem;
+  padding: ${({ $padding }) => $padding || '0.5rem 2rem'};;
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 
   svg {
@@ -21,7 +21,8 @@ const Label = styled.label`
     }
   }
 
-  &:has(input:focus), &:has(input:not(:placeholder-shown)) {
+  &:has(input:focus), 
+  &:has(input:not(:placeholder-shown)) {
     border-color: ${({ theme }) => theme.colors['white']};
 
     svg path {
@@ -30,9 +31,9 @@ const Label = styled.label`
   }
 `;
 
-export default function InputBox({ icon, children }: {icon: ReactNode, children: ReactNode}) {
+export default function InputBox({ icon, children,  $padding }: IInputBoxProps) {
   return (
-    <Label>
+    <Label $padding={$padding}>
       {icon}
       {children}
     </Label>
