@@ -31,7 +31,7 @@ const StyledContainerFooter = styled.div`
   }
 `;
 
-const StyledParagraph =styled.p`
+const StyledParagraph = styled.p`
   color:  ${({ theme }) => theme.colors['white']};
   font-size: 1.25rem;
   text-align: center;

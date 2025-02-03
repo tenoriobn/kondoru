@@ -40,5 +40,5 @@ export default function NewsletterForm() {
         </StyledFooterButton>
       </InputBox>
     </form>
-  )
+  );
 }
