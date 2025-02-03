@@ -4,7 +4,7 @@ import Button from 'src/components/Button';
 import MenuLinks from './MenuLinks';
 import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
-import { IMenuMobile } from 'src/interfaces/header/IMenu';
+import { IMenuMobile } from 'src/interfaces/homePage/data/IMenu';
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 
 const MenuContainer = styled.div<IMenuMobile>`
@@ -73,7 +73,6 @@ const ButtonsAuthContainer = styled.div`
     flex-direction: row;
   }
 `;
-
 
 export default function Menu({ $isMenuActive, $setIsMenuActive, $isMobile }: IMenuMobile) {
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);

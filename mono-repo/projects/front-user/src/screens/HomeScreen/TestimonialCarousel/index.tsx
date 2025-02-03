@@ -1,7 +1,7 @@
 import { SwiperSlide } from 'swiper/react';
-import Carousel from '../Carousel';
 import TestimonialCard from './TestimonialCard';
 import { useHomePageData } from 'src/contexts/HomePageContext';
+import Carousel from 'src/components/Carousel';
 
 export default function TestimonialCarousel() {
   const { testimonials } = useHomePageData();

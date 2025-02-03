@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
-import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
+import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
 import AuthForm from './AuthForm';
 
 const StyledHeader = styled.header`

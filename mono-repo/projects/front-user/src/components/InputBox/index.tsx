@@ -10,7 +10,7 @@ const Label = styled.label<ILabelProps>`
   cursor: text;
   width: 100%;
   height: 64px;
-  padding: ${({ $padding }) => $padding || '0.5rem 2rem  padding'};;
+  padding: ${({ $padding }) => $padding || '0.5rem 2rem'};;
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 
   svg {

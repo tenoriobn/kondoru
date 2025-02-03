@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
-import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/header/IDropdown';
+import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/homePage/data/IDropdown';
 
 const StyledDropdownContainer = styled.div`
   position: relative;

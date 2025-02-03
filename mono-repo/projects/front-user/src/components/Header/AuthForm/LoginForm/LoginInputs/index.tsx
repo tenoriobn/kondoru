@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InputBox from 'src/components/InputBox';
-import { StyledInput } from 'src/styles/styledComponents/StyledForm';
+import { StyledInput } from 'src/styles/components/StyledForm';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
 import ViewIcon from 'public/icons/view.svg';

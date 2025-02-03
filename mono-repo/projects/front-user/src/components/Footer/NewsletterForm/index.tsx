@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import InputBox from 'src/components/InputBox';
 import { StyledButton } from 'src/components/Button';
-import { StyledInput } from 'src/styles/styledComponents/StyledForm';
+import { StyledInput } from 'src/styles/components/StyledForm';
 
 const StyledFooterButton = styled(StyledButton)`
   font-size: 1rem;

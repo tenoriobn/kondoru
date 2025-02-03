@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { useHomePageData } from 'src/contexts/HomePageContext';
-import { IMenuMobile } from 'src/interfaces/header/IMenu';
+import { IMenuMobile } from 'src/interfaces/homePage/data/IMenu';
 
 const StyledMenuLinkContainer = styled.ul`
   display: flex;

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import StyledLayoutWrapper from 'src/styles/styledComponents/StyledLayoutWrapper';
+import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
 import styled from 'styled-components';
 
 const StyledModalOverlay = styled.section`

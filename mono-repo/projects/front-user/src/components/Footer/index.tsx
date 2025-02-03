@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 import SocialMediaLinks from './SocialMediaLinks';
 import NewsletterForm from './NewsletterForm';
+import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -43,14 +44,13 @@ const StyledParagraph = styled.p`
 `;
 
 export default function Footer() {
-  const ano = new Date().getFullYear();
-
+  const { footer } = useHomePageData();
+  
   return (
     <StyledFooter>
       <StyledContainerFooter>
         <StyledParagraph>
-          Inscreva-se para receber as melhores oportunidades 
-          e tendências no setor imobiliário direto no seu e-mail!
+          {footer.title}
         </StyledParagraph>
 
         <NewsletterForm />
@@ -58,7 +58,7 @@ export default function Footer() {
         <SocialMediaLinks />
       </StyledContainerFooter>
 
-      <StyledParagraph>{ano} © Todos os direitos reservados.</StyledParagraph>
+      <StyledParagraph>{footer.year} {footer.description}</StyledParagraph>
     </StyledFooter>
   );
 }
