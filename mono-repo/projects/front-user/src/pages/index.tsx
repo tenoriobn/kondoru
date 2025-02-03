@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import ElegantShowcase from 'src/components/ElegantShowcase';
 import PropertyCarousel from 'src/components/PropertyCarousel';
 import TestimonialCarousel from 'src/components/TestimonialCarousel';
+import Footer from 'src/components/Footer';
 
 const StyledMainContainer = styled.main`
   display: flex;
@@ -47,6 +48,8 @@ export default function HomePage({ homeData }: { homeData: IHomePageStaticData }
         <ElegantShowcase />
         <TestimonialCarousel />
       </StyledMainContainer>
+
+      <Footer />
     </HomePageProvider>
   );
 }

@@ -80,15 +80,20 @@ OK - Desenvolver a seção de chamada!!!
         - Reutilizar estilos do `PropertiesCard`
         - AO CLICAR NO CARD, ELE LEVARA PARA A PÁGINA DO USUÁRIO QUE FEZ O COMENTÁRIO (FAZER FUTURAMENTE)
 
-      * Criar footer
+      * Criar `Footer`
+        OK - Adicionar elementos do footer
+        OK - adicionar input e social midia
+        OK - adicionar mensagem de direitos
+        - disponibilizar dados por ssg se necessário
         - O email cadastrado no final da página, será enviado para uma plataforma de marketing de email
       que ficara responsável por automatizar o envio de artigos criados pelo dono do site.
 
 
+      * Conferir se devo utilizar SSG em cada componente ou Centralizado na index.tsx
+
       * Integrar API de CADASTRO E LOGIN
 
-
-      * Refatorar arquitetura das INTERFACES
+      * Refatorar arquitetura das INTERFACES de Tipagem
       * Refatorar arquitetura das `Data` do `HomePage` (Não há necessidade de uma pasta pra cada data)
       * Refatorar arquitetura da `index.tsx` criar uma `screen` da `HomePage` e importar na `index.tsx`
       * Criar possível forma de reutilização do estilo da `StyledMainContainer`.
