@@ -8,7 +8,7 @@ import useBodyOverflow from 'src/hooks/utils/useBodyOverflow';
 
 export default function AuthForm() {
   const activeAuthForm = useRecoilValue(stateActiveAuthForm);
-  useBodyOverflow(activeAuthForm);
+  useBodyOverflow(!!activeAuthForm);
 
   return (
     <>

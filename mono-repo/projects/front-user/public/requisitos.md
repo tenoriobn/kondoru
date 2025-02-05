@@ -33,7 +33,12 @@ OK - Desenvolver a seção de chamada!!!
       OK - Inputs devem ser obrigatórios
       OK - Fechar modal ao clicar fora dele ***
       OK - Passar conteúdo do formulário por SSG ***
+      OK - Corrigir responsividade dos modais
       - Integrar Modal de LOGIN e registro com API
+        - INTEGRAR COM API
+        - ADICIONAR MENSAGEM DE ERRO + BORDA DE ERRO INPUT
+        
+
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
 
