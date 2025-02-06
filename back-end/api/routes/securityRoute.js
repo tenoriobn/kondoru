@@ -4,7 +4,7 @@ const SecurityController = require('../controllers/securityController');
 const router = Router();
 
 router
-  .post('/seguranca', SecurityController.registerAcl)
-  .post('/seguranca/permissoes-roles', SecurityController.registerPermissionsRoles)
+  .post('/api/seguranca', SecurityController.registerAcl)
+  .post('/api/seguranca/permissoes-roles', SecurityController.registerPermissionsRoles)
 
 module.exports = router;

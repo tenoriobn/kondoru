@@ -4,10 +4,10 @@ const RoleController = require('../controllers/roleController');
 const router = Router();
 
 router
-  .post('/roles', RoleController.register)
-  .get('/roles', RoleController.getAllRoles)
-  .get('/roles/:id', RoleController.getRoleById)
-  .put('/roles/:id', RoleController.updateRole)
-  .delete('/roles/:id', RoleController.deleteRole)
+  .post('/api/roles', RoleController.register)
+  .get('/api/roles', RoleController.getAllRoles)
+  .get('/api/roles/:id', RoleController.getRoleById)
+  .put('/api/roles/:id', RoleController.updateRole)
+  .delete('/api/roles/:id', RoleController.deleteRole)
 
 module.exports = router;
