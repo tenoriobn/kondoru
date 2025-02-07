@@ -4,14 +4,11 @@ import styled from 'styled-components';
 export const StyledButton = styled.button<IButtonProps>`
   border: none;
   background-color: ${({ $backgroundColor, theme }) => 
-    $backgroundColor ? theme.colors[$backgroundColor] : ''
-};
+    $backgroundColor ? theme.colors[$backgroundColor] : ''};
   border-radius: ${({ $borderRadius, theme }) => 
-    $borderRadius ? theme.borderRadius[$borderRadius] : ''
-};
+    $borderRadius ? theme.borderRadius[$borderRadius] : ''};
   color: ${({ $color, theme }) => 
-    $color ? theme.colors[$color] : ''
-};
+    $color ? theme.colors[$color] : ''};
   font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
   line-height: ${({ $lineHeight }) => $lineHeight || '1.5rem'};
   font-weight: ${({ $fontWeight }) => $fontWeight || ''};
@@ -28,25 +25,26 @@ export const StyledButton = styled.button<IButtonProps>`
   padding: ${({ $padding }) => $padding || ''};
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 
-  &:hover {
-    color: ${({ $hoverColor, theme}) => 
-    $hoverColor ? theme.colors[$hoverColor] : ''
-};
+  ${({ disabled, theme, $hoverColor, $activeColor, $hoverBackgroundColor, $activeBackgroundColor }) => {
+    if (disabled) {
+      return `
+        cursor: not-allowed;
+        opacity: 0.6;
+      `;
+    }
 
-      background-color: ${({ $hoverBackgroundColor, theme }) => 
-    $hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''
-};
-  }
+    return `
+      &:hover {
+        color: ${$hoverColor ? theme.colors[$hoverColor] : ''};
+        background-color: ${$hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''};
+      }
 
-  &:active {
-    color: ${({ $activeColor, theme}) => 
-    $activeColor ? theme.colors[$activeColor] : ''
-};
-
-    background-color: ${({ $activeBackgroundColor, theme }) => 
-    $activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''
-};
-  }
+      &:active {
+        color: ${$activeColor ? theme.colors[$activeColor] : ''};
+        background-color: ${$activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''};
+      }
+    `;
+  }}
 `;
 
 export default function Button({ 
@@ -66,7 +64,8 @@ export default function Button({
   $fontWeight,
   $lineHeight,
   $textDecoration,
-  onClick: onClick, 
+  onClick, 
+  $disabled,
 }: IButtonProps) {
   return (
     <StyledButton 
@@ -86,8 +85,10 @@ export default function Button({
       $fontWeight={$fontWeight}
       $textDecoration={$textDecoration}
       onClick={onClick} 
+      disabled={$disabled}
     >
       {children}
     </StyledButton>
   );
 }
+

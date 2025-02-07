@@ -20,7 +20,8 @@ function useResponsiveMenu() {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const { windowWidth, isMobile, setIsMobile } = useWindowSize();
   const activeAuthForm = useRecoilValue(stateActiveAuthForm);
-  useBodyOverflow(isMenuActive);
+
+  useBodyOverflow(isMenuActive || !!activeAuthForm);
 
   useEffect(() => {
     if (windowWidth > 992) {

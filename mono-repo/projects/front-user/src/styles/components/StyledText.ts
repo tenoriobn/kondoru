@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledSubtitle = styled.h2`
-  font-size: 4rem;
+  font-size: clamp(3.5rem, 16vw, 4rem);
   font-weight: 800;
   line-height: 4rem;
   text-align: center;

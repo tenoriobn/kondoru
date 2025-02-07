@@ -19,7 +19,7 @@ export default function NewsletterForm() {
         <StyledInput
           type="email"
           name="email"
-          id="email"
+          id="email-newsletter"
           placeholder="E-mail"
           minLength={6}
           maxLength={260}

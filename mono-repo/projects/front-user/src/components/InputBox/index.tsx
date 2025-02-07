@@ -29,11 +29,17 @@ const Label = styled.label<ILabelProps>`
       stroke: ${({ theme }) => theme.colors['white']};
     }
   }
+
+  ${({ $hasError, theme }) => $hasError && `
+    border-color: ${theme.colors['red']}!important;
+    svg path {
+      stroke: ${theme.colors['red']}!important;
+  }`}
 `;
 
-export default function InputBox({ icon, children,  $padding }: IInputBoxProps) {
+export default function InputBox({ icon, children,  $padding, hasError}: IInputBoxProps) {
   return (
-    <Label $padding={$padding}>
+    <Label $padding={$padding} $hasError={hasError}>
       {icon}
       {children}
     </Label>

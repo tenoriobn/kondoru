@@ -9,10 +9,10 @@ const router = Router();
 router.use(authenticated);
 
 router
-  .post('/usuarios', permissionsRole(["Adicionar"]), UserController.register)
-  .get('/usuarios', UserController.getAllUsers)
-  .get('/usuarios/:id', permissionsRole(["Buscar"]), UserController.getUserById)
-  .put('/usuarios/:id', permissionsRole(["Editar"]), UserController.updateUser)
-  .delete('/usuarios/:id', permissionsRole(["Deletar"]), UserController.deleteUser)
+  .post('/api/usuarios', permissionsRole(["Adicionar"]), UserController.register)
+  .get('/api/usuarios', UserController.getAllUsers)
+  .get('/api/usuarios/:id', permissionsRole(["Buscar"]), UserController.getUserById)
+  .put('/api/usuarios/:id', permissionsRole(["Editar"]), UserController.updateUser)
+  .delete('/api/usuarios/:id', permissionsRole(["Deletar"]), UserController.deleteUser)
 
 module.exports = router;

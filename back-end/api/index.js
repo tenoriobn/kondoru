@@ -1,8 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
+const corsMiddleware = require('./middleware/corsMiddleware'); 
 
 const app = express();
-const port = 3000;
+const port = 8080;
+
+app.use(corsMiddleware);
 
 routes(app);
 

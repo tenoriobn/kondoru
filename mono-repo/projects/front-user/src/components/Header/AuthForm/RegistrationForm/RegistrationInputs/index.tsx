@@ -1,74 +1,60 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InputBox from 'src/components/InputBox';
-import { StyledInput } from 'src/styles/components/StyledForm';
+import { StyledContainerInput, StyledInput } from 'src/styles/components/StyledForm';
 import UserIcon from 'public/icons/user.svg';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
 import ViewIcon from 'public/icons/view.svg';
+import { IRegistrationInputsProps } from 'src/interfaces/api/auth/IRegister';
+import ErrorMessage from 'src/components/Message';
 
-export default function RegistrationInputs() {
-  const [auth, setAuth] = useState({ name: '', email: '', password: '', confirmPassword: ''});
-
+export default function RegistrationInputs({ register, errors }: IRegistrationInputsProps) {
   return (
     <>
-      <InputBox icon={<UserIcon />}>
-        <StyledInput
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nome completo"
-          minLength={6}
-          maxLength={260}
-          value={auth.name}
-          onChange={(e) => setAuth({...auth, name: e.target.value})}
-          required
-        />
-      </InputBox>
+      <StyledContainerInput>
+        <InputBox icon={<UserIcon />} hasError={!!errors.name}>
+          <StyledInput
+            {...register('name')}
+            placeholder="Nome completo"
+          />
+        </InputBox>
+        {errors.name && <ErrorMessage>{errors.name.message || ''}</ErrorMessage>}
+      </StyledContainerInput>
 
-      <InputBox icon={<EmailIcon />}>
-        <StyledInput
-          type="email"
-          name="email"
-          id="email"
-          placeholder="E-mail"
-          minLength={6}
-          maxLength={260}
-          value={auth.email}
-          onChange={(e) => setAuth({...auth, email: e.target.value})}
-          required
-        />
-      </InputBox>
+      <StyledContainerInput>
+        <InputBox icon={<EmailIcon />} hasError={!!errors.email}>
+          <StyledInput
+            {...register('email')}
+            type="email"
+            placeholder="E-mail"
+          />
+        </InputBox>
+        {errors.email && <ErrorMessage>{errors.email.message || ''}</ErrorMessage>}
+      </StyledContainerInput>
 
-      <InputBox icon={<SecurityIcon />}>
-        <StyledInput
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Senha"
-          minLength={8}
-          maxLength={260}
-          value={auth.password}
-          onChange={(e) => setAuth({...auth, password: e.target.value})}
-          required
-        />
+      <StyledContainerInput>
+        <InputBox icon={<SecurityIcon />} hasError={!!errors.password}>
+          <StyledInput
+            {...register('password')}
+            type="password"
+            placeholder="Senha"
+          />
+          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+        </InputBox>
+        {errors.password && <ErrorMessage>{errors.password.message || ''}</ErrorMessage>}
+      </StyledContainerInput>
 
-        <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
-      </InputBox>
-
-      <InputBox icon={<SecurityIcon />}>
-        <StyledInput
-          type="password"
-          name="confirm-password"
-          id="confirm-password"
-          placeholder="Confirmar senha"
-          minLength={8}
-          maxLength={260}
-          value={auth.confirmPassword}
-          onChange={(e) => setAuth({...auth, confirmPassword: e.target.value})}
-          required
-        />
-        <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
-      </InputBox>
+      <StyledContainerInput>
+        <InputBox icon={<SecurityIcon />} hasError={!!errors.passwordConfirmation}>
+          <StyledInput
+            {...register('passwordConfirmation')}
+            type="password"
+            placeholder="Confirmar senha"
+          />
+          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+        </InputBox>
+        {errors.passwordConfirmation && <ErrorMessage>{errors.passwordConfirmation.message || ''}</ErrorMessage>}
+      </StyledContainerInput>
     </>
   );
 }

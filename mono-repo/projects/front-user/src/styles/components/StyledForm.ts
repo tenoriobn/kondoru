@@ -69,6 +69,11 @@ export const StyledCloseIcon = styled(CloseIcon)`
   }
 `;
 
+export const StyledContainerInput = styled.div`
+  display: grid;
+  gap: .75rem;
+`;
+
 export const StyledInput = styled.input`
   outline: none;
   background: none;

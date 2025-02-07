@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
 import InputBox from 'src/components/InputBox';
 import { StyledInput } from 'src/styles/components/StyledForm';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
 import ViewIcon from 'public/icons/view.svg';
+import ErrorMessage from 'src/components/Message';
+import { ILoginInputsProps } from 'src/interfaces/api/auth/ILogin';
 
-export default function LoginInputs() {
-  const [auth, setAuth] = useState({ email: '', password: ''});
-
+export default function LoginInputs({ login, setLogin, messageError }: ILoginInputsProps) {
   return (
     <>
       <InputBox icon={<EmailIcon />}>
@@ -18,9 +17,8 @@ export default function LoginInputs() {
           placeholder="E-mail"
           minLength={6}
           maxLength={260}
-          value={auth.email}
-          onChange={(e) => setAuth({...auth, email: e.target.value})}
-          required
+          value={login.email}
+          onChange={(e) => setLogin({...login, email: e.target.value})}
         />
       </InputBox>
 
@@ -30,15 +28,17 @@ export default function LoginInputs() {
           name="password"
           id="password"
           placeholder="Senha"
-          minLength={8}
           maxLength={260}
-          value={auth.password}
-          onChange={(e) => setAuth({...auth, password: e.target.value})}
-          required
+          value={login.password}
+          onChange={(e) => setLogin({...login, password: e.target.value})}
         />
 
         <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
       </InputBox>
+
+      <ErrorMessage>
+        {messageError ?? ''}
+      </ErrorMessage>
     </>
   );
 }
