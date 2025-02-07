@@ -1,5 +1,4 @@
 import axios from 'axios';
-import tokenJson from './token.json';
 
 export const apiClient = axios.create({
   baseURL: 'http://localhost:8080/api/',
@@ -9,7 +8,7 @@ export const apiClient = axios.create({
 
 
 apiClient.interceptors.request.use((config) => {
-  const token =  tokenJson.token;
+  const token =  process.env.NEXT_PUBLIC_API_TOKEN;
 
   if (token) {
     config.headers['Authorization'] = `Bearer ${token}`;
