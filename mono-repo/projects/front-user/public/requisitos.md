@@ -36,6 +36,8 @@ OK - Desenvolver a seção de chamada!!!
       OK - Corrigir responsividade dos modais
       - Integrar Modal de LOGIN e registro com API
         - INTEGRAR COM API
+        - CORRIGIR INTEGRAÇÃO DA API DE LOGIN (corrigir sintaxes, tipagens, redundância)
+
         - ADICIONAR MENSAGEM DE ERRO + BORDA DE ERRO INPUT
         
 

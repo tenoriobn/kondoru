@@ -1,3 +1,4 @@
+import { IRegistrationTermProps } from 'src/interfaces/api/auth/IRegister';
 import { StyledCheckbox } from 'src/styles/components/StyledForm';
 import { StyledParagraph } from 'src/styles/components/StyledText';
 import styled from 'styled-components';
@@ -18,7 +19,7 @@ const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
 
-export default function RegistrationTerm() {
+export default function RegistrationTerm({ setIsChecked }: IRegistrationTermProps) {
   return (
     <StyledTermContainer>
       <StyledParagraph>
@@ -28,7 +29,13 @@ export default function RegistrationTerm() {
       </StyledParagraph>
 
       <StyledLabel htmlFor="confirm-term">
-        <StyledCheckbox type="checkbox" name="confirm-term" id="confirm-term" />
+        <StyledCheckbox 
+          type="checkbox" 
+          name="confirm-term" 
+          id="confirm-term" 
+          onClick={(e) => setIsChecked((e.target as HTMLInputElement).checked)}
+        />
+
         Li e aceito os Termos de Uso e Políticas de Privacidade
       </StyledLabel>
     </StyledTermContainer>
