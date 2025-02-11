@@ -35,10 +35,12 @@ OK - Desenvolver a seção de chamada!!!
       OK - Passar conteúdo do formulário por SSG ***
       OK - Corrigir responsividade dos modais
       - Integrar Modal de LOGIN e registro com API
-        - INTEGRAR COM API
-        - CORRIGIR INTEGRAÇÃO DA API DE LOGIN (corrigir sintaxes, tipagens, redundância)
+        OK - INTEGRAR COM API
+        OK - CORRIGIR INTEGRAÇÃO DA API DE LOGIN (corrigir sintaxes, tipagens, redundância)
+        OK - Validar campos do formulário de cadastro
+        OK - ADICIONAR MENSAGEM DE ERRO + BORDA DE ERRO INPUT
+        - Validar campos do formulário de login
 
-        - ADICIONAR MENSAGEM DE ERRO + BORDA DE ERRO INPUT
         
 
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
