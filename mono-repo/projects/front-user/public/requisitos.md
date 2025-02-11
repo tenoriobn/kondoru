@@ -40,6 +40,7 @@ OK - Desenvolver a seção de chamada!!!
         OK - Validar campos do formulário de cadastro
         OK - ADICIONAR MENSAGEM DE ERRO + BORDA DE ERRO INPUT
         - Validar campos do formulário de login
+        - TIRAR BACKGROUND BRANCO AO PREENCHER AUTOMATICAMENTE
 
         
 
