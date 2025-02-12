@@ -1,44 +1,39 @@
 import InputBox from 'src/components/InputBox';
-import { StyledInput } from 'src/styles/components/StyledForm';
+import { StyledContainerInput, StyledInput } from 'src/styles/components/StyledForm';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
 import ViewIcon from 'public/icons/view.svg';
 import ErrorMessage from 'src/components/Message';
 import { ILoginInputsProps } from 'src/interfaces/api/auth/ILogin';
 
-export default function LoginInputs({ login, setLogin, messageError }: ILoginInputsProps) {
+export default function LoginInputs({ register, errors }: ILoginInputsProps) {  
   return (
     <>
-      <InputBox icon={<EmailIcon />}>
-        <StyledInput
-          type="email"
-          name="email"
-          id="email"
-          placeholder="E-mail"
-          minLength={6}
-          maxLength={260}
-          value={login.email}
-          onChange={(e) => setLogin({...login, email: e.target.value})}
-        />
-      </InputBox>
+      <StyledContainerInput>
+        <InputBox icon={<EmailIcon />} hasError={!!errors.email}>
+          <StyledInput
+            type="email"
+            placeholder="E-mail"
+            { ...register('email')}
+          />
+        </InputBox>
 
-      <InputBox icon={<SecurityIcon />}>
-        <StyledInput
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Senha"
-          maxLength={260}
-          value={login.password}
-          onChange={(e) => setLogin({...login, password: e.target.value})}
-        />
+        {errors.email && <ErrorMessage>{errors.email.message || ''}</ErrorMessage>}        
+      </StyledContainerInput>
 
-        <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
-      </InputBox>
+      <StyledContainerInput>
+        <InputBox icon={<SecurityIcon />} hasError={!!errors.password}>
+          <StyledInput
+            type='password'
+            placeholder="Senha"
+            { ...register('password')}
+          />
 
-      <ErrorMessage>
-        {messageError ?? ''}
-      </ErrorMessage>
+          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+        </InputBox>
+
+        {errors.password && <ErrorMessage>{errors.password.message || ''}</ErrorMessage>}
+      </StyledContainerInput>
     </>
   );
 }

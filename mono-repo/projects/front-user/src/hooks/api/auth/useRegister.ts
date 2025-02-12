@@ -3,15 +3,27 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema } from 'src/utils/registrationValidation';
 import { IUseRegisterData } from 'src/interfaces/api/auth/IRegister';
 import postData from 'src/service/requests/postData';
+import { useState } from 'react';
+import postAccessToken from 'src/service/requests/postAccessToken';
 
 const useRegister = () => {
-  const { register, handleSubmit, formState: { errors }, setError } = useForm<IUseRegisterData>({
+  const [authorization, setAuthorization] = useState(false);
+  const { 
+    register, 
+    handleSubmit, 
+    setError ,
+    formState: { errors },
+  } = useForm<IUseRegisterData>({
     resolver: zodResolver(registrationSchema),
   });
 
   const onSubmit: SubmitHandler<IUseRegisterData> = async(data) => {
     try {
-      await postData('user', data);
+      const response = await postData('user', { ...data, authorization });
+
+      if (response.accessToken) {
+        postAccessToken({ accessToken: response?.accessToken });
+      }
     } catch (error) {
       if (error === 'Usuário já cadastrado!') {
         setError('email', { type: 'manual',  message: error });
@@ -21,7 +33,7 @@ const useRegister = () => {
     }
   };
 
-  return { register, handleSubmit, errors, onSubmit };
+  return { authorization, setAuthorization, register, handleSubmit, onSubmit, errors };
 };
 
 export default useRegister;

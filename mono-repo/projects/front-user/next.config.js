@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
+  reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -7,8 +9,6 @@ const nextConfig = {
     });
     return config;
   },
-  output: 'export',
-  reactStrictMode: true,
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,

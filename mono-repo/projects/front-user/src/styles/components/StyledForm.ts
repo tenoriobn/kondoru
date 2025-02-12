@@ -74,7 +74,7 @@ export const StyledContainerInput = styled.div`
   gap: .75rem;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{ $hasError?: boolean }>`
   outline: none;
   background: none;
   border: none;

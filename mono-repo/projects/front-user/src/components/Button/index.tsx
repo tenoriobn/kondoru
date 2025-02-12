@@ -66,6 +66,7 @@ export default function Button({
   $textDecoration,
   onClick, 
   $disabled,
+  $title,
 }: IButtonProps) {
   return (
     <StyledButton 
@@ -86,6 +87,7 @@ export default function Button({
       $textDecoration={$textDecoration}
       onClick={onClick} 
       disabled={$disabled}
+      title={$title}
     >
       {children}
     </StyledButton>

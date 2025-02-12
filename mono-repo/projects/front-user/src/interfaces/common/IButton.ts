@@ -17,4 +17,5 @@ export interface IButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   $disabled?: boolean;
+  $title?: string;
 }
