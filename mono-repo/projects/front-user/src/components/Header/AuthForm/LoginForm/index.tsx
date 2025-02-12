@@ -10,16 +10,15 @@ import { StyledParagraph } from 'src/styles/components/StyledText';
 import useLogin from 'src/hooks/api/auth/useLogin';
 
 export default function LoginForm() {
-  const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
   const formRef = useRef<HTMLFormElement>(null);
+  const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
+  const { register, handleSubmit, onSubmit, errors } = useLogin();
   useClickOutside(formRef, () => setActiveAuthForm(''));
-  
-  const { login, setLogin, handleSubmit, messageError } = useLogin();
 
   return (
     <StyledForm 
       ref={formRef}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <FormHeader 
         title='KondoRu'
@@ -27,7 +26,7 @@ export default function LoginForm() {
       />
 
       <StyledFormBody>
-        <LoginInputs login={login} setLogin={setLogin} messageError={messageError} />
+        <LoginInputs register={register} errors={errors} />
 
         <Button
           $fontSize="1.25rem"

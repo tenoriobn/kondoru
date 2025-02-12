@@ -7,7 +7,6 @@ const nextConfig = {
     });
     return config;
   },
-  output: 'export',
   reactStrictMode: true,
   images: {
     unoptimized: true,

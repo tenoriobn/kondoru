@@ -34,7 +34,8 @@ const Label = styled.label<ILabelProps>`
     border-color: ${theme.colors['red']}!important;
     svg path {
       stroke: ${theme.colors['red']}!important;
-  }`}
+    }
+  `}
 `;
 
 export default function InputBox({ icon, children,  $padding, hasError}: IInputBoxProps) {

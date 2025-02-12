@@ -22,12 +22,14 @@ class AuthService {
       throw new Error(`Usuário ou senha inválido!`);
     };
 
-    const accessToken = sign({
-      id: user.id,
-      email: user.email
-    }, jsonSecret.secret, {
-      expiresIn: 86400
-    });
+    const accessToken = sign(
+      {
+        id: user.id,
+        email: user.email
+      },
+      jsonSecret.secret,
+      { expiresIn: '1d' }
+    );
 
     return { accessToken };
   }

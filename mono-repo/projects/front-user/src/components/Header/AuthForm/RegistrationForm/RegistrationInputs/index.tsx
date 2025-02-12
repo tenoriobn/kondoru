@@ -14,8 +14,10 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<UserIcon />} hasError={!!errors.name}>
           <StyledInput
-            {...register('name')}
+            type="text"
             placeholder="Nome completo"
+            
+            {...register('name')}
           />
         </InputBox>
         {errors.name && <ErrorMessage>{errors.name.message || ''}</ErrorMessage>}
@@ -24,9 +26,9 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<EmailIcon />} hasError={!!errors.email}>
           <StyledInput
-            {...register('email')}
             type="email"
             placeholder="E-mail"
+            {...register('email')}
           />
         </InputBox>
         {errors.email && <ErrorMessage>{errors.email.message || ''}</ErrorMessage>}
@@ -35,9 +37,9 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<SecurityIcon />} hasError={!!errors.password}>
           <StyledInput
-            {...register('password')}
             type="password"
             placeholder="Senha"
+            {...register('password')}
           />
           <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
         </InputBox>
@@ -47,9 +49,9 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<SecurityIcon />} hasError={!!errors.passwordConfirmation}>
           <StyledInput
-            {...register('passwordConfirmation')}
             type="password"
             placeholder="Confirmar senha"
+            {...register('passwordConfirmation')}
           />
           <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
         </InputBox>

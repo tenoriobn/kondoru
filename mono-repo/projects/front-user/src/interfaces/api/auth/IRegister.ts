@@ -5,6 +5,7 @@ export interface IUseRegisterData {
   email: string;
   password: string;
   passwordConfirmation: string;
+  isChecked: boolean;
 }
 
 /* eslint-disable no-unused-vars */
@@ -15,5 +16,5 @@ export interface IRegistrationInputsProps {
   };
 }
 export interface IRegistrationTermProps {
-  setIsChecked: (checked: boolean) => void;
+  setAuthorization: (checked: boolean) => void;
 }

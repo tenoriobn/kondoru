@@ -19,7 +19,7 @@ const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors['gray-400']};
 `;
 
-export default function RegistrationTerm({ setIsChecked }: IRegistrationTermProps) {
+export default function RegistrationTerm({ setAuthorization }: IRegistrationTermProps) {
   return (
     <StyledTermContainer>
       <StyledParagraph>
@@ -33,7 +33,7 @@ export default function RegistrationTerm({ setIsChecked }: IRegistrationTermProp
           type="checkbox" 
           name="confirm-term" 
           id="confirm-term" 
-          onClick={(e) => setIsChecked((e.target as HTMLInputElement).checked)}
+          onClick={(e) => setAuthorization((e.target as HTMLInputElement).checked)}
         />
 
         Li e aceito os Termos de Uso e Políticas de Privacidade

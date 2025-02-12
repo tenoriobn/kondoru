@@ -1,25 +1,37 @@
-import { useState } from 'react';
-import { ILoginState } from 'src/interfaces/api/auth/ILogin';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { IUseLoginData } from 'src/interfaces/api/auth/ILogin';
 import postData from 'src/service/requests/postData';
+import postAccessToken from 'src/service/requests/postAccessToken';
+import { loginSchema } from 'src/utils/loginValidation';
 
 const useLogin = () => {
-  const [login, setLogin] = useState<ILoginState>({ email: '', password: ''});
-  const [messageError, setMessageError] = useState('');
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors }, 
+    setError, 
+  } = useForm<IUseLoginData>({
+    resolver: zodResolver(loginSchema),
+  });
 
-  const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setMessageError('');
-
+  const onSubmit: SubmitHandler<IUseLoginData> = async(data) => {
     try {
-      await postData('auth/login', login);
+      const response =  await postData('auth/login', data);
 
+      if (response?.accessToken) {
+        postAccessToken({ accessToken: response?.accessToken });
+      }
     } catch (error) {
-      setMessageError('Usuário ou senha inválido!');
-      console.error('error: ', error);
+      if (error === 'Usuário não cadastrado!') {
+        setError('email', { type: 'manual',  message: error });
+      } else {
+        console.error('error: ', error);
+      }
     }
   };
 
-  return { login, setLogin, handleSubmit, messageError };
+  return { register, handleSubmit, onSubmit, errors };
 };
 
 export default useLogin;
