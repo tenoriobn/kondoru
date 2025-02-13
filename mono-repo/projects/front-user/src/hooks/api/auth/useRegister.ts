@@ -6,7 +6,7 @@ import postData from 'src/service/requests/postData';
 import { useState } from 'react';
 import postAccessToken from 'src/service/requests/postAccessToken';
 
-const useRegister = () => {
+const useRegister = (setActiveAuthForm: React.Dispatch<React.SetStateAction<string>>) => {
   const [authorization, setAuthorization] = useState(false);
   const { 
     register, 
@@ -24,9 +24,14 @@ const useRegister = () => {
       if (response.accessToken) {
         postAccessToken({ accessToken: response?.accessToken });
       }
+
+      setActiveAuthForm('');
     } catch (error) {
       if (error === 'Usuário já cadastrado!') {
-        setError('email', { type: 'manual',  message: error });
+        setError('email', { 
+          type: 'manual',  
+          message: 'E-mail já cadastrado!', 
+        });
       } else {
         console.error('error: ', error);
       }

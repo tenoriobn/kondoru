@@ -2,11 +2,14 @@ import InputBox from 'src/components/InputBox';
 import { StyledContainerInput, StyledInput } from 'src/styles/components/StyledForm';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
-import ViewIcon from 'public/icons/view.svg';
-import ErrorMessage from 'src/components/Message';
+import ErrorMessage from 'src/components/ErrorMessage';
 import { ILoginInputsProps } from 'src/interfaces/api/auth/ILogin';
+import { useState } from 'react';
+import PasswordVisibilityToggle from 'src/components/PasswordVisibilityToggle';
 
-export default function LoginInputs({ register, errors }: ILoginInputsProps) {  
+export default function LoginInputs({ register, errors, errorMessage }: ILoginInputsProps) {  
+  const [ passwordView, setPasswordView ] = useState(false);
+
   return (
     <>
       <StyledContainerInput>
@@ -22,18 +25,26 @@ export default function LoginInputs({ register, errors }: ILoginInputsProps) {
       </StyledContainerInput>
 
       <StyledContainerInput>
-        <InputBox icon={<SecurityIcon />} hasError={!!errors.password}>
+        <InputBox 
+          icon={<SecurityIcon />} 
+          hasError={!!errors.password}
+        >
           <StyledInput
-            type='password'
+            type={passwordView ? 'text' : 'password'}
             placeholder="Senha"
             { ...register('password')}
           />
 
-          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+          <PasswordVisibilityToggle  
+            passwordView={passwordView}
+            setPasswordView={setPasswordView}
+          />
         </InputBox>
 
         {errors.password && <ErrorMessage>{errors.password.message || ''}</ErrorMessage>}
       </StyledContainerInput>
+
+      {!errors.email && !errors.password && errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </>
   );
 }

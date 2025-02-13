@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputBox from 'src/components/InputBox';
 import { StyledContainerInput, StyledInput } from 'src/styles/components/StyledForm';
 import UserIcon from 'public/icons/user.svg';
 import EmailIcon from 'public/icons/email.svg';
 import SecurityIcon from 'public/icons/security.svg';
-import ViewIcon from 'public/icons/view.svg';
 import { IRegistrationInputsProps } from 'src/interfaces/api/auth/IRegister';
-import ErrorMessage from 'src/components/Message';
+import ErrorMessage from 'src/components/ErrorMessage';
+import PasswordVisibilityToggle from 'src/components/PasswordVisibilityToggle';
 
 export default function RegistrationInputs({ register, errors }: IRegistrationInputsProps) {
+  const [passwordView, setPasswordView] = useState(false);
+  const [confirmPasswordView, setConfirmPasswordView] = useState(false);
+
   return (
     <>
       <StyledContainerInput>
@@ -37,11 +40,15 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<SecurityIcon />} hasError={!!errors.password}>
           <StyledInput
-            type="password"
+            type={passwordView ? 'text' : 'password'}
             placeholder="Senha"
             {...register('password')}
           />
-          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+
+          <PasswordVisibilityToggle  
+            passwordView={passwordView}
+            setPasswordView={setPasswordView}
+          />
         </InputBox>
         {errors.password && <ErrorMessage>{errors.password.message || ''}</ErrorMessage>}
       </StyledContainerInput>
@@ -49,11 +56,15 @@ export default function RegistrationInputs({ register, errors }: IRegistrationIn
       <StyledContainerInput>
         <InputBox icon={<SecurityIcon />} hasError={!!errors.passwordConfirmation}>
           <StyledInput
-            type="password"
+            type={confirmPasswordView ? 'text' : 'password'}
             placeholder="Confirmar senha"
             {...register('passwordConfirmation')}
           />
-          <ViewIcon style={{ cursor: 'pointer', zIndex: 10}} />
+
+          <PasswordVisibilityToggle  
+            passwordView={confirmPasswordView}
+            setPasswordView={setConfirmPasswordView}
+          />
         </InputBox>
         {errors.passwordConfirmation && <ErrorMessage>{errors.passwordConfirmation.message || ''}</ErrorMessage>}
       </StyledContainerInput>

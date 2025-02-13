@@ -12,7 +12,7 @@ import useLogin from 'src/hooks/api/auth/useLogin';
 export default function LoginForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
-  const { register, handleSubmit, onSubmit, errors } = useLogin();
+  const { register, handleSubmit, onSubmit, errors, errorMessage } = useLogin(setActiveAuthForm);
   useClickOutside(formRef, () => setActiveAuthForm(''));
 
   return (
@@ -26,7 +26,7 @@ export default function LoginForm() {
       />
 
       <StyledFormBody>
-        <LoginInputs register={register} errors={errors} />
+        <LoginInputs register={register} errors={errors} errorMessage={errorMessage} />
 
         <Button
           $fontSize="1.25rem"
