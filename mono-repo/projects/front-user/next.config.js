@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  reactStrictMode: true,
+  reactStrictMode: true,  
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'], // Permite importar SVGs como componentes React
+      use: ['@svgr/webpack'],
     });
     return config;
   },
