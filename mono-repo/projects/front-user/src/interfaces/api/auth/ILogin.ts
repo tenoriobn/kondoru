@@ -1,10 +1,15 @@
-export interface ILoginState {
+import { FieldError, UseFormRegister } from 'react-hook-form';
+
+export interface IUseLoginData {
   email: string;
   password: string;
 }
 
+
+/* eslint-disable no-unused-vars */
 export interface ILoginInputsProps {
-  login: ILoginState;
-  setLogin: React.Dispatch<React.SetStateAction<ILoginState>>;
-  messageError: string;
+  register: UseFormRegister<IUseLoginData>;
+  errors: {
+    [K in keyof IUseLoginData]?: FieldError;
+  }
 }

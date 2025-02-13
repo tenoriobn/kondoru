@@ -1,5 +1,9 @@
+const { sign } = require('jsonwebtoken');
 const UserService = require('../service/userService');
+const jsonSecret = require('../config/jsonSecret');
+const AuthService = require('../service/authService');
 const userService = new UserService();
+const authService = new AuthService();
 
 class userController {
   static async register(req, res) {
@@ -7,7 +11,11 @@ class userController {
 
     try {
       const user = await userService.register({ name, email, password });
-      res.status(201).send(user);
+
+      if (user) {
+        const { accessToken } = await authService.login({ email: user.email, password });
+        res.status(201).send({ user, accessToken });
+      }
     } catch (error) {
       res.status(400).send({ message: error.message});
     }

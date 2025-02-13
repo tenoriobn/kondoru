@@ -5,17 +5,15 @@ import RegistrationTerm from './RegistrationTerm';
 import Button from 'src/components/Button';
 import { StyledFormBody, StyledFormFooter, StyledForm } from 'src/styles/components/StyledForm';
 import { stateActiveAuthForm } from 'src/store/atom';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useClickOutside } from 'src/hooks/utils/useClickOutside';
 import useRegister from 'src/hooks/api/auth/useRegister';
 
 export default function RegistrationForm() {
-  const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
   const formRef = useRef<HTMLFormElement>(null);
+  const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
+  const { authorization, setAuthorization, register, handleSubmit, errors, onSubmit } = useRegister();
   useClickOutside(formRef, () => setActiveAuthForm(''));
-
-  const { register, handleSubmit, errors, onSubmit } = useRegister();
-  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <StyledForm
@@ -29,7 +27,7 @@ export default function RegistrationForm() {
 
       <StyledFormBody>
         <RegistrationInputs register={register} errors={errors} />
-        <RegistrationTerm setIsChecked={setIsChecked} />
+        <RegistrationTerm setAuthorization={setAuthorization} />
       </StyledFormBody>
 
       <StyledFormFooter>
@@ -41,7 +39,8 @@ export default function RegistrationForm() {
           $maxWidth="166px"
           $width="100%"
           $hoverBackgroundColor="white"
-          $disabled={!isChecked}
+          $disabled={!authorization}
+          $title={!authorization ? 'Você precisa aceitar os termos para se cadastrar!' : ''}
         >
           Cadastrar
         </Button>

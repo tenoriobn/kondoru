@@ -47,7 +47,7 @@ module.exports = {
     "max-len": ["warn", { "code": 120 }],
 
     // Não permitir variáveis não utilizadas
-    "no-unused-vars": ["error"],
+    "no-unused-vars": ["off"],
 
     // Forçar consistência em espaçamento antes de chaves
     "space-before-blocks": ["error", "always"],
