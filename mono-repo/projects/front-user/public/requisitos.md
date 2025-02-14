@@ -5,18 +5,20 @@
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
-  * Criar seção `ElegantShowcase`
-    - Criar player e adicionar video que está em /public/video
 
 
+  * Corrigir e Aplicar box-shadow em elementos
+  * Corrigir `X` do modal muito distante da borda
   * Adicionar verificação de identação e etc...
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
   * Acompanhar Performance e realizar correções necessárias
-  * Adicionar verificação de identação e etc...
-  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
-  * Acompanhar Performance e realizar correções necessárias
+
+
+
+
+
+
 
         
   * `PropertiesCarousel`
