@@ -4,16 +4,23 @@ import { IUseLoginData } from 'src/interfaces/api/auth/ILogin';
 import postData from 'src/service/requests/postData';
 import postAccessToken from 'src/service/requests/postAccessToken';
 import { loginSchema } from 'src/utils/loginValidation';
+import React, { useEffect, useState } from 'react';
 
-const useLogin = () => {
+const useLogin = (setActiveAuthForm: React.Dispatch<React.SetStateAction<string>>) => {
+  const [errorMessage, setErrorMessage] = useState('');
   const { 
     register, 
     handleSubmit, 
-    formState: { errors }, 
-    setError, 
+    formState: { errors },
   } = useForm<IUseLoginData>({
     resolver: zodResolver(loginSchema),
   });
+
+  useEffect(() => {
+    if (!errors.email && !errors.password) {
+      setErrorMessage('');
+    }
+  }, [errors.email, errors.password]);
 
   const onSubmit: SubmitHandler<IUseLoginData> = async(data) => {
     try {
@@ -22,16 +29,16 @@ const useLogin = () => {
       if (response?.accessToken) {
         postAccessToken({ accessToken: response?.accessToken });
       }
+
+      setErrorMessage('');
+      setActiveAuthForm('');
     } catch (error) {
-      if (error === 'Usuário não cadastrado!') {
-        setError('email', { type: 'manual',  message: error });
-      } else {
-        console.error('error: ', error);
-      }
+      console.error(error);
+      setErrorMessage('Usuário ou senha incorretos.');
     }
   };
 
-  return { register, handleSubmit, onSubmit, errors };
+  return { register, handleSubmit, onSubmit, errors, errorMessage };
 };
 
 export default useLogin;

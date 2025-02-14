@@ -11,5 +11,6 @@ export interface ILoginInputsProps {
   register: UseFormRegister<IUseLoginData>;
   errors: {
     [K in keyof IUseLoginData]?: FieldError;
-  }
+  },
+  errorMessage: string;
 }

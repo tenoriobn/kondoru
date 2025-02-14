@@ -83,6 +83,11 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
   line-height: 1.25rem;
   width: 100%;
 
+  &:-webkit-autofill { 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white !important;
+  }
+
   &::placeholder {
     color: ${({ theme }) => theme.colors['gray-400']};
   }

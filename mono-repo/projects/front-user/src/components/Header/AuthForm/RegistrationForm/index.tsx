@@ -12,7 +12,7 @@ import useRegister from 'src/hooks/api/auth/useRegister';
 export default function RegistrationForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const setActiveAuthForm = useSetRecoilState(stateActiveAuthForm);
-  const { authorization, setAuthorization, register, handleSubmit, errors, onSubmit } = useRegister();
+  const { authorization, setAuthorization, register, handleSubmit, errors, onSubmit } = useRegister(setActiveAuthForm);
   useClickOutside(formRef, () => setActiveAuthForm(''));
 
   return (

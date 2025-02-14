@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ITestimonialCardProps } from 'src/interfaces/homePage/data/ITestimonialCard';
 import { StyledCardContainer, StyledCardTitle, StyledText } from 'src/styles/components/StyledCard';
+import { shadowSM } from 'src/styles/mixins/boxShadow';
 
 const StyledTestimonialCardContainer = styled(StyledCardContainer)`
   align-items: center;
@@ -12,6 +13,8 @@ const StyledCardImage = styled.img`
   max-width: 120px;
   width: 100%;
   margin-bottom: 1rem;
+
+  ${shadowSM}
 `;
 
 const StyledCardTestimony = styled(StyledText)`
