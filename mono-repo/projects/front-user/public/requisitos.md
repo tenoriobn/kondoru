@@ -5,7 +5,7 @@
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
-
+ 
 
   * Corrigir e Aplicar box-shadow em elementos
   * Corrigir `X` do modal muito distante da borda
