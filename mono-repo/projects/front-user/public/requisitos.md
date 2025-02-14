@@ -6,7 +6,6 @@
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
 
-
   * Corrigir e Aplicar box-shadow em elementos
   * Corrigir `X` do modal muito distante da borda
   * Adicionar verificação de identação e etc...
