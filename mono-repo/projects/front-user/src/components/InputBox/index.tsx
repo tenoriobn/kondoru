@@ -1,4 +1,5 @@
 import { IInputBoxProps, ILabelProps } from 'src/interfaces/common/IInputBox';
+import { shadowSM } from 'src/styles/mixins/boxShadow';
 import styled from 'styled-components';
 
 const Label = styled.label<ILabelProps>`
@@ -12,6 +13,7 @@ const Label = styled.label<ILabelProps>`
   height: 64px;
   padding: ${({ $padding }) => $padding || '0.5rem 2rem'};;
   transition: ${({ theme }) => theme.transitions.smoothTransition};
+  ${shadowSM}
 
   svg {
     flex-shrink: 0;

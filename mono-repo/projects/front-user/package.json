@@ -13,10 +13,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kondoru/design-system": "file:../../packages/design-system",
     "next": "15.1.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@kondoru/design-system": "file:../../packages/design-system"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@kondoru/eslint-commons": "file:../../setup/eslint-commons",

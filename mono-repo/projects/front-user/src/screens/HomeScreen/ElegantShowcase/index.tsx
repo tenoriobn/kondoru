@@ -8,6 +8,8 @@ const StyledContainer = styled(StyledLayoutWrapper)`
   align-items: center;
   justify-items: center;
   gap: 2rem;
+  height: 100%;
+  min-height: 496px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
