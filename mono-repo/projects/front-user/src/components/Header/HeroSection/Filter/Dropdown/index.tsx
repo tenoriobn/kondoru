@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
 import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/homePage/data/IDropdown';
+import { shadowSM } from 'src/styles/mixins/boxShadow';
 
 const StyledDropdownContainer = styled.div`
   position: relative;
@@ -33,6 +34,8 @@ const StyledDropdown = styled.div<{ $isOpen: boolean, $selectedOption: string }>
   height: 100%;
   transition: ${({ theme }) => theme.transitions.smoothTransitionBg};
 
+  ${shadowSM}
+
   label {
     color: ${({ theme }) => theme.colors['white-80']};
     font-size: 1.5rem;
@@ -61,6 +64,7 @@ const StyledDropdown = styled.div<{ $isOpen: boolean, $selectedOption: string }>
 
   @media (min-width: 992px) {
     border-radius: 0;
+    box-shadow: none;
 
     ${StyledDropdownContainer}:nth-of-type(n+2) & {
       border-radius: 0;

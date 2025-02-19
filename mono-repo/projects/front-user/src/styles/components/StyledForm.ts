@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import CloseIcon from 'public/icons/close.svg';
 import horizontalPadding from '../mixins/horizontalPadding';
+import { filterXL } from '../mixins/filterShadow';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -12,19 +13,26 @@ export const StyledForm = styled.form`
   width: 100%;
   background: ${({ theme }) => theme.colors['gradient-dark-slate']};
   border-radius: 1.5rem;
-  padding: 2rem 0;
+  padding: 1.5rem 0 2rem 0;
   ${horizontalPadding}
 `;
 
 export const StyledFormHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
+  position: relative;
   
   div {
     display: grid;
     gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    div {
+      margin-top: 2.25rem;
+    }
   }
 `;
 
@@ -56,6 +64,7 @@ export const StyledCloseIcon = styled(CloseIcon)`
   align-self: flex-end;
   cursor: pointer;
   margin-bottom: 1rem;
+  ${filterXL}
   
   g {
     stroke: ${({ theme }) => theme.colors['gray-400']};
@@ -66,6 +75,11 @@ export const StyledCloseIcon = styled(CloseIcon)`
     g {
       stroke: ${({ theme }) => theme.colors['white']};
     }
+  }
+
+  @media (min-width: 768px) {
+    position: absolute;
+    right: -40px;
   }
 `;
 
@@ -104,6 +118,8 @@ export const StyledCheckbox = styled.input`
 
     width: 32px;
     height: 32px;
+
+    ${filterXL}
 
     &:checked::after {
       content: "✔";

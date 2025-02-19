@@ -6,8 +6,8 @@
       - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
 
 
-  * Corrigir e Aplicar box-shadow em elementos
-  * Corrigir `X` do modal muito distante da borda
+  OK - Corrigir `X` do modal muito distante da borda
+  OK - Corrigir e Aplicar box-shadow em elementos
   * Adicionar verificação de identação e etc...
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
