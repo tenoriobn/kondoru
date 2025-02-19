@@ -1,5 +1,6 @@
 import { IInputBoxProps, ILabelProps } from 'src/interfaces/common/IInputBox';
 import { shadowSM } from 'src/styles/mixins/boxShadow';
+import { filterXL } from 'src/styles/mixins/filterShadow';
 import styled from 'styled-components';
 
 const Label = styled.label<ILabelProps>`
@@ -17,6 +18,7 @@ const Label = styled.label<ILabelProps>`
 
   svg {
     flex-shrink: 0;
+    ${filterXL}
 
     path {
       transition: ${({ theme }) => theme.transitions.smoothTransition};

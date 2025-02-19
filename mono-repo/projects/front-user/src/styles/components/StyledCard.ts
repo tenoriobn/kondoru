@@ -15,8 +15,6 @@ export const StyledCardContainer = styled(Link)`
 export const StyledCardImage = styled.img`
   border-radius: 1.5rem;
   width: 100%;
-
-  background-clip: box-shadow;
 `;
 
 export const StyledCardTitle = styled.h3`

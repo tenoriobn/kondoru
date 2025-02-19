@@ -6,6 +6,7 @@ import { useSetRecoilState } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';
 import { IMenuMobile } from 'src/interfaces/homePage/data/IMenu';
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
+import { filterXL } from 'src/styles/mixins/filterShadow';
 
 const MenuContainer = styled.div<IMenuMobile>`
   background-image: ${({theme}) => theme.colors['gradient-dark-slate-80']}, 
@@ -41,6 +42,7 @@ const MenuContainer = styled.div<IMenuMobile>`
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow: inherit;
   }
 `;
 
@@ -57,6 +59,7 @@ const CloseButtonContainer = styled.div`
 const StyledCloseIcon = styled(CloseIcon)` 
   width: 24px;
   height: 24px;
+  ${filterXL}
 
   g {
     stroke: ${({ theme }) => theme.colors['white']};
