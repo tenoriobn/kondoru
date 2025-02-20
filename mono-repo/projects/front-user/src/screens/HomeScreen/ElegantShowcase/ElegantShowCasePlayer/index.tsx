@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import usePlayerScript from './usePlayerScript';
+import usePlayerScript from 'src/hooks/player/usePlayerScript';
 import { shadowXL } from 'src/styles/mixins/boxShadow';
 
 const StyledPlayerContainer = styled.div`
@@ -19,6 +19,10 @@ const StyledPlayerContainer = styled.div`
   video {
     object-fit: cover!important;
     cursor: pointer!important;
+  }
+
+  video, canvas, img {
+    overflow: hidden !important;
   }
 `;
 

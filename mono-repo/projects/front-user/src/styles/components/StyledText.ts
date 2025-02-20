@@ -14,6 +14,11 @@ export const StyledHeading = styled.h3`
   font-weight: 500;
   text-align: center;
   color: ${({ theme }) => theme.colors['gray-400']};
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+    line-height: 2rem;
+  }
 `;
 
 export const StyledParagraph = styled.p`

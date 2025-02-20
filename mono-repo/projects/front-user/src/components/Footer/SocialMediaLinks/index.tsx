@@ -2,7 +2,6 @@ import Link from 'next/link';
 import InstagramIcon from 'public/icons/instagram.svg';
 import LinkedinIcon from 'public/icons/linkedin.svg';
 import YoutubeIcon from 'public/icons/youtube.svg';
-import { filterXL } from 'src/styles/mixins/filterShadow';
 import styled from 'styled-components';
 
 const StyledContainerSocialLinks = styled.div`
@@ -10,8 +9,6 @@ const StyledContainerSocialLinks = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-
-  ${filterXL}
 `;
 
 const socialLinks = [

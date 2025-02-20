@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import ArrowIcon from 'public/icons/arrow.svg';
 import { IDropdownVisibility, IDropdownHandlers } from 'src/interfaces/homePage/data/IDropdown';
-import { shadowSM } from 'src/styles/mixins/boxShadow';
 
 const StyledDropdownContainer = styled.div`
   position: relative;
@@ -33,8 +32,6 @@ const StyledDropdown = styled.div<{ $isOpen: boolean, $selectedOption: string }>
   padding: 0.5rem 1.5rem;
   height: 100%;
   transition: ${({ theme }) => theme.transitions.smoothTransitionBg};
-
-  ${shadowSM}
 
   label {
     color: ${({ theme }) => theme.colors['white-80']};

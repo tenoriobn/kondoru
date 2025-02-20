@@ -5,14 +5,10 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { ReactNode } from 'react';
-import { filterSM } from 'src/styles/mixins/filterShadow';
 
 const StyledSwiper = styled(Swiper)`
-  ${filterSM}
-
   .swiper-wrapper {
     margin-bottom: 2rem;
-  
   }
 
   .swiper-pagination {

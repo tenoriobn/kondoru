@@ -5,9 +5,8 @@ import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
 import AuthForm from './AuthForm';
 
 const StyledHeader = styled.header`
-  background-image: url('/images/background-header.png');
+  background: url('/images/background-header.jpg') no-repeat center center;
   background-size: cover;
-  background-position: center;
 `;
 
 const StyledContainerHeader = styled(StyledLayoutWrapper)`

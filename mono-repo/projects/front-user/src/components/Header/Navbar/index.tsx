@@ -3,7 +3,6 @@ import MenuIcon from 'public/icons/menu-hamburguer.svg';
 import Button from 'components/Button';
 import useResponsiveMenu from 'src/hooks/useHeader/useResponsiveMenu';
 import Menu from './Menu';
-import { filterXL } from 'src/styles/mixins/filterShadow';
 
 const MobileMenuButtonContainer = styled.div`
   display: flex;
@@ -17,7 +16,6 @@ const MobileMenuButtonContainer = styled.div`
 const StyledMenuIcon = styled(MenuIcon)`
   width: 30px;
   height: 24px;
-  ${filterXL}
 `;
 
 export default function Navbar() {
