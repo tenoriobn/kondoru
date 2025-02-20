@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import CloseIcon from 'public/icons/close.svg';
 import horizontalPadding from '../mixins/horizontalPadding';
-import { filterXL } from '../mixins/filterShadow';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -9,12 +8,37 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  max-width: 786px;
+  max-width: 768px;
   width: 100%;
   background: ${({ theme }) => theme.colors['gradient-dark-slate']};
   border-radius: 1.5rem;
-  padding: 1.5rem 0 2rem 0;
+  padding: 2rem 0;
   ${horizontalPadding}
+
+  position: relative;
+  overflow: hidden;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 78px;
+    background-image: url("/images/wave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    z-index: 0;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: -32px;
+    transform: rotate(180deg);
+  }
 `;
 
 export const StyledFormHeader = styled.div`
@@ -27,12 +51,6 @@ export const StyledFormHeader = styled.div`
   div {
     display: grid;
     gap: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    div {
-      margin-top: 2.25rem;
-    }
   }
 `;
 
@@ -64,7 +82,6 @@ export const StyledCloseIcon = styled(CloseIcon)`
   align-self: flex-end;
   cursor: pointer;
   margin-bottom: 1rem;
-  ${filterXL}
   
   g {
     stroke: ${({ theme }) => theme.colors['gray-400']};
@@ -75,11 +92,6 @@ export const StyledCloseIcon = styled(CloseIcon)`
     g {
       stroke: ${({ theme }) => theme.colors['white']};
     }
-  }
-
-  @media (min-width: 768px) {
-    position: absolute;
-    right: -40px;
   }
 `;
 
@@ -118,8 +130,6 @@ export const StyledCheckbox = styled.input`
 
     width: 32px;
     height: 32px;
-
-    ${filterXL}
 
     &:checked::after {
       content: "✔";

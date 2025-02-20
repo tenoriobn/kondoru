@@ -1,5 +1,4 @@
 import { IButtonProps } from 'src/interfaces/common/IButton';
-import { shadowSM } from 'src/styles/mixins/boxShadow';
 import styled from 'styled-components';
 
 export const StyledButton = styled.button<IButtonProps>`
@@ -25,8 +24,6 @@ export const StyledButton = styled.button<IButtonProps>`
   
   padding: ${({ $padding }) => $padding || ''};
   transition: ${({ theme }) => theme.transitions.smoothTransition};
-
-  ${shadowSM}
 
   ${({ disabled, theme, $hoverColor, $activeColor, $hoverBackgroundColor, $activeBackgroundColor }) => {
     if (disabled) {

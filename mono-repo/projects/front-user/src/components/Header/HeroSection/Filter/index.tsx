@@ -18,9 +18,6 @@ const StyledContainerFilter = styled.form`
 
   @media (min-width: 992px) {
     grid-template-columns: repeat(5, 1fr);
-
-    box-shadow: 12px 10px 15px -14px ${({ theme }) => theme.colors['black']};
-    border-radius: 3rem;
   }
 `;
 

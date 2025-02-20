@@ -1,13 +1,13 @@
 <!-- A FAZER -->
-  * Corrigir fundo do Header e fundo do Menu Mobile
-
+  OK - Corrigir fundo do Header e fundo do Menu Mobile
   * Desenvolver Modals (LOGIN/Registro);
-      - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
-      - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
+      OK - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
+      OK - ADICIONAR WAVE (ONDAS) NO MODAL DE registro;
+      
+  * Aplicar boxshadow e filter no figma e depois no projeto
 
 
-  OK - Corrigir `X` do modal muito distante da borda
-  OK - Corrigir e Aplicar box-shadow em elementos
+
   * Adicionar verificação de identação e etc...
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
