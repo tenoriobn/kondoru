@@ -1,10 +1,15 @@
 name: "CI (Integração Continua): Validate Code"
 
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_PR_NUMBER: ${{ github.event.pull_request.number }}
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
   pull_request:
     types: [opened, synchronize]
 
@@ -28,3 +33,7 @@ jobs:
       - name: Run Linter
         working-directory: ./mono-repo
         run: yarn lint:user
+
+      - name: Run Preview Deploy
+        working-directory: ./mono-repo
+        run: yarn deploy:preview-user
