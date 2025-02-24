@@ -19,7 +19,8 @@ export async function getStaticProps() {
 export default function HomePage({ homeData }: IHomeDataProps) {
   return (
     <HomePageProvider homeData={homeData}>
-      <HomeScreen />
+      {/* <HomeScreen /> */}
+      <p>isso aqui é um teste</p>
     </HomePageProvider>
   );
 }
