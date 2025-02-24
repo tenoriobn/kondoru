@@ -9,7 +9,7 @@ import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 
 const MenuContainer = styled.div<IMenuMobile>`
   background-image: ${({theme}) => theme.colors['gradient-dark-slate-80']}, 
-  url('/images/background-header.jpg');
+  url('/images/background-header.webp');
   background-size: cover;
   background-position: center;
   background-color: ${({theme}) => theme.colors['dark-slate-900']};
