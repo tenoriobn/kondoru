@@ -2,10 +2,11 @@
   OK - Corrigir fundo do Header e fundo do Menu Mobile
   OK - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
   OK - ADICIONAR WAVE (ONDAS) NO MODAL DE registro;
+  OK - Corrigir CI para aplicar lint e preview deploy ao realizar PR e Deploy Production apenas na Main
+  OK - Alterar Formato das imagens testar `WebP/AVIF`
 
-  * Corrigir CI para apenas aplicar lint e PR com Main realizar deploy
+  
   * Aplicar boxshadow e filter no figma e depois no projeto
-  * Alterar Formato das imagens testar `WebP/AVIF`
   * Ao logar substituir `Login/cadastre-se` pela foto do perfil ou redirecionar para outra página de usuários
 
 

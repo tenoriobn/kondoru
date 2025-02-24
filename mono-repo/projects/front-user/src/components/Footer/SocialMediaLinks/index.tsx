@@ -11,6 +11,14 @@ const StyledContainerSocialLinks = styled.div`
   gap: 1rem;
 `;
 
+const StyledSocialLink = styled(Link)`
+  transition: ${({ theme }) => theme.transitions.smoothTransition};
+
+  &:hover {
+    opacity: .6;
+  }
+`;
+
 const socialLinks = [
   { href: 'https://www.instagram.com/', icon: <InstagramIcon /> },
   { href: 'https://www.linkedin.com/', icon: <LinkedinIcon /> },
@@ -21,9 +29,9 @@ export default function SocialMediaLinks() {
   return (
     <StyledContainerSocialLinks>
       {socialLinks.map((link, index) => (
-        <Link key={index} href={link.href} target='_blank'>
+        <StyledSocialLink key={index} href={link.href} target='_blank'>
           {link.icon}
-        </Link>
+        </StyledSocialLink>
       ))}
     </StyledContainerSocialLinks>
   );
