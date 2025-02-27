@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import usePlayerScript from 'src/hooks/player/usePlayerScript';
-import { shadowXL } from 'src/styles/mixins/boxShadow';
 
 const StyledPlayerContainer = styled.div`
   width: 100%;
@@ -12,8 +11,6 @@ const StyledPlayerContainer = styled.div`
   .pjscssed {
     border-radius: 1.5rem;
     width: 100%;
-
-    ${shadowXL}
   }
 
   video {

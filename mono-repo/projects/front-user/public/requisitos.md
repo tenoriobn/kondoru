@@ -5,10 +5,6 @@
   OK - Corrigir CI para aplicar lint e preview deploy ao realizar PR e Deploy Production apenas na Main
   OK - Alterar Formato das imagens testar `WebP/AVIF`
 
-  
-  * Aplicar boxshadow e filter no figma e depois no projeto
-  * Ao logar substituir `Login/cadastre-se` pela foto do perfil ou redirecionar para outra página de usuários
-
 
 
   * Adicionar verificação de identação e etc...
@@ -21,7 +17,7 @@
 
 
 
-
+  * Ao logar substituir `Login/cadastre-se` pela foto do perfil ou redirecionar para outra página de usuários
         
   * `PropertiesCarousel`
     - AO CLICAR NO CARD, ELE LEVARA PARA UMA PÁGINA DE ACORDO COM O SLUG DO CARD GERANDO AS INFOS DO ANUNCIO EM DESTAQUE (FAZER FUTURAMENTE)
