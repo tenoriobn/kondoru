@@ -69,13 +69,13 @@ export default function Filter() {
 
       <StyledButtonContainer>
         <Button
-          $backgroundColor="dark-slate-800"
+          $backgroundColor="dark-slate-84"
           $color="white"
           $borderRadius="rounded-48"
           $padding="8px"
           $height="100%"
-          $hoverBackgroundColor="dark-slate-58"
-          $activeBackgroundColor="dark-slate-700"
+          $hoverBackgroundColor="dark-slate-800"
+          $activeBackgroundColor="dark-slate-900"
           $width="100%"
         >
           Filtrar

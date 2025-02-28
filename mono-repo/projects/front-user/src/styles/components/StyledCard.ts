@@ -15,7 +15,6 @@ export const StyledCardContainer = styled(Link)`
 export const StyledCardImage = styled.img`
   border-radius: 1.5rem;
   width: 100%;
-  box-shadow: 12px 10px 15px -8px ${({ theme }) => theme.colors['black']};
   clip-path: inset(-20px);
 `;
 
