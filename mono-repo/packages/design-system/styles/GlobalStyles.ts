@@ -30,9 +30,10 @@ const GlobalStyles = createGlobalStyle`
     }
     ::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.colors['white-80']};
+      border-radius: .125rem;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: ${({ theme }) => theme.colors['dark-slate-58']}; 
+      background-color: ${({ theme }) => theme.colors['dark-slate-58']};
       border-radius: .125rem;
     }
   }

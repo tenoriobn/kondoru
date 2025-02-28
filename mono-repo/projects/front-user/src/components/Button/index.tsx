@@ -3,12 +3,10 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button<IButtonProps>`
   border: none;
-  background-color: ${({ $backgroundColor, theme }) => 
-    $backgroundColor ? theme.colors[$backgroundColor] : ''};
-  border-radius: ${({ $borderRadius, theme }) => 
-    $borderRadius ? theme.borderRadius[$borderRadius] : ''};
-  color: ${({ $color, theme }) => 
-    $color ? theme.colors[$color] : ''};
+  background-color: ${({ $backgroundColor, theme }) => $backgroundColor ? theme.colors[$backgroundColor] : ''};
+  border-radius: ${({ $borderRadius, theme }) => $borderRadius ? theme.borderRadius[$borderRadius] : ''};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  color: ${({ $color, theme }) => $color ? theme.colors[$color] : ''};
   font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
   line-height: ${({ $lineHeight }) => $lineHeight || '1.5rem'};
   font-weight: ${({ $fontWeight }) => $fontWeight || ''};
@@ -21,73 +19,35 @@ export const StyledButton = styled.button<IButtonProps>`
   width: ${({ $width }) => $width || ''};
   max-width: ${({ $maxWidth }) => $maxWidth || ''};
   height: ${({ $height }) => $height || ''};
-  
+
   padding: ${({ $padding }) => $padding || ''};
   transition: ${({ theme }) => theme.transitions.smoothTransition};
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
+  z-index: 1;
 
-  ${({ disabled, theme, $hoverColor, $activeColor, $hoverBackgroundColor, $activeBackgroundColor }) => {
-    if (disabled) {
-      return `
-        cursor: not-allowed;
-        opacity: 0.6;
-      `;
-    }
-
-    return `
-      &:hover {
+  &:hover {
+    ${({ disabled, theme, $hoverColor, $hoverBackgroundColor }) =>
+    !disabled && `
         color: ${$hoverColor ? theme.colors[$hoverColor] : ''};
         background-color: ${$hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''};
-      }
+      `
+}
+  }
 
-      &:active {
+  &:active {
+    ${({ disabled, theme, $activeColor, $activeBackgroundColor }) =>
+    !disabled && `
         color: ${$activeColor ? theme.colors[$activeColor] : ''};
         background-color: ${$activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''};
-      }
-    `;
-  }}
+      `
+}
+  }
 `;
 
-export default function Button({ 
-  children, 
-  $backgroundColor, 
-  $borderRadius, 
-  $color, 
-  $padding, 
-  $height, 
-  $hoverColor,
-  $activeColor,
-  $hoverBackgroundColor,
-  $activeBackgroundColor,
-  $width,
-  $maxWidth,
-  $fontSize,
-  $fontWeight,
-  $lineHeight,
-  $textDecoration,
-  onClick, 
-  $disabled,
-  $title,
-}: IButtonProps) {
+export default function Button({ children, ...props }: IButtonProps) {
   return (
-    <StyledButton 
-      $backgroundColor={$backgroundColor} 
-      $borderRadius={$borderRadius}
-      $color={$color}
-      $padding={$padding}
-      $height={$height}
-      $hoverColor={$hoverColor}
-      $activeColor={$activeColor}
-      $hoverBackgroundColor={$hoverBackgroundColor}
-      $activeBackgroundColor={$activeBackgroundColor}
-      $width={$width}
-      $maxWidth={$maxWidth}
-      $fontSize={$fontSize}
-      $lineHeight={$lineHeight}
-      $fontWeight={$fontWeight}
-      $textDecoration={$textDecoration}
-      onClick={onClick} 
-      disabled={$disabled}
-      title={$title}
+    <StyledButton
+      {...props}
     >
       {children}
     </StyledButton>
