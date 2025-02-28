@@ -82,14 +82,36 @@ const StyledDropdownList = styled.ul<IDropdownVisibility>`
   display: block;
   background-color: ${({ theme }) => theme.colors['dark-slate-800']};
   border-radius: 0.75rem;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.40);
+  
   position: absolute;
   top: calc(100% + 12px);
   left: 0;
   right: 0;
   z-index: 10;
-  max-height: ${({ $isOpen }) => ($isOpen ? '200px' : '0')};
-  overflow-y: auto;
-  transition: ${({ theme }) => theme.transitions.smoothTransition};
+  max-height: ${({ $isOpen }) => ($isOpen ? '176.48px' : '0')};
+  overflow-y: hidden;
+  transition: max-height 0.2s ease-in-out;
+
+  ${({ $isOpen }) => $isOpen && 'animation: enable-scroll 0.2s forwards 0.2s;'};
+
+  @keyframes enable-scroll {
+    to { overflow-y: auto; }
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors['dark-slate-800']};
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors['slate-14']};
+    border-radius: 0.25rem;
+  }
 `;
 
 const StyledDropdownListItem = styled.li`
@@ -99,13 +121,13 @@ const StyledDropdownListItem = styled.li`
   transition: ${({ theme }) => theme.transitions.smoothTransition};
 
   &.selected {
-    background-color: ${({ theme }) => theme.colors['zinc-400']}!important;
-    color: ${({ theme }) => theme.colors['dark-slate-800']}!important;
+    background-color: ${({ theme }) => theme.colors['slate-14']}!important;
+    color: ${({ theme }) => theme.colors['white']}!important;
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors['zinc-400']};
-    color: ${({ theme }) => theme.colors['dark-slate-800']};
+    background-color: ${({ theme }) => theme.colors['slate-40']};
+    color: ${({ theme }) => theme.colors['white']};
   }
 `;
 
@@ -120,10 +142,10 @@ export default function Dropdown({
 
   return (
     <StyledDropdownContainer>
-      <StyledDropdown 
-        onClick={onToggle} 
-        $isOpen={isOpen} 
-        $selectedOption={selectedOption} 
+      <StyledDropdown
+        onClick={onToggle}
+        $isOpen={isOpen}
+        $selectedOption={selectedOption}
         title={selectedOption || label}
       >
         <label>
@@ -157,5 +179,5 @@ export default function Dropdown({
 
     </StyledDropdownContainer>
   );
-  
+
 };

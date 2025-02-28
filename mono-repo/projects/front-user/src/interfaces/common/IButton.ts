@@ -1,21 +1,21 @@
 export interface IButtonProps {
-  $backgroundColor?: string; 
-  $borderRadius?: string;   
-  $color?: string;        
-  $padding?: string;     
-  $height?: string;  
+  $backgroundColor?: string;
+  $color?: string;
+  $borderRadius?: string;
+  $fontSize?: string;
+  $fontWeight?: string;
+  $lineHeight?: string;
+  $textDecoration?: string;
   $hoverColor?: string;
   $activeColor?: string;
   $hoverBackgroundColor?: string;
+  $activeBackgroundColor?: string;
+  $height?: string;
   $width?: string;
   $maxWidth?: string,
-  $activeBackgroundColor?: string;
-  $fontSize?: string;
-  $lineHeight?: string;
-  $fontWeight?: string;
-  $textDecoration?: string;
+  $padding?: string;
+  disabled?: boolean;
+  title?: string;
   onClick?: () => void;
   children: React.ReactNode;
-  $disabled?: boolean;
-  $title?: string;
 }
