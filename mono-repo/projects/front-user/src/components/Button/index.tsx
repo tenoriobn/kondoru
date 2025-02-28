@@ -45,8 +45,6 @@ export const StyledButton = styled.button<IButtonProps>`
 `;
 
 export default function Button({ children, ...props }: IButtonProps) {
-  console.log(props.$backgroundColor);
-
   return (
     <StyledButton
       {...props}
