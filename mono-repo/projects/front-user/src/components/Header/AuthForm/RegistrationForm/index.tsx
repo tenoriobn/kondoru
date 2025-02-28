@@ -20,7 +20,7 @@ export default function RegistrationForm() {
       ref={formRef}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <FormHeader 
+      <FormHeader
         title='KondoRu'
         subtitle='Junte-se à comunidade'
       />
@@ -39,8 +39,8 @@ export default function RegistrationForm() {
           $maxWidth="166px"
           $width="100%"
           $hoverBackgroundColor="white"
-          $disabled={!authorization}
-          $title={!authorization ? 'Você precisa aceitar os termos para se cadastrar!' : ''}
+          disabled={!authorization}
+          title={!authorization ? 'Você precisa aceitar os termos para se cadastrar!' : ''}
         >
           Cadastrar
         </Button>
