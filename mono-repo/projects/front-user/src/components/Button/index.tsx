@@ -31,7 +31,7 @@ export const StyledButton = styled.button<IButtonProps>`
         color: ${$hoverColor ? theme.colors[$hoverColor] : ''};
         background-color: ${$hoverBackgroundColor ? theme.colors[$hoverBackgroundColor] : ''};
       `
-}
+  }
   }
 
   &:active {
@@ -40,13 +40,11 @@ export const StyledButton = styled.button<IButtonProps>`
         color: ${$activeColor ? theme.colors[$activeColor] : ''};
         background-color: ${$activeBackgroundColor ? theme.colors[$activeBackgroundColor] : ''};
       `
-}
+  }
   }
 `;
 
 export default function Button({ children, ...props }: IButtonProps) {
-  console.log(props.$backgroundColor);
-
   return (
     <StyledButton
       {...props}
