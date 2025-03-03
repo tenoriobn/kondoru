@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import LocationIcon from 'public/icons/location.svg';
-import { 
-  StyledCardContainer, StyledCardImage, StyledCardTitle, StyledText, 
+import {
+  StyledCardContainer, StyledCardImage, StyledCardTitle, StyledText,
 } from 'src/styles/components/StyledCard';
 import { IPropertyCardProps } from 'src/interfaces/homePage/data/IPropertyCard';
 
@@ -29,7 +29,7 @@ export default function PropertyCard({ property }: IPropertyCardProps) {
   return (
     <StyledCardContainer href={property.href}>
       <StyledCardImage src={property.imgSrc} alt={property.title} />
-      
+
       <StyledContainerInfo>
         <StyledCardTitle title={property.title}>
           {property.title}
@@ -37,7 +37,7 @@ export default function PropertyCard({ property }: IPropertyCardProps) {
 
         <StyledContainerLocation>
           <LocationIcon />
-          
+
           <StyledLocation title={property.location}>
             {property.location}
           </StyledLocation>
