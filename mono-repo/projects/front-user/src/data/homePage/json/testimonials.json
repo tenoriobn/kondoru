@@ -3,42 +3,42 @@
     "href": "/",
     "name": "Camila Andrade",
     "image": "/thumbnails/profile/camila.webp",
-    "testimony": "Agradeço pelo atendimento excepcional e pela transparência no processo. Encontrei o imóvel ideal de forma rápida e segura."
+    "testimony": "Agradeço pela atenção e dedicação ao longo de todo o processo. A equipe me ajudou a encontrar a casa dos meus sonhos com total segurança e rapidez."
   },
   {
     "href": "/",
-    "name": "Pedro Martins",
-    "image": "/thumbnails/profile/pedro.webp",
-    "testimony": "Foi uma experiência tranquila e segura. Fui orientado em cada etapa e consegui um ótimo investimento. Recomendo para quem busca confiança e eficiência!"
+    "name": "André Moura",
+    "image": "/thumbnails/profile/andre.webp",
+    "testimony": "Recebi suporte completo e personalizado desde o início. A experiência foi ágil e eficiente, e consegui um excelente imóvel com ótimas condições."
   },
   {
     "href": "/",
-    "name": "Lucas Ferreira",
-    "image": "/thumbnails/profile/lucas.webp",
-    "testimony": "A equipe foi extremamente ágil e atenciosa. Em pouco tempo, consegui o imóvel que procurava e com ótimas condições. Só tenho a agradecer!"
-  },
-  {
-    "href": "/",
-    "name": "Lucas Ferreira",
-    "image": "/thumbnails/profile/lucas.webp",
-    "testimony": "A equipe foi extremamente ágil e atenciosa. Em pouco tempo, consegui o imóvel que procurava e com ótimas condições. Só tenho a agradecer!"
-  },
-  {
-    "href": "/",
-    "name": "Pedro Martins",
-    "image": "/thumbnails/profile/pedro.webp",
-    "testimony": "Foi uma experiência tranquila e segura. Fui orientado em cada etapa e consegui um ótimo investimento. Recomendo para quem busca confiança e eficiência!"
+    "name": "Beatriz Corrêa",
+    "image": "/thumbnails/profile/beatriz.webp",
+    "testimony": "Todo o processo foi claro e sem surpresas. A equipe me deu todo o suporte necessário, e estou muito satisfeita com a escolha que fiz para o meu novo lar."
   },
   {
     "href": "/",
     "name": "Lucas Ferreira",
     "image": "/thumbnails/profile/lucas.webp",
-    "testimony": "A equipe foi extremamente ágil e atenciosa. Em pouco tempo, consegui o imóvel que procurava e com ótimas condições. Só tenho a agradecer!"
+    "testimony": "A rapidez e a qualidade no atendimento me surpreenderam. Consegui encontrar um imóvel que atendesse às minhas expectativas de forma eficiente."
   },
   {
     "href": "/",
-    "name": "Pedro Martins",
+    "name": "Aline Santos",
+    "image": "/thumbnails/profile/aline.webp",
+    "testimony": "Foi um processo tranquilo e totalmente seguro. A equipe me ajudou a entender todas as opções e consegui um ótimo imóvel dentro do meu orçamento."
+  },
+  {
+    "href": "/",
+    "name": "Diogo Veras",
     "image": "/thumbnails/profile/pedro.webp",
-    "testimony": "Foi uma experiência tranquila e segura. Fui orientado em cada etapa e consegui um ótimo investimento. Recomendo para quem busca confiança e eficiência!"
+    "testimony": "A transparência e o compromisso durante todo o processo me impressionaram. Fui bem orientado e encontrei uma excelente oportunidade de investimento."
+  },
+  {
+    "href": "/",
+    "name": "João Ricardo",
+    "image": "/thumbnails/profile/joao.webp",
+    "testimony": "Fui atendido de forma muito atenciosa, com muita clareza nas explicações. Em pouco tempo, encontrei o imóvel ideal para as minhas necessidades."
   }
 ]

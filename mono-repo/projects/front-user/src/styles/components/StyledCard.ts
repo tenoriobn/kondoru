@@ -15,7 +15,8 @@ export const StyledCardContainer = styled(Link)`
 export const StyledCardImage = styled.img`
   border-radius: 1.5rem;
   width: 100%;
-  clip-path: inset(-20px);
+  aspect-ratio: 4 / 3.26; 
+  object-fit: cover;
 `;
 
 export const StyledCardTitle = styled.h3`
