@@ -14,7 +14,7 @@ const StyledContainerHeader = styled(StyledLayoutWrapper)`
   display: grid;
   grid-template-rows: auto 1fr 344px;
   gap: 6.25rem;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 2rem;
   padding-bottom: 6.25rem;
   width: 100%;
@@ -34,9 +34,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledContainerHeader>
-        <Navbar /> 
+        <Navbar />
         <HeroSection />
-        
+
         <AuthForm />
       </StyledContainerHeader>
     </StyledHeader>
