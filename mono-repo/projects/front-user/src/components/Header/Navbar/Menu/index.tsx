@@ -26,8 +26,10 @@ const MenuContainer = styled.div<IMenuMobile>`
   transition: ${({ theme }) => theme.transitions.smoothTransition};
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
   z-index: 99;
 
   padding: 2rem 0;
