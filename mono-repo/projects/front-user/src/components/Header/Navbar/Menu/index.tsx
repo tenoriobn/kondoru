@@ -8,11 +8,11 @@ import { IMenuMobile } from 'src/interfaces/homePage/data/IMenu';
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 
 const MenuContainer = styled.div<IMenuMobile>`
-  background-image: ${({theme}) => theme.colors['gradient-dark-slate-80']}, 
+  background-image: ${({ theme }) => theme.colors['gradient-dark-slate-80']}, 
   url('/images/background-header.webp');
   background-size: cover;
   background-position: center;
-  background-color: ${({theme}) => theme.colors['dark-slate-900']};
+  background-color: ${({ theme }) => theme.colors['dark-slate-900']};
 
   display: flex;
   flex-direction: column;
@@ -25,7 +25,8 @@ const MenuContainer = styled.div<IMenuMobile>`
   top: 0;
   transition: ${({ theme }) => theme.transitions.smoothTransition};
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   overflow-y: auto;
   z-index: 99;
 
@@ -40,7 +41,7 @@ const MenuContainer = styled.div<IMenuMobile>`
     left: 0%;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     overflow: inherit;
   }
 `;
@@ -80,9 +81,9 @@ export default function Menu({ $isMenuActive, $setIsMenuActive, $isMobile }: IMe
 
   return (
     <MenuContainer $isMenuActive={$isMenuActive}>
-      {$isMobile &&     
+      {$isMobile &&
         <CloseButtonContainer>
-          <Button 
+          <Button
             onClick={() => $setIsMenuActive && $setIsMenuActive(false)}
           >
             <StyledCloseIcon />
@@ -92,8 +93,8 @@ export default function Menu({ $isMenuActive, $setIsMenuActive, $isMobile }: IMe
 
       <MenuLinks $setIsMenuActive={$setIsMenuActive} />
 
-      <ButtonsAuthContainer> 
-        <Button 
+      <ButtonsAuthContainer>
+        <Button
           $color="gray-400"
           $hoverColor="white-80"
           $activeColor="white"
