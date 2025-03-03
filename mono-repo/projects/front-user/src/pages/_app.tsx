@@ -10,13 +10,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <meta name="theme-color" content="#243441" />
         <title>KondoRu - Conectando Você ao Imóvel dos Seus Sonhos</title>
       </Head>
 
-      <ThemeProvider 
-        theme={{ 
-          ...Theme, 
-          font: { mulish: mulish.style.fontFamily }, 
+      <ThemeProvider
+        theme={{
+          ...Theme,
+          font: { mulish: mulish.style.fontFamily },
         }}
       >
         <GlobalStyles />

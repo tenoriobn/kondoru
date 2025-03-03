@@ -6,6 +6,7 @@
   OK - Alterar Formato das imagens testar `WebP/AVIF`
   ok - Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
 
+  * Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
 
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
