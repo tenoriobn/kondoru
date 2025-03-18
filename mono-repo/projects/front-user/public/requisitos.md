@@ -5,8 +5,9 @@
   OK - Corrigir CI para aplicar lint e preview deploy ao realizar PR e Deploy Production apenas na Main
   OK - Alterar Formato das imagens testar `WebP/AVIF`
   ok - Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
+  ok - Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
 
-  * Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
+  Montar Readme
 
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
