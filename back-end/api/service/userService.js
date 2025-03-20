@@ -17,11 +17,14 @@ class UserService {
         id: uuid.v4(),
         name: dto.name,
         email: dto.email,
+        date_of_birth: dto.date_of_birth,
+        phone: dto.phone,
         password: hashPassword
       });
 
       return newPassword;
     } catch (error) {
+      console.log('error:', error)
       throw new Error('Erro ao cadastrar usuario');
     }
   };

@@ -7,10 +7,10 @@ const authService = new AuthService();
 
 class userController {
   static async register(req, res) {
-    const { name, email, password } = req.body;
+    const { name, email, date_of_birth, phone, password } = req.body;
 
     try {
-      const user = await userService.register({ name, email, password });
+      const user = await userService.register({ name, email, date_of_birth, phone, password });
 
       if (user) {
         const { accessToken } = await authService.login({ email: user.email, password });

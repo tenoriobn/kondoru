@@ -9,7 +9,7 @@ const router = Router();
 router.use(authenticated);
 
 router
-  .post('/api/user', permissionsRole(["Adicionar"]), UserController.register)
+  .post('/api/user', roles(["Administrador"]), UserController.register)
   .get('/api/users', UserController.getAllUsers)
   .get('/api/user/:id', permissionsRole(["Buscar"]), UserController.getUserById)
   .put('/api/user/:id', permissionsRole(["Editar"]), UserController.updateUser)
