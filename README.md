@@ -67,8 +67,8 @@ O **Eslint** é configurado para garantir a qualidade do código e boas prática
 Para rodar o ESLint no front-end do usuário:
 ```bash
 cd mono-repo
-yarn lint:user        # Procura erros
-yarn lint:user-fix    # Procura e corrige erros
+yarn lint:user        # Procura erros do front-end do usuário
+yarn lint:user-fix    # Procura e corrige erros do front-end do usuário
 ```
 
 ### Typescript
