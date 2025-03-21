@@ -7,7 +7,7 @@
   "license": "ISC",
   "description": "KondoRu: Uma API moderna e escalável para gerenciar e exibir imóveis residenciais e comerciais. Este projeto full stack conecta clientes a propriedades, oferecendo funcionalidades como filtros avançados, cadastro de imóveis, autenticação segura e integração com banco de dados. Ideal para uma experiência otimizada no setor imobiliário.",
   "scripts": {
-    "dev": "nodemon ./api/index.js",
+    "dev": "nodemon --exec ts-node ./src/api/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -22,7 +22,16 @@
     "uuid": "^11.0.3"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.11",
+    "@types/uuid": "^10.0.0",
     "nodemon": "^3.1.7",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "sequelize-typescript": "^2.1.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }
