@@ -15,7 +15,7 @@ router
   .get('/api/users', UserController.getAllUsers)
   .get('/api/user/:id', permissionsRole(["Buscar"]), UserController.getUserById)
   .put('/api/user/:id', permissionsRole(["Editar"]), UserController.updateUser)
-  .delete('/api/user/:id', permissionsRole(["Deletar"]), UserController.deleteUser);
+  .delete('/api/user/:id', roles(["Administrador"]), UserController.deleteUser);
 
 // Exportando o roteador
 export default router;

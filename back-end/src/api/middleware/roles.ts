@@ -36,6 +36,8 @@ const roles = (listRoles: string[]) => {
 
       return next();
     } catch (error) {
+      console.log('error:', error)
+
       res.status(500).send('Erro ao verificar permissões.');
       return; 
     }

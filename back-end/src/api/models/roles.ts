@@ -1,15 +1,15 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+
+import { Model, DataTypes, Sequelize } from 'sequelize';
+
+export default (sequelize: Sequelize) => {
   class roles extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate(models: any) {
       roles.belongsToMany(models.users, {
         through: models.users_roles,
         as: 'role_users',
@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   roles.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING
@@ -30,5 +31,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'roles',
   });
+  
   return roles;
 };

@@ -1,15 +1,10 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+
+import { Model, DataTypes, Sequelize } from 'sequelize';
+
+export default (sequelize: Sequelize) => {
   class permissions extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
+    static associate(models: any) {
       permissions.belongsToMany(models.users, {
         through: models.users_permissions,
         as: 'permission_users',
@@ -23,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+  
   permissions.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING
@@ -30,5 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'permissions',
   });
+
   return permissions;
 };
