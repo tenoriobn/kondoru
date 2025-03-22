@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import database from '../models'; 
+import database from '../database/models'; 
 
 const permissions = (listPermissions: string[]) => {
   return async (req: Request<{ userId: string }>, res: Response, next: NextFunction): Promise<void> => {

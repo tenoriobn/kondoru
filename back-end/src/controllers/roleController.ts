@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import RoleService from "../service/roleService"
-import { RoleData } from "../../interface/role";
+import { RoleData } from "../interface/role";
 const roleService = new RoleService();
 
 class RoleController {

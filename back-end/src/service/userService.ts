@@ -1,6 +1,6 @@
-import database from '../models'; 
+import database from '../database/models'; 
 import { hash } from 'bcryptjs';
-import { UserData, UserRegisterData } from 'interface/user';
+import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
 
 class UserService {

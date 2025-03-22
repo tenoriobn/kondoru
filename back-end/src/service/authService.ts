@@ -1,8 +1,8 @@
-import { AuthData } from "interface/auth";
-import database from '../models'; 
+import { AuthData } from "../interface/auth";
+import database from '../database/models'; 
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken'
-import jsonSecret from '../config/jsonSecret';
+import jsonSecret from '../database/config/jsonSecret';
 
 class AuthService {
   async login(dto: AuthData) {

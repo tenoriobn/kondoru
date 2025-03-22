@@ -1,5 +1,5 @@
-import { RegisterAclData, RegisterPermissionsRolesData } from 'interface/security';
-import database from '../models'; 
+import { RegisterAclData, RegisterPermissionsRolesData } from '../interface/security';
+import database from '../database/models'; 
 import Sequelize from 'sequelize'
 
 class SecurityService {

@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-import database from '../models'; 
-import { AuthenticatedRequest } from "interface/auth";
+import { NextFunction, Response } from "express";
+import database from '../database/models'; 
+import { AuthenticatedRequest } from "../interface/auth";
 
 const roles = (listRoles: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {

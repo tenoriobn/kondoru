@@ -1,7 +1,7 @@
 import { Response, NextFunction } from 'express';
 import { verify, decode } from 'jsonwebtoken';
-import jsonSecret from '../config/jsonSecret';
-import { AuthenticatedRequest } from 'interface/auth';
+import jsonSecret from '../database/config/jsonSecret';
+import { AuthenticatedRequest } from '../interface/auth';
 
 const authenticated = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   const token = req.headers.authorization;

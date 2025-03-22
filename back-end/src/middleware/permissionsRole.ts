@@ -1,8 +1,8 @@
-import { NextFunction, Request, Response } from "express";
-import database from '../models'; 
+import { NextFunction, Response } from "express";
+import database from '../database/models'; 
 import Sequelize from "sequelize";
-import { PermissionsRole, UserRole } from "interface/role";
-import { AuthenticatedRequest } from "interface/auth";
+import { PermissionsRole, UserRole } from "../interface/role";
+import { AuthenticatedRequest } from "../interface/auth";
 
 const permissionsRole = (listPermissions: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {

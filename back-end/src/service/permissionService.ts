@@ -1,5 +1,5 @@
-import { PermissionData } from 'interface/permission';
-import database from '../models'; 
+import { PermissionData } from '../interface/permission';
+import database from '../database/models'; 
 import { v4 as uuidv4 } from 'uuid';
 
 class PermissionService {

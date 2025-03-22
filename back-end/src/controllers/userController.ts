@@ -1,5 +1,5 @@
 import { sign } from 'jsonwebtoken';
-import jsonSecret from '../config/jsonSecret';
+import jsonSecret from '../database/config/jsonSecret';
 import UserService from '../service/userService';
 import AuthService from '../service/authService';
 import { Request, Response } from 'express';

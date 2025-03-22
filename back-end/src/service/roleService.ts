@@ -1,5 +1,5 @@
-import { RoleData } from '../../interface/role';
-import database from '../models'; 
+import { RoleData } from '../interface/role';
+import database from '../database/models'; 
 import { v4 as uuidv4 } from 'uuid';
 
 class RoleService {
