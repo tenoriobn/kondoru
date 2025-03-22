@@ -1,5 +1,3 @@
-import { sign } from 'jsonwebtoken';
-import jsonSecret from '../database/config/jsonSecret';
 import UserService from '../service/userService';
 import AuthService from '../service/authService';
 import { Request, Response } from 'express';
@@ -9,7 +7,7 @@ const userService = new UserService();
 const authService = new AuthService();
 
 class UserController {
-  static async register(req: Request<any, any, UserRegisterData>, res: Response): Promise<void> {
+  static async register(req: Request<unknown, unknown, UserRegisterData>, res: Response): Promise<void> {
     const { name, email, date_of_birth, phone, password } = req.body;
 
     try {
@@ -68,7 +66,7 @@ class UserController {
     const { id } = req.params;
 
     try {
-      await userService.deleteUser(id)
+      await userService.deleteUser(id);
       res.status(200).send({ message: 'Usuario deletado com sucesso!' });         
     } catch (error) {
       if (error instanceof Error) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { Model, DataTypes, Sequelize } from 'sequelize';
@@ -19,7 +20,7 @@ export default (sequelize: Sequelize) => {
         through: models.users_permissions,
         as: 'user_permissions',
         foreignKey: 'user_id'
-      })
+      });
     }
   }
 

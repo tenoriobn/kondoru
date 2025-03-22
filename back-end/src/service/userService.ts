@@ -25,8 +25,7 @@ class UserService {
 
       return newPassword;
     } catch (error) {
-      console.log('error:', error)
-      throw new Error('Erro ao cadastrar usuario');
+      throw new Error(`Erro ao cadastrar usuario: ${error}`);
     }
   };
 
@@ -38,7 +37,7 @@ class UserService {
           as: 'user_roles',
           attributes: ['id', 'name', 'description'],
           through: {
-              attributes: [],
+            attributes: [],
           },
           include: [
             {
@@ -62,7 +61,7 @@ class UserService {
           as: 'user_roles',
           attributes: ['id', 'name', 'description'],
           through: {
-              attributes: [],
+            attributes: [],
           },
           include: [
             {
@@ -79,7 +78,7 @@ class UserService {
     });
 
     if (!user) {
-      throw new Error('Usuário informado não cadastrado!')
+      throw new Error('Usuário informado não cadastrado!');
     };
 
     return user;

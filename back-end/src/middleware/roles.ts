@@ -1,6 +1,6 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Response } from 'express';
 import database from '../database/models'; 
-import { AuthenticatedRequest } from "../interface/auth";
+import { AuthenticatedRequest } from '../interface/auth';
 
 const roles = (listRoles: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
@@ -36,8 +36,6 @@ const roles = (listRoles: string[]) => {
 
       return next();
     } catch (error) {
-      console.log('error:', error)
-
       res.status(500).send('Erro ao verificar permissões.');
       return; 
     }

@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import SecurityService from "../service/securityService";
-import { RegisterAclData, RegisterPermissionsRolesData } from "interface/security";
-import { AuthenticatedRequest } from "interface/auth";
+import { Request, Response } from 'express';
+import SecurityService from '../service/securityService';
+import { RegisterPermissionsRolesData } from 'interface/security';
+import { AuthenticatedRequest } from 'interface/auth';
 const securityService = new SecurityService();
 
 class SecurityController {

@@ -1,6 +1,6 @@
 import { RegisterAclData, RegisterPermissionsRolesData } from '../interface/security';
 import database from '../database/models'; 
-import Sequelize from 'sequelize'
+import Sequelize from 'sequelize';
 
 class SecurityService {
   async registerAcl(dto: RegisterAclData) {

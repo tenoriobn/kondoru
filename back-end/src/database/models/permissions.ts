@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
 import { Model, DataTypes, Sequelize } from 'sequelize';

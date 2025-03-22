@@ -1,4 +1,4 @@
 declare module '../models' {
-  const database: any;
+  const database: unknown;
   export default database;
 }

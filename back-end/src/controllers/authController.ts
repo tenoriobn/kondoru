@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import AuthService from '../service/authService'
+import { Request, Response } from 'express';
+import AuthService from '../service/authService';
 
 const authService = new AuthService();
 

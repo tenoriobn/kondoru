@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 'use strict';
 
 import fs from 'fs';
@@ -19,7 +22,7 @@ const sequelize = config.use_env_variable
       config.username as string,
       config.password as string,
       config as { dialect: Dialect }
-    );
+  );
 
 const loadModels = async () => {
   const files = fs.readdirSync(__dirname).filter((file: string) => {
@@ -29,7 +32,7 @@ const loadModels = async () => {
       file.slice(-3) === '.ts' &&
       file.indexOf('.test.ts') === -1
     );
-  })
+  });
 
   for (const file of files) {
     const model = (await import(path.join(__dirname, file))).default(sequelize, DataTypes);
@@ -41,10 +44,10 @@ const loadModels = async () => {
       db[modelName].associate(db);
     }
   });
-}
+};
 
 loadModels().catch((error) => {
-  console.error("Erro ao carregar modelos:", error);
+  throw new Error(`Erro ao carregar modelos: ${error}`);
 });
 
 db.sequelize = sequelize;

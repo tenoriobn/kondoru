@@ -1,7 +1,7 @@
 // const PermissionService = require('../service/permissionService');
-import { Request, Response } from "express";
-import PermissionService from "../service/permissionService"
-import { PermissionData } from "interface/permission";
+import { Request, Response } from 'express';
+import PermissionService from '../service/permissionService';
+import { PermissionData } from 'interface/permission';
 const permissionService = new PermissionService();
 
 class PermissionController {
@@ -31,7 +31,7 @@ class PermissionController {
       const permission = await permissionService.getPermissionById(id);
       res.status(200).json(permission);
     } catch (error) {
-            if (error instanceof Error) {
+      if (error instanceof Error) {
         res.status(400).send({ message: error.message });
       } else {
         res.status(400).send({ message: 'Erro desconhecido' });
@@ -47,7 +47,7 @@ class PermissionController {
       const permission = await permissionService.updatePermission({ id, name, description });
       res.status(200).json(permission);
     } catch (error) {
-            if (error instanceof Error) {
+      if (error instanceof Error) {
         res.status(400).send({ message: error.message });
       } else {
         res.status(400).send({ message: 'Erro desconhecido' });
@@ -59,10 +59,10 @@ class PermissionController {
     const { id } = req.params;
 
     try {
-      await permissionService.deletePermission(id)
+      await permissionService.deletePermission(id);
       res.status(200).send({ message: 'Permissão deletada com sucesso!' });         
     } catch (error) {
-            if (error instanceof Error) {
+      if (error instanceof Error) {
         res.status(400).send({ message: error.message });
       } else {
         res.status(400).send({ message: 'Erro desconhecido' });

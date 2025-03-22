@@ -21,9 +21,7 @@ class RoleService {
 
       return newRole;
     } catch (error) {
-      console.log('error: ', error)
-
-      throw new Error('Erro ao cadastrar Role!');
+      throw new Error(`Erro ao cadastrar Role!: ${error}`);
     }
   };
 
@@ -41,7 +39,7 @@ class RoleService {
       const role = await database.roles.findOne({ where: { id: id }});
 
       if (!role) {
-        throw new Error('Role informada não cadastrada!')
+        throw new Error('Role informada não cadastrada!');
       };
   
       return role;

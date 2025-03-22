@@ -11,7 +11,7 @@ const authenticated = async (req: AuthenticatedRequest, res: Response, next: Nex
     return;
   }
 
-  const [, accessToken] = token.split(" ");
+  const [, accessToken] = token.split(' ');
 
   try {
     verify(accessToken, jsonSecret.secret);
@@ -20,7 +20,6 @@ const authenticated = async (req: AuthenticatedRequest, res: Response, next: Nex
     if (decoded) {
       req.userId = decoded.id;
       req.userEmail = decoded.email;
-      console.log(decoded.id, decoded.email);
     }
 
     next();

@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express';
 import database from '../database/models'; 
 
 const permissions = (listPermissions: string[]) => {
@@ -34,7 +34,7 @@ const permissions = (listPermissions: string[]) => {
     }
 
     return next();
-  }
-}
+  };
+};
 
 module.exports = permissions;

@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 import express from 'express';
-import corsMiddleware from './middleware/corsMiddleware'
+import corsMiddleware from './middleware/corsMiddleware';
 import routes from './routes';
 
 const app = express();

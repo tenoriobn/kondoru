@@ -34,7 +34,7 @@ class PermissionService {
     const permission = await database.permissions.findOne({ where: { id: id } });
 
     if (!permission) {
-      throw new Error('Permissão informada não cadastrada!')
+      throw new Error('Permissão informada não cadastrada!');
     };
 
     return permission;

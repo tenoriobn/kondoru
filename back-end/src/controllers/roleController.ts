@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import RoleService from "../service/roleService"
-import { RoleData } from "../interface/role";
+import { Request, Response } from 'express';
+import RoleService from '../service/roleService';
+import { RoleData } from '../interface/role';
 const roleService = new RoleService();
 
 class RoleController {
@@ -60,7 +60,7 @@ class RoleController {
     const { id } = req.params;
 
     try {
-      await roleService.deleteRole(id)
+      await roleService.deleteRole(id);
       res.status(200).send({ message: 'Role deletada com sucesso!' });         
     } catch (error) {
       if (error instanceof Error) {

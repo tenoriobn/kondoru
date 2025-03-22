@@ -1,5 +1,5 @@
-import { Router } from "express";
-import RoleController from "../controllers/roleController";
+import { Router } from 'express';
+import RoleController from '../controllers/roleController';
 
 const router = Router();
 
@@ -8,6 +8,6 @@ router
   .get('/api/roles', RoleController.getAllRoles)
   .get('/api/roles/:id', RoleController.getRoleById)
   .put('/api/roles/:id', RoleController.updateRole)
-  .delete('/api/roles/:id', RoleController.deleteRole)
+  .delete('/api/roles/:id', RoleController.deleteRole);
 
 export default router;
