@@ -22,6 +22,11 @@ class RoleService {
 
   async getAllRoles() {
     const roles = await database.roles.findAll();
+
+    if (!roles) {
+      throw new AppError('Nenhuma Role encontrada!', 404);
+    };
+
     return roles;
   };
 

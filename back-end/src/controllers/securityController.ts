@@ -11,7 +11,6 @@ class SecurityController {
 
     try {
       const acl = await securityService.registerAcl({ roles, permissions, userId });
-
       res.status(201).send(acl);
     } catch (error) {
       next(error); 

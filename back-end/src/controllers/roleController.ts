@@ -15,9 +15,13 @@ class RoleController {
     }
   };
 
-  static async getAllRoles(req: Request, res: Response): Promise<void> {
-    const roles = await roleService.getAllRoles();
-    res.status(200).json(roles);
+  static async getAllRoles(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const roles = await roleService.getAllRoles();
+      res.status(200).json(roles);
+    } catch (error) {
+      next(error);
+    }
   };
 
   static async getRoleById(req: Request<{id: string}>, res: Response, next: NextFunction): Promise<void> {

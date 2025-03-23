@@ -45,6 +45,10 @@ class UserService {
       ]
     });
 
+    if (!users) {
+      throw new AppError('Nenhum usuário encontrado!', 404);
+    };
+
     return users;
   } ;
 
