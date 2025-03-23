@@ -1,6 +1,7 @@
 import { PermissionData } from '../interface/permission';
 import database from '../database/models'; 
 import { v4 as uuidv4 } from 'uuid';
+import AppError from '../utils/appError';
 
 class PermissionService {
   async register(dto: PermissionData) {
@@ -9,24 +10,23 @@ class PermissionService {
     });
 
     if (permission) {
-      throw new Error('Permissão já cadastrada!');
+      throw new AppError('Permissão já cadastrada!', 409);
     };
 
-    try {
-      const newPermissions = await database.permissions.create({
-        id: uuidv4(),
-        name: dto.name,
-        description: dto.description
-      });
-
-      return newPermissions;
-    } catch (error) {
-      throw new Error('Erro ao cadastrar Permissão!');
-    }
+    return database.permissions.create({
+      id: uuidv4(),
+      name: dto.name,
+      description: dto.description
+    });
   };
 
   async getAllPermissions() {
     const permissions = await database.permissions.findAll();
+
+    if (permissions.length < 1) {
+      throw new AppError('Nenhuma Permissão encontrada!', 404);
+    };
+
     return permissions;
   };
 
@@ -34,7 +34,7 @@ class PermissionService {
     const permission = await database.permissions.findOne({ where: { id: id } });
 
     if (!permission) {
-      throw new Error('Permissão informada não cadastrada!');
+      throw new AppError('Permissão informada não cadastrada!', 404);
     };
 
     return permission;
@@ -43,24 +43,16 @@ class PermissionService {
   async updatePermission(dto: Required<PermissionData>) {
     const permission = await this.getPermissionById(dto.id);
 
-    try {
-      permission.name = dto.name;
-      permission.description = dto.description;
-      await permission.save();
-      return permission;
-    } catch (error) {
-      throw new Error('Erro ao editar Permissão!');
-    }
+    permission.name = dto.name;
+    permission.description = dto.description;
+    await permission.save();
+
+    return permission;
   };
 
   async deletePermission(id: string) {
     await this.getPermissionById(id);
-
-    try {
-      await database.permissions.destroy({ where: { id: id } });
-    } catch (error) {
-      throw new Error('Erro ao tentar deletar a Permissão!');
-    }
+    await database.permissions.destroy({ where: { id: id } });
   };
 }
 

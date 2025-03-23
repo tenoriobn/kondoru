@@ -37,4 +37,4 @@ const permissions = (listPermissions: string[]) => {
   };
 };
 
-module.exports = permissions;
+export default permissions;

@@ -3,6 +3,7 @@ import database from '../database/models';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import jsonSecret from '../database/config/jsonSecret';
+import AppError from '../utils/appError';
 
 class AuthService {
   async login(dto: AuthData) {
@@ -14,13 +15,13 @@ class AuthService {
     });
 
     if (!user) {
-      throw new Error('Usuário não cadastrado!');
+      throw new AppError('Usuário não cadastrado!', 404);
     };
 
     const samePasswords = await compare(dto.password, user.password);
 
     if(!samePasswords) {
-      throw new Error('Usuário ou senha inválido!');
+      throw new AppError('Usuário ou senha inválido!', 401);
     };
 
     const accessToken = sign(

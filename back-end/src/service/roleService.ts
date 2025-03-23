@@ -1,6 +1,7 @@
 import { RoleData } from '../interface/role';
 import database from '../database/models'; 
 import { v4 as uuidv4 } from 'uuid';
+import AppError from '../utils/appError';
 
 class RoleService {
   async register(dto: RoleData) {
@@ -9,66 +10,49 @@ class RoleService {
     });
 
     if (role) {
-      throw new Error('Role já cadastrada!');
+      throw new AppError('Role já cadastrada!', 409);
     };
 
-    try {
-      const newRole = await database.roles.create({
-        id: uuidv4(),
-        name: dto.name,
-        description: dto.description
-      });
-
-      return newRole;
-    } catch (error) {
-      throw new Error(`Erro ao cadastrar Role!: ${error}`);
-    }
+    return database.roles.create({
+      id: uuidv4(),
+      name: dto.name,
+      description: dto.description
+    });
   };
 
   async getAllRoles() {
-    try {
-      const roles = await database.roles.findAll();
-      return roles;
-    } catch (error) {
-      throw new Error('Erro ao buscar todas as Roles!');
-    }
+    const roles = await database.roles.findAll();
+    
+    if (roles.length < 1) {
+      throw new AppError('Nenhuma Role encontrada!', 404);
+    };
+
+    return roles;
   };
 
   async getRoleById(id: string) {
-    try {
-      const role = await database.roles.findOne({ where: { id: id }});
+    const role = await database.roles.findOne({ where: { id: id }});
 
-      if (!role) {
-        throw new Error('Role informada não cadastrada!');
-      };
-  
-      return role;
-    } catch (error) {
-      throw new Error('Erro ao buscar Role!');
-    }
+    if (!role) {
+      throw new AppError('Role informada não cadastrada!', 404);
+    };
+
+    return role;
   };
 
   async updateRole(dto: Required<RoleData>) {
     const role = await this.getRoleById(dto.id);
 
-    try {
-      role.name = dto.name;
-      role.description = dto.description;
-      await role.save();
-      return role;
-    } catch (error) {
-      throw new Error('Erro ao editar Role!');
-    }
+    role.name = dto.name;
+    role.description = dto.description;
+    await role.save();
+
+    return role;
   };
 
   async deleteRole(id: string) {
     await this.getRoleById(id);
-
-    try {
-      await database.roles.destroy({ where: { id: id } });
-    } catch (error) {
-      throw new Error('Erro ao tentar deletar a Role!');
-    }
+    await database.roles.destroy({ where: { id: id } });
   };
 }
 

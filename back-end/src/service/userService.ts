@@ -2,31 +2,26 @@ import database from '../database/models';
 import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
+import AppError from '../utils/appError';
 
 class UserService {
   async register(dto: UserRegisterData) {
     const user = await database.users.findOne({where: { email: dto.email }});
 
     if (user) {
-      throw new Error('Usuário já cadastrado!');
+      throw new AppError('Usuário já cadastrado!', 409);
     };
 
-    try {
-      const hashPassword = await hash(dto.password, 8);
+    const hashPassword = await hash(dto.password, 8);
 
-      const newPassword = await database.users.create({
-        id: uuidv4(),
-        name: dto.name,
-        email: dto.email,
-        date_of_birth: dto.date_of_birth,
-        phone: dto.phone,
-        password: hashPassword
-      });
-
-      return newPassword;
-    } catch (error) {
-      throw new Error(`Erro ao cadastrar usuario: ${error}`);
-    }
+    return database.users.create({
+      id: uuidv4(),
+      name: dto.name,
+      email: dto.email,
+      date_of_birth: dto.date_of_birth,
+      phone: dto.phone,
+      password: hashPassword
+    });
   };
 
   async getAllUsers() {
@@ -49,6 +44,10 @@ class UserService {
         },
       ]
     });
+
+    if (users.length < 1) {
+      throw new AppError('Nenhum usuário encontrado!', 404);
+    };
 
     return users;
   } ;
@@ -78,7 +77,7 @@ class UserService {
     });
 
     if (!user) {
-      throw new Error('Usuário informado não cadastrado!');
+      throw new AppError('Usuário informado não cadastrado!', 404);
     };
 
     return user;
@@ -86,25 +85,17 @@ class UserService {
 
   async updateUser(dto: Required<UserData>) {
     const user = await this.getUserById(dto.id);
+    
+    user.name = dto.name;
+    user.email = dto.email;
+    await user.save();
 
-    try {
-      user.name = dto.name;
-      user.email = dto.email;
-      await user.save();
-      return user;
-    } catch (error) {
-      throw new Error('Erro ao editar usuario!');
-    }
+    return user;
   };
 
   async deleteUser(id: string) {
     await this.getUserById(id);
-
-    try {
-      await database.users.destroy({where: { id: id }});
-    } catch (error) {
-      throw new Error('Erro ao tentar deletar o usuario!');
-    }
+    await database.users.destroy({where: { id: id }});
   };
 }
 
