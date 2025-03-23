@@ -45,7 +45,7 @@ class UserService {
       ]
     });
 
-    if (!users) {
+    if (users.length < 1) {
       throw new AppError('Nenhum usuário encontrado!', 404);
     };
 

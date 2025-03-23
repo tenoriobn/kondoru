@@ -22,6 +22,11 @@ class PermissionService {
 
   async getAllPermissions() {
     const permissions = await database.permissions.findAll();
+
+    if (permissions.length < 1) {
+      throw new AppError('Nenhuma Permissão encontrada!', 404);
+    };
+
     return permissions;
   };
 
