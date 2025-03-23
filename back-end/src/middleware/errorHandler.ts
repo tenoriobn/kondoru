@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { NextFunction, Request, Response } from 'express';
-import AppError from '../errors/appError';
+import AppError from '../utils/appError';
 
 export const errorHandler = async ( error: Error, req: Request, res: Response, next: NextFunction ): Promise<void> => {
   if (error instanceof AppError) {

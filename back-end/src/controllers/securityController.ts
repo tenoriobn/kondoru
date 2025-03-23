@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import SecurityService from '../service/securityService';
 import { RegisterPermissionsRolesData } from 'interface/security';
 import { AuthenticatedRequest } from 'interface/auth';
 const securityService = new SecurityService();
 
 class SecurityController {
-  static async registerAcl(req: AuthenticatedRequest, res: Response): Promise<void> {
+  static async registerAcl(req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> {
     const { roles, permissions } = req.body;
     const { userId } = req;
 
@@ -14,15 +14,15 @@ class SecurityController {
 
       res.status(201).send(acl);
     } catch (error) {
-      if (error instanceof Error) {
-        res.status(400).send({ message: error.message });
-      } else {
-        res.status(400).send({ message: 'Erro desconhecido' });
-      }
+      next(error); 
     }
   };
 
-  static async registerPermissionsRoles(req: Request<RegisterPermissionsRolesData>, res: Response): Promise<void> {
+  static async registerPermissionsRoles(
+    req: Request<RegisterPermissionsRolesData>, 
+    res: Response, 
+    next: NextFunction
+  ): Promise<void> {
     const { roleId, permissions } = req.body;
 
     try {
@@ -31,11 +31,7 @@ class SecurityController {
 
       res.status(201).send(permissionsRole);
     } catch (error) {
-      if (error instanceof Error) {
-        res.status(400).send({ message: error.message });
-      } else {
-        res.status(400).send({ message: 'Erro desconhecido' });
-      }
+      next(error); 
     }
   };
 }

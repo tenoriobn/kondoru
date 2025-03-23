@@ -18,7 +18,7 @@ class UserController {
         res.status(201).send({ user, accessToken });
       }
     } catch (error) {
-      next(error); 
+      next(error);
     }
   };
 

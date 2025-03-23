@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import express from 'express';
-import corsMiddleware from './middleware/corsMiddleware';
+import corsMiddleware from './middleware/cors';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
 
