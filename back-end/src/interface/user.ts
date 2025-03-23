@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface UserData {
   name: string;
   email: string;
@@ -9,3 +11,5 @@ export interface UserData {
 export interface UserRegisterData extends UserData {
   password: string;
 }
+
+export type RegisterRequest = Request<object, UserRegisterData>;

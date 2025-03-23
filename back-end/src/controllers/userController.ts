@@ -1,13 +1,13 @@
 import UserService from '../service/userService';
 import AuthService from '../service/authService';
 import { NextFunction, Request, Response } from 'express';
-import { UserData, UserRegisterData } from 'interface/user';
+import { RegisterRequest, UserData } from 'interface/user';
 
 const userService = new UserService();
 const authService = new AuthService();
 
 class UserController {
-  static async register(req: Request<{}, {}, UserRegisterData>, res: Response, next: NextFunction): Promise<void> {
+  static async register(req: Request<RegisterRequest>, res: Response, next: NextFunction): Promise<void> {
     const { name, email, date_of_birth, phone, password } = req.body;
 
     try {
@@ -18,11 +18,11 @@ class UserController {
         res.status(201).send({ user, accessToken });
       }
     } catch (error) {
-      next(error); 
+      next(error);
     }
   };
 
-  static async getAllUsers(req: Request, res: Response, next: NextFunction): Promise<void> {
+  static async getAllUsers(req: Request, res: Response): Promise<void> {
     const users = await userService.getAllUsers();
     res.status(200).json(users);
   };

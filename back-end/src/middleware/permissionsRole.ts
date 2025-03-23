@@ -3,6 +3,7 @@ import database from '../database/models';
 import Sequelize from 'sequelize';
 import { PermissionsRole, UserRole } from '../interface/role';
 import { AuthenticatedRequest } from '../interface/auth';
+import AppError from '../utils/appError';
 
 const permissionsRole = (listPermissions: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
@@ -61,8 +62,7 @@ const permissionsRole = (listPermissions: string[]) => {
     });
 
     if (!hasPermissions) {
-      res.status(401).send('Usuário não possui permissão para acessar essa rota!');
-      return; 
+      throw new AppError('Usuário não possui permissão para acessar essa rota!', 401);
     }
 
     return next();

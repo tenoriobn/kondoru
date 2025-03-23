@@ -6,10 +6,8 @@ import permissionsRole from '../middleware/permissionsRole';
 
 const router = Router();
 
-// Usando o middleware de autenticação
 router.use(authenticated);
 
-// Definindo as rotas
 router
   .post('/api/user', roles(['Administrador']), UserController.register)
   .get('/api/users', UserController.getAllUsers)
@@ -17,5 +15,4 @@ router
   .put('/api/user/:id', permissionsRole(['Editar']), UserController.updateUser)
   .delete('/api/user/:id', roles(['Administrador']), UserController.deleteUser);
 
-// Exportando o roteador
 export default router;

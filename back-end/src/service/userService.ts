@@ -2,7 +2,7 @@ import database from '../database/models';
 import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
-import AppError from '../errors/appError';
+import AppError from '../utils/appError';
 
 class UserService {
   async register(dto: UserRegisterData) {
@@ -12,22 +12,16 @@ class UserService {
       throw new AppError('Usuário já cadastrado!', 409);
     };
 
-    try {
-      const hashPassword = await hash(dto.password, 8);
+    const hashPassword = await hash(dto.password, 8);
 
-      const newPassword = await database.users.create({
-        id: uuidv4(),
-        name: dto.name,
-        email: dto.email,
-        date_of_birth: dto.date_of_birth,
-        phone: dto.phone,
-        password: hashPassword
-      });
-
-      return newPassword;
-    } catch (error) {
-      throw new Error(`Erro ao cadastrar usuario: ${error}`);
-    }
+    return database.users.create({
+      id: uuidv4(),
+      name: dto.name,
+      email: dto.email,
+      date_of_birth: dto.date_of_birth,
+      phone: dto.phone,
+      password: hashPassword
+    });
   };
 
   async getAllUsers() {
@@ -87,25 +81,17 @@ class UserService {
 
   async updateUser(dto: Required<UserData>) {
     const user = await this.getUserById(dto.id);
+    
+    user.name = dto.name;
+    user.email = dto.email;
+    await user.save();
 
-    try {
-      user.name = dto.name;
-      user.email = dto.email;
-      await user.save();
-      return user;
-    } catch (error) {
-      throw new AppError('Erro ao editar usuario!', 500);
-    }
+    return user;
   };
 
   async deleteUser(id: string) {
     await this.getUserById(id);
-
-    try {
-      await database.users.destroy({where: { id: id }});
-    } catch (error) {
-      throw new AppError('Erro ao tentar deletar o usuario!', 500);
-    }
+    await database.users.destroy({where: { id: id }});
   };
 }
 

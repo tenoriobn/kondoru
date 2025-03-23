@@ -1,6 +1,7 @@
 import { RegisterAclData, RegisterPermissionsRolesData } from '../interface/security';
 import database from '../database/models'; 
 import Sequelize from 'sequelize';
+import AppError from '../utils/appError';
 
 class SecurityService {
   async registerAcl(dto: RegisterAclData) {
@@ -23,7 +24,7 @@ class SecurityService {
     });
 
     if (!user) {
-      throw new Error('Usuário não cadastrado!');
+      throw new AppError('Usuário não cadastrado!', 404);
     };
 
     const registeredRoles = await database.roles.findAll({
@@ -84,7 +85,7 @@ class SecurityService {
     });
 
     if (!role) {
-      throw new Error('Role não cadastrada!');
+      throw new AppError('Role não cadastrada!', 404);
     };
 
     const registeredPermissions = await database.permissions.findAll({
