@@ -2,13 +2,14 @@ import database from '../database/models';
 import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
+import AppError from '../errors/appError';
 
 class UserService {
   async register(dto: UserRegisterData) {
     const user = await database.users.findOne({where: { email: dto.email }});
 
     if (user) {
-      throw new Error('Usuário já cadastrado!');
+      throw new AppError('Usuário já cadastrado!', 409);
     };
 
     try {
@@ -78,7 +79,7 @@ class UserService {
     });
 
     if (!user) {
-      throw new Error('Usuário informado não cadastrado!');
+      throw new AppError('Usuário informado não cadastrado!', 404);
     };
 
     return user;
@@ -93,7 +94,7 @@ class UserService {
       await user.save();
       return user;
     } catch (error) {
-      throw new Error('Erro ao editar usuario!');
+      throw new AppError('Erro ao editar usuario!', 500);
     }
   };
 
@@ -103,7 +104,7 @@ class UserService {
     try {
       await database.users.destroy({where: { id: id }});
     } catch (error) {
-      throw new Error('Erro ao tentar deletar o usuario!');
+      throw new AppError('Erro ao tentar deletar o usuario!', 500);
     }
   };
 }

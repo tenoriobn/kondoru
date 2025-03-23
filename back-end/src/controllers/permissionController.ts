@@ -72,5 +72,3 @@ class PermissionController {
 }
 
 export default PermissionController;
-
-// module.exports = PermissionController;

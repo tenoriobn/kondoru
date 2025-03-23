@@ -8,7 +8,7 @@ class RoleController {
     const { name, description } = req.body;
 
     try {
-      const role = await roleService.register({ name, description });
+        const role = await roleService.register({ name, description });
       res.status(201).send(role);
     } catch (error) {
       if (error instanceof Error) {
