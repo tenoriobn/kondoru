@@ -41,6 +41,11 @@ class UserService {
             }
           ],
         },
+        {
+          model: database.Permissions,
+          as: 'user_permissions',
+          attributes: ['id', 'name', 'description']
+        }
       ]
     });
 

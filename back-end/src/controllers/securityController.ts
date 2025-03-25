@@ -5,12 +5,22 @@ import { AuthenticatedRequest } from 'interface/auth';
 const securityService = new SecurityService();
 
 class SecurityController {
-  static async registerAcl(req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> {
-    const { roles, permissions } = req.body;
-    const { userId } = req;
+  static async registerRoleUser(req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> {
+    const { userId, roleId } = req.body;
 
     try {
-      const acl = await securityService.registerAcl({ roles, permissions, userId });
+      const acl = await securityService.registerRoleUser({ userId, roleId });
+      res.status(201).send(acl);
+    } catch (error) {
+      next(error); 
+    }
+  };
+
+  static async registerPermissionsUser(req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> {
+    const { userId, permissionsId } = req.body;
+
+    try {
+      const acl = await securityService.registerPermissionsUser({ userId, permissionsId });
       res.status(201).send(acl);
     } catch (error) {
       next(error); 
@@ -20,13 +30,12 @@ class SecurityController {
   static async registerPermissionsRoles(
     req: Request<RegisterPermissionsRolesData>, 
     res: Response, 
-    next: NextFunction
+    next: NextFunction 
   ): Promise<void> {
-    const { roleId, permissions } = req.body;
+    const { roleId, permissionsId } = req.body;
 
     try {
-      // Adicionando permissões a uma role
-      const permissionsRole = await securityService.registerPermissionsRoles({ roleId, permissions });
+      const permissionsRole = await securityService.registerPermissionsRoles({ roleId, permissionsId });
 
       res.status(201).send(permissionsRole);
     } catch (error) {
