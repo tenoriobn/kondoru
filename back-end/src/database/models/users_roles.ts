@@ -3,7 +3,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
 export default (sequelize: Sequelize) => {
-  class users_roles extends Model {
+  class UsersRoles extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,13 +11,14 @@ export default (sequelize: Sequelize) => {
      */
   }
 
-  users_roles.init({
+  UsersRoles.init({
     user_id: DataTypes.UUID,
     role_id: DataTypes.UUID
   }, {
     sequelize,
-    modelName: 'users_roles',
+    modelName: 'UsersRoles',
+    tableName: 'users_roles',
   });
 
-  return users_roles;
+  return UsersRoles;
 };

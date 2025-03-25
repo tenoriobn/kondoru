@@ -5,7 +5,7 @@ import AppError from '../utils/appError';
 
 class RoleService {
   async register(dto: RoleData) {
-    const role = await database.roles.findOne({
+    const role = await database.Roles.findOne({
       where: { name: dto.name }
     });
 
@@ -13,7 +13,7 @@ class RoleService {
       throw new AppError('Role já cadastrada!', 409);
     };
 
-    return database.roles.create({
+    return database.Roles.create({
       id: uuidv4(),
       name: dto.name,
       description: dto.description
@@ -21,7 +21,7 @@ class RoleService {
   };
 
   async getAllRoles() {
-    const roles = await database.roles.findAll();
+    const roles = await database.Roles.findAll();
     
     if (roles.length < 1) {
       throw new AppError('Nenhuma Role encontrada!', 404);
@@ -31,7 +31,7 @@ class RoleService {
   };
 
   async getRoleById(id: string) {
-    const role = await database.roles.findOne({ where: { id: id }});
+    const role = await database.Roles.findOne({ where: { id: id }});
 
     if (!role) {
       throw new AppError('Role informada não cadastrada!', 404);
@@ -43,6 +43,17 @@ class RoleService {
   async updateRole(dto: Required<RoleData>) {
     const role = await this.getRoleById(dto.id);
 
+    if (dto.name !== role.name) {
+      const roleExists = await database.Roles.findOne({
+        where: { name: dto.name },
+        attributes: ['id']
+      });
+  
+      if (roleExists) {
+        throw new AppError('Já existe uma Role com este nome. Use um nome diferente.', 409);
+      }
+    }
+
     role.name = dto.name;
     role.description = dto.description;
     await role.save();
@@ -52,7 +63,7 @@ class RoleService {
 
   async deleteRole(id: string) {
     await this.getRoleById(id);
-    await database.roles.destroy({ where: { id: id } });
+    await database.Roles.destroy({ where: { id: id } });
   };
 }
 

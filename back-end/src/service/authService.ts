@@ -7,7 +7,7 @@ import AppError from '../utils/appError';
 
 class AuthService {
   async login(dto: AuthData) {
-    const user = await database.users.findOne({
+    const user = await database.Users.findOne({
       attributes: ['id', 'email', 'password'],
       where: {
         email: dto.email

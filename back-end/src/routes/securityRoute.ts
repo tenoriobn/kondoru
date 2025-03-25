@@ -4,7 +4,8 @@ import SecurityController from '../controllers/securityController';
 const router = Router();
 
 router
-  .post('/api/seguranca', SecurityController.registerAcl)
-  .post('/api/seguranca/permissoes-roles', SecurityController.registerPermissionsRoles);
+  .post('/api/seguranca/role-user', SecurityController.registerRoleUser)
+  .post('/api/seguranca/permissions-user', SecurityController.registerPermissionsUser)
+  .post('/api/seguranca/permissions-roles', SecurityController.registerPermissionsRoles);
 
 export default router;

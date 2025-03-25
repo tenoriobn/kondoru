@@ -7,9 +7,10 @@ OK - Adicionar eslint
 OK - Organizar as pastas dentro de API
 OK - Centralizar lógica do `Error` do `Catch`
 OK - Refatorar arquitetura do errors/appErrors e nome dos arquivos appError.ts e errorHandler
+OK - Ao editar não pode atualizar para um email novo que já é utilizado em outra conta
+OK - Classes devem ter a primeira letra Maiúscula!!!!
 
-* Implementar tratamento de erro correto e retorno de mensagem como "Campo Phone obrigatório";
-
-
-* Ajustar lógica de funcionamento das Roles e permissions
+OK - Ajustar lógica de funcionamento das Roles e permissions
   -> Possibilidade de criar `roles`, as `permissions` serem atribuidas as `roles` e as `roles` serem atribuidas aos `users`
+  
+* Implementar tratamento de erro correto e retorno de mensagem como "Campo Phone obrigatório";

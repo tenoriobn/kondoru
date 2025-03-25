@@ -9,10 +9,10 @@ const permissionsRole = (listPermissions: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     const { userId } = req;
 
-    const user = await database.users.findOne({
+    const user = await database.Users.findOne({
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name']
         }
@@ -38,10 +38,10 @@ const permissionsRole = (listPermissions: string[]) => {
       return; 
     }
 
-    const roles = await database.roles.findAll({
+    const roles = await database.Roles.findAll({
       include: [
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'role_permissions',
           attributes: ['id', 'name']
         }

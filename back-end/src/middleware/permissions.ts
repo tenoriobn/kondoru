@@ -5,10 +5,10 @@ const permissions = (listPermissions: string[]) => {
   return async (req: Request<{ userId: string }>, res: Response, next: NextFunction): Promise<void> => {
     const { userId } = req;
 
-    const user = await database.users.findOne({
+    const user = await database.Users.findOne({
       include: [
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'user_permissions',
           attributes: ['id', 'name']
         }
