@@ -3,7 +3,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
 export default (sequelize: Sequelize) => {
-  class users_permissions extends Model {
+  class UsersPermissions extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,13 +11,13 @@ export default (sequelize: Sequelize) => {
      */
   }
 
-  users_permissions.init({
+  UsersPermissions.init({
     user_id: DataTypes.UUID,
     permission_id: DataTypes.UUID
   }, {
     sequelize,
-    modelName: 'users_permissions',
+    modelName: 'UsersPermissions',
   });
 
-  return users_permissions;
+  return UsersPermissions;
 };

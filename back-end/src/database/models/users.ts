@@ -4,27 +4,27 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
 export default (sequelize: Sequelize) => {
-  class users extends Model {
+  class Users extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models: any) {
-      users.belongsToMany(models.roles, {
-        through: models.users_roles,
+      Users.belongsToMany(models.Roles, {
+        through: models.UsersRoles,
         as: 'user_roles',
         foreignKey: 'user_id'
       });
-      users.belongsToMany(models.permissions, {
-        through: models.users_permissions,
+      Users.belongsToMany(models.Permissions, {
+        through: models.UsersPermissions,
         as: 'user_permissions',
         foreignKey: 'user_id'
       });
     }
   }
 
-  users.init({
+  Users.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     date_of_birth: DataTypes.DATEONLY,
@@ -32,7 +32,7 @@ export default (sequelize: Sequelize) => {
     password: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'users',
+    modelName: 'Users',
     defaultScope: {
       attributes: {
         exclude: ['password']
@@ -40,5 +40,5 @@ export default (sequelize: Sequelize) => {
     }
   });
 
-  return users;
+  return Users;
 };

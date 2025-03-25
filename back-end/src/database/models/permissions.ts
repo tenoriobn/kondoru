@@ -4,29 +4,29 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
 export default (sequelize: Sequelize) => {
-  class permissions extends Model {
+  class Permissions extends Model {
     static associate(models: any) {
-      permissions.belongsToMany(models.users, {
-        through: models.users_permissions,
+      Permissions.belongsToMany(models.Users, {
+        through: models.UsersPermissions,
         as: 'permission_users',
         foreignKey: 'permission_id'
       });
 
-      permissions.belongsToMany(models.roles, {
-        through: models.roles_permissions,
+      Permissions.belongsToMany(models.Roles, {
+        through: models.RolesPermissions,
         as: 'permission_roles',
         foreignKey: 'permission_id'
       });
     }
   }
   
-  permissions.init({
+  Permissions.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'permissions',
+    modelName: 'Permissions',
   });
 
-  return permissions;
+  return Permissions;
 };
