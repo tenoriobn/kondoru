@@ -17,6 +17,7 @@ export default (sequelize: Sequelize) => {
   }, {
     sequelize,
     modelName: 'UsersRoles',
+    tableName: 'users_roles',
   });
 
   return UsersRoles;

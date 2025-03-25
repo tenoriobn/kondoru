@@ -31,6 +31,7 @@ export default (sequelize: Sequelize) => {
   }, {
     sequelize,
     modelName: 'Roles',
+    tableName: 'roles',
   });
   
   return Roles;

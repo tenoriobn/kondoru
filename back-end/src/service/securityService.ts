@@ -5,15 +5,15 @@ import AppError from '../utils/appError';
 
 class SecurityService {
   async registerAcl(dto: RegisterAclData) {
-    const user = await database.users.findOne({
+    const user = await database.Users.findOne({
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name', 'description']
         },
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'user_permissions',
           attributes: ['id', 'name', 'description']
         }
@@ -27,7 +27,7 @@ class SecurityService {
       throw new AppError('Usuário não cadastrado!', 404);
     };
 
-    const registeredRoles = await database.roles.findAll({
+    const registeredRoles = await database.Roles.findAll({
       where: {
         id: {
           [Sequelize.Op.in]: dto.roles
@@ -35,7 +35,7 @@ class SecurityService {
       }
     });
 
-    const registeredPermissions = await database.permissions.findAll({
+    const registeredPermissions = await database.Permissions.findAll({
       where: {
         id: {
           [Sequelize.Op.in]: dto.permissions
@@ -49,15 +49,15 @@ class SecurityService {
     await user.addUser_roles(registeredRoles);
     await user.addUser_permissions(registeredPermissions);
 
-    const newUser = await database.users.findOne({
+    const newUser = await database.Users.findOne({
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name', 'description']
         },
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'user_permissions',
           attributes: ['id', 'name', 'description']
         }
@@ -71,10 +71,10 @@ class SecurityService {
   };
 
   async registerPermissionsRoles(dto: RegisterPermissionsRolesData) {
-    const role = await database.roles.findOne({
+    const role = await database.Roles.findOne({
       include: [
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'role_permissions',
           attributes: ['id', 'name', 'description']
         }
@@ -88,7 +88,7 @@ class SecurityService {
       throw new AppError('Role não cadastrada!', 404);
     };
 
-    const registeredPermissions = await database.permissions.findAll({
+    const registeredPermissions = await database.Permissions.findAll({
       where: {
         id: {
           [Sequelize.Op.in]: dto.permissions
@@ -99,10 +99,10 @@ class SecurityService {
     await role.removeRole_permissions(role.role_permissions);
     await role.addRole_permissions(registeredPermissions);
 
-    const newRole = await database.roles.findOne({
+    const newRole = await database.Roles.findOne({
       include: [
         {
-          model: database.permissions,
+          model: database.Permissions,
           as: 'role_permissions',
           attributes: ['id', 'name', 'description']
         }

@@ -3,10 +3,9 @@ import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
 import AppError from '../utils/appError';
-
 class UserService {
   async register(dto: UserRegisterData) {
-    const user = await database.users.findOne({where: { email: dto.email }});
+    const user = await database.Users.findOne({where: { email: dto.email }});
 
     if (user) {
       throw new AppError('Usuário já cadastrado!', 409);
@@ -14,7 +13,7 @@ class UserService {
 
     const hashPassword = await hash(dto.password, 8);
 
-    return database.users.create({
+    return database.Users.create({
       id: uuidv4(),
       name: dto.name,
       email: dto.email,
@@ -25,10 +24,10 @@ class UserService {
   };
 
   async getAllUsers() {
-    const users = await database.users.findAll({
+    const users = await database.Users.findAll({
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name', 'description'],
           through: {
@@ -36,7 +35,7 @@ class UserService {
           },
           include: [
             {
-              model: database.permissions,
+              model: database.Permissions,
               as: 'role_permissions',
               attributes: ['id', 'name', 'description'],
             }
@@ -53,10 +52,10 @@ class UserService {
   } ;
 
   async getUserById(id: string) {
-    const user = await database.users.findOne({ 
+    const user = await database.Users.findOne({ 
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name', 'description'],
           through: {
@@ -64,7 +63,7 @@ class UserService {
           },
           include: [
             {
-              model: database.permissions,
+              model: database.Permissions,
               as: 'role_permissions',
               attributes: ['id', 'name', 'description'],
             }
@@ -85,6 +84,17 @@ class UserService {
 
   async updateUser(dto: Required<UserData>) {
     const user = await this.getUserById(dto.id);
+  
+    if (dto.email !== user.email) {
+      const emailExists = await database.Users.findOne({
+        where: { email: dto.email },
+        attributes: ['id']
+      });
+  
+      if (emailExists) {
+        throw new AppError('Este e-mail já está em uso. Escolha outro.', 409);
+      }
+    }
     
     user.name = dto.name;
     user.email = dto.email;
@@ -95,7 +105,7 @@ class UserService {
 
   async deleteUser(id: string) {
     await this.getUserById(id);
-    await database.users.destroy({where: { id: id }});
+    await database.Users.destroy({where: { id: id }});
   };
 }
 

@@ -7,10 +7,10 @@ const roles = (listRoles: string[]) => {
   return async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     const { userId } = req;
 
-    const user = await database.users.findOne({
+    const user = await database.Users.findOne({
       include: [
         {
-          model: database.roles,
+          model: database.Roles,
           as: 'user_roles',
           attributes: ['id', 'name']
         }

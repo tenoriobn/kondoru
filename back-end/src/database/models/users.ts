@@ -33,6 +33,7 @@ export default (sequelize: Sequelize) => {
   }, {
     sequelize,
     modelName: 'Users',
+    tableName: 'users',
     defaultScope: {
       attributes: {
         exclude: ['password']

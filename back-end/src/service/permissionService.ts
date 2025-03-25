@@ -5,7 +5,7 @@ import AppError from '../utils/appError';
 
 class PermissionService {
   async register(dto: PermissionData) {
-    const permission = await database.permissions.findOne({
+    const permission = await database.Permissions.findOne({
       where: { name: dto.name }
     });
 
@@ -13,7 +13,7 @@ class PermissionService {
       throw new AppError('Permissão já cadastrada!', 409);
     };
 
-    return database.permissions.create({
+    return database.Permissions.create({
       id: uuidv4(),
       name: dto.name,
       description: dto.description
@@ -21,7 +21,7 @@ class PermissionService {
   };
 
   async getAllPermissions() {
-    const permissions = await database.permissions.findAll();
+    const permissions = await database.Permissions.findAll();
 
     if (permissions.length < 1) {
       throw new AppError('Nenhuma Permissão encontrada!', 404);
@@ -31,7 +31,7 @@ class PermissionService {
   };
 
   async getPermissionById(id: string) {
-    const permission = await database.permissions.findOne({ where: { id: id } });
+    const permission = await database.Permissions.findOne({ where: { id: id } });
 
     if (!permission) {
       throw new AppError('Permissão informada não cadastrada!', 404);
@@ -43,6 +43,17 @@ class PermissionService {
   async updatePermission(dto: Required<PermissionData>) {
     const permission = await this.getPermissionById(dto.id);
 
+    if (dto.name !== permission.name) {
+      const permissionExists = await database.Permissions.findOne({
+        where: { name: dto.name },
+        attributes: ['id']
+      });
+  
+      if (permissionExists) {
+        throw new AppError('Já existe uma Permissão com este nome. Escolha um nome único.', 409);
+      }
+    }
+
     permission.name = dto.name;
     permission.description = dto.description;
     await permission.save();
@@ -52,7 +63,7 @@ class PermissionService {
 
   async deletePermission(id: string) {
     await this.getPermissionById(id);
-    await database.permissions.destroy({ where: { id: id } });
+    await database.Permissions.destroy({ where: { id: id } });
   };
 }
 
