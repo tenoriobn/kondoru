@@ -43,7 +43,7 @@ class PermissionService {
   async updatePermission(dto: Required<PermissionData>) {
     const permission = await this.getPermissionById(dto.id);
 
-    if (dto.name !== permission.name) {
+    if (dto.name && dto.name !== permission.name) {
       const permissionExists = await database.Permissions.findOne({
         where: { name: dto.name },
         attributes: ['id']
@@ -54,9 +54,10 @@ class PermissionService {
       }
     }
 
-    permission.name = dto.name;
-    permission.description = dto.description;
-    await permission.save();
+    await permission.update(dto, { validate: false });
+    // permission.name = dto.name;
+    // permission.description = dto.description;
+    // await permission.save();
 
     return permission;
   };
