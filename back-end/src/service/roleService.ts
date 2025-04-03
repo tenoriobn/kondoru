@@ -43,7 +43,7 @@ class RoleService {
   async updateRole(dto: Required<RoleData>) {
     const role = await this.getRoleById(dto.id);
 
-    if (dto.name !== role.name) {
+    if (dto.name && dto.name !== role.name) {
       const roleExists = await database.Roles.findOne({
         where: { name: dto.name },
         attributes: ['id']
@@ -54,9 +54,7 @@ class RoleService {
       }
     }
 
-    role.name = dto.name;
-    role.description = dto.description;
-    await role.save();
+    await role.update(dto, { validate: true, fields: Object.keys(dto) });
 
     return role;
   };

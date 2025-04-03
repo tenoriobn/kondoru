@@ -5,11 +5,19 @@ import { v4 as uuidv4 } from 'uuid';
 import AppError from '../utils/appError';
 class UserService {
   async register(dto: UserRegisterData) {
+    if (!dto.email) {
+      throw new AppError('O campo email é obrigatório!', 400);
+    }
+
     const user = await database.Users.findOne({where: { email: dto.email }});
 
     if (user) {
       throw new AppError('Usuário já cadastrado!', 409);
     };
+
+    if (!dto.password) {
+      throw new AppError('O campo senha é obrigatório!', 400);
+    }
 
     const hashPassword = await hash(dto.password, 8);
 
@@ -90,7 +98,7 @@ class UserService {
   async updateUser(dto: Required<UserData>) {
     const user = await this.getUserById(dto.id);
   
-    if (dto.email !== user.email) {
+    if (dto.email && dto.email !== user.email) {
       const emailExists = await database.Users.findOne({
         where: { email: dto.email },
         attributes: ['id']
@@ -101,9 +109,7 @@ class UserService {
       }
     }
     
-    user.name = dto.name;
-    user.email = dto.email;
-    await user.save();
+    await user.update(dto, { validate: true, fields: Object.keys(dto) });
 
     return user;
   };
