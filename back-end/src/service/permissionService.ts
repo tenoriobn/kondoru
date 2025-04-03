@@ -54,10 +54,7 @@ class PermissionService {
       }
     }
 
-    await permission.update(dto, { validate: false });
-    // permission.name = dto.name;
-    // permission.description = dto.description;
-    // await permission.save();
+    await permission.update(dto, { validate: true, fields: Object.keys(dto) });
 
     return permission;
   };

@@ -109,7 +109,7 @@ class UserService {
       }
     }
     
-    await user.update(dto, { validate: false });
+    await user.update(dto, { validate: true, fields: Object.keys(dto) });
 
     return user;
   };

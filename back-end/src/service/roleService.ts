@@ -54,7 +54,7 @@ class RoleService {
       }
     }
 
-    await role.update(dto, { validate: false });
+    await role.update(dto, { validate: true, fields: Object.keys(dto) });
 
     return role;
   };
