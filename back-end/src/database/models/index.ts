@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 'use strict';
 
 import fs from 'fs';
