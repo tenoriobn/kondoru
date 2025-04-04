@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { stateActiveAuthForm } from 'src/store/atom';

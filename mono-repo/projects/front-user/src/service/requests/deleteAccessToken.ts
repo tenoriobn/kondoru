@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import handleApiError from 'src/utils/handleApiError';
 
 const deleteAccessToken = async() => {

@@ -1,8 +1,11 @@
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import eslint from '@eslint/js';
 
-export default defineConfig([
+export default defineConfig(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: {
@@ -16,12 +19,9 @@ export default defineConfig([
       'quotes': ['error', 'single'], // Usar aspas simples
       'semi': ['error', 'always'], // Ponto e vírgula obrigatório
       'no-console': 'warn', // Aviso para console.log
-      'no-unused-vars': 'warn', // Aviso para variáveis não usadas
       'prefer-const': 'warn', // Preferir const quando possível
       'eqeqeq': ['error', 'always'], // Exigir uso de "===" em vez de "=="
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-require-imports': 'off',
-
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -30,26 +30,8 @@ export default defineConfig([
           caughtErrorsIgnorePattern: '^error$', // Ignora 'error' no catch
         },
       ],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
-  {
-    files: ['**/*.ts'],
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'error'
-    }
-  },
-  {
-    files: ['**/*.{js,cjs,mjs}'],
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-    },
-  },
-  tseslint.configs.recommended,
-]);
+);

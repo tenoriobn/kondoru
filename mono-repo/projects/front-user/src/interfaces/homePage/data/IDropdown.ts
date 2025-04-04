@@ -8,7 +8,6 @@ export interface IDropdownProps {
   options: string[];
 }
 
-/* eslint-disable no-unused-vars */
 export interface IDropdownHandlers extends IDropdownProps {
   selectedOption: string;
   isOpen: boolean;

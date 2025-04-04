@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { NextFunction, Request, Response } from 'express';
 import AppError from '../utils/appError';
-import { DatabaseError, ValidationError } from 'sequelize';
+import { ValidationError } from 'sequelize';
 
-export const errorHandler = async (error: Error, req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const errorHandler = async (error: Error, req: Request, res: Response, _next: NextFunction): Promise<void> => {
   if (error instanceof ValidationError) {
     res.status(400).json({ message: error.errors.map(err => err.message).join(', ') });
     return;

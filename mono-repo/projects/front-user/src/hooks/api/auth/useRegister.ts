@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema } from 'src/utils/registrationValidation';

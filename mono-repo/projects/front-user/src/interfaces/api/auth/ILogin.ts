@@ -5,8 +5,6 @@ export interface IUseLoginData {
   password: string;
 }
 
-
-/* eslint-disable no-unused-vars */
 export interface ILoginInputsProps {
   register: UseFormRegister<IUseLoginData>;
   errors: {
