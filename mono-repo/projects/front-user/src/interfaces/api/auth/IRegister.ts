@@ -8,7 +8,6 @@ export interface IUseRegisterData {
   isChecked: boolean;
 }
 
-/* eslint-disable no-unused-vars */
 export interface IRegistrationInputsProps {
   register: UseFormRegister<IUseRegisterData>;
   errors: {

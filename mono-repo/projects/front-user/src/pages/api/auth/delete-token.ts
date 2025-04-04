@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export default async function DELETE(req: Request) { // eslint-disable-line @typescript-eslint/no-unused-vars
+export default async function DELETE(req: Request) {
   try {
     const response = NextResponse.json({ message: 'Token excluído com sucesso!' });
     
@@ -13,7 +12,7 @@ export default async function DELETE(req: Request) { // eslint-disable-line @typ
     );
 
     return response;
-  } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
+  } catch (error) {
 
     return NextResponse.json({ error: 'Erro ao excluir o token' }, { status: 500 });
   }

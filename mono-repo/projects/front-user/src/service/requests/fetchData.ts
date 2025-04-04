@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { AxiosError } from 'axios';
 import { apiClient } from '../http';
 

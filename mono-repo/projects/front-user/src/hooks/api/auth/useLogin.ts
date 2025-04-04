@@ -33,6 +33,7 @@ const useLogin = (setActiveAuthForm: React.Dispatch<React.SetStateAction<string>
       setErrorMessage('');
       setActiveAuthForm('');
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
       setErrorMessage('Usuário ou senha incorretos.');
     }

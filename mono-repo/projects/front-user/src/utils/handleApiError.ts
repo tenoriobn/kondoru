@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { AxiosError } from 'axios';
 
 const handleApiError = (error: unknown): string => {
