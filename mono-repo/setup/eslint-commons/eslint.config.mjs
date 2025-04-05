@@ -27,6 +27,7 @@ export default [
       'no-console': 'warn', // Aviso para console.log
       'prefer-const': 'warn', // Preferir const quando possível
       'eqeqeq': ['error', 'always'], // Exigir uso de "===" em vez de "=="
+      'no-duplicate-imports': 'error'
     },
   },
 ];

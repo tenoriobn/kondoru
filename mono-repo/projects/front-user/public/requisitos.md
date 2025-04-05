@@ -6,15 +6,13 @@
   OK - Alterar Formato das imagens testar `WebP/AVIF`
   ok - Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
   ok - Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
+  OK - Adicionar verificação de identação e etc...
 
   Montar Readme
 
 
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  * Adicionar verificação de identação e etc...
   * Acompanhar Performance e realizar correções necessárias
-
-
 
 
 
