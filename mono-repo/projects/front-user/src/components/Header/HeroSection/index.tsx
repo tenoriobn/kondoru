@@ -1,6 +1,31 @@
 import { useHomePageData } from 'src/contexts/HomePageContext';
 import Filter from './Filter';
 import styled from 'styled-components';
+import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
+
+const StyledHeroSection = styled.div`
+  background-image: url('/images/background-header.webp');
+  background-size: cover;
+  background-position: center;
+`;
+
+const StyledHeroSectionContainer = styled(StyledLayoutWrapper)`
+  display: grid;
+  grid-template-rows: minmax(300px, 1fr) 344px;
+  min-height: 100dvh;
+  padding-top: 102px;
+  padding-bottom: 6.25rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-rows: minmax(388px, 1fr) 248px;
+    padding-bottom: 8rem;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-rows: minmax(540px, 1fr) 64px;
+  }
+`;
 
 const StyledHeroContent = styled.div`
   display: flex;
@@ -8,6 +33,8 @@ const StyledHeroContent = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  padding: 5.5rem 0;
 `;
 
 const StyledTitle = styled.h1`
@@ -31,13 +58,15 @@ export default function HeroSection() {
   const { heroSection } = useHomePageData();
 
   return (
-    <>
-      <StyledHeroContent>
-        <StyledTitle rel="preload">{heroSection.title}</StyledTitle>
-        <StyledSlogan>{heroSection.slogan}</StyledSlogan>
-      </StyledHeroContent>
-      
-      <Filter />
-    </>
+    <StyledHeroSection>
+      <StyledHeroSectionContainer>
+        <StyledHeroContent>
+          <StyledTitle rel="preload">{heroSection.title}</StyledTitle>
+          <StyledSlogan>{heroSection.slogan}</StyledSlogan>
+        </StyledHeroContent>
+        
+        <Filter />
+      </StyledHeroSectionContainer>
+    </StyledHeroSection>
   );
 }

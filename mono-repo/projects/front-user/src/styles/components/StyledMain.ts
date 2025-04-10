@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMainContainer = styled.main`
+export const StyledMainContent = styled.main`
   display: flex;
   flex-direction: column;
   gap: 6.25rem;

@@ -8,6 +8,18 @@
   ok - Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
   OK - Adicionar verificação de identação e etc...
 
+  * Corrigir transição BG entre Header e HeroSection
+  * Adicionar frameMotion para transição do Menu Mobile Open/Close
+  * APAGAR HOOKS EM DESUSO (useResponsiveMenu na pasta HOOK)
+  * Apagar componente "HEADER" antigo, após finalizar as consultas e o novo header.
+  * Utilizar hooks direto na pasta de seus componentes
+  * Utilizar interface direto na pasta de seus componentes
+  * Refatorar Icones, seções, componentes de acordo com o figma
+  * Construir nova página de Cadastro/Login
+  * Remover componentes antigos
+
+
+
   Montar Readme
 
 
