@@ -1,12 +1,12 @@
-import { useHomePageData } from 'src/contexts/HomePageContext';
-import Filter from './Filter';
 import styled from 'styled-components';
+import Filter from './Filter';
 import StyledLayoutWrapper from 'src/styles/components/StyledLayoutWrapper';
+import { useHomePageData } from 'src/contexts/HomePageContext';
 
 const StyledHeroSection = styled.div`
   background-image: url('/images/background-header.webp');
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
 `;
 
 const StyledHeroSectionContainer = styled(StyledLayoutWrapper)`

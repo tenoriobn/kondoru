@@ -40,7 +40,7 @@ const StyledMobileMenuIcon = styled(MobileMenuIcon)`
   }
 `;
 
-export default function NewHeader() {
+export default function Header() {
   const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu();
 
   return (

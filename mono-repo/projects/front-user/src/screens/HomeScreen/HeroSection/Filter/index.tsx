@@ -2,7 +2,7 @@ import Button from 'src/components/Button';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
 import { useHomePageData } from 'src/contexts/HomePageContext';
-import useDropdowns from 'src/hooks/useHeader/useDropDowns';
+import useDropdowns from './useDropDowns';
 
 const StyledContainerFilter = styled.form`
   display: grid;
@@ -48,9 +48,7 @@ const StyledButtonContainer = styled.div`
 
 export default function Filter() {
   const { dropdowns } = useHomePageData();
-  const { 
-    openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef, 
-  } = useDropdowns();
+  const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } = useDropdowns();
 
   return (
     <StyledContainerFilter ref={dropdownRef}>
