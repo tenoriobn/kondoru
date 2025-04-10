@@ -108,7 +108,7 @@ export const StyledInput = styled.input<{ $hasError?: boolean }>`
   font-size: 1.25rem;
   line-height: 1.25rem;
   width: 100%;
-
+  
   &:-webkit-autofill { 
     -webkit-background-clip: text;
     -webkit-text-fill-color: white !important;

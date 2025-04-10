@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import useBodyOverflow from 'src/hooks/utils/useBodyOverflow';
-import useWindowSize from 'src/hooks/utils/useWindowSize';
+import useBodyOverflow from 'src/hooks/useBodyOverflow';
+import useWindowSize from 'src/hooks/useWindowSize';
 
 
 /**
