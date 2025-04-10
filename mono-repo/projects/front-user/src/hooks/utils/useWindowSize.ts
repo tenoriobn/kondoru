@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 
 function useWindowSize(breakpoint: number = 992) {
   const [windowWidth, setWindowWidth] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState<boolean | undefined>(undefined); 
 
   useEffect(() => {
     const handleResize = () => {
