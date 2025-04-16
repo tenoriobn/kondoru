@@ -1,7 +1,7 @@
-import { IButtonProps } from 'src/interfaces/common/IButton';
+import { ButtonProps } from './button.types';
 import styled from 'styled-components';
 
-export const StyledButton = styled.button<IButtonProps>`
+export const StyledButton = styled.button<ButtonProps>`
   border: none;
   background-color: ${({ $backgroundColor, theme }) => $backgroundColor ? theme.colors[$backgroundColor] : ''};
   border-radius: ${({ $borderRadius, theme }) => $borderRadius ? theme.borderRadius[$borderRadius] : ''};
@@ -44,7 +44,7 @@ export const StyledButton = styled.button<IButtonProps>`
   }
 `;
 
-export default function Button({ children, ...props }: IButtonProps) {
+export default function Button({ children, ...props }: ButtonProps) {
   return (
     <StyledButton
       {...props}

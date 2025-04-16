@@ -1,7 +1,7 @@
-import { IInputBoxProps, ILabelProps } from 'src/interfaces/common/IInputBox';
+import { InputBoxProps, LabelProps } from './inputBox.types';
 import styled from 'styled-components';
 
-const Label = styled.label<ILabelProps>`
+const Label = styled.label<LabelProps>`
   display: flex;
   align-items: center;
   gap: .5rem;
@@ -38,7 +38,7 @@ const Label = styled.label<ILabelProps>`
   `}
 `;
 
-export default function InputBox({ icon, children,  $padding, hasError}: IInputBoxProps) {
+export default function InputBox({ icon, children,  $padding, hasError}: InputBoxProps) {
   return (
     <Label $padding={$padding} $hasError={hasError}>
       {icon}

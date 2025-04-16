@@ -1,29 +1,38 @@
 <!-- A FAZER -->
-  OK - Corrigir fundo do Header e fundo do Menu Mobile
-  OK - ADICIONAR WAVE (ONDAS) NO MODAL DE LOGIN;
-  OK - ADICIONAR WAVE (ONDAS) NO MODAL DE registro;
-  OK - Corrigir CI para aplicar lint e preview deploy ao realizar PR e Deploy Production apenas na Main
-  OK - Alterar Formato das imagens testar `WebP/AVIF`
-  ok - Focar na estrutura do projeto, buscando uma melhor organização e utilização de componentes
-  ok - Padronizar largura e altura das imagens dos imóveis, indendente do tamanho da imagem original.
-  OK - Adicionar verificação de identação e etc...
+  # Utilização do DDD (Domain Driven Design)
 
-  OK - Risco no final do herosection versão mobile
-  OK - APAGAR HOOKS EM DESUSO (useResponsiveMenu na pasta HOOK)
-  * Remover componentes antigos
-  * Utilizar hooks direto na pasta de seus componentes
-  * Utilizar interface direto na pasta de seus componentes
+  * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
+
+  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Refatorar Icones, seções, componentes de acordo com o figma
-  * Construir nova página de Cadastro/Login
+  * Video do player em `WebP/AVIF`
+  * Aplicar frameMotion para animação de elementos
+  * Acompanhar Performance e realizar correções necessárias
+  * Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+  * Partir para próximas telas do FIGMA.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
   Montar Readme
-
-
-  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  * Acompanhar Performance e realizar correções necessárias
-
 
 
 

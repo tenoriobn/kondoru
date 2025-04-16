@@ -1,5 +1,5 @@
-import { IErrorMessage } from 'src/interfaces/common/IMessage';
 import styled from 'styled-components';
+import { ErrorMessage } from './message.types';
 
 const StyledMessage = styled.span`
   color:  ${({ theme }) => theme.colors['red']};
@@ -7,7 +7,7 @@ const StyledMessage = styled.span`
   padding-left: 2rem;
 `;
 
-export default function ErrorMessage({ children }: IErrorMessage) {
+export default function ErrorMessage({ children }: ErrorMessage) {
   return (
     <StyledMessage>
       {children}
