@@ -1,7 +1,7 @@
-import { homePageData } from 'src/data/homePage/homePageData';
-import { HomePageProvider } from 'src/contexts/HomePageContext';
-import { IHomeDataProps, IHomeData } from 'src/interfaces/homePage/IHomePageData';
-import HomeScreen from 'src/screens/HomeScreen';
+import HomeScreen from 'features/Home';
+import { HomePageProvider } from 'Home/HomePageProvider';
+import { homePageData } from 'Home/data/homePageData';
+import { IHomeDataProps, IHomeData } from 'Home/homePage.types';
 
 export async function getStaticProps() {
   const year = new Date().getFullYear();

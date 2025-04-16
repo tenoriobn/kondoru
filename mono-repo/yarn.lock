@@ -1146,9 +1146,6 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kondoru/design-system@file:packages/design-system":
-  version "1.0.0"
-
 "@kondoru/eslint-commons@file:setup/eslint-commons":
   version "1.0.0"
 

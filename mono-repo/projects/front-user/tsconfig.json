@@ -13,7 +13,9 @@
       "public/*": ["public/*"],
       "src/*": ["src/*"],
       "components/*": ["src/components/*"],
-      "pages/*": ["src/pages/*"]
+      "features/*": ["src/features/*"],
+      "Home/*": ["src/features/Home/*"],
+      "pages/*": ["src/pages/*"],
     },  
   }
 }
