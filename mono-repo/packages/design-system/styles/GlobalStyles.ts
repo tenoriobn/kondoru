@@ -27,14 +27,17 @@ const GlobalStyles = createGlobalStyle`
 
     ::-webkit-scrollbar {
       width: 10px;
+      padding: 10px;
     }
     ::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.colors['white-80']};
       border-radius: .125rem;
+      padding: 10px;
     }
     ::-webkit-scrollbar-thumb {
       background-color: ${({ theme }) => theme.colors['dark-slate-58']};
       border-radius: .125rem;
+      padding: 10px;
     }
   }
 
