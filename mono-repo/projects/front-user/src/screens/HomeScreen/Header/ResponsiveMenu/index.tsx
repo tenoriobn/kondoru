@@ -14,14 +14,14 @@ const StyledResponsiveMenu = styled.nav<IMenuMobile>`
     background-position: center;
     background-color: ${({ theme }) => theme.colors['dark-slate-900']};
 
-    display: ${({ $isMenuActive }) => ($isMenuActive ? 'flex' : 'none')};
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 6rem;
 
     position: fixed;
-    left: 0;
+    left: ${({ $isMenuActive }) => ($isMenuActive ? '0' : '-100%')};
     top: 0;
 
     width: 100%;
@@ -29,16 +29,14 @@ const StyledResponsiveMenu = styled.nav<IMenuMobile>`
     min-height: 100dvh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+
+    transition: ${({ theme }) => theme.transitions.smoothTransition};
     
     z-index: 99;
 
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     ${horizontalPadding}
-
-    .auth_button-mobile {
-      display: flex;
-    }
   }
 `;
 
@@ -62,7 +60,7 @@ export default function ResponsiveMenu({ $isMenuActive, $setIsMenuActive, $isMob
 
   return (
     <StyledResponsiveMenu $isMenuActive={$isMenuActive}>
-      {$isMenuActive &&
+      {$isMobile &&
         <StyledMobileMenuOpenHeader>
           <Logo />
 

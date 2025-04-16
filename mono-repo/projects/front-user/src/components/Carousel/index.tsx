@@ -18,13 +18,13 @@ const StyledSwiper = styled(Swiper)`
 
   .swiper-pagination-bullet {
     opacity: inherit;
-    background: ${({ theme }) => theme.colors['gray-400']};
+    background: ${({ theme }) => theme.colors['gray-50']};
     width: 1rem;
     height: 1rem;
   }
 
   .swiper-pagination-bullet-active {
-    background: ${({ theme }) => theme.colors['dark-slate-800']};
+    background: ${({ theme }) => theme.colors['dark-slate-84']};
   }
 `;
 

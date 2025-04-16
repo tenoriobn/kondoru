@@ -1151,9 +1151,6 @@
 
 "@kondoru/eslint-commons@file:setup/eslint-commons":
   version "1.0.0"
-  dependencies:
-    eslint "^9.23.0"
-    eslint-config-next "^15.2.4"
 
 "@kondoru/tsconfig-commons@file:setup/tsconfig-commons":
   version "1.0.0"

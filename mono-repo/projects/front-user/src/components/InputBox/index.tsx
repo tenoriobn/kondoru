@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Label = styled.label<ILabelProps>`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
   border: 2px solid ${({ theme }) => theme.colors['gray-400']};
   border-radius: ${({ theme }) => theme.borderRadius['rounded-48']};
   cursor: text;

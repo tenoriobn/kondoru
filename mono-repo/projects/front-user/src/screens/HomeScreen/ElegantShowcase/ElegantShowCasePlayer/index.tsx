@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import usePlayerScript from 'src/hooks/player/usePlayerScript';
+import usePlayerScript from './usePlayerScript';
 
 const StyledPlayerContainer = styled.div`
   width: 100%;
