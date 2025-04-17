@@ -1,8 +1,10 @@
 <!-- A FAZER -->
   # Utilização do DDD (Domain Driven Design)
+  OK - Remover quadrado azul ao clicar em um dos filtros no mobile.
 
   * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
-
+  
+  * Aplicar box-shadow no botton do header e fazer desaparecer 16px antes de ir para baixo do header
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
   * Refatorar Icones, seções, componentes de acordo com o figma
   * Video do player em `WebP/AVIF`
