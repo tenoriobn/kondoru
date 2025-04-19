@@ -1,0 +1,8 @@
+FROM node:22.12.0
+WORKDIR /back-end
+ARG PORT_BUILD=8080
+ENV PORT=$PORT_BUILD
+EXPOSE $PORT_BUILD
+COPY . .
+RUN npm install
+ENTRYPOINT npm run dev

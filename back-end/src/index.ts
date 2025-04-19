@@ -3,9 +3,12 @@ import express from 'express';
 import corsMiddleware from './middleware/cors';
 import routes from './routes';
 import { errorHandler } from './middleware/errorHandler';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(corsMiddleware);
 
