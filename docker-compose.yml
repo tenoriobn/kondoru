@@ -9,9 +9,11 @@ services:
       - POSTGRESQL_USERNAME=postgres
       - POSTGRESQL_PASSWORD=123456
       - POSTGRESQL_DATABASE=kondoru_development
+    volumes:
+      - kondoru_data:/bitnami/postgresql 
 
   kondoru-backend:
-    image: tenoriobn/kondoru-backend:1.0
+    build: ./back-end
     container_name: kondoru-backend
     networks:
       - kondoru-bridge
@@ -25,6 +27,25 @@ services:
       - DB_USERNAME=postgres
       - DB_PASSWORD=123456
       - DB_DATABASE=kondoru_development
+    volumes:
+      - ./back-end:/back-end:cached
+      - /back-end/node_modules
+
+  kondoru-frontuser:
+    build: ./mono-repo
+    container_name: kondoru-frontuser
+    entrypoint: yarn dev:user
+    networks:
+      - kondoru-bridge
+    ports:
+      - 3000:3000
+    depends_on:
+      - kondoru-backend
+    volumes:
+      - ./mono-repo:/mono-repo:cached
+      - /mono-repo/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
 
 networks:
   kondoru-bridge:
