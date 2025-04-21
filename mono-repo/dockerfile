@@ -1,0 +1,6 @@
+FROM node:22.12.0
+WORKDIR /mono-repo
+COPY . .
+RUN yarn install -W
+EXPOSE 3000
+CMD ["yarn", "dev:user"]
