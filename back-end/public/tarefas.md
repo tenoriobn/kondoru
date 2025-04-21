@@ -4,6 +4,7 @@
   OK - Implementar tratamento de erro correto e retorno de mensagem como "Campo Phone obrigatório";
   OK - Fazer com que ao atualizar dados o "validate: false" dos services não deixe atualizar para dados "vazio"
   - Ajustar tipagem correta, ex: em "const { roles, permissions } = req.body;" deve mostrar que são strings e não any
+  - Ajustar erro que trava terminal ao tentar fazer requisição com token vencido/invalido
 
 OK - Adicionar eslint
 OK - Organizar as pastas dentro de API
