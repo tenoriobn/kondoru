@@ -108,6 +108,34 @@ O projeto utiliza **Yarn Workspaces** para facilitar o gerenciamento de dependê
   yarn deploy:user
   ```
 
+## 🚀 Ambiente com Docker
+
+O projeto agora está totalmente **containerizado com Docker**, facilitando o setup completo da aplicação — incluindo o **front-end**, **back-end** e o **banco de dados** — com um único comando.
+
+### Como iniciar o projeto
+
+Para subir todo o ambiente de desenvolvimento, basta executar:
+
+```bash
+docker-compose up --build
+```
+
+Esse comando irá:
+
+* Construir e iniciar o **back-end**
+* Construir e iniciar o **front-user**
+* Construir e iniciar o **front-admin**
+* Subir o **banco de dados** PostgreSQL
+
+Tudo será orquestrado automaticamente via `docker-compose`.
+
+### Benefícios
+
+* ✅ Setup unificado
+* ✅ Ambiente padronizado para todos os desenvolvedores
+* ✅ Isolamento de dependências
+* ✅ Fácil escalabilidade
+
 ### Estrutura de Pastas
 
 - **back-end**: Contém o código da API, incluindo rotas, controladores, e modelos.
