@@ -32,7 +32,7 @@ const StyledLink = styled(Link)`
 
 export default function AccessButton({...props}) {
   return (
-    <StyledLink href="/" {...props}>
+    <StyledLink href="/auth/login" {...props}>
       <UserIcon width={22} height={22} />
       Entrar
     </StyledLink>

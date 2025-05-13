@@ -8,7 +8,7 @@ const StyledContainerLogo = styled.div`
 export default function Logo() {
   return (
     <StyledContainerLogo>
-      <Image src="icons/logotipo.webp" width={164} height={40} alt="Logo da KondoRu" />
+      <Image src="icons/logotipo.svg" width={164} height={40} alt="Logo da KondoRu" />
     </StyledContainerLogo>
   );
 }

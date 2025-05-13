@@ -5,19 +5,12 @@ import ResponsiveMenu from './ResponsiveMenu';
 import Logo from './Logo';
 import AccessButton from './AccessButton';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
-import useScrollTrigger from './useScrollTrigger';
 
-const StyledHeader = styled.header<{ $scrolled: Boolean }>`
+const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors['dark-slate-800']};
   position: fixed;
   width: 100%;
   z-index: 99;
-
-  ${({ $scrolled }) => 
-    $scrolled && 
-    `
-      box-shadow: 0px 0px 24px 2px rgb(24 24 23 / 80%);
-    `}
 `;
 
 const StyledContainerHeader = styled(StyledLayoutWrapper)`
@@ -49,10 +42,9 @@ const StyledMobileMenuIcon = styled(MobileMenuIcon)`
 
 export default function Header() {
   const { isMenuActive, setIsMenuActive, isMobile } = useResponsiveMenu();
-  const { scrolled } = useScrollTrigger();
 
   return (
-    <StyledHeader $scrolled={scrolled}>
+    <StyledHeader>
       <StyledContainerHeader>
         <Logo />
 

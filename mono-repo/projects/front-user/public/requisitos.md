@@ -2,16 +2,25 @@
   # Utilização do DDD (Domain Driven Design)
   OK - Remover quadrado azul ao clicar em um dos filtros no mobile.
   OK - Aplicar box-shadow no botton do header e fazer desaparecer 16px antes de ir para baixo do header
+  OK - Corrigir LOGO e imagens desfocadas (talvez devido ao width e height aplicado diretamente no **SVG OU IMAGE**) 
 
-  * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
-  
 
-  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  * Refatorar Icones, seções, componentes de acordo com o figma
+  * Trocar icones para icones mais modernos
+
   * Aplicar frameMotion para animação de elementos
   * Acompanhar Performance e realizar correções necessárias
-  * Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
-  * Partir para próximas telas do FIGMA.
+  * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
+
+   * Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+
+   * Partir para próximas telas do FIGMA.
+
+
+  * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
+  OK - Verificar se Menu deve ser fixo e ter box-shadow
+  
+ 
+  
 
 
 
