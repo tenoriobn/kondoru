@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/icons/favicon.svg" type="image/svg+xml" />
           <link rel="preload" as="image" href="/images/background-header.webp" />
-          <link rel="preload" as="image" href="/icons/logotipo.webp" />
+          <link rel="preload" as="image" href="/icons/logotipo.svg" />
         </Head>
         <body>
           <Main />

@@ -48,9 +48,6 @@ const StyledMobileMenuOpenHeader = styled.div`
 `;
 
 const StyledMenuCloseIcon = styled(MenuCloseIcon)` 
-  width: 24px;
-  height: 24px;
-
   g {
     stroke: ${({ theme }) => theme.colors['white']};
   }
