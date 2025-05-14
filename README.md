@@ -117,7 +117,7 @@ O projeto agora está totalmente **containerizado com Docker**, facilitando o se
 Para subir todo o ambiente de desenvolvimento, basta executar:
 
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 
 Esse comando irá:
