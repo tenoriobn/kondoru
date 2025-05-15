@@ -1,5 +1,25 @@
 <!-- A FAZER -->
   # Utilização do DDD (Domain Driven Design)
+
+  OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+    OK - Ajustar Division para receber Texto
+    OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
+    * Criar Hover para os botões e itens clicaveis
+    * Criar validação HTML5
+    * Validar utilizando versão nativa igual na lp Eduardo
+    * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
+    * Escolher Outra fonte
+    * Remover `LetterSpacing` deve manter só no título do HeroSection
+    * Definir Tamanho da letra Mobile Tablet.
+    * Definir Espaçamento Mobile e Tablet
+    * Criar Slide para versão desktop no lado Direito
+    * Só o formulário rola o Slide fica fixo.
+    * A partir de um determinado tamanho de tela o AuthLayout fica centralizado
+    * Definir Icones
+    * Aplicar FrameMotion
+
+
+
   OK - Remover quadrado azul ao clicar em um dos filtros no mobile.
   OK - Aplicar box-shadow no botton do header e fazer desaparecer 16px antes de ir para baixo do header
   OK - Corrigir LOGO e imagens desfocadas (talvez devido ao width e height aplicado diretamente no **SVG OU IMAGE**) 
