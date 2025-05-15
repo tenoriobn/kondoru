@@ -1,10 +1,10 @@
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import PropertyCarousel from './components/PropertyCarousel';
-import ElegantShowcase from './components/ElegantShowcase';
-import TestimonialCarousel from './components/TestimonialCarousel';
-import Footer from './components/Footer';
-import { StyledMainContent } from 'src/styles/components/StyledMain';
+import Header from './sections/Header';
+import HeroSection from './sections/HeroSection';
+import PropertyCarousel from './sections/PropertyCarousel';
+import ElegantShowcase from './sections/ElegantShowcase';
+import TestimonialCarousel from './sections/TestimonialCarousel';
+import Footer from './sections/Footer';
+import { StyledMainContent } from 'src/styles/ui/StyledMain';
 
 export default function HomeScreen() {
   return (
