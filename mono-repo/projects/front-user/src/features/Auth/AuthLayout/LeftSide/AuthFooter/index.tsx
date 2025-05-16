@@ -12,6 +12,15 @@ const Styled = {
     a {
       font-weight: 700;
       text-decoration: underline;
+      transition: ${({ theme }) => theme.transitions.smoothTransition};
+
+      &:hover {
+        color: ${({ theme }) => theme.colors['white-80']};
+      }
+
+      &:active {
+        color: ${({ theme }) => theme.colors['white']};
+      }
     }
   `,
 };

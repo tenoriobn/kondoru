@@ -4,7 +4,7 @@
   OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
     OK - Ajustar Division para receber Texto
     OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
-    * Criar Hover para os botões e itens clicaveis
+    OK Criar Hover para os botões e itens clicaveis
     * Criar validação HTML5
     * Validar utilizando versão nativa igual na lp Eduardo
     * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);

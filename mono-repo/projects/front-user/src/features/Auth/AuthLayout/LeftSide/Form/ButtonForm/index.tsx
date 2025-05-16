@@ -16,6 +16,16 @@ const Styled = {
 
     padding: 1rem 2rem;
     margin-top: 2rem;
+
+    transition: ${({ theme }) => theme.transitions.smoothTransition};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors['white-80']};
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors['white']};
+    }
   `,
 };
 
