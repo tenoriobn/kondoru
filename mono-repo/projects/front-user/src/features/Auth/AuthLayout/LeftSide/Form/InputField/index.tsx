@@ -35,15 +35,13 @@ const Styled = {
       background-color: ${({ theme }) => theme.colors['dark-slate-800']};
       color: ${({ theme }) => theme.colors.white};
       height: 30px;
-      transform: translate(22px, -35px) ;
+      transform: translate(-8px, -36px) ;
       z-index: 6;
       padding: 0 .5rem;
       transition: ${({ theme }) => theme.transitions.smoothTransition};
 
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.white};
-        }
+      svg path {
+        fill: ${({ theme }) => theme.colors.white};
       }
     }
 
@@ -58,20 +56,18 @@ const Styled = {
     display: flex;
     align-items: center;
     gap: .5rem;
-    z-index: 9;
     cursor: text;
-
-    position: absolute;
     color: ${({ theme }) => theme.colors['gray-400']};
     font-size: 1rem;
     font-weight: 500;
-    padding: 0 2rem;
+
+    position: absolute;
+    left: 32px;
+    z-index: 9;
     transition: ${({ theme }) => theme.transitions.smoothTransition};
 
-    svg {
-      path {
-        fill: ${({ theme }) => theme.colors['gray-400']};
-      }
+    svg path {
+      fill: ${({ theme }) => theme.colors['gray-400']};
     }
   `
 };
