@@ -8,7 +8,6 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors['dark-slate-900']};
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.5rem;
   cursor: pointer;
   height: 54px;
   width: 188px;

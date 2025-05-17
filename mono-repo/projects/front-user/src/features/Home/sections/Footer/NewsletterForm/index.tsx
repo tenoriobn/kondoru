@@ -9,7 +9,6 @@ const StyledInput = styled.input<{ $hasError?: boolean }>`
   border: none;
   color: ${({ theme }) => theme.colors['white']};
   font-size: 1.25rem;
-  line-height: 1.25rem;
   width: 100%;
   
   &:-webkit-autofill { 

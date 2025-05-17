@@ -36,7 +36,6 @@ const StyledParagraph = styled.p`
   color:  ${({ theme }) => theme.colors['white']};
   font-size: 1.25rem;
   text-align: center;
-  letter-spacing: -0.0781rem;
 
   @media (min-width: 768px) {
     font-size: 1.5rem;

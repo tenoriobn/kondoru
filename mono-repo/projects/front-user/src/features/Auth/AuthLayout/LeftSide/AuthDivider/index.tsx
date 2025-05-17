@@ -14,7 +14,6 @@ const Styled = {
     font-weight: 300;
     color: ${({ theme }) => theme.colors.white};
     text-align: center;
-    line-height: 20px;
   `,
 
   Line: styled.span`
