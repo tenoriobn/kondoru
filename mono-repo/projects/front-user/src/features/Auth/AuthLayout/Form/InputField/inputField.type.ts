@@ -5,3 +5,7 @@ export type InputFieldProps = {
   label: string;
   icon: ReactNode;
 } & InputHTMLAttributes<HTMLInputElement>;
+
+export interface WithError {
+  $errorMessage: boolean;
+}

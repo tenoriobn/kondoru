@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Styled = {
   ForgotPasswordLink: styled(Link)`
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 300;
     color: ${({ theme }) => theme.colors.white};
     text-align: center;
@@ -17,6 +17,10 @@ const Styled = {
 
     &:active {
       color: ${({ theme }) => theme.colors['white']};
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
     }
   `,
 };

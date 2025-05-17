@@ -3,8 +3,13 @@ import { ErrorMessageProps } from './message.types';
 
 const StyledMessage = styled.span`
   color:  ${({ theme }) => theme.colors['red']};
+  font-size: 1rem;
   font-weight: 300;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding-left: 2rem;
+  }
 `;
 
 export default function ErrorMessage({ children }: ErrorMessageProps) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Logo from 'src/features/Home/sections/Header/Logo';
-import BackIcon from 'public/icons/back.svg';
+import ArrowLeftIcon from 'public/icons/arrow-left.svg';
 
 const Styled = {
   AuthHeader: styled.header`
@@ -54,7 +54,7 @@ export default function AuthHeader() {
   return (
     <Styled.AuthHeader>
       <Styled.Button onClick={handleBack}>
-        <BackIcon />
+        <ArrowLeftIcon />
         Voltar
       </Styled.Button>
 

@@ -1,7 +1,7 @@
 import LockIcon from 'public/icons/lock.svg';
-import ButtonForm from '../../AuthLayout/LeftSide/Form/ButtonForm';
-import Form from '../../AuthLayout/LeftSide/Form';
-import InputField from '../../AuthLayout/LeftSide/Form/InputField';
+import ButtonForm from '../../AuthLayout/Form/ButtonForm';
+import Form from '../../AuthLayout/Form';
+import InputField from '../../AuthLayout/Form/InputField';
 
 export default function ResetPasswordForm() {
   return (
