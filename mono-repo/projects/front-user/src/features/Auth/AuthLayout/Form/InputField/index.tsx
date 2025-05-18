@@ -92,17 +92,17 @@ const Styled = {
 };
 
 export default function InputField({ id, label, icon, ...rest }: InputFieldProps) {
-  const { register, errorMessage, hasError } = useFieldValidation(id);
+  const { register, fieldErrorMessage } = useFieldValidation(id);
 
   return (
-    <Styled.InputField $errorMessage={hasError}>
+    <Styled.InputField $errorMessage={!!fieldErrorMessage}>
       <Styled.InputWrapper>
         <Styled.Input
           id={id}
           placeholder=""
           {...register(id)}
           {...rest}
-          $errorMessage={hasError}
+          $errorMessage={!!fieldErrorMessage}
         />
 
         <Styled.Label className="labelline" htmlFor={id}>
@@ -111,7 +111,7 @@ export default function InputField({ id, label, icon, ...rest }: InputFieldProps
         </Styled.Label>
       </Styled.InputWrapper>
 
-      {hasError && errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+      {fieldErrorMessage && <ErrorMessage>{fieldErrorMessage}</ErrorMessage>}
     </Styled.InputField>
   );
 }

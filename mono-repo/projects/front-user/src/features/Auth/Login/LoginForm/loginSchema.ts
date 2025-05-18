@@ -4,7 +4,7 @@ import { z } from 'zod';
 export const loginSchema = z.object({
   email: z
     .string()
-    .min(4, 'E-mail muito curto!')
+    .min(1, 'Por favor, digite um e-mail!')
     .max(254, 'E-mail muito longo!')
     .email('Digite um E-mail válido'),
 

@@ -1,6 +1,9 @@
 <!-- A FAZER -->
   # Utilização do DDD (Domain Driven Design)
 
+  Branch utilizada para criar autenticações
+  https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
+
   OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
     OK - Ajustar Division para receber Texto
     OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"

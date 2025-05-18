@@ -6,8 +6,7 @@ export function useFieldValidation(fieldName: string) {
     formState: { errors },
   } = useFormContext();
 
-  const errorMessage = errors?.[fieldName]?.message as string | undefined;
-  const hasError = !!errorMessage;
+  const fieldErrorMessage = errors?.[fieldName]?.message as string | undefined;
 
-  return { register, errorMessage, hasError };
+  return { register, fieldErrorMessage };
 }

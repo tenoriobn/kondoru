@@ -15,7 +15,7 @@ class AuthService {
     });
 
     if (!user) {
-      throw new AppError('Usuário não cadastrado!', 404);
+      throw new AppError('Usuário e/ou senha inválidos!', 401);
     };
 
     const samePasswords = await compare(dto.password, user.password);

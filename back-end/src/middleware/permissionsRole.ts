@@ -23,7 +23,7 @@ const permissionsRole = (listPermissions: string[]) => {
     })  as UserRole;
 
     if (!user) {
-      res.status(401).send('Usuário não cadastrado!');
+      res.status(401).send('Usuário e/ou senha inválidos');
       return; 
     };
 

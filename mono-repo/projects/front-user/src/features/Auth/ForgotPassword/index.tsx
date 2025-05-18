@@ -8,7 +8,7 @@ export default function ForgotPasswordScreen() {
       <AuthDivider 
         label='Digite o e-mail cadastrado para redefinir sua senha'
       />
-      <ForgotPasswordForm />
+      {/* <ForgotPasswordForm /> */}
     </AuthLayout>
   );
 }

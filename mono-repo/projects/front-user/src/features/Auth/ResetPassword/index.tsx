@@ -8,7 +8,7 @@ export default function ResetPasswordScreen() {
       <AuthDivider 
         label='Digite a nova senha que deseja utilizar'
       />
-      <ResetPasswordForm />
+      {/* <ResetPasswordForm /> */}
     </AuthLayout>
   );
 }

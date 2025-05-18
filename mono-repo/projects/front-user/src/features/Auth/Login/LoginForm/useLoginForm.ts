@@ -16,10 +16,14 @@ export function useLoginForm() {
 
       if (response?.accessToken) {
         postAccessToken({ accessToken: response?.accessToken });
+
+        methods.reset();
       }
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+      methods.setError('root', {
+        type: 'manual',
+        message: String(error) || 'Erro ao realizar login.',
+      });
     }
   };
 

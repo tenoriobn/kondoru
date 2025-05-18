@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FormProps } from './form.type';
+import { FormProvider } from 'react-hook-form';
 
 const Styled = {
   Form: styled.form`
@@ -10,10 +11,12 @@ const Styled = {
   `,
 };
 
-export default function Form({ children, onSubmit }: FormProps) {
+export default function Form({ children, onSubmit, methods }: FormProps) {
   return (
-    <Styled.Form onSubmit={onSubmit}>
-      {children}
-    </Styled.Form>
+    <FormProvider {...methods}>
+      <Styled.Form onSubmit={onSubmit}>
+        {children}
+      </Styled.Form>
+    </FormProvider>
   );
 }
