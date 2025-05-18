@@ -67,8 +67,9 @@ const Styled = {
   `,
 
   Label: styled.label`
-    display: flex;
+    display: grid;
     align-items: center;
+    grid-template-columns: 24px 1fr;
     gap: .5rem;
     cursor: text;
     color: ${({ theme }) => theme.colors['gray-400']};

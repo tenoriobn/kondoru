@@ -25,7 +25,7 @@ const authenticated = async (req: AuthenticatedRequest, res: Response, next: Nex
     next();
   } catch (error) {
     if (error instanceof TokenExpiredError) {
-      throw new AppError('Permissão já cadastrada!', 409);
+      return next(new AppError('Token expirado', 401));
     };
 
     if (error instanceof JsonWebTokenError) {

@@ -9,7 +9,7 @@ export default function RegisterScreen() {
     <AuthLayout>
       <TermsAndGoogleLogin />
       <AuthDivider label='ou cadastre-se com seu e-mail' />
-      {/* <RegisterForm /> */}
+      <RegisterForm />
       <AuthFooter message="Já tem conta?" linkText="Faça login" linkHref="login" />
     </AuthLayout>
   );

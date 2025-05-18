@@ -7,6 +7,8 @@ const Styled = {
     background-image: url('/images/background-header.webp');
     background-size: cover;
     background-position: bottom;
+    background-attachment: fixed;
+    
     display: grid;
     place-items: center;
     min-height: 100vh;

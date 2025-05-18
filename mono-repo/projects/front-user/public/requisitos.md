@@ -10,7 +10,7 @@
     OK Criar Hover para os botões e itens clicaveis
     * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
     * Escolher Outra fonte
-    * Remover `LetterSpacing` deve manter só no título do HeroSection
+    * Remover `LetterSpacing`
     * Definir Tamanho da letra Mobile Tablet.
     * Definir Espaçamento Mobile e Tablet
     * Criar Slide para versão desktop no lado Direito
