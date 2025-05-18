@@ -1,22 +1,16 @@
 import AuthLayout from 'src/features/Auth/AuthLayout';
-import TermsAndGoogleLogin from '../AuthLayout/LeftSide/TermsAndGoogleLogin';
-import AuthDivider from '../AuthLayout/LeftSide/AuthDivider';
-import LeftSide from 'src/features/Auth/AuthLayout/LeftSide';
-import RightSide from '../AuthLayout/RightSide';
+import TermsAndGoogleLogin from '../AuthLayout/TermsAndGoogleLogin';
+import AuthDivider from '../AuthLayout/AuthDivider';
 import RegisterForm from './RegisterForm';
-import AuthFooter from '../AuthLayout/LeftSide/AuthFooter';
+import AuthFooter from '../AuthLayout/AuthFooter';
 
 export default function RegisterScreen() {
   return (
     <AuthLayout>
-      <LeftSide>
-        <TermsAndGoogleLogin />
-        <AuthDivider label='ou cadastre-se com seu e-mail' />
-        <RegisterForm />
-        <AuthFooter message="Já tem conta?" linkText="Faça login" linkHref="login" />
-      </LeftSide>
-
-      <RightSide />
+      <TermsAndGoogleLogin />
+      <AuthDivider label='ou cadastre-se com seu e-mail' />
+      <RegisterForm />
+      <AuthFooter message="Já tem conta?" linkText="Faça login" linkHref="login" />
     </AuthLayout>
   );
 }

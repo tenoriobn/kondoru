@@ -40,16 +40,13 @@ const StyledHeroContent = styled.div`
 const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.colors.white};
   font-size: clamp(4rem, 18vw, 15.625rem);
-  letter-spacing: -0.125rem;
   font-weight: 800;
-  line-height: clamp(3rem, 17vw, 12rem);
 `;
 
 const StyledSlogan = styled.h2`
   color: ${({ theme }) => theme.colors.white};
   font-size: clamp(.5rem, 6.4vw, 2rem);
   font-weight: 400;
-  line-height: clamp(.5rem, 6.4vw, 2rem);
   text-align: center;
   white-space: pre-line;
 `;

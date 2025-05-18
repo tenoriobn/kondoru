@@ -1,15 +1,16 @@
 <!-- A FAZER -->
   # Utilização do DDD (Domain Driven Design)
 
+  Branch utilizada para criar autenticações
+  https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
+
   OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
     OK - Ajustar Division para receber Texto
     OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
     OK Criar Hover para os botões e itens clicaveis
-    * Criar validação HTML5
-    * Validar utilizando versão nativa igual na lp Eduardo
     * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
     * Escolher Outra fonte
-    * Remover `LetterSpacing` deve manter só no título do HeroSection
+    * Remover `LetterSpacing`
     * Definir Tamanho da letra Mobile Tablet.
     * Definir Espaçamento Mobile e Tablet
     * Criar Slide para versão desktop no lado Direito

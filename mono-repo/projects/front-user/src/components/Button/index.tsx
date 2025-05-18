@@ -8,7 +8,6 @@ export const StyledButton = styled.button<ButtonProps>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   color: ${({ $color, theme }) => $color ? theme.colors[$color] : ''};
   font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
-  line-height: ${({ $lineHeight }) => $lineHeight || '1.5rem'};
   font-weight: ${({ $fontWeight }) => $fontWeight || ''};
   text-decoration: ${({ $textDecoration }) => $textDecoration || '1.5rem'};
 

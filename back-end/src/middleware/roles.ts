@@ -21,7 +21,7 @@ const roles = (listRoles: string[]) => {
     });
 
     if (!user) {
-      throw new AppError('Usuário não cadastrado!', 401);
+      throw new AppError('Usuário e/ou senha inválidos', 401);
     }
 
     const registeredRoles = user.user_roles

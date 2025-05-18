@@ -24,7 +24,7 @@ class SecurityService {
     });
 
     if (!user) {
-      throw new AppError('Usuário não cadastrado!', 404);
+      throw new AppError('Usuário e/ou senha inválidos!', 401);
     };
 
     const registeredRoles = await database.Roles.findOne({
@@ -75,7 +75,7 @@ class SecurityService {
     });
 
     if (!user) {
-      throw new AppError('Usuário não cadastrado!', 404);
+      throw new AppError('Usuário e/ou senha inválidos!', 401);
     };
 
     const registeredPermissions = await database.Permissions.findAll({

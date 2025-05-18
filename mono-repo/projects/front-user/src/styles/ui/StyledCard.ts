@@ -21,7 +21,6 @@ export const StyledCardImage = styled.img`
 
 export const StyledCardTitle = styled.h3`
   font-size: 1.5rem;
-  line-height: 1.75rem;
   font-weight: 800;
   white-space: nowrap;
   overflow: hidden;
@@ -31,6 +30,5 @@ export const StyledCardTitle = styled.h3`
 export const StyledText = styled.h4`
   color: ${({ theme }) => theme.colors['dark-slate-58']};
   font-size: 1rem;
-  line-height: 1.375rem;
   font-weight: 500;
 `;

@@ -4,10 +4,11 @@ import { AuthFooterProps } from './authFooter.type';
 
 const Styled = {
   AuthRedirectMessage: styled.p`
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 300;
     color: ${({ theme }) => theme.colors.white};
     text-align: center;
+    margin-top: 1rem;
 
     a {
       font-weight: 700;
@@ -21,6 +22,10 @@ const Styled = {
       &:active {
         color: ${({ theme }) => theme.colors['white']};
       }
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
     }
   `,
 };

@@ -24,7 +24,6 @@ const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     color: ${({ theme }) => theme.colors['zinc-950']};
     background-color: ${({ theme }) => theme.colors.white};
-    letter-spacing: -1px;
   }
 
   /* 4. Configura largura e altura padrão */
