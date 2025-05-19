@@ -5,9 +5,16 @@
   https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
 
   OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+    - Ajustar a página do Next.js /auth/resetar-senha/ para aceitar o token pela URL
+    - Passar o token para o endpoint de reset de senha no submit do form
+    - Criar a lógica para envio de email com o token
+
+    
+    OK - Criar terlas de Recuperar e Resetar Senha
     OK - Ajustar Division para receber Texto
     OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
     OK Criar Hover para os botões e itens clicaveis
+    * Ajustar Campo de Data da tela de Cadastro
     * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
     * Escolher Outra fonte
     * Remover `LetterSpacing`

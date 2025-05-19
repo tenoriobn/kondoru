@@ -27,12 +27,14 @@ const Styled = {
     background-color: ${({ theme }) => theme.colors['dark-slate-800']};
     border-radius: ${({ theme }) => theme.borderRadius['rounded-24']};
     border: .0625rem solid rgba(189, 189, 189, 0.160);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4rem;
     max-width: 700px;
     padding: 1rem;
+    width: 100%;
 
     @media (min-width: 375px) {
       padding: 1.5rem;
@@ -46,6 +48,7 @@ const Styled = {
   Section: styled.section`
     display: grid;
     gap: 3rem;
+    width: 100%;
   `,
 };
 

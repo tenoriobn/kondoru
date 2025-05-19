@@ -118,6 +118,47 @@ class UserService {
     await this.getUserById(id);
     await database.Users.destroy({where: { id: id }});
   };
+
+  async forgotPassword(email: string) {
+    const user = await database.Users.findOne({where: { email } });
+
+    if (!user) {
+      throw new AppError('Email não cadastrado.', 404);
+    };
+
+    const token = uuidv4();
+    const expiresAt = new Date(Date.now() + 1000 * 60 * 30);
+
+    await database.PasswordResetTokens.create({
+      id: uuidv4(),
+      user_id: user.id,
+      token,
+      expires_at: expiresAt,
+    });
+
+    const resetUrl = `Token para trocar senha: ${token}`;
+
+    console.log('aquiii resetUrl: ', resetUrl);
+
+    // return resetUrl;
+  };
+
+  async resetPassword(dto: { token: string, password: string }) {
+    const reset = await database.PasswordResetTokens.findOne({ where: { token: dto.token } });
+
+    if (!reset || new Date() > reset.expires_at) {
+      throw new AppError('Token inválido ou expirado.', 400);
+    }
+
+    const user = await database.Users.findByPk(reset.user_id);
+    const hashPassword = await hash(dto.password, 8);
+
+    await user.update({ password: hashPassword });
+    
+    await database.PasswordResetTokens.destroy({ where: { token: dto.token} });
+
+    return { message: 'Senha redefinida com sucesso.' };
+  };
 }
 
 export default UserService;

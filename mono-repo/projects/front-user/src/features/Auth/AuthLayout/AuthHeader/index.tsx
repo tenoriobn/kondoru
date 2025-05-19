@@ -9,6 +9,7 @@ const Styled = {
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    width: 100%;
   `,
 
   Button: styled.button`

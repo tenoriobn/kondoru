@@ -64,6 +64,28 @@ class UserController {
       next(error); 
     }
   };
+
+  static async forgotPassword(req: Request<{email: string}>, res: Response, next: NextFunction): Promise<void> {
+    const { email } = req.body;
+
+    try {
+      const user = await userService.forgotPassword(email);
+      res.status(200).json(user);
+    } catch (error) {
+      next(error); 
+    }
+  }
+
+  static async resetPassword(req: Request, res: Response, next: NextFunction) {
+    const { token, password } = req.body;
+    
+    try {
+      const reset = await userService.resetPassword({ token, password });
+      res.status(200).send(reset);      
+    } catch (error) {
+      next(error); 
+    }
+  }
 }
 
 export default UserController;
