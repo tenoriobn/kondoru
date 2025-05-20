@@ -2,7 +2,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { forgotPasswordValues, forgotPasswordSchema } from './forgotPasswordSchema';
 import postData from 'src/shared/api/postData';
-import postAccessToken from '../../services/postAccessToken';
 
 export function useForgotPasswordForm() {
   const methods = useForm<forgotPasswordValues>({
@@ -12,11 +11,9 @@ export function useForgotPasswordForm() {
 
   const onSubmit = async (data: forgotPasswordValues) => {
     try {
-      const response =  await postData('auth/login', data);
+      const response =  await postData('user/forgot-password', data);
 
-      if (response?.accessToken) {
-        postAccessToken({ accessToken: response?.accessToken });
-
+      if (response) {
         methods.reset();
       }
     } catch (error) {

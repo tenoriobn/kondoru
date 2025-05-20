@@ -2,22 +2,31 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { resetPasswordFormValues, resetPasswordSchema } from './resetPasswordSchema';
 import postData from 'src/shared/api/postData';
-import postAccessToken from '../../services/postAccessToken';
+import { useRouter } from 'next/router';
 
-export function useResetPasswordForm() {
+export function usePasswordResetForm(passwordResetToken: string) {
   const methods = useForm<resetPasswordFormValues>({
     resolver: zodResolver(resetPasswordSchema),
     mode: 'onTouched',
   });
 
+  const router = useRouter();
+
   const onSubmit = async (data: resetPasswordFormValues) => {
     try {
-      const response =  await postData('user', data);
+      const { password } = data;
 
-      if (response?.accessToken) {
-        postAccessToken({ accessToken: response?.accessToken });
+      const response = await postData('user/reset-password', {
+        token: passwordResetToken, 
+        password
+      });
+
+      if (response) {
         methods.reset();
       }
+
+      router.push('/auth/login/');
+      
     } catch (error) {
       methods.setError('root', {
         type: 'manual',

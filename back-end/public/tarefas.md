@@ -6,6 +6,12 @@
   OK - Ajustar erro que trava terminal ao tentar fazer requisição com token vencido/invalido
   - Ajustar tipagem correta, ex: em "const { roles, permissions } = req.body;" deve mostrar que são strings e não any
 
+
+  - Refatorar nomes e lógica de Resetar senha/Conferir Token
+  - Remover autenticação de endpoints que devem ser públicas
+
+
+
 OK - Adicionar eslint
 OK - Organizar as pastas dentro de API
 OK - Centralizar lógica do `Error` do `Catch`
