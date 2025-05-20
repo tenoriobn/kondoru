@@ -76,6 +76,17 @@ class UserController {
     }
   }
 
+  static async verifyResetToken(req: Request<{token: string}>, res: Response, next: NextFunction) {
+    const { token } = req.params;
+
+    try {
+      await userService.verifyResetToken(token);
+      res.status(200).json({ message: 'Token válido' });
+    } catch (error) {
+      next(error); 
+    }
+  }
+
   static async resetPassword(req: Request, res: Response, next: NextFunction) {
     const { token, password } = req.body;
     

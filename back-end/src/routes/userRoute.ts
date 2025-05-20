@@ -12,6 +12,7 @@ router
   .post('/api/user', roles(['Administrador']), UserController.register)
   .post('/api/user/forgot-password', roles(['Administrador']), UserController.forgotPassword)
   .post('/api/user/reset-password', roles(['Administrador']), UserController.resetPassword)
+  .get('/api/user/verify-reset-token/:token', roles(['Administrador']), UserController.verifyResetToken)
   .get('/api/users', UserController.getAllUsers)
   .get('/api/user/:id', permissionsRole(['Buscar']), UserController.getUserById)
   .put('/api/user/:id', permissionsRole(['Editar']), UserController.updateUser)

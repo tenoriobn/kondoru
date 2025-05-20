@@ -3,6 +3,7 @@ import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
 import AppError from '../utils/appError';
+import { Op } from 'sequelize';
 class UserService {
   async register(dto: UserRegisterData) {
     if (!dto.email) {
@@ -137,18 +138,26 @@ class UserService {
     });
 
     const resetUrl = `Token para trocar senha: ${token}`;
-
-    console.log('aquiii resetUrl: ', resetUrl);
-
-    // return resetUrl;
+    return resetUrl;
   };
 
-  async resetPassword(dto: { token: string, password: string }) {
-    const reset = await database.PasswordResetTokens.findOne({ where: { token: dto.token } });
+  async verifyResetToken(token: string) {
+    const tokenFound = await database.PasswordResetTokens.findOne({ 
+      where: { 
+        token: token,
+        expires_at: { [Op.gt]: new Date() }
+      } 
+    });
 
-    if (!reset || new Date() > reset.expires_at) {
+    if (!tokenFound) {
       throw new AppError('Token inválido ou expirado.', 400);
     }
+
+    return tokenFound;
+  }
+
+  async resetPassword(dto: { token: string, password: string }) {
+    const reset = await this.verifyResetToken(dto.token);
 
     const user = await database.Users.findByPk(reset.user_id);
     const hashPassword = await hash(dto.password, 8);
