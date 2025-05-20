@@ -15,6 +15,10 @@ export default (sequelize: Sequelize) => {
         as: 'user_permissions',
         foreignKey: 'user_id'
       });
+      Users.hasMany(models.PasswordResetTokens, {
+        foreignKey: 'user_id',
+        as: 'password_reset_tokens'
+      });
     }
   }
 

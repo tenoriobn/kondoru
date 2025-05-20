@@ -3,6 +3,7 @@ import { hash } from 'bcryptjs';
 import { UserData, UserRegisterData } from '../interface/user';
 import { v4 as uuidv4 } from 'uuid';
 import AppError from '../utils/appError';
+import { Op } from 'sequelize';
 class UserService {
   async register(dto: UserRegisterData) {
     if (!dto.email) {
@@ -117,6 +118,55 @@ class UserService {
   async deleteUser(id: string) {
     await this.getUserById(id);
     await database.Users.destroy({where: { id: id }});
+  };
+
+  async forgotPassword(email: string) {
+    const user = await database.Users.findOne({where: { email } });
+
+    if (!user) {
+      throw new AppError('Email não cadastrado.', 404);
+    };
+
+    const token = uuidv4();
+    const expiresAt = new Date(Date.now() + 1000 * 60 * 30);
+
+    await database.PasswordResetTokens.create({
+      id: uuidv4(),
+      user_id: user.id,
+      token,
+      expires_at: expiresAt,
+    });
+
+    const resetUrl = `Token para trocar senha: ${token}`;
+    return resetUrl;
+  };
+
+  async verifyResetToken(token: string) {
+    const tokenFound = await database.PasswordResetTokens.findOne({ 
+      where: { 
+        token: token,
+        expires_at: { [Op.gt]: new Date() }
+      } 
+    });
+
+    if (!tokenFound) {
+      throw new AppError('Token inválido ou expirado.', 400);
+    }
+
+    return tokenFound;
+  }
+
+  async resetPassword(dto: { token: string, password: string }) {
+    const reset = await this.verifyResetToken(dto.token);
+
+    const user = await database.Users.findByPk(reset.user_id);
+    const hashPassword = await hash(dto.password, 8);
+
+    await user.update({ password: hashPassword });
+    
+    await database.PasswordResetTokens.destroy({ where: { token: dto.token} });
+
+    return { message: 'Senha redefinida com sucesso.' };
   };
 }
 

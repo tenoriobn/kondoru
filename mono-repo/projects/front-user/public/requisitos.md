@@ -4,10 +4,20 @@
   Branch utilizada para criar autenticações
   https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
 
-  OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+  * Finalizar Telas de Auth
+    - Recuperar senha deve exibir mensagem que foi enviado um código para o email
+    - Resetar senha deve ter um loading ou algo do tipo enquanto limpa campo e redireciona
+    - Resetar senha deve ter um botão para ir para a página de recuperar senha caso token inválido ou expirado
+    - Conferir se falta algo mais
+    - Criar a lógica para envio de email com o token
+    - Setinha deve voltar para a Home, caso não tenha mais páginas para voltar!!!
+    - Payload mostra senha ao enviar requisição
+
+  
     OK - Ajustar Division para receber Texto
     OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
     OK Criar Hover para os botões e itens clicaveis
+    * Ajustar Campo de Data da tela de Cadastro
     * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
     * Escolher Outra fonte
     * Remover `LetterSpacing`
@@ -20,6 +30,9 @@
     * Aplicar FrameMotion
 
 
+  OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
+  OK - Ajustar a página do Next.js /auth/resetar-senha/ para aceitar o token pela URL
+  OK - Passar o token para o endpoint de reset de senha no submit do form
 
   OK - Remover quadrado azul ao clicar em um dos filtros no mobile.
   OK - Aplicar box-shadow no botton do header e fazer desaparecer 16px antes de ir para baixo do header

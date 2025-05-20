@@ -1,15 +1,19 @@
-// import AuthLayout from '../AuthLayout';
-// import AuthDivider from '../AuthLayout/AuthDivider';
-// import ResetPasswordForm from './ResetPasswordForm';
+import AuthLayout from '../AuthLayout';
+import AuthDivider from '../AuthLayout/AuthDivider';
+import { ResetPasswordProps } from './resetPassword.type';
+import PasswordResetForm from './ResetPasswordForm';
 
-export default function ResetPasswordScreen() {
+export default function PasswordResetScreen({ isValid, passwordResetToken }: ResetPasswordProps) {
   return (
-    // <AuthLayout>
-    //   <AuthDivider 
-    //     label='Digite a nova senha que deseja utilizar'
-    //   />
-    //   {/* <ResetPasswordForm /> */}
-    // </AuthLayout>
-    <p>em breve</p>
+    <AuthLayout>
+      <AuthDivider 
+        label={ isValid 
+          ? 'Digite a nova senha que deseja utilizar'
+          : 'Token inválido ou expirado!'
+        }
+      />
+
+      {isValid && <PasswordResetForm passwordResetToken={passwordResetToken} />}
+    </AuthLayout>
   );
 }
