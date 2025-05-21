@@ -1,4 +1,4 @@
 export interface ResetPasswordProps {
-  isValid: boolean; 
+  isValid?: boolean; 
   passwordResetToken: string;
 }

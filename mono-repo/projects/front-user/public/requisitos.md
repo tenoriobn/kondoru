@@ -5,29 +5,27 @@
   https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
 
   * Finalizar Telas de Auth
-    - Recuperar senha deve exibir mensagem que foi enviado um código para o email
-    - Resetar senha deve ter um loading ou algo do tipo enquanto limpa campo e redireciona
-    - Resetar senha deve ter um botão para ir para a página de recuperar senha caso token inválido ou expirado
-    - Conferir se falta algo mais
-    - Criar a lógica para envio de email com o token
-    - Setinha deve voltar para a Home, caso não tenha mais páginas para voltar!!!
-    - Payload mostra senha ao enviar requisição
+    * Ajustar Campo de Data da tela de Cadastro / Adicionar Mensagem de Sucesso + Redirecionamento
+    * Criar a lógica para envio de email com o token
 
-  
-    OK - Ajustar Division para receber Texto
-    OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
-    OK Criar Hover para os botões e itens clicaveis
-    * Ajustar Campo de Data da tela de Cadastro
-    * Tornar Tela responsiva (Mobile e Talbet só mostra FORM);
-    * Escolher Outra fonte
+  * Padronizar na página home de acordo com as telas de Auth:
     * Remover `LetterSpacing`
     * Definir Tamanho da letra Mobile Tablet.
     * Definir Espaçamento Mobile e Tablet
-    * Criar Slide para versão desktop no lado Direito
-    * Só o formulário rola o Slide fica fixo.
-    * A partir de um determinado tamanho de tela o AuthLayout fica centralizado
-    * Definir Icones
+    * Trocar icones para icones mais modernos
     * Aplicar FrameMotion
+    * Centralizar componente de CheckedMessage/ErrorMessage/InputErrorMessage
+
+
+  OK - Recuperar senha deve exibir mensagem que foi enviado um código para o email
+  OK - Ao resetar senha exibir mensagem de sucesso / token expirado mensagem de erro
+  OK - Resetar senha deve ter um botão para ir para a página de recuperar senha caso token inválido ou expirado
+  OK - Setinha deve voltar para a Home, caso não tenha mais páginas para voltar!!!
+
+
+  OK - Ajustar Division para receber Texto
+  OK - Ajustar Texto do Footer "Cadastre-se" ou "Logue-se"
+  OK Criar Hover para os botões e itens clicaveis
 
 
   OK - Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
@@ -39,13 +37,11 @@
   OK - Corrigir LOGO e imagens desfocadas (talvez devido ao width e height aplicado diretamente no **SVG OU IMAGE**) 
 
 
-  * Trocar icones para icones mais modernos
+
 
   * Aplicar frameMotion para animação de elementos
   * Acompanhar Performance e realizar correções necessárias
   * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
-
-   * Construir nova página de Cadastro/Login/Recuperação de Senha/Resetar Senha
 
    * Partir para próximas telas do FIGMA.
 

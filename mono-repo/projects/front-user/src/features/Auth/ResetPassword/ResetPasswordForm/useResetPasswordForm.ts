@@ -3,8 +3,11 @@ import { useForm } from 'react-hook-form';
 import { resetPasswordFormValues, resetPasswordSchema } from './resetPasswordSchema';
 import postData from 'src/shared/api/postData';
 import { useRouter } from 'next/router';
+import { useSetRecoilState } from 'recoil';
+import { showPasswordResetFormState } from 'src/shared/atom';
 
 export function usePasswordResetForm(passwordResetToken: string) {
+  const setShowPasswordResetForm = useSetRecoilState(showPasswordResetFormState);
   const methods = useForm<resetPasswordFormValues>({
     resolver: zodResolver(resetPasswordSchema),
     mode: 'onTouched',
@@ -23,9 +26,13 @@ export function usePasswordResetForm(passwordResetToken: string) {
 
       if (response) {
         methods.reset();
-      }
+        setShowPasswordResetForm(false);
 
-      router.push('/auth/login/');
+        setTimeout(async () => {
+          await router.push('/auth/login/');
+          setShowPasswordResetForm(true);
+        }, 3000);
+      }
       
     } catch (error) {
       methods.setError('root', {

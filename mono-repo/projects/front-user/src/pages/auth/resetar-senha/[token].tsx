@@ -1,7 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
-import PasswordResetScreen from 'src/features/Auth/ResetPassword';
-import { verifyResetToken } from '../../../features/Auth/ResetPassword/verifyResetToken';
-import { ResetPasswordProps } from 'src/features/Auth/ResetPassword/resetPassword.type';
+import PasswordResetScreen from 'features/Auth/ResetPassword';
+import { verifyResetToken } from 'features/Auth/services/verifyResetToken';
+import { ResetPasswordProps } from 'features/Auth/ResetPassword/resetPassword.type';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { token } = context.params!;
