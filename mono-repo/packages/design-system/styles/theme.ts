@@ -16,6 +16,7 @@ const Theme = {
     'zinc-400': 'rgb(126, 126, 126)', /* 7E7E7E */
     'zinc-950': 'rgb(24, 24, 23)', /* 181817 */
     'red': 'rgb(255 69 69 / 81%)',
+    'green': 'rgb(9, 163, 9)',
     'gradient-dark-slate': 'linear-gradient(180deg, rgba(35, 50, 62, 1) 0%, rgba(45, 59, 70, 1) 100%)',
     'gradient-dark-slate-80': 'linear-gradient(rgb(35, 50, 62, .8), rgb(35, 50, 62, .8))',
   },

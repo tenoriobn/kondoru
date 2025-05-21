@@ -2,8 +2,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { forgotPasswordValues, forgotPasswordSchema } from './forgotPasswordSchema';
 import postData from 'src/shared/api/postData';
+import { useSetRecoilState } from 'recoil';
+import { showForgotPasswordFormState } from 'src/shared/atom';
 
 export function useForgotPasswordForm() {
+  const setShowForgotPasswordForm = useSetRecoilState(showForgotPasswordFormState);
   const methods = useForm<forgotPasswordValues>({
     resolver: zodResolver(forgotPasswordSchema),
     mode: 'onTouched',
@@ -15,6 +18,7 @@ export function useForgotPasswordForm() {
 
       if (response) {
         methods.reset();
+        setShowForgotPasswordForm(false);
       }
     } catch (error) {
       methods.setError('root', {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { InputFieldProps, WithError } from './inputField.type';
-import ErrorMessage from 'components/ErrorMessage';
+import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
 import { useFieldValidation } from './useFieldValidation';
 
 const Styled = {
@@ -112,7 +112,7 @@ export default function InputField({ id, label, icon, ...rest }: InputFieldProps
         </Styled.Label>
       </Styled.InputWrapper>
 
-      {fieldErrorMessage && <ErrorMessage>{fieldErrorMessage}</ErrorMessage>}
+      {fieldErrorMessage && <InputErrorMessage>{fieldErrorMessage}</InputErrorMessage>}
     </Styled.InputField>
   );
 }

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import AlertErrorIcon from 'public/icons/alert-error.svg';
+import CheckIcon from 'public/icons/check.svg';
 
 const Styled = {
-  ErrorMessage: styled.div`
+  CheckedMessage: styled.div`
     display: grid;
     place-items: center;
     gap: 1.5rem;
@@ -10,7 +10,7 @@ const Styled = {
   `,
 
   Message: styled.p`
-    color:  ${({ theme }) => theme.colors['red']};
+    color: ${({ theme }) => theme.colors['green']};
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
@@ -20,16 +20,16 @@ const Styled = {
     }
   `,
 
-  CheckIcon: styled(AlertErrorIcon)`
+  CheckIcon: styled(CheckIcon)`
     justify-self: center;
   `,
 };
 
-export default function ErrorMessage({ message }: {message: string}) {
+export default function CheckedMessage({ message }: {message: string}) {
   return (
-    <Styled.ErrorMessage>
+    <Styled.CheckedMessage>
       <Styled.Message>{message}</Styled.Message>
       <Styled.CheckIcon />
-    </Styled.ErrorMessage>
+    </Styled.CheckedMessage>
   );
 }
