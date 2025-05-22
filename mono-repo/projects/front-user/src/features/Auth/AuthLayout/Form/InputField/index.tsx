@@ -2,44 +2,63 @@ import styled from 'styled-components';
 import { InputFieldProps, WithError } from './inputField.type';
 import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
 import { useFieldValidation } from './useFieldValidation';
+import PasswordVisibility from './PasswordVisibilityToggle';
+import { useState } from 'react';
+import { usePasswordVisibility } from './PasswordVisibilityToggle/usePasswordVisibility';
 
 const Styled = {
-  InputField: styled.div<WithError>`
+  InputFieldContainer: styled.div<WithError>`
     display: grid;
     gap: .5rem;
     width: 100%;
   `,
 
-  InputWrapper: styled.div`
+  InputLabelWrapper: styled.label<WithError>`
     display: flex;
     align-items: center;
+    cursor: text;
     background-color: ${({ theme }) => theme.colors['dark-slate-800']};
     position: relative;
     height: 64px;
     width: 100%;
-  `,
 
-  Input: styled.input<WithError>`
-    appearance: none;
-    outline: none;
-    position: absolute;
-    box-sizing: border-box;
     background-color: ${({ theme }) => theme.colors['dark-slate-800']};
     border: .125rem solid
     ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors['gray-400']};
     border-radius: ${({ theme }) => theme.borderRadius['rounded-full']};
+    transition: ${({ theme }) => theme.transitions.smoothTransition} ;
+
+    padding: 1.25rem 1.5rem;
+
+    svg path {
+      transition: ${({ theme }) => theme.transitions.smoothTransition} ;
+      stroke: ${({ theme }) => theme.colors['gray-400']};
+    }
+
+    &:has(input:focus),
+    &:has(input:not(:placeholder-shown)) {
+      border-color: 
+      ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors.white};
+
+      svg path {
+        stroke: ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors.white};
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding: 1.25rem 2rem;
+    }
+  `,
+
+  Input: styled.input<WithError>`
+    all: unset;
+    box-sizing: border-box;
     color: ${({ theme }) => theme.colors.white};
+
     font-size: 1rem;
     font-weight: 400;
     width: 100%;
-    padding: 1.25rem 1.5rem;
     height: 64px;
-    z-index: 5;
-
-    &:not(:placeholder-shown), &:focus {
-      border-color: ${({ $errorMessage, theme }) =>
-    $errorMessage ? theme.colors['red'] : theme.colors.white};
-    }
 
     &:not(:placeholder-shown) + .labelline,
     &:focus + .labelline {
@@ -47,11 +66,7 @@ const Styled = {
       color: ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors.white};
       transform: translate(0px, -36px);
       z-index: 6;
-      transition: ${({ theme }) => theme.transitions.smoothTransition};
-
-      svg path {
-        stroke: ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors.white};
-      }
+      transition: ${({ theme }) => theme.transitions.smoothTransition} ;
     }
 
     &:-webkit-autofill {
@@ -62,16 +77,16 @@ const Styled = {
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
-      padding: 1.25rem 2rem;
     }
   `,
 
-  Label: styled.label`
+  LabelLine: styled.div`
     display: grid;
     align-items: center;
     grid-template-columns: 24px 1fr;
     gap: .5rem;
     cursor: text;
+
     color: ${({ theme }) => theme.colors['gray-400']};
     font-size: 1rem;
     font-weight: 400;
@@ -79,11 +94,7 @@ const Styled = {
     left: 16px;
     z-index: 9;
     padding: .375rem .5rem;
-    transition: ${({ theme }) => theme.transitions.smoothTransition};
-
-    svg path {
-      stroke: ${({ theme }) => theme.colors['gray-400']};
-    }
+    transition: ${({ theme }) => theme.transitions.smoothTransition} ;
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
@@ -92,27 +103,36 @@ const Styled = {
   `
 };
 
-export default function InputField({ id, label, icon, ...rest }: InputFieldProps) {
+export default function InputField({ id, label, icon, type, ...rest }: InputFieldProps) {
   const { register, fieldErrorMessage } = useFieldValidation(id);
-
+  const { isPasswordInput, passwordView, setPasswordView, resolvedType } = usePasswordVisibility(type, id);
+  
   return (
-    <Styled.InputField $errorMessage={!!fieldErrorMessage}>
-      <Styled.InputWrapper>
+    <Styled.InputFieldContainer $errorMessage={!!fieldErrorMessage}>
+      <Styled.InputLabelWrapper htmlFor={id} $errorMessage={!!fieldErrorMessage}>
         <Styled.Input
           id={id}
           placeholder=""
+          type={resolvedType}
           {...register(id)}
           {...rest}
           $errorMessage={!!fieldErrorMessage}
         />
 
-        <Styled.Label className="labelline" htmlFor={id}>
+        <Styled.LabelLine className="labelline">
           {icon}
           {label}
-        </Styled.Label>
-      </Styled.InputWrapper>
+        </Styled.LabelLine>
+
+        {isPasswordInput && (
+          <PasswordVisibility 
+            passwordView={passwordView}
+            setPasswordView={setPasswordView}
+          />
+        )}
+      </Styled.InputLabelWrapper>
 
       {fieldErrorMessage && <InputErrorMessage>{fieldErrorMessage}</InputErrorMessage>}
-    </Styled.InputField>
+    </Styled.InputFieldContainer>
   );
 }

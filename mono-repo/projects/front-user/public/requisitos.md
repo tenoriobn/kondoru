@@ -4,18 +4,6 @@
   Branch utilizada para criar autenticações
   https://github.com/tenoriobn/kondoru/blob/3bc768b213310ee264d1ead6dd509a455881405c/mono-repo/projects/front-user/src/hooks/api/auth/useLogin.ts
 
-  * Finalizar Telas de Auth
-    * Ajustar Campo de Data da tela de Cadastro / Adicionar Mensagem de Sucesso + Redirecionamento
-    * Criar a lógica para envio de email com o token
-
-  * Padronizar na página home de acordo com as telas de Auth:
-    * Remover `LetterSpacing`
-    * Definir Tamanho da letra Mobile Tablet.
-    * Definir Espaçamento Mobile e Tablet
-    * Trocar icones para icones mais modernos
-    * Aplicar FrameMotion
-    * Centralizar componente de CheckedMessage/ErrorMessage/InputErrorMessage
-
 
   OK - Recuperar senha deve exibir mensagem que foi enviado um código para o email
   OK - Ao resetar senha exibir mensagem de sucesso / token expirado mensagem de erro
@@ -38,16 +26,10 @@
 
 
 
-
-  * Aplicar frameMotion para animação de elementos
-  * Acompanhar Performance e realizar correções necessárias
   * Refatorar Botão reutilizavel, bem como o conteúdo da pasta `styles` (AQUIIIIII) <---
-
-   * Partir para próximas telas do FIGMA.
-
-
+  * Acompanhar Performance e realizar correções necessárias
+  * Partir para próximas telas do FIGMA.
   * Centralizar Titulos (h1,h2,h3,h4...) em um único componente que lida com isso
-  OK - Verificar se Menu deve ser fixo e ter box-shadow
   
  
   

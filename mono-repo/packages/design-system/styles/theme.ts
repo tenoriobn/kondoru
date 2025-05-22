@@ -32,8 +32,8 @@ const Theme = {
     'text-3xl': '2rem',
   },
   transitions: {
-    smoothTransition: 'all .3s ease-in-out',
-    smoothTransitionBg: 'background-color .3s ease-in-out',
+    smoothTransition: 'all .3s linear',
+    smoothTransitionBg: 'background-color .3s linear',
   }
 };
 
