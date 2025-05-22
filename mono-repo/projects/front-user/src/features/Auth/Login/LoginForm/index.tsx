@@ -23,7 +23,7 @@ export default function LoginForm() {
 
         <InputField 
           id="password"
-          type="password"
+          type='password'
           label="Senha"
           icon={<LockIcon />}
         />

@@ -3,12 +3,15 @@ import { useForm } from 'react-hook-form';
 import { LoginFormValues, loginSchema } from './loginSchema';
 import postData from 'src/shared/api/postData';
 import postAccessToken from '../../services/postAccessToken';
+import { useRouter } from 'next/router';
 
 export function useLoginForm() {
   const methods = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     mode: 'onTouched',
   });
+
+  const router = useRouter();
 
   const onSubmit = async (data: LoginFormValues) => {
     try {
@@ -17,6 +20,7 @@ export function useLoginForm() {
       if (response?.accessToken) {
         postAccessToken({ accessToken: response?.accessToken });
 
+        router.push('/');
         methods.reset();
       }
     } catch (error) {
