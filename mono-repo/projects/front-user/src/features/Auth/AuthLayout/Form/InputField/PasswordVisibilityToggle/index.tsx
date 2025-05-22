@@ -1,7 +1,7 @@
-import ViewIcon from 'public/icons/view.svg';
-import NoViewIcon from 'public/icons/noview.svg';
 import styled from 'styled-components';
 import { PasswordVisibilityProps } from './passwordVisibility.type';
+import ViewIcon from 'public/icons/view.svg';
+import NoViewIcon from 'public/icons/no-view.svg';
 
 const Icon = styled.div`
   cursor: pointer;

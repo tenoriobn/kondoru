@@ -3,12 +3,18 @@ import { useForm } from 'react-hook-form';
 import { registerFormValues, registerSchema } from './registerSchema';
 import postData from 'src/shared/api/postData';
 import postAccessToken from '../../services/postAccessToken';
+import { useRouter } from 'next/router';
+import { useSetRecoilState } from 'recoil';
+import { showRegisterFormState } from 'src/shared/atom';
 
 export function useRegisterForm() {
   const methods = useForm<registerFormValues>({
     resolver: zodResolver(registerSchema),
     mode: 'onTouched',
   });
+
+  const setShowRegisterForm = useSetRecoilState(showRegisterFormState);
+  const router = useRouter();
 
   const onSubmit = async (data: registerFormValues) => {
     try {
@@ -20,8 +26,7 @@ export function useRegisterForm() {
       });
 
       if (response?.accessToken) {
-        postAccessToken({ accessToken: response?.accessToken });
-        methods.reset();
+        await handleRegisterSuccess(response.accessToken);
       }
     } catch (error) {
       methods.setError('root', {
@@ -29,6 +34,21 @@ export function useRegisterForm() {
         message: String(error) || 'Erro ao realizar login.',
       });
     }
+  };
+
+  const handleRegisterSuccess = async (accessToken: string) => {
+    postAccessToken({ accessToken });
+    methods.reset();
+    setShowRegisterForm(false);
+
+    handleRedirect();
+  };
+
+  const handleRedirect = () => {
+    setTimeout(() => {
+      router.push('/auth/login/');
+      setShowRegisterForm(true);
+    }, 3000);
   };
 
   return { methods, onSubmit };

@@ -106,7 +106,7 @@ const Styled = {
 export default function InputField({ id, label, icon, type, ...rest }: InputFieldProps) {
   const { register, fieldErrorMessage } = useFieldValidation(id);
   const { isPasswordInput, passwordView, setPasswordView, resolvedType } = usePasswordVisibility(type, id);
-  
+
   return (
     <Styled.InputFieldContainer $errorMessage={!!fieldErrorMessage}>
       <Styled.InputLabelWrapper htmlFor={id} $errorMessage={!!fieldErrorMessage}>

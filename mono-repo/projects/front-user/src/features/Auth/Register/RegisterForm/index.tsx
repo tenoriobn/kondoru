@@ -14,6 +14,11 @@ const InputFieldDateWrapper = styled.div`
   max-width: 232px;
   width: 100%;
   align-self: start;
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
 `;
 
 export default function RegisterForm() {
@@ -44,7 +49,6 @@ export default function RegisterForm() {
             label="Data de Nasc." 
             icon={<CalendarIcon />} 
           />
-
         </InputFieldDateWrapper>
 
         <InputField 
