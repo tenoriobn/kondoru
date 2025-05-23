@@ -4,20 +4,22 @@ import { usePathname } from 'next/navigation';
 import { useHomePageData } from 'Home/HomePageProvider';
 import { MenuMobile } from 'src/features/Home/types/menu.types';
 
-const StyledMenuLinksContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+const Styled = {
+  MenuLinksContainer: styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
-  @media (min-width: 992px) {
-    flex-direction: row;
-  }
-`;
+    @media (min-width: 992px) {
+      flex-direction: row;
+    }
+  `,
 
-const StyledMenuLinks = styled(Link)`
+  MenuLinks: styled(Link)`
     color: ${({theme}) => theme.colors['gray-400']};
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
     transition: ${({ theme }) => theme.transitions.smoothTransition};
 
     &.active {
@@ -31,26 +33,25 @@ const StyledMenuLinks = styled(Link)`
     &:active {
       color: ${({theme}) => theme.colors['white']};
     }
-`;
-
+  `,
+};
 export default function MenuLinks({ $setIsMenuActive }: MenuMobile) {
   const { menuLinks } = useHomePageData();
-  
   const pathname = usePathname();
 
   return (
-    <StyledMenuLinksContainer>
+    <Styled.MenuLinksContainer>
       {menuLinks.map((link) => (
         <li key={link.id} >
-          <StyledMenuLinks 
+          <Styled.MenuLinks 
             href={link.href}
             className={`${pathname === link.href ? 'active' : ''}`} 
             onClick={() => $setIsMenuActive?.(false)}
           >
             {link.text}
-          </StyledMenuLinks>
+          </Styled.MenuLinks>
         </li>
       ))}
-    </StyledMenuLinksContainer>
+    </Styled.MenuLinksContainer>
   );
 }

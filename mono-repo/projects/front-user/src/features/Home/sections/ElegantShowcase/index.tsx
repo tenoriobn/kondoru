@@ -3,61 +3,58 @@ import { useHomePageData } from 'Home/HomePageProvider';
 import ElegantShowCasePlayer from './ElegantShowCasePlayer';
 import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 
-const StyledContainer = styled(StyledLayoutWrapper)`
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  gap: 2rem;
-  height: 100%;
-  min-height: 496px;
+const Styled = {
+  Container: styled(StyledLayoutWrapper)`
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    height: 100%;
+    min-height: 496px;
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
-  }
-`;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
+    }
+  `,
 
-const StyledTextContent = styled.div`
-  display: grid;
-  gap: 2rem;
-`;
+  TextContent: styled.div`
+    display: grid;
+    gap: 2rem;
+  `,
 
-const StyledSubtitle = styled.h2`
-  font-size: 1.75rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    font-size: 1.875rem;
-  }
-
-  @media (min-width: 936px) and (max-width: 1366px) {
-    white-space: pre-line;
-  }
-`;
-
-const StyledParagraph = styled.p`
-  font-size: 1.25rem;
-  text-align: center;
-
-  @media (min-width: 768px) {
+  Subtitle: styled.h2`
+    justify-self: center;
     font-size: 1.5rem;
-  }
-`;
+    font-weight: 950;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+
+    @media (max-width: 521px) {
+      max-width: 328px;
+    }
+  `,
+
+  Paragraph: styled.p`
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+  `,
+};
 
 export default function ElegantShowcase() {
   const { elegantShowcase } = useHomePageData();
   
   return (
-    <StyledContainer>
+    <Styled.Container>
       <ElegantShowCasePlayer />
 
-      <StyledTextContent>
-        <StyledSubtitle>{elegantShowcase.title}</StyledSubtitle>
-        <StyledParagraph>
+      <Styled.TextContent>
+        <Styled.Subtitle>{elegantShowcase.title}</Styled.Subtitle>
+        <Styled.Paragraph>
           {elegantShowcase.description}
-        </StyledParagraph>
-      </StyledTextContent>
-    </StyledContainer>
+        </Styled.Paragraph>
+      </Styled.TextContent>
+    </Styled.Container>
   );
 }
