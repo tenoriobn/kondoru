@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 const StyledContainerLogo = styled.div`
-  max-width: 120px;
+  max-width: 168px;
   width: 100%;
 
   @media (min-width: 768px) {

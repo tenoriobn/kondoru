@@ -1,17 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import UserIcon from 'public/icons/user.svg';
 
 const StyledLink = styled(Link)`
   background-color: ${({ theme }) => theme.colors['white']};
   border-radius: ${({ theme }) => theme.borderRadius['rounded-48']};
   color: ${({ theme }) => theme.colors['dark-slate-900']};
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  font-weight: 600;
   cursor: pointer;
-  height: 54px;
   width: 188px;
-  padding: 0 2rem;
+  padding: .75rem 2rem;
 
   display: flex;
   justify-content: center;
@@ -32,7 +30,6 @@ const StyledLink = styled(Link)`
 export default function AccessButton({...props}) {
   return (
     <StyledLink href="/auth/login" {...props}>
-      <UserIcon width={22} height={22} />
       Entrar
     </StyledLink>
   );

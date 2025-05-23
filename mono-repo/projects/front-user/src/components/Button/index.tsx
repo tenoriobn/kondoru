@@ -7,9 +7,9 @@ export const StyledButton = styled.button<ButtonProps>`
   border-radius: ${({ $borderRadius, theme }) => $borderRadius ? theme.borderRadius[$borderRadius] : ''};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   color: ${({ $color, theme }) => $color ? theme.colors[$color] : ''};
-  font-size: ${({ $fontSize }) => $fontSize || '1.5rem'};
-  font-weight: ${({ $fontWeight }) => $fontWeight || ''};
-  text-decoration: ${({ $textDecoration }) => $textDecoration || '1.5rem'};
+  font-size: ${({ $fontSize }) => $fontSize || '1.255rem'};
+  font-weight: ${({ $fontWeight }) => $fontWeight || '600'};
+  text-decoration: ${({ $textDecoration }) => $textDecoration || ''};
 
   display: flex;
   justify-content: center;

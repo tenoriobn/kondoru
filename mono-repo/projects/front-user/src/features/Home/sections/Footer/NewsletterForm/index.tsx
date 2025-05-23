@@ -21,14 +21,6 @@ const StyledInput = styled.input<{ $hasError?: boolean }>`
   }
 `;
 
-const StyledFooterButton = styled(StyledButton)`
-  font-size: 1rem;
-
-  @media (min-width: 768px) {
-    font-size: 1.5rem;
-  }
-`;
-
 export default function NewsletterForm() {
   return (
     <form action="">
@@ -43,7 +35,7 @@ export default function NewsletterForm() {
           required
         />
 
-        <StyledFooterButton
+        <StyledButton
           $backgroundColor="gray-400"
           $color="dark-slate-700"
           $borderRadius="rounded-48"
@@ -52,9 +44,11 @@ export default function NewsletterForm() {
           $hoverBackgroundColor="white"
           $activeBackgroundColor="white"
           $width="100%"
+          $maxWidth='134px'
+          $fontSize='1.25rem'
         >
           Assinar
-        </StyledFooterButton>
+        </StyledButton>
       </InputBox>
     </form>
   );
