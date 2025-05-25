@@ -53,8 +53,6 @@ const Styled = {
   `,
 };
 
-
-
 export default function NewsletterForm() {
   return (
     <form action="">

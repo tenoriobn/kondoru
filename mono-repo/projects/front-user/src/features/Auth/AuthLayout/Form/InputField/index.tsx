@@ -3,7 +3,6 @@ import { InputFieldProps, WithError } from './inputField.type';
 import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
 import { useFieldValidation } from './useFieldValidation';
 import PasswordVisibility from './PasswordVisibilityToggle';
-import { useState } from 'react';
 import { usePasswordVisibility } from './PasswordVisibilityToggle/usePasswordVisibility';
 
 const Styled = {
@@ -61,7 +60,7 @@ const Styled = {
     height: 64px;
 
     &:not(:placeholder-shown) + .labelline,
-    &:focus + .labelline {
+    &:focus + .labelline, &:-webkit-autofill ~ .labelline {
       background-color: ${({ theme }) => theme.colors['dark-slate-800']};
       color: ${({ $errorMessage, theme }) => $errorMessage ? theme.colors['red'] : theme.colors.white};
       transform: translate(0px, -36px);

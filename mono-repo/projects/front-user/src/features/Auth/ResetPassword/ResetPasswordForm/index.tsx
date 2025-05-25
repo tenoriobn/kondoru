@@ -6,8 +6,8 @@ import { usePasswordResetForm } from './useResetPasswordForm';
 import InputFieldGroup from '../../AuthLayout/Form/InputFieldGroup';
 import { ResetPasswordFormProps } from './ResetPasswordForm.type';
 
-export default function PasswordResetForm({ passwordResetToken }: ResetPasswordFormProps) {
-  const { methods, onSubmit } = usePasswordResetForm(passwordResetToken);
+export default function PasswordResetForm({ passwordResetToken, setShowPasswordResetForm }: ResetPasswordFormProps) {
+  const { methods, onSubmit } = usePasswordResetForm({ passwordResetToken, setShowPasswordResetForm });
   const formErrorMessage = methods.formState.errors.root?.message;
 
   return (

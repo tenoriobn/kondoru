@@ -4,12 +4,12 @@ import AuthDivider from '../AuthLayout/AuthDivider';
 import AuthFooter from '../AuthLayout/AuthFooter';
 import { ResetPasswordProps } from './resetPassword.type';
 import PasswordResetForm from './ResetPasswordForm';
-import { showPasswordResetFormState } from 'src/shared/atom';
 import CheckedMessage from 'src/components/CheckedMessage';
 import ErrorMessage from 'src/components/ErrorMessage';
+import { useState } from 'react';
 
 export default function PasswordResetScreen({ isValid, passwordResetToken }: ResetPasswordProps) {
-  const showPasswordResetForm = useRecoilValue(showPasswordResetFormState);
+  const [showPasswordResetForm, setShowPasswordResetForm] = useState(true);
   
   if (!showPasswordResetForm) {
     return (
@@ -24,7 +24,10 @@ export default function PasswordResetScreen({ isValid, passwordResetToken }: Res
       {isValid ? (
         <>
           <AuthDivider label='Digite a nova senha que deseja utilizar' />
-          <PasswordResetForm passwordResetToken={passwordResetToken} />
+          <PasswordResetForm 
+            passwordResetToken={passwordResetToken} 
+            setShowPasswordResetForm={setShowPasswordResetForm}
+          />
         </>
       ) : (
         <>

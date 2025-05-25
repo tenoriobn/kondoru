@@ -76,6 +76,10 @@ const Styled = {
   ArrowIcon: styled(ArrowDownIcon)<DropdownVisibility>`
     transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
     transition: ${({ theme }) => theme.transitions.smoothTransition};
+
+    path {
+      stroke: ${({ theme }) => theme.colors['white-80']};
+    }
   `,
 
   DropdownList: styled.ul<DropdownVisibility>`

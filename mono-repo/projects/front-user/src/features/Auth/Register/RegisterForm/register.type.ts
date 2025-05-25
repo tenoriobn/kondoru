@@ -6,3 +6,7 @@ export interface UseRegisterFormData {
   password: string;
   passwordConfirmation: string;
 }
+
+export interface RegisterFormStateProps {
+  setShowRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
