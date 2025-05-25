@@ -3,8 +3,9 @@ import TermsAndGoogleLogin from '../AuthLayout/TermsAndGoogleLogin';
 import AuthDivider from '../AuthLayout/AuthDivider';
 import RegisterForm from './RegisterForm';
 import AuthFooter from '../AuthLayout/AuthFooter';
-import CheckedMessage from 'src/components/CheckedMessage';
+import CheckIcon from 'public/icons/check.svg';
 import { useState } from 'react';
+import StatusMessage from 'src/components/StatusMessage';
 
 export default function RegisterScreen() {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
@@ -12,7 +13,11 @@ export default function RegisterScreen() {
   if (!showRegisterForm) {
     return (
       <AuthLayout>
-        <CheckedMessage message="Cadastro realizado com sucesso!" />
+        <StatusMessage
+          message='Cadastro realizado com sucesso!'
+          icon={CheckIcon}
+          color="green"
+        />
       </AuthLayout>
     );
   }

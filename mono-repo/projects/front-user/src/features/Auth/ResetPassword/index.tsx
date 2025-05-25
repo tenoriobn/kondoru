@@ -1,12 +1,12 @@
-import { useRecoilValue } from 'recoil';
 import AuthLayout from '../AuthLayout';
 import AuthDivider from '../AuthLayout/AuthDivider';
 import AuthFooter from '../AuthLayout/AuthFooter';
 import { ResetPasswordProps } from './resetPassword.type';
 import PasswordResetForm from './ResetPasswordForm';
-import CheckedMessage from 'src/components/CheckedMessage';
-import ErrorMessage from 'src/components/ErrorMessage';
+import CheckIcon from 'public/icons/check.svg';
+import AlertErrorIcon from 'public/icons/alert-error.svg';
 import { useState } from 'react';
+import StatusMessage from 'src/components/StatusMessage';
 
 export default function PasswordResetScreen({ isValid, passwordResetToken }: ResetPasswordProps) {
   const [showPasswordResetForm, setShowPasswordResetForm] = useState(true);
@@ -14,7 +14,11 @@ export default function PasswordResetScreen({ isValid, passwordResetToken }: Res
   if (!showPasswordResetForm) {
     return (
       <AuthLayout>
-        <CheckedMessage message="Senha modificada com sucesso!" />
+        <StatusMessage
+          message='Senha modificada com sucesso!'
+          icon={CheckIcon}
+          color="green"
+        />
       </AuthLayout>
     );
   }
@@ -31,7 +35,11 @@ export default function PasswordResetScreen({ isValid, passwordResetToken }: Res
         </>
       ) : (
         <>
-          <ErrorMessage message='Token inválido ou expirado!' />
+          <StatusMessage
+            message='Token inválido ou expirado!'
+            icon={AlertErrorIcon}
+            color="red"
+          />
           <AuthFooter
             message="Ainda deseja recuperar a senha?"
             linkText="Clique aqui"
