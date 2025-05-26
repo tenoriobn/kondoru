@@ -3,7 +3,7 @@ import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import useResponsiveMenu from './useResponsiveMenu';
 import ResponsiveMenu from './ResponsiveMenu';
 import Logo from './Logo';
-import AccessButton from './AccessButton';
+import AccessButton from './AccessDropdown';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
 
 const Styled = {

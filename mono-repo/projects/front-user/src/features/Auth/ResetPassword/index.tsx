@@ -1,20 +1,24 @@
-import { useRecoilValue } from 'recoil';
 import AuthLayout from '../AuthLayout';
 import AuthDivider from '../AuthLayout/AuthDivider';
 import AuthFooter from '../AuthLayout/AuthFooter';
 import { ResetPasswordProps } from './resetPassword.type';
 import PasswordResetForm from './ResetPasswordForm';
-import { showPasswordResetFormState } from 'src/shared/atom';
-import CheckedMessage from 'src/components/CheckedMessage';
-import ErrorMessage from 'src/components/ErrorMessage';
+import CheckIcon from 'public/icons/check.svg';
+import AlertErrorIcon from 'public/icons/alert-error.svg';
+import { useState } from 'react';
+import StatusMessage from 'src/components/StatusMessage';
 
 export default function PasswordResetScreen({ isValid, passwordResetToken }: ResetPasswordProps) {
-  const showPasswordResetForm = useRecoilValue(showPasswordResetFormState);
+  const [showPasswordResetForm, setShowPasswordResetForm] = useState(true);
   
   if (!showPasswordResetForm) {
     return (
       <AuthLayout>
-        <CheckedMessage message="Senha modificada com sucesso!" />
+        <StatusMessage
+          message='Senha modificada com sucesso!'
+          icon={CheckIcon}
+          color="green"
+        />
       </AuthLayout>
     );
   }
@@ -24,11 +28,18 @@ export default function PasswordResetScreen({ isValid, passwordResetToken }: Res
       {isValid ? (
         <>
           <AuthDivider label='Digite a nova senha que deseja utilizar' />
-          <PasswordResetForm passwordResetToken={passwordResetToken} />
+          <PasswordResetForm 
+            passwordResetToken={passwordResetToken} 
+            setShowPasswordResetForm={setShowPasswordResetForm}
+          />
         </>
       ) : (
         <>
-          <ErrorMessage message='Token inválido ou expirado!' />
+          <StatusMessage
+            message='Token inválido ou expirado!'
+            icon={AlertErrorIcon}
+            color="red"
+          />
           <AuthFooter
             message="Ainda deseja recuperar a senha?"
             linkText="Clique aqui"

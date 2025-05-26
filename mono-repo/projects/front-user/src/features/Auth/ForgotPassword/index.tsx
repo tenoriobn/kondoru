@@ -1,20 +1,12 @@
-import { useRecoilValue } from 'recoil';
 import AuthLayout from '../AuthLayout';
 import AuthDivider from '../AuthLayout/AuthDivider';
 import ForgotPasswordForm from './ForgotPasswordForm';
-import { showForgotPasswordFormState } from 'src/shared/atom';
+import { useState } from 'react';
+import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
-import styled from 'styled-components';
-import CheckedMessage from 'src/components/CheckedMessage';
-
-const Styled = {
-  CheckIcon: styled(CheckIcon)`
-    justify-self: center;
-  `,
-};
 
 export default function ForgotPasswordScreen() {
-  const showForgotPasswordForm = useRecoilValue(showForgotPasswordFormState);
+  const [showForgotPasswordForm, setShowForgotPasswordForm] = useState(true);
 
   return (
     <AuthLayout>
@@ -24,11 +16,13 @@ export default function ForgotPasswordScreen() {
             label='Digite o e-mail cadastrado para redefinir sua senha'
           />
 
-          <ForgotPasswordForm />
+          <ForgotPasswordForm setShowForgotPasswordForm={setShowForgotPasswordForm} />
         </>
       ) : (
-        <CheckedMessage
+        <StatusMessage
           message='Um link de redefinição foi enviado para o seu e-mail.'
+          icon={CheckIcon}
+          color="green"
         />
       )}      
     </AuthLayout>

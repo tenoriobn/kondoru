@@ -1,5 +1,0 @@
-export interface ErrorMessageProps {
-  children: string;
-  fontSize?: string;
-  justifySelf?: string;
-}

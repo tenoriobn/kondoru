@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MenuCloseIcon from 'public/icons/close.svg';
 import { MenuMobile } from 'src/features/Home/types/menu.types';
 import Logo from '../Logo';
-import AccessButton from '../AccessButton';
+import AccessButton from '../AccessDropdown';
 import MenuLinks from './NavLinks';
 
 const Styled = {
@@ -69,9 +69,7 @@ export default function ResponsiveMenu({ $isMenuActive, $setIsMenuActive, $isMob
       <MenuLinks $setIsMenuActive={$setIsMenuActive && $setIsMenuActive} />
 
       {$isMobile && 
-        <AccessButton 
-          onClick={() => $setIsMenuActive && $setIsMenuActive(false)} 
-        />
+        <AccessButton />
       }
     </Styled.ResponsiveMenu>
   );

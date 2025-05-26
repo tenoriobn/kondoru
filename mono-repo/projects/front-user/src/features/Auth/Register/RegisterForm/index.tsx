@@ -9,6 +9,7 @@ import EmailIcon from 'public/icons/email.svg';
 import CalendarIcon from 'public/icons/calendar.svg';
 import PhoneIcon from 'public/icons/phone.svg';
 import LockIcon from 'public/icons/lock.svg';
+import { RegisterFormStateProps } from './register.type';
 
 const InputFieldDateWrapper = styled.div`
   max-width: 232px;
@@ -21,8 +22,8 @@ const InputFieldDateWrapper = styled.div`
   }
 `;
 
-export default function RegisterForm() {
-  const { methods, onSubmit } = useRegisterForm();
+export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
+  const { methods, onSubmit } = useRegisterForm({ setShowRegisterForm });
   const formErrorMessage = methods.formState.errors.root?.message;
 
   return (

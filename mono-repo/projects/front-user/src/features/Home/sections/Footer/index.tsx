@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 import SocialMediaLinks from './SocialMediaLinks';
-import NewsletterForm from './NewsletterForm';
 import { useHomePageData } from 'Home/HomePageProvider';
+import NewsletterForm from './NewsletterForm';
+import { useState } from 'react';
+import StatusMessage from 'src/components/StatusMessage';
+import CheckIcon from 'public/icons/check.svg';
 
 const Styled = {
   Footer: styled.footer`
@@ -40,20 +43,29 @@ const Styled = {
   `,
 };
 
-
-
 export default function Footer() {
   const { footer } = useHomePageData();
+  const [showNewsletterForm, setShowNewsletterForm] = useState(true);
   
   return (
     <Styled.Footer>
       <Styled.ContainerFooter>
-        <Styled.Paragraph>
-          {footer.title}
-        </Styled.Paragraph>
+        {showNewsletterForm ? (
+          <>          
+            <Styled.Paragraph>
+              {footer.title}
+            </Styled.Paragraph>
 
-        <NewsletterForm />
-
+            <NewsletterForm setShowNewsletterForm={setShowNewsletterForm} />
+          </>
+        ) : (
+          <StatusMessage
+            message='Inscrição realizada com sucesso!'
+            icon={CheckIcon}
+            color="green"
+          />
+        )}
+        
         <SocialMediaLinks />
       </Styled.ContainerFooter>
 

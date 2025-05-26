@@ -4,16 +4,14 @@ import { registerFormValues, registerSchema } from './registerSchema';
 import postData from 'src/shared/api/postData';
 import postAccessToken from '../../services/postAccessToken';
 import { useRouter } from 'next/router';
-import { useSetRecoilState } from 'recoil';
-import { showRegisterFormState } from 'src/shared/atom';
+import { RegisterFormStateProps } from './register.type';
 
-export function useRegisterForm() {
+export function useRegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const methods = useForm<registerFormValues>({
     resolver: zodResolver(registerSchema),
     mode: 'onTouched',
   });
 
-  const setShowRegisterForm = useSetRecoilState(showRegisterFormState);
   const router = useRouter();
 
   const onSubmit = async (data: registerFormValues) => {
