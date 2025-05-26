@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Logo from 'src/features/Home/sections/Header/Logo';
-import HomeIcon from 'public/icons/home.svg';
-import Link from 'next/link';
+import ArrowLeftIcon from 'public/icons/arrow-left.svg';
+import { useRouter } from 'next/router';
 
 const Styled = {
   AuthHeader: styled.header`
@@ -12,7 +12,7 @@ const Styled = {
     width: 100%;
   `,
 
-  Button: styled(Link)`
+  Button: styled.button`
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -46,11 +46,13 @@ const Styled = {
 };
 
 export default function AuthHeader() {
+  const router = useRouter();
+
   return (
     <Styled.AuthHeader>
-      <Styled.Button href="/">
-        <HomeIcon />
-        Início
+      <Styled.Button onClick={() => router.back()}>
+        <ArrowLeftIcon />
+        Voltar
       </Styled.Button>
 
       <Logo />

@@ -48,8 +48,6 @@ const Styled = {
   `,
 };
 
-
-
 export default function Filter() {
   const { dropdowns } = useHomePageData();
   const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } = useDropdowns();

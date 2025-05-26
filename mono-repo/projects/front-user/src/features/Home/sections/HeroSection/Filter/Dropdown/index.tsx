@@ -20,7 +20,7 @@ const Styled = {
     grid-template-columns: repeat(2, auto);
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 1.5rem;
 
     cursor: pointer;
     background-color: ${({ theme, $isOpen }) => theme.colors[$isOpen ? 'dark-slate-800' : 'slate-40']};
