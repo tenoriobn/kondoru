@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TestimonialCardProps } from 'src/features/Home/types/testimonialCard.types';
+import { TestimonialCardProps } from 'src/features/Home/types/testimonialCard.type';
 import { StyledCardContainer, StyledCardTitle, StyledText } from 'src/styles/ui/StyledCard';
 
 const StyledTestimonialCardContainer = styled(StyledCardContainer)`

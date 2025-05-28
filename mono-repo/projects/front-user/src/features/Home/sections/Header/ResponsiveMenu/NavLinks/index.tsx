@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { usePathname } from 'next/navigation';
 import { useHomePageData } from 'Home/HomePageProvider';
-import { MenuMobile } from 'src/features/Home/types/menu.types';
+import { NavLinks } from './navLinks.type';
 
 const Styled = {
   MenuLinksContainer: styled.ul`
@@ -35,7 +35,7 @@ const Styled = {
     }
   `,
 };
-export default function MenuLinks({ $setIsMenuActive }: MenuMobile) {
+export default function MenuLinks({ setIsMenuActive }: NavLinks) {
   const { menuLinks } = useHomePageData();
   const pathname = usePathname();
 
@@ -46,7 +46,7 @@ export default function MenuLinks({ $setIsMenuActive }: MenuMobile) {
           <Styled.MenuLinks 
             href={link.href}
             className={`${pathname === link.href ? 'active' : ''}`} 
-            onClick={() => $setIsMenuActive?.(false)}
+            onClick={() => setIsMenuActive?.(false)}
           >
             {link.text}
           </Styled.MenuLinks>
