@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import ArrowDownIcon from 'public/icons/arrow-down.svg';
-import UserIcon from 'public/icons/user.svg';
-import UserPlusIcon from 'public/icons/user-plus.svg';
 import Link from 'next/link';
-import { useRef, useState } from 'react';
-import { useClickOutside } from 'src/features/Home/hooks/useClickOutside';
+import ArrowDownIcon from 'public/icons/arrow-down.svg';
+import { AccessDropdownProps } from './acessDropdown.type';
+import { useAccessDropdown } from './useAccessDropdown';
+import { accessLinks } from './accessLinks';
 
 const Styled = {
   AccessDropdownContainer: styled.div`
@@ -12,7 +11,7 @@ const Styled = {
     width: 168px;
   `,
 
-  ToggleButton: styled.div<{$isOpen: boolean}>`
+  ToggleButton: styled.div<{$isOpenDropdown: boolean}>`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,8 +46,8 @@ const Styled = {
     cursor: pointer;
   `,
 
-  ToggleIcon: styled(ArrowDownIcon)<{$isOpen: boolean}>`
-    transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
+  ToggleIcon: styled(ArrowDownIcon)<{$isOpenDropdown: boolean}>`
+    transform: ${({ $isOpenDropdown }) => ($isOpenDropdown ? 'rotate(180deg)' : 'rotate(0deg)')};
     transition: ${({ theme }) => theme.transitions.smoothTransition};
 
     path {
@@ -56,7 +55,7 @@ const Styled = {
     }
   `,
 
-  AccessDropdownMenu: styled.nav<{$isOpen: boolean}>`
+  AccessDropdownMenu: styled.nav<{$isOpenDropdown: boolean}>`
     display: block;
     border-radius: 0.75rem;
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.40);
@@ -66,11 +65,11 @@ const Styled = {
     right: 0;
     z-index: 10;
     width: 100%;
-    max-height: ${({ $isOpen }) => ($isOpen ? '176.48px' : '0')};
+    max-height: ${({ $isOpenDropdown }) => ($isOpenDropdown ? '176.48px' : '0')};
     overflow-y: hidden;
     transition: max-height 0.2s ease-in-out;
 
-    ${({ $isOpen }) => $isOpen && 'animation: enable-scroll 0.2s forwards 0.2s;'};
+    ${({ $isOpenDropdown }) => $isOpenDropdown && 'animation: enable-scroll 0.2s forwards 0.2s;'};
 
     svg {
       transition: ${({ theme }) => theme.transitions.smoothTransition};
@@ -116,33 +115,25 @@ const Styled = {
   `,
 };
 
-export default function AccessDropdown({...props}) {
-  const [isOpen, setIsOpen] = useState(false);  
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-  useClickOutside(dropdownRef, () => setIsOpen(false));
+export default function AccessDropdown({ ...props }: AccessDropdownProps) {
+  const { isOpenDropdown, dropdownRef, handleToggle } = useAccessDropdown();
 
   return (
     <Styled.AccessDropdownContainer {...props} ref={dropdownRef}>
-      <Styled.ToggleButton 
-        $isOpen={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <Styled.ToggleButton $isOpenDropdown={isOpenDropdown} onClick={handleToggle}>
         <Styled.ToggleLabel>Acessar</Styled.ToggleLabel>
-        <Styled.ToggleIcon $isOpen={isOpen} />
+        
+        <Styled.ToggleIcon $isOpenDropdown={isOpenDropdown} />
       </Styled.ToggleButton>
 
-      <Styled.AccessDropdownMenu $isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        <Styled.AccessDropdownLink href='/auth/login'>
-          <UserIcon />
-          Login
-        </Styled.AccessDropdownLink>
-
-        <Styled.AccessDropdownLink href='/auth/cadastro'>
-          <UserPlusIcon />
-          Cadastro
-        </Styled.AccessDropdownLink>
+      <Styled.AccessDropdownMenu $isOpenDropdown={isOpenDropdown} onClick={handleToggle}>
+        {accessLinks.map(({ href, label, Icon }) => (
+          <Styled.AccessDropdownLink key={href} href={href}>
+            <Icon />
+            {label}
+          </Styled.AccessDropdownLink>
+        ))}
       </Styled.AccessDropdownMenu>
     </Styled.AccessDropdownContainer>
   );
-};
-
+}

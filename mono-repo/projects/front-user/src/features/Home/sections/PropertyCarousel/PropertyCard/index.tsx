@@ -3,7 +3,7 @@ import LocationIcon from 'public/icons/location.svg';
 import {
   StyledCardContainer, StyledCardImage, StyledCardTitle, StyledText,
 } from 'src/styles/ui/StyledCard';
-import { PropertyCardProps } from 'src/features/Home/types/propertyCard.types';
+import { PropertyCardProps } from 'src/features/Home/types/propertyCard.type';
 
 const Styled = {
   ContainerInfo: styled.div`

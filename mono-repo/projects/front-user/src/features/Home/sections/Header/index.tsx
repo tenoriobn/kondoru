@@ -3,7 +3,7 @@ import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import useResponsiveMenu from './useResponsiveMenu';
 import ResponsiveMenu from './ResponsiveMenu';
 import Logo from './Logo';
-import AccessButton from './AccessDropdown';
+import AccessDropdown from './AccessDropdown';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
 
 const Styled = {
@@ -22,12 +22,12 @@ const Styled = {
     padding-bottom: 1.5rem;
     position: relative;
 
-    .auth_button-desktop {
+    .access-button__desktop {
         display: none;
       }
 
     @media (min-width: 992px) {
-      .auth_button-desktop {
+      .access-button__desktop {
         display: flex;
       }
     }
@@ -53,12 +53,16 @@ export default function Header() {
         <Styled.MobileMenuIcon onClick={() => setIsMenuActive(true)} />
 
         <ResponsiveMenu 
-          $isMenuActive={isMenuActive} 
-          $setIsMenuActive={setIsMenuActive} 
-          $isMobile={isMobile} 
+          isMenuActive={isMenuActive} 
+          setIsMenuActive={setIsMenuActive} 
+          isMobile={isMobile} 
         />
 
-        <AccessButton className="auth_button-desktop" />
+        {!isMobile && 
+          <AccessDropdown 
+            className="access-button__desktop" 
+          />
+        }
       </Styled.ContainerHeader>
     </Styled.Header>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ArrowDownIcon from 'public/icons/arrow-down.svg';
-import { DropdownVisibility, DropdownHandlers } from 'src/features/Home/types/dropdown.types';
+import { DropdownVisibility, DropdownHandlers } from 'src/features/Home/types/dropdown.type';
 
 const StyledDropdownContainer = styled.div`
   position: relative;

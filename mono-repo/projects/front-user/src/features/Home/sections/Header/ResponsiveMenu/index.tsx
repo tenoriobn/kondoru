@@ -1,13 +1,13 @@
 import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 import styled from 'styled-components';
 import MenuCloseIcon from 'public/icons/close.svg';
-import { MenuMobile } from 'src/features/Home/types/menu.types';
+import { ResponsiveMenuProps } from 'src/features/Home/sections/Header/ResponsiveMenu/responsiveMenu.type';
 import Logo from '../Logo';
-import AccessButton from '../AccessDropdown';
+import AccessDropdown from '../AccessDropdown';
 import MenuLinks from './NavLinks';
 
 const Styled = {
-  ResponsiveMenu: styled.nav<MenuMobile>`
+  ResponsiveMenu: styled.nav<{ $isMenuActive?: boolean }>`
     @media (max-width: 991px) {
       background-image: ${({ theme }) => theme.colors['gradient-dark-slate-80']}, 
       url('/images/background-header.webp');
@@ -55,21 +55,21 @@ const Styled = {
   `,
 };
 
-export default function ResponsiveMenu({ $isMenuActive, $setIsMenuActive, $isMobile }: MenuMobile) {
+export default function ResponsiveMenu({ isMenuActive, setIsMenuActive, isMobile }: ResponsiveMenuProps) {
   return (
-    <Styled.ResponsiveMenu $isMenuActive={$isMenuActive}>
-      {$isMobile &&
+    <Styled.ResponsiveMenu $isMenuActive={isMenuActive}>
+      {isMobile &&
         <Styled.MobileMenuOpenHeader>
           <Logo />
 
-          <Styled.MenuCloseIcon onClick={() => $setIsMenuActive && $setIsMenuActive(false)} />
+          <Styled.MenuCloseIcon onClick={() => setIsMenuActive && setIsMenuActive(false)} />
         </Styled.MobileMenuOpenHeader>
       }
 
-      <MenuLinks $setIsMenuActive={$setIsMenuActive && $setIsMenuActive} />
+      <MenuLinks setIsMenuActive={setIsMenuActive} />
 
-      {$isMobile && 
-        <AccessButton />
+      {isMobile && 
+        <AccessDropdown />
       }
     </Styled.ResponsiveMenu>
   );

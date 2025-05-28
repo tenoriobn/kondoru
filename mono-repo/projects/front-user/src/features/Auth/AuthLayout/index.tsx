@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { AuthLayoutProps } from './authLayout.type';
 import AuthHeader from './AuthHeader';
+import useBodyOverflow from 'src/features/Home/hooks/useBodyOverflow';
 
 const Styled = {
   Main: styled.main`
@@ -54,6 +55,8 @@ const Styled = {
 
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
+  useBodyOverflow(false);
+
   return (
     <Styled.Main>
       <Styled.Container>
