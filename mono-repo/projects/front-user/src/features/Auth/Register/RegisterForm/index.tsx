@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import ButtonForm from '../../AuthLayout/Form/ButtonForm';
 import Form from '../../AuthLayout/Form';
 import InputField from '../../AuthLayout/Form/InputField';
@@ -10,17 +9,6 @@ import CalendarIcon from 'public/icons/calendar.svg';
 import PhoneIcon from 'public/icons/phone.svg';
 import LockIcon from 'public/icons/lock.svg';
 import { RegisterFormStateProps } from './register.type';
-
-const InputFieldDateWrapper = styled.div`
-  max-width: 232px;
-  width: 100%;
-  align-self: start;
-
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-  }
-`;
 
 export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const { methods, onSubmit } = useRegisterForm({ setShowRegisterForm });
@@ -43,14 +31,17 @@ export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateP
           icon={<EmailIcon />} 
         />
 
-        <InputFieldDateWrapper>
-          <InputField 
-            id="dateOfBirth" 
-            type="date" 
-            label="Data de Nasc." 
-            icon={<CalendarIcon />} 
-          />
-        </InputFieldDateWrapper>
+        <InputField 
+          maxWidth="232px"
+          id="dateOfBirth" 
+          type="date" 
+          label="Data de Nasc." 
+          icon={<CalendarIcon />} 
+        />
+
+        {/* <InputFieldDateWrapper>
+
+        </InputFieldDateWrapper> */}
 
         <InputField 
           id="phone" 

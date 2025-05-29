@@ -1,4 +1,4 @@
-// import { differenceInYears, isValid, parseISO } from 'date-fns';
+import { differenceInYears, isValid, parseISO } from 'date-fns';
 import { z } from 'zod';
 
 export const registerSchema = z
@@ -16,18 +16,18 @@ export const registerSchema = z
 
     dateOfBirth: z
       .string()
-      // .refine((value) => {
-      //   const parsedDate = parseISO(value);
-      //   return isValid(parsedDate);
-      // }, {
-      //   message: 'Data de nascimento inválida',
-      // })
-      // .refine((value) => {
-      //   const age = differenceInYears(new Date(), parseISO(value));
-      //   return age >= 18;
-      // }, {
-      //   message: 'Você deve ter pelo menos 18 anos',
-      // })
+      .refine((value) => {
+        const parsedDate = parseISO(value);
+        return isValid(parsedDate);
+      }, {
+        message: 'Data de nascimento inválida',
+      })
+      .refine((value) => {
+        const age = differenceInYears(new Date(), parseISO(value));
+        return age >= 18;
+      }, {
+        message: 'Você deve ter pelo menos 18 anos',
+      })
     ,
 
     phone: z
