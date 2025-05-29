@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import useResponsiveMenu from './useResponsiveMenu';
 import ResponsiveMenu from './ResponsiveMenu';
-import Logo from './Logo';
+import Logo from 'components/Logo';
 import AccessDropdown from './AccessDropdown';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
 
