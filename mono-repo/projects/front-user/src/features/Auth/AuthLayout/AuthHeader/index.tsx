@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from 'src/features/Home/sections/Header/Logo';
+import Logo from 'components/Logo';
 import ArrowLeftIcon from 'public/icons/arrow-left.svg';
 import { useRouter } from 'next/router';
 
@@ -8,7 +8,7 @@ const Styled = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
   `,
 

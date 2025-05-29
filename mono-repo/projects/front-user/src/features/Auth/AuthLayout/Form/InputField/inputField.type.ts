@@ -4,8 +4,10 @@ export type InputFieldProps = {
   id: string;
   label: string;
   icon: ReactNode;
+  maxWidth?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export interface WithError {
+export interface StyledProps {
   $errorMessage: boolean;
+  $maxWidth?: string;
 }

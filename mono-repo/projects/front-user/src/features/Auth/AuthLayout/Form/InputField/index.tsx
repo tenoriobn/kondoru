@@ -1,25 +1,27 @@
 import styled from 'styled-components';
-import { InputFieldProps, WithError } from './inputField.type';
+import { InputFieldProps, StyledProps } from './inputField.type';
 import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
 import { useFieldValidation } from './useFieldValidation';
 import PasswordVisibility from './PasswordVisibilityToggle';
 import { usePasswordVisibility } from './PasswordVisibilityToggle/usePasswordVisibility';
 
 const Styled = {
-  InputFieldContainer: styled.div<WithError>`
+  InputFieldContainer: styled.div<StyledProps>`
     display: grid;
     gap: .5rem;
     width: 100%;
   `,
 
-  InputLabelWrapper: styled.label<WithError>`
+  InputLabelWrapper: styled.label<StyledProps>`
     display: flex;
     align-items: center;
+    gap: .5rem;
     cursor: text;
     background-color: ${({ theme }) => theme.colors['dark-slate-800']};
     position: relative;
     height: 64px;
     width: 100%;
+    max-width: ${({ $maxWidth }) => $maxWidth || ''};
 
     background-color: ${({ theme }) => theme.colors['dark-slate-800']};
     border: .125rem solid
@@ -49,8 +51,9 @@ const Styled = {
     }
   `,
 
-  Input: styled.input<WithError>`
+  Input: styled.input<StyledProps>`
     all: unset;
+    flex: 1;
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.white};
 
@@ -58,6 +61,11 @@ const Styled = {
     font-weight: 400;
     width: 100%;
     height: 64px;
+
+    &[type="date"]::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
 
     &:not(:placeholder-shown) + .labelline,
     &:focus + .labelline, &:-webkit-autofill ~ .labelline {
@@ -102,13 +110,13 @@ const Styled = {
   `
 };
 
-export default function InputField({ id, label, icon, type, ...rest }: InputFieldProps) {
+export default function InputField({ id, label, icon, type, maxWidth, ...rest }: InputFieldProps) {
   const { register, fieldErrorMessage } = useFieldValidation(id);
   const { isPasswordInput, passwordView, setPasswordView, resolvedType } = usePasswordVisibility(type, id);
 
   return (
     <Styled.InputFieldContainer $errorMessage={!!fieldErrorMessage}>
-      <Styled.InputLabelWrapper htmlFor={id} $errorMessage={!!fieldErrorMessage}>
+      <Styled.InputLabelWrapper htmlFor={id} $errorMessage={!!fieldErrorMessage} $maxWidth={maxWidth}>
         <Styled.Input
           id={id}
           placeholder=""
