@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
 import { StyledButton } from 'src/components/Button';
-import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
+import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { useNewsletterForm } from './useNewsletterForm';
 import { SetShowNewsletterFormProps } from '../footer.type';
 

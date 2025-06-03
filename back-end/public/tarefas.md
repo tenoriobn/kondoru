@@ -10,4 +10,5 @@
   - Refatorar nomes e lógica de Resetar senha/Conferir Token
   - Remover autenticação de endpoints que devem ser públicas
   - Limitar requisições das autenticações
+  - Evitar 2 cadastros com mesmo número de telefone/celular
   

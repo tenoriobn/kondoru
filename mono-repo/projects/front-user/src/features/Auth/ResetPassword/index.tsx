@@ -1,6 +1,6 @@
-import AuthLayout from '../AuthLayout';
-import AuthDivider from '../AuthLayout/AuthDivider';
-import AuthFooter from '../AuthLayout/AuthFooter';
+import AuthLayout from 'components/AuthLayout';
+import AuthDivider from 'components/AuthLayout/AuthDivider';
+import AuthFooter from 'components/AuthLayout/AuthFooter';
 import { ResetPasswordProps } from './resetPassword.type';
 import PasswordResetForm from './ResetPasswordForm';
 import CheckIcon from 'public/icons/check.svg';

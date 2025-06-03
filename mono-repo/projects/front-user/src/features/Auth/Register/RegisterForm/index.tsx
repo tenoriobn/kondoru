@@ -1,14 +1,13 @@
-import ButtonForm from '../../AuthLayout/Form/ButtonForm';
-import Form from '../../AuthLayout/Form';
-import InputField from '../../AuthLayout/Form/InputField';
+import Form from 'components/Form';
 import { useRegisterForm } from './useRegisterForm';
-import InputFieldGroup from '../../AuthLayout/Form/InputFieldGroup';
+import { RegisterFormStateProps } from './register.type';
+import { InputDate, InputGroup, InputPassword, InputField } from 'src/components/Inputs';
 import UserIcon from 'public/icons/user.svg';
 import EmailIcon from 'public/icons/email.svg';
 import CalendarIcon from 'public/icons/calendar.svg';
 import PhoneIcon from 'public/icons/phone.svg';
 import LockIcon from 'public/icons/lock.svg';
-import { RegisterFormStateProps } from './register.type';
+import { FormButton } from 'src/styles/ui/FormButtonStyle';
 
 export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const { methods, onSubmit } = useRegisterForm({ setShowRegisterForm });
@@ -16,7 +15,7 @@ export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateP
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <InputFieldGroup formErrorMessage={formErrorMessage}>      
+      <InputGroup formErrorMessage={formErrorMessage}>      
         <InputField 
           id="name" 
           type="text" 
@@ -31,41 +30,33 @@ export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateP
           icon={<EmailIcon />} 
         />
 
-        <InputField 
-          maxWidth="232px"
+        <InputDate
           id="dateOfBirth" 
-          type="date" 
           label="Data de Nasc." 
           icon={<CalendarIcon />} 
         />
 
-        {/* <InputFieldDateWrapper>
-
-        </InputFieldDateWrapper> */}
-
-        <InputField 
+        <InputField
           id="phone" 
           type="tel" 
           label="Telefone" 
           icon={<PhoneIcon />}  
         />
 
-        <InputField 
+        <InputPassword
           id="password" 
-          type="password" 
           label="Senha" 
           icon={<LockIcon />} 
         />
 
-        <InputField 
+        <InputPassword
           id="passwordConfirmation" 
-          type="password" 
           label="Confirmar Senha" 
           icon={<LockIcon />} 
         />
-      </InputFieldGroup>
+      </InputGroup>
 
-      <ButtonForm>Criar conta</ButtonForm>
+      <FormButton>Criar conta</FormButton>
     </Form>
   );
 }
