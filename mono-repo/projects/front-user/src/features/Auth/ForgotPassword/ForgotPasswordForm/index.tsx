@@ -1,10 +1,9 @@
 import EmailIcon from 'public/icons/email.svg';
-import ButtonForm from '../../AuthLayout/Form/ButtonForm';
-import Form from '../../AuthLayout/Form';
-import InputField from '../../AuthLayout/Form/InputField';
+import Form from 'components/Form';
 import { useForgotPasswordForm } from './useForgotPasswordForm';
-import InputFieldGroup from '../../AuthLayout/Form/InputFieldGroup';
 import { ShowForgotPasswordFormState } from './forgotPasswordForm.type';
+import { InputGroup, InputField } from 'src/components/Inputs';
+import { FormButton } from 'src/styles/ui/FormButtonStyle';
 
 export default function ForgotPasswordForm({ setShowForgotPasswordForm }: ShowForgotPasswordFormState) {
   const { methods, onSubmit } = useForgotPasswordForm({ setShowForgotPasswordForm });
@@ -12,15 +11,15 @@ export default function ForgotPasswordForm({ setShowForgotPasswordForm }: ShowFo
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <InputFieldGroup formErrorMessage={formErrorMessage}>
-        <InputField 
+      <InputGroup formErrorMessage={formErrorMessage}>
+        <InputField
           id="email" 
           type="email" 
           label="E-mail" 
           icon={<EmailIcon />} 
         />
-      </InputFieldGroup>
-      <ButtonForm>Recuperar Senha</ButtonForm>
+      </InputGroup>
+      <FormButton>Recuperar Senha</FormButton>
     </Form>
   );
 }

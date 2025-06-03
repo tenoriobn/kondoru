@@ -1,11 +1,10 @@
 import ForgotPasswordLink from './ForgotPasswordLink';
-import ButtonForm from '../../AuthLayout/Form/ButtonForm';
-import Form from '../../AuthLayout/Form';
+import Form from 'components/Form';
 import { useLoginForm } from './useLoginForm';
-import InputField from '../../AuthLayout/Form/InputField';
-import InputFieldGroup from '../../AuthLayout/Form/InputFieldGroup';
 import EmailIcon from 'public/icons/email.svg';
 import LockIcon from 'public/icons/lock.svg';
+import { InputGroup, InputPassword, InputField } from 'src/components/Inputs';
+import { FormButton } from 'src/styles/ui/FormButtonStyle';
 
 export default function LoginForm() {
   const { methods, onSubmit } = useLoginForm();
@@ -13,7 +12,7 @@ export default function LoginForm() {
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <InputFieldGroup formErrorMessage={formErrorMessage}>
+      <InputGroup formErrorMessage={formErrorMessage}>
         <InputField 
           id="email" 
           type="email" 
@@ -21,16 +20,15 @@ export default function LoginForm() {
           icon={<EmailIcon />} 
         />
 
-        <InputField 
+        <InputPassword
           id="password"
-          type='password'
           label="Senha"
           icon={<LockIcon />}
         />
-      </InputFieldGroup>
+      </InputGroup>
 
       <ForgotPasswordLink />
-      <ButtonForm>Entrar</ButtonForm>
+      <FormButton>Entrar</FormButton>
     </Form>
   );
 }

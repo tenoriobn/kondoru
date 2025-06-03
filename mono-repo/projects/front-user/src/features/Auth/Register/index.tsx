@@ -1,8 +1,8 @@
-import AuthLayout from 'src/features/Auth/AuthLayout';
-import TermsAndGoogleLogin from '../AuthLayout/TermsAndGoogleLogin';
-import AuthDivider from '../AuthLayout/AuthDivider';
+import AuthLayout from 'src/components/AuthLayout';
+import TermsAndGoogleLogin from 'components/AuthLayout/TermsAndGoogleLogin';
+import AuthDivider from 'components/AuthLayout/AuthDivider';
 import RegisterForm from './RegisterForm';
-import AuthFooter from '../AuthLayout/AuthFooter';
+import AuthFooter from 'components/AuthLayout/AuthFooter';
 import CheckIcon from 'public/icons/check.svg';
 import { useState } from 'react';
 import StatusMessage from 'src/components/StatusMessage';

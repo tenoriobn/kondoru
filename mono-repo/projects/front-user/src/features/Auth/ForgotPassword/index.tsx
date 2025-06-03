@@ -1,5 +1,5 @@
-import AuthLayout from '../AuthLayout';
-import AuthDivider from '../AuthLayout/AuthDivider';
+import AuthLayout from 'components/AuthLayout';
+import AuthDivider from 'components/AuthLayout/AuthDivider';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import { useState } from 'react';
 import StatusMessage from 'src/components/StatusMessage';

@@ -1,10 +1,9 @@
 import LockIcon from 'public/icons/lock.svg';
-import ButtonForm from '../../AuthLayout/Form/ButtonForm';
-import Form from '../../AuthLayout/Form';
-import InputField from '../../AuthLayout/Form/InputField';
+import Form from 'components/Form';
 import { usePasswordResetForm } from './useResetPasswordForm';
-import InputFieldGroup from '../../AuthLayout/Form/InputFieldGroup';
 import { ResetPasswordFormProps } from './ResetPasswordForm.type';
+import { InputGroup, InputPassword } from 'src/components/Inputs';
+import { FormButton } from 'src/styles/ui/FormButtonStyle';
 
 export default function PasswordResetForm({ passwordResetToken, setShowPasswordResetForm }: ResetPasswordFormProps) {
   const { methods, onSubmit } = usePasswordResetForm({ passwordResetToken, setShowPasswordResetForm });
@@ -12,23 +11,21 @@ export default function PasswordResetForm({ passwordResetToken, setShowPasswordR
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
-      <InputFieldGroup formErrorMessage={formErrorMessage}>      
-        <InputField 
+      <InputGroup formErrorMessage={formErrorMessage}>      
+        <InputPassword
           id="password" 
-          type="password" 
           label="Senha" 
           icon={<LockIcon />} 
         />
         
-        <InputField 
+        <InputPassword
           id="passwordConfirmation" 
-          type="password" 
           label="Confirmar Senha" 
           icon={<LockIcon />} 
         />
-      </InputFieldGroup>
+      </InputGroup>
 
-      <ButtonForm>Redefinir Senha</ButtonForm>
+      <FormButton>Redefinir Senha</FormButton>
     </Form>
   );
 }

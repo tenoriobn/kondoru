@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { InputFieldGroupProps } from './inputFieldGroup.type';
-import InputErrorMessage from 'src/features/Auth/AuthLayout/Form/InputErrorMessage';
+import { InputGroupProps } from './inputGroup.type';
+import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 
 const Styled = {
   InputsAndErrorContainer: styled.div`
@@ -16,7 +16,7 @@ const Styled = {
   `,
 };
 
-export default function InputFieldGroup({ children, formErrorMessage}: InputFieldGroupProps) {
+export function InputGroup({ children, formErrorMessage}: InputGroupProps) {
   return (
     <Styled.InputsAndErrorContainer>
       <Styled.inputsGroup>
