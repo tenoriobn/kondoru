@@ -63,7 +63,7 @@ const GlobalStyles = createGlobalStyle`
 
   /* 9. Remove estilos padrões de botões */
   button {
-    background: none;
+    background: transparent;
     border: none;
     padding: 0;
     font: inherit;

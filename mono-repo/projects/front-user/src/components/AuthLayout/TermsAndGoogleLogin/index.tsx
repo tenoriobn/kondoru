@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import GoogleIcon from 'public/icons/google.svg';
+import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
 
 const Styled = {
   TermsAndGoogleLogin: styled.div`
@@ -34,36 +35,13 @@ const Styled = {
     }
   `,
 
-  GoogleLogin: styled.button`
+  GoogleLogin: styled(StyledAuthFormButton)`
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2, auto);
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    
-    background: ${({ theme }) => theme.colors['gray-400']};
-    border-radius: ${({ theme }) => theme.borderRadius['rounded-full']};
-
-    color: ${({ theme }) => theme.colors['dark-slate-800']};
-    font-size: 1rem;
-    font-weight: 600;
-
-    padding: 1rem 1.5rem;
-
-    transition: ${({ theme }) => theme.transitions.smoothTransition};
-
-    &:hover {
-      background-color: ${({ theme }) => theme.colors['white-80']};
-    }
-
-    &:active {
-      background-color: ${({ theme }) => theme.colors['white']};
-    }
-
-    @media (min-width: 768px) {
-      font-size: 1.25rem;
-      padding: 1rem 2rem;
-    }
+    max-width: 100%;
   `,
 };
 

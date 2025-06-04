@@ -4,7 +4,7 @@ import { useLoginForm } from './useLoginForm';
 import EmailIcon from 'public/icons/email.svg';
 import LockIcon from 'public/icons/lock.svg';
 import { InputGroup, InputPassword, InputField } from 'src/components/Inputs';
-import { FormButton } from 'src/styles/ui/FormButtonStyle';
+import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
 
 export default function LoginForm() {
   const { methods, onSubmit } = useLoginForm();
@@ -28,7 +28,7 @@ export default function LoginForm() {
       </InputGroup>
 
       <ForgotPasswordLink />
-      <FormButton>Entrar</FormButton>
+      <StyledAuthFormButton>Entrar</StyledAuthFormButton>
     </Form>
   );
 }

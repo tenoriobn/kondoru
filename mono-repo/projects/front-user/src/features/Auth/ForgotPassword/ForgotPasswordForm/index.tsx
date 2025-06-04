@@ -3,7 +3,7 @@ import Form from 'components/Form';
 import { useForgotPasswordForm } from './useForgotPasswordForm';
 import { ShowForgotPasswordFormState } from './forgotPasswordForm.type';
 import { InputGroup, InputField } from 'src/components/Inputs';
-import { FormButton } from 'src/styles/ui/FormButtonStyle';
+import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
 
 export default function ForgotPasswordForm({ setShowForgotPasswordForm }: ShowForgotPasswordFormState) {
   const { methods, onSubmit } = useForgotPasswordForm({ setShowForgotPasswordForm });
@@ -19,7 +19,7 @@ export default function ForgotPasswordForm({ setShowForgotPasswordForm }: ShowFo
           icon={<EmailIcon />} 
         />
       </InputGroup>
-      <FormButton>Recuperar Senha</FormButton>
+      <StyledAuthFormButton>Recuperar Senha</StyledAuthFormButton>
     </Form>
   );
 }

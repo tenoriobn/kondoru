@@ -1,22 +1,19 @@
 import styled, { css } from 'styled-components';
 import { StyledProps } from 'src/components/Inputs/input.type';
 
-// ✅ Estilo extra para date picker
 export const InputDateStyles = css`
-  &[type="date"]::-webkit-calendar-picker-indicator {
+  &::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
   }
 `;
 
-// ✅ Wrapper principal
 export const InputFieldContainer = styled.div<StyledProps>`
   display: grid;
   gap: .5rem;
   width: 100%;
 `;
 
-// ✅ Label que envolve o input
 export const InputLabelWrapper = styled.label<StyledProps>`
   display: flex;
   align-items: center;
@@ -39,19 +36,14 @@ export const InputLabelWrapper = styled.label<StyledProps>`
 
   &:has(input:focus),
   &:has(input:not(:placeholder-shown)) {
-    border-color: ${({ $errorMessage, theme }) => theme.colors[$errorMessage ? 'red' : 'gray-400']};
+    border-color: ${({ $errorMessage, theme }) => theme.colors[$errorMessage ? 'red' : 'white']};
 
     svg path {
-      stroke: ${({ $errorMessage, theme }) => theme.colors[$errorMessage ? 'red' : 'gray-400']};
+      stroke: ${({ $errorMessage, theme }) => theme.colors[$errorMessage ? 'red' : 'white']};
     }
-  }
-
-  @media (min-width: 768px) {
-    padding: 1.25rem 2rem;
   }
 `;
 
-// ✅ Input base para todos os tipos
 export const InputBase = styled.input<StyledProps>`
   all: unset;
   flex: 1;
@@ -88,7 +80,6 @@ export const InputBase = styled.input<StyledProps>`
   }
 `;
 
-// ✅ Label flutuante
 export const LabelLine = styled.div`
   display: grid;
   align-items: center;
@@ -107,6 +98,5 @@ export const LabelLine = styled.div`
 
   @media (min-width: 768px) {
     font-size: 1.25rem;
-    left: 24px;
   }
 `;

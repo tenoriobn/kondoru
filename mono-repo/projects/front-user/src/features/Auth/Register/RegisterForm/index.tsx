@@ -7,7 +7,7 @@ import EmailIcon from 'public/icons/email.svg';
 import CalendarIcon from 'public/icons/calendar.svg';
 import PhoneIcon from 'public/icons/phone.svg';
 import LockIcon from 'public/icons/lock.svg';
-import { FormButton } from 'src/styles/ui/FormButtonStyle';
+import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
 
 export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const { methods, onSubmit } = useRegisterForm({ setShowRegisterForm });
@@ -56,7 +56,7 @@ export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateP
         />
       </InputGroup>
 
-      <FormButton>Criar conta</FormButton>
+      <StyledAuthFormButton>Criar conta</StyledAuthFormButton>
     </Form>
   );
 }

@@ -17,13 +17,15 @@ const Styled = {
     align-items: center;
     gap: .5rem;
 
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors['gray-400']};
+    background-color: transparent;
     font-size: 1.25rem;
     font-weight: 500;
 
     transition: ${({ theme }) => theme.transitions.smoothTransition};
 
     svg path {
+      stroke: ${({ theme }) => theme.colors['gray-400']};
       transition: ${({ theme }) => theme.transitions.smoothTransition};
     }
 
@@ -32,7 +34,7 @@ const Styled = {
     }
 
     &:active {
-      --color: ${({ theme }) => theme.colors.white};
+      --color: ${({ theme }) => theme.colors['white']};
     }
 
     &:hover, &:active {
