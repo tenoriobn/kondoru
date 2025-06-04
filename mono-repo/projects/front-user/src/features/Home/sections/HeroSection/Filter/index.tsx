@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useHomePageData } from 'Home/HomePageProvider';
-import Button from 'src/components/Button';
 import Dropdown from './Dropdown';
 import useDropdowns from './useDropDowns';
+import { StyledButtonBase } from 'src/styles/ui/StyledButton';
 
 const Styled = {
   ContainerFilter: styled.form`
@@ -46,6 +46,21 @@ const Styled = {
       padding: .5rem;
     }
   `,
+
+  Button: styled(StyledButtonBase)`
+    background-color: ${({ theme }) => theme.colors['dark-slate-84']};
+    color: ${({ theme }) => theme.colors['white']};
+    max-height: 48px;
+    z-index: 9;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors['dark-slate-900']};
+    }
+
+    &:active {
+      background-color: ${({ theme }) => theme.colors['dark-slate-800']};
+    }
+  `,
 };
 
 export default function Filter() {
@@ -68,20 +83,7 @@ export default function Filter() {
       ))}
 
       <Styled.ButtonContainer>
-        <Button
-          $backgroundColor="dark-slate-84"
-          $color="white"
-          $borderRadius="rounded-48"
-          $padding="8px"
-          $height="100%"
-          $hoverBackgroundColor="dark-slate-800"
-          $activeBackgroundColor="dark-slate-900"
-          $width="100%"
-          $fontSize='1.25rem'
-          $fontWeight='600'
-        >
-          Filtrar
-        </Button>
+        <Styled.Button>Filtrar</Styled.Button>
       </Styled.ButtonContainer>
     </Styled.ContainerFilter>
   );

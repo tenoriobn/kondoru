@@ -3,7 +3,7 @@ import Form from 'components/Form';
 import { usePasswordResetForm } from './useResetPasswordForm';
 import { ResetPasswordFormProps } from './ResetPasswordForm.type';
 import { InputGroup, InputPassword } from 'src/components/Inputs';
-import { FormButton } from 'src/styles/ui/FormButtonStyle';
+import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
 
 export default function PasswordResetForm({ passwordResetToken, setShowPasswordResetForm }: ResetPasswordFormProps) {
   const { methods, onSubmit } = usePasswordResetForm({ passwordResetToken, setShowPasswordResetForm });
@@ -25,7 +25,7 @@ export default function PasswordResetForm({ passwordResetToken, setShowPasswordR
         />
       </InputGroup>
 
-      <FormButton>Redefinir Senha</FormButton>
+      <StyledAuthFormButton>Redefinir Senha</StyledAuthFormButton>
     </Form>
   );
 }
