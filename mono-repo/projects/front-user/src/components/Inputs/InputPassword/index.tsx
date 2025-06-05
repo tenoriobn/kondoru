@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { InputBase, InputFieldContainer, InputLabelWrapper, LabelLine } from 'src/styles/ui/StyledInput';
 import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { InputProps } from 'src/components/Inputs/input.type';
 import { useFieldValidation } from '../useFieldValidation';
 import ViewIcon from 'public/icons/view.svg';
 import NoViewIcon from 'public/icons/no-view.svg';
+import { Input, InputContainer, Label, LabelLine } from 'src/styles';
 
 const Styled = {
   Icon: styled.div`
@@ -16,17 +16,17 @@ const Styled = {
 };
 
 export function InputPassword({ id, label, icon }: InputProps) {
-  const { register, fieldErrorMessage } = useFieldValidation(id);
   const [passwordView, setPasswordView] = useState(false);
   const IconComponent = passwordView ? ViewIcon : NoViewIcon;
+  const { register, fieldErrorMessage } = useFieldValidation(id);
 
   return (
-    <InputFieldContainer $errorMessage={!!fieldErrorMessage}>
-      <InputLabelWrapper
+    <InputContainer>
+      <Label
         htmlFor={id}
         $errorMessage={!!fieldErrorMessage}
       >
-        <InputBase
+        <Input
           id={id}
           placeholder=""
           type={passwordView ? 'text' : 'password'}
@@ -43,9 +43,9 @@ export function InputPassword({ id, label, icon }: InputProps) {
           as={IconComponent}
           onClick={() => setPasswordView(!passwordView)}
         />
-      </InputLabelWrapper>
+      </Label>
 
       {fieldErrorMessage && <InputErrorMessage>{fieldErrorMessage}</InputErrorMessage>}
-    </InputFieldContainer>
+    </InputContainer>
   );
 }

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 import SocialMediaLinks from './SocialMediaLinks';
 import { useHomePageData } from 'Home/HomePageProvider';
 import NewsletterForm from './NewsletterForm';
 import { useState } from 'react';
 import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
+import { horizontalPadding } from 'src/styles';
 
 const Styled = {
   Footer: styled.footer`

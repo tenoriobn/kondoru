@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const StyledCardContainer = styled(Link)`
+export const CardContainer = styled(Link)`
   display: grid;
   row-gap: 1rem;
   cursor: pointer;
@@ -12,14 +12,14 @@ export const StyledCardContainer = styled(Link)`
   }
 `;
 
-export const StyledCardImage = styled.img`
+export const CardImage = styled.img`
   border-radius: 1.5rem;
   width: 100%;
   aspect-ratio: 4 / 3.26; 
   object-fit: cover;
 `;
 
-export const StyledCardTitle = styled.h3`
+export const CardTitle = styled.h3`
   font-size: 1.5rem;
   font-weight: 800;
   white-space: nowrap;
@@ -27,7 +27,7 @@ export const StyledCardTitle = styled.h3`
   text-overflow: ellipsis;
 `;
 
-export const StyledText = styled.h4`
+export const CardText = styled.h4`
   color: ${({ theme }) => theme.colors['dark-slate-58']};
   font-size: 1rem;
   font-weight: 500;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useHomePageData } from 'Home/HomePageProvider';
 import Dropdown from './Dropdown';
 import useDropdowns from './useDropDowns';
-import { StyledButtonBase } from 'src/styles/ui/StyledButton';
+import { ButtonBase } from 'src/styles';
 
 const Styled = {
   ContainerFilter: styled.form`
@@ -47,7 +47,7 @@ const Styled = {
     }
   `,
 
-  Button: styled(StyledButtonBase)`
+  Button: styled(ButtonBase)`
     background-color: ${({ theme }) => theme.colors['dark-slate-84']};
     color: ${({ theme }) => theme.colors['white']};
     max-height: 48px;

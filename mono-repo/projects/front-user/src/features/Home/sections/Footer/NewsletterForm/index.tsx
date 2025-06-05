@@ -3,8 +3,7 @@ import EmailIcon from 'public/icons/email.svg';
 import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { useNewsletterForm } from './useNewsletterForm';
 import { SetShowNewsletterFormProps } from '../footer.type';
-import { InputBase, InputLabelWrapper, LabelLine } from 'src/styles/ui/StyledInput';
-import { StyledFormButtonBase } from 'src/styles/ui/StyledButton';
+import { FormButton, Input, Label, LabelLine } from 'src/styles';
 
 const Styled = {
   Form: styled.form`
@@ -13,11 +12,11 @@ const Styled = {
     width: 100%;
   `,
   
-  InputLabelWrapper: styled(InputLabelWrapper)`
+  InputLabelWrapper: styled(Label)`
     padding: .5rem .5rem .5rem 2rem!important;
   `,
 
-  Button: styled(StyledFormButtonBase)`
+  Button: styled(FormButton)`
     max-width: 112px;
 
     @media (min-width: 768px) {
@@ -32,7 +31,7 @@ export default function NewsletterForm({ setShowNewsletterForm }: SetShowNewslet
   return (
     <Styled.Form onSubmit={handleSubmit(onSubmit)}>
       <Styled.InputLabelWrapper htmlFor='email' $errorMessage={!!errors.email}>
-        <InputBase
+        <Input
           id='email'
           type='email'
           placeholder=""

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import useResponsiveMenu from './useResponsiveMenu';
 import ResponsiveMenu from './ResponsiveMenu';
 import Logo from 'components/Logo';
 import AccessDropdown from './AccessDropdown';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
+import { LayoutWrapper } from 'src/styles';
 
 const Styled = {
   Header: styled.header`
@@ -14,7 +14,7 @@ const Styled = {
     z-index: 99;
   `,
 
-  ContainerHeader: styled(StyledLayoutWrapper)`
+  LayoutWrapper: styled(LayoutWrapper)`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <Styled.Header>
-      <Styled.ContainerHeader>
+      <Styled.LayoutWrapper>
         <Logo />
 
         <Styled.MobileMenuIcon onClick={() => setIsMenuActive(true)} />
@@ -63,7 +63,7 @@ export default function Header() {
             className="access-button__desktop" 
           />
         }
-      </Styled.ContainerHeader>
+      </Styled.LayoutWrapper>
     </Styled.Header>
   );
 }

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import { Swiper } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { ReactNode } from 'react';
+import { LayoutWrapper } from 'src/styles';
 
 const StyledSwiper = styled(Swiper)`
   .swiper-wrapper {
@@ -30,7 +30,7 @@ const StyledSwiper = styled(Swiper)`
 
 export default function Carousel({ children }: { children: ReactNode }) {
   return (
-    <StyledLayoutWrapper>
+    <LayoutWrapper>
       <StyledSwiper
         slidesPerView={1}
         spaceBetween={32}
@@ -44,6 +44,6 @@ export default function Carousel({ children }: { children: ReactNode }) {
       >
         {children}
       </StyledSwiper>
-    </StyledLayoutWrapper>
+    </LayoutWrapper>
   );
 }

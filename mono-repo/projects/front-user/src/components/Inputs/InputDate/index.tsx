@@ -1,11 +1,11 @@
 import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
-import { InputBase, InputDateStyles, InputFieldContainer, InputLabelWrapper, LabelLine } from 'src/styles/ui/StyledInput';
 import { InputProps } from 'src/components/Inputs/input.type';
 import styled from 'styled-components';
 import { useInputDate } from './useInputDate';
+import { Input, InputContainer, InputDateStyles, Label, LabelLine } from 'src/styles';
 
 const Styled = {
-  InputLabelWrapper: styled(InputLabelWrapper)`
+  Label: styled(Label)`
     max-width: 232px;
     cursor: pointer;
 
@@ -14,7 +14,7 @@ const Styled = {
     }
   `,
 
-  InputBase: styled(InputBase)`
+  InputBase: styled(Input)`
     ${InputDateStyles}
   `,
 };
@@ -23,8 +23,8 @@ export function InputDate({ id, label, icon }: InputProps) {
   const { field, fieldState, inputRef, handleLabelClick } = useInputDate(id);
 
   return (
-    <InputFieldContainer $errorMessage={!!fieldState.error}>
-      <Styled.InputLabelWrapper
+    <InputContainer>
+      <Styled.Label
         htmlFor={id}
         $errorMessage={!!fieldState.error}
       >
@@ -47,11 +47,11 @@ export function InputDate({ id, label, icon }: InputProps) {
           {icon}
           {label}
         </LabelLine>
-      </Styled.InputLabelWrapper>
+      </Styled.Label>
 
       {fieldState.error && fieldState.error.message &&
         <InputErrorMessage>{ fieldState.error.message }</InputErrorMessage>
       }
-    </InputFieldContainer>
+    </InputContainer>
   );
 }

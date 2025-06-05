@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledProps } from 'src/components/Inputs/input.type';
+import { StyledProps } from 'components/Inputs/input.type';
 
 export const InputDateStyles = css`
   &::-webkit-calendar-picker-indicator {
@@ -8,13 +8,13 @@ export const InputDateStyles = css`
   }
 `;
 
-export const InputFieldContainer = styled.div<StyledProps>`
+export const InputContainer = styled.div`
   display: grid;
   gap: .5rem;
   width: 100%;
 `;
 
-export const InputLabelWrapper = styled.label<StyledProps>`
+export const Label = styled.label<StyledProps>`
   display: flex;
   align-items: center;
   gap: .5rem;
@@ -44,7 +44,7 @@ export const InputLabelWrapper = styled.label<StyledProps>`
   }
 `;
 
-export const InputBase = styled.input<StyledProps>`
+export const Input = styled.input<StyledProps>`
   all: unset;
   flex: 1;
   box-sizing: border-box;

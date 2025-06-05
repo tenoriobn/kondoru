@@ -1,7 +1,7 @@
-import { apiClient } from '../infra/httpClient';
-import handleApiError from 'src/utils/handleApiError';
+import { handleApiError } from 'src/utils';
+import { apiClient } from '../httpClient';
 
-const postData = async(endpoint: string, data: object) => {
+export const postData = async(endpoint: string, data: object) => {
   try {
     const response = await apiClient.post(endpoint, data);
     return response.data;
@@ -9,5 +9,3 @@ const postData = async(endpoint: string, data: object) => {
     throw handleApiError(error);
   }
 };
-
-export default postData;

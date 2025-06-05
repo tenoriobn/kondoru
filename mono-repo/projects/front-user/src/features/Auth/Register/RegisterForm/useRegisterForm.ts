@@ -1,10 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { registerFormValues, registerSchema } from './registerSchema';
-import postData from 'src/shared/api/postData';
 import postAccessToken from '../../services/postAccessToken';
 import { useRouter } from 'next/router';
 import { RegisterFormStateProps } from './register.type';
+import { postData } from 'src/shared';
 
 export function useRegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const methods = useForm<registerFormValues>({

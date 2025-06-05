@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const horizontalPadding = css`
+export const horizontalPadding = css`
   padding-right: 1rem;
   padding-left: 1rem;
 
@@ -14,5 +14,3 @@ const horizontalPadding = css`
     padding-left: 4rem;
   }
 `;
-
-export default horizontalPadding;

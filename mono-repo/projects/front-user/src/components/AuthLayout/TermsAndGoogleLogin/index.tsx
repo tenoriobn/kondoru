@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import GoogleIcon from 'public/icons/google.svg';
-import { StyledAuthFormButton } from 'src/styles/ui/StyledButton';
+import { AuthButton } from 'src/styles';
 
 const Styled = {
   TermsAndGoogleLogin: styled.div`
@@ -35,7 +35,7 @@ const Styled = {
     }
   `,
 
-  GoogleLogin: styled(StyledAuthFormButton)`
+  GoogleLogin: styled(AuthButton)`
     display: grid;
     grid-template-columns: repeat(2, auto);
     justify-content: center;

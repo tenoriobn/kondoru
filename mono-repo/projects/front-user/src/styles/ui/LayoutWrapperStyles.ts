@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import horizontalPadding from '../mixins/horizontalPadding';
+import { horizontalPadding } from '../mixins';
 
-const StyledLayoutWrapper = styled.div`
+export const LayoutWrapper = styled.div`
   margin: 0 auto;
   max-width: 1192px;
   width: 100%;
@@ -12,5 +12,3 @@ const StyledLayoutWrapper = styled.div`
     padding-left: 0;
   }
 `;
-
-export default StyledLayoutWrapper;

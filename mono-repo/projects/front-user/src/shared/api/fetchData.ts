@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import { AxiosError } from 'axios';
-import { apiClient } from '../infra/httpClient';
+import { apiClient } from '../httpClient';
 
-const fetchData = async(endpoint: string) => {
+export const fetchData = async(endpoint: string) => {
   try {
     const response = await apiClient.get(endpoint);
     return response.data;
@@ -16,5 +16,3 @@ const fetchData = async(endpoint: string) => {
     }
   }
 };
-
-export default fetchData;
