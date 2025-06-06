@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { forgotPasswordValues, forgotPasswordSchema } from './forgotPasswordSchema';
-import postData from 'src/shared/api/postData';
 import { ShowForgotPasswordFormState } from './forgotPasswordForm.type';
+import { postData } from 'src/shared';
 
 export function useForgotPasswordForm({ setShowForgotPasswordForm }: ShowForgotPasswordFormState) {
   const methods = useForm<forgotPasswordValues>({

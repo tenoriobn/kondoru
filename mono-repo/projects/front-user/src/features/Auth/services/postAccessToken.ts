@@ -1,4 +1,4 @@
-import handleApiError from 'src/utils/handleApiError';
+import { handleApiError } from 'src/utils';
 
 const postAccessToken = async(accessToken: object) => {
   try {

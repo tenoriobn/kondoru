@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { useHomePageData } from 'Home/HomePageProvider';
 import ElegantShowCasePlayer from './ElegantShowCasePlayer';
-import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
+import { LayoutWrapper } from 'src/styles';
 
 const Styled = {
-  Container: styled(StyledLayoutWrapper)`
+  LayoutWrapper: styled(LayoutWrapper)`
     display: grid;
     align-items: center;
     justify-items: center;
@@ -46,7 +46,7 @@ export default function ElegantShowcase() {
   const { elegantShowcase } = useHomePageData();
   
   return (
-    <Styled.Container>
+    <Styled.LayoutWrapper>
       <ElegantShowCasePlayer />
 
       <Styled.TextContent>
@@ -55,6 +55,6 @@ export default function ElegantShowcase() {
           {elegantShowcase.description}
         </Styled.Paragraph>
       </Styled.TextContent>
-    </Styled.Container>
+    </Styled.LayoutWrapper>
   );
 }

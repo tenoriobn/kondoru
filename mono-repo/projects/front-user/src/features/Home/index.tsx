@@ -4,7 +4,7 @@ import PropertyCarousel from './sections/PropertyCarousel';
 import ElegantShowcase from './sections/ElegantShowcase';
 import TestimonialCarousel from './sections/TestimonialCarousel';
 import Footer from './sections/Footer';
-import { StyledMainContent } from 'src/styles/ui/StyledMain';
+import { MainContent } from 'src/styles';
 
 export default function HomeScreen() {
   return (
@@ -14,11 +14,11 @@ export default function HomeScreen() {
       <main>
         <HeroSection />
         
-        <StyledMainContent>
+        <MainContent>
           <PropertyCarousel />
           <ElegantShowcase />
           <TestimonialCarousel />
-        </StyledMainContent>
+        </MainContent>
       </main>
 
       <Footer />

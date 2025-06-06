@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledButtonBase = styled.button`
+export const ButtonBase = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius['rounded-full']};
   font-size: 1rem;
   font-weight: 600;
@@ -14,7 +14,7 @@ export const StyledButtonBase = styled.button`
   }
 `;
 
-export const StyledFormButtonBase = styled(StyledButtonBase)`   
+export const FormButton = styled(ButtonBase)`   
   background-color: ${({ theme }) => theme.colors['gray-400']};
   color: ${({ theme }) => theme.colors['dark-slate-800']};
   
@@ -27,7 +27,7 @@ export const StyledFormButtonBase = styled(StyledButtonBase)`
   }
 `;
 
-export const StyledAuthFormButton = styled(StyledFormButtonBase)`   
+export const AuthButton = styled(FormButton)`   
   min-width: 166px;
   max-width: max-content;
   width: 100%;

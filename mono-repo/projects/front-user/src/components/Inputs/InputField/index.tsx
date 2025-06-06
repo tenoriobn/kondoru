@@ -1,18 +1,18 @@
-import { InputBase, InputFieldContainer, InputLabelWrapper, LabelLine } from 'src/styles/ui/StyledInput';
 import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { useFieldValidation } from '../useFieldValidation';
 import { InputTextProps } from './inputText.type';
+import { Input, InputContainer, Label, LabelLine } from 'src/styles';
 
 export function InputField({ id, label, icon, type }: InputTextProps) {
   const { register, fieldErrorMessage } = useFieldValidation(id);
 
   return (
-    <InputFieldContainer $errorMessage={!!fieldErrorMessage}>
-      <InputLabelWrapper
+    <InputContainer>
+      <Label
         htmlFor={id}
         $errorMessage={!!fieldErrorMessage}
       >
-        <InputBase
+        <Input
           id={id}
           placeholder=""
           type={type}
@@ -24,9 +24,9 @@ export function InputField({ id, label, icon, type }: InputTextProps) {
           {icon}
           {label}
         </LabelLine>
-      </InputLabelWrapper>
+      </Label>
 
       {fieldErrorMessage && <InputErrorMessage>{fieldErrorMessage}</InputErrorMessage>}
-    </InputFieldContainer>
+    </InputContainer>
   );
 }

@@ -1,9 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { resetPasswordFormValues, resetPasswordSchema } from './resetPasswordSchema';
-import postData from 'src/shared/api/postData';
 import { useRouter } from 'next/router';
 import { ResetPasswordFormProps } from './ResetPasswordForm.type';
+import { postData } from 'src/shared';
 
 export function usePasswordResetForm({passwordResetToken, setShowPasswordResetForm }: ResetPasswordFormProps) {
   const methods = useForm<resetPasswordFormValues>({

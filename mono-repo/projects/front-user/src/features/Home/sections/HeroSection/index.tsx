@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useHomePageData } from 'Home/HomePageProvider';
-import StyledLayoutWrapper from 'src/styles/ui/StyledLayoutWrapper';
 import Filter from './Filter';
+import { LayoutWrapper } from 'src/styles';
 
 const Styled = {
   HeroSection: styled.div`
@@ -10,7 +10,7 @@ const Styled = {
     background-position: bottom;
   `,
 
-  HeroSectionContainer: styled(StyledLayoutWrapper)`
+  LayoutWrapper: styled(LayoutWrapper)`
     display: grid;
     grid-template-rows: minmax(300px, 1fr) 344px;
     min-height: 100dvh;
@@ -59,14 +59,14 @@ export default function HeroSection() {
 
   return (
     <Styled.HeroSection>
-      <Styled.HeroSectionContainer>
+      <Styled.LayoutWrapper>
         <Styled.HeroContent>
           <Styled.Title rel="preload">{heroSection.title}</Styled.Title>
           <Styled.Slogan>{heroSection.slogan}</Styled.Slogan>
         </Styled.HeroContent>
         
         <Filter />
-      </Styled.HeroSectionContainer>
+      </Styled.LayoutWrapper>
     </Styled.HeroSection>
   );
 }

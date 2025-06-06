@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import LocationIcon from 'public/icons/location.svg';
-import {
-  StyledCardContainer, StyledCardImage, StyledCardTitle, StyledText,
-} from 'src/styles/ui/StyledCard';
 import { PropertyCardProps } from 'src/features/Home/types/propertyCard.type';
+import { CardContainer, CardImage, CardText, CardTitle } from 'src/styles';
 
 const Styled = {
   ContainerInfo: styled.div`
@@ -19,7 +17,7 @@ const Styled = {
     overflow: hidden;
   `,
 
-  Location: styled(StyledText)`
+  Location: styled(CardText)`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -30,13 +28,13 @@ const Styled = {
 
 export default function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <StyledCardContainer href={property.href}>
-      <StyledCardImage src={property.imgSrc} alt={property.title} />
+    <CardContainer href={property.href}>
+      <CardImage src={property.imgSrc} alt={property.title} />
 
       <Styled.ContainerInfo>
-        <StyledCardTitle title={property.title}>
+        <CardTitle title={property.title}>
           {property.title}
-        </StyledCardTitle>
+        </CardTitle>
 
         <Styled.ContainerLocation>
           <LocationIcon />
@@ -46,6 +44,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </Styled.Location>
         </Styled.ContainerLocation>
       </Styled.ContainerInfo>
-    </StyledCardContainer>
+    </CardContainer>
   );
 }

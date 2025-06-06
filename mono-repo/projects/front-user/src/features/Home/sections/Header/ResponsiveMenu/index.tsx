@@ -1,10 +1,10 @@
-import horizontalPadding from 'src/styles/mixins/horizontalPadding';
 import styled from 'styled-components';
 import MenuCloseIcon from 'public/icons/close.svg';
 import { ResponsiveMenuProps } from 'src/features/Home/sections/Header/ResponsiveMenu/responsiveMenu.type';
 import Logo from 'components/Logo';
 import AccessDropdown from '../AccessDropdown';
 import MenuLinks from './NavLinks';
+import { horizontalPadding } from 'src/styles';
 
 const Styled = {
   ResponsiveMenu: styled.nav<{ $isMenuActive?: boolean }>`
