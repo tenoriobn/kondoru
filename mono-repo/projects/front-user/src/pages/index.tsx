@@ -1,6 +1,6 @@
 import HomeScreen from 'features/Home';
 import { HomePageProvider } from 'Home/HomePageProvider';
-import { homePageData } from 'Home/data/homePageData';
+import { homePageData } from 'src/features/Home/data';
 import { IHomeDataProps, IHomeData } from 'Home/homePage.types';
 
 export async function getStaticProps() {
