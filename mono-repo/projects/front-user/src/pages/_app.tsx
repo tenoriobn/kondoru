@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import mulish from '../styles/font';
 import GlobalStyles from '@kondoru/design-system/styles/GlobalStyles';
 import Theme from '@kondoru/design-system/styles/theme';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -23,7 +24,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyles />
 
         <RecoilRoot>
-          <Component {...pageProps} />
+          <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+            <Component {...pageProps} />
+          </GoogleOAuthProvider>
         </RecoilRoot>
       </ThemeProvider>
     </>

@@ -14,6 +14,17 @@ class AuthController {
       next(error);
     }
   }
+
+  static async loginWithGoogle(req: Request, res: Response, next: NextFunction): Promise<void> {
+    const { idToken } = req.body;
+
+    try {
+      const result = await authService.loginWithGoogle(idToken);
+      res.status(200).json(result);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 export default AuthController;

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import GoogleIcon from 'public/icons/google.svg';
 import { AuthButton } from 'src/styles';
+import { useGoogleLogin } from '@react-oauth/google';
+import { useRouter } from 'next/router';
+import { postData } from 'src/shared';
+import { useGoogleAuth } from './useGoogleAuth';
 
 const Styled = {
   TermsAndGoogleLogin: styled.div`
@@ -46,13 +50,15 @@ const Styled = {
 };
 
 export default function TermsAndGoogleLogin() {
+  const { loginWithGoogle } = useGoogleAuth();
+
   return (
     <Styled.TermsAndGoogleLogin>
       <Styled.Terms>
         Ao continuar, você aceita os <span>Termos de uso</span> e <span>Política de privacidade</span>, acorda em receber comunicações da <span>Kondoru</span>, afirma ter mais de 18 anos e permite o compartilhamento de seus dados nas interações com a plataforma.
       </Styled.Terms>
 
-      <Styled.GoogleLogin>
+      <Styled.GoogleLogin onClick={() => loginWithGoogle()}>
         <GoogleIcon />
         Entrar com Google
       </Styled.GoogleLogin>
