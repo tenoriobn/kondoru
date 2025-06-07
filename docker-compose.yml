@@ -29,12 +29,11 @@ services:
       - DB_DATABASE=kondoru_development
     volumes:
       - ./back-end:/back-end:cached
-      - /back-end/node_modules
 
   kondoru-frontuser:
     build: ./mono-repo
     container_name: kondoru-frontuser
-    entrypoint: yarn dev:user
+    entrypoint: ["sh", "/mono-repo/entrypoint.sh"]
     networks:
       - kondoru-bridge
     ports:

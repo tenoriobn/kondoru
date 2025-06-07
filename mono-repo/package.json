@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@react-oauth/google": "^0.12.2",
     "@svgr/webpack": "^8.1.0",
     "@types/uuid": "^10.0.0",
     "axios": "^1.7.9",

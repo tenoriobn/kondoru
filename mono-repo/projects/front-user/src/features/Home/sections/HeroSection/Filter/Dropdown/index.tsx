@@ -136,15 +136,7 @@ const Styled = {
   `,
 };
 
-export default function Dropdown({
-  label,
-  options,
-  selectedOption,
-  isOpen,
-  onToggle,
-  onSelect,
-}: DropdownHandlers) {
-
+export default function Dropdown({ label, options, selectedOption, isOpen, onToggle, onSelect }: DropdownHandlers) {
   return (
     <StyledDropdownContainer>
       <Styled.Dropdown

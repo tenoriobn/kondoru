@@ -23,63 +23,31 @@ export default (sequelize: Sequelize) => {
   }
 
   Users.init({
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true,
+    },
     name: {
       type: DataTypes.STRING(150),
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'O campo "nome" não pode ser nulo!' },
-        notEmpty: { msg: 'O campo "nome" não pode estar vazio!' },
-        len: {
-          args: [3, 150],
-          msg: 'o campo "nome" deve ter no mínimo 3 caracteres'
-        },
-      }
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      unique: true,
-      validate: {
-        notNull: { msg: 'O campo "email" não pode ser nulo!' },
-        notEmpty: { msg: 'O campo "email" não pode estar vazio!' },
-        isEmail: { msg: 'O Email informado não é válido!' },
-        len: {
-          args: [3, 50],
-          msg: 'o campo "email" deve ter no mínimo 3 caracteres'
-        },
-      }
+      allowNull: true,
     },
     date_of_birth: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'O campo "data de nascimento" não pode ser nulo!' },
-        notEmpty: { msg: 'O campo "data de nascimento" não pode estar vazio!' },
-      }
+      allowNull: true,
     },
     phone: {
       type: DataTypes.STRING(17),
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'O campo "telefone" não pode ser nulo!' },
-        notEmpty: { msg: 'O campo "telefone" não pode estar vazio!' },
-        len: {
-          args: [10, 17],
-          msg: 'o campo "telefone" deve ter no mínimo 10 caracteres'
-        },
-      }
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING(150),
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'O campo "senha" não pode ser nulo!' },
-        notEmpty: { msg: 'O campo "senha" não pode estar vazio!' },
-        len: {
-          args: [6, 150],
-          msg: 'o campo "senha" deve ter no mínimo 6 caracteres'
-        },
-      }
+      allowNull: true,
     }
   }, {
     sequelize,

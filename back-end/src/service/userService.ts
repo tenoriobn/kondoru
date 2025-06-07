@@ -6,8 +6,12 @@ import AppError from '../utils/appError';
 import { Op } from 'sequelize';
 class UserService {
   async register(dto: UserRegisterData) {
-    if (!dto.email) {
-      throw new AppError('O campo email é obrigatório!', 400);
+    const requiredFields: (keyof UserRegisterData)[] = ['name', 'email', 'date_of_birth', 'phone', 'password'];
+
+    for (const field of requiredFields) {
+      if (!dto[field]) {
+        throw new AppError(`O campo ${field} é obrigatório!`, 400);
+      }
     }
 
     const user = await database.Users.findOne({where: { email: dto.email }});
