@@ -7,11 +7,12 @@ import EmailIcon from 'public/icons/email.svg';
 import CalendarIcon from 'public/icons/calendar.svg';
 import PhoneIcon from 'public/icons/phone.svg';
 import LockIcon from 'public/icons/lock.svg';
-import { AuthButton } from 'src/styles';
+import { AnimatedDots, AuthButton } from 'src/styles';
 
 export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateProps) {
   const { methods, onSubmit } = useRegisterForm({ setShowRegisterForm });
   const formErrorMessage = methods.formState.errors.root?.message;
+  const isSubmitting = methods.formState.isSubmitting;
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
@@ -55,8 +56,10 @@ export default function RegisterForm({ setShowRegisterForm }: RegisterFormStateP
           icon={<LockIcon />} 
         />
       </InputGroup>
-
-      <AuthButton>Criar conta</AuthButton>
+      
+      <AuthButton disabled={isSubmitting}>
+        {isSubmitting ? <>Cadastrando<AnimatedDots /></> : 'Cadastrar'}
+      </AuthButton>
     </Form>
   );
 }

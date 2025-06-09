@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { InputGroupProps } from './inputGroup.type';
-import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
+import { InputErrorMessage } from 'src/styles';
 
 const Styled = {
   InputsAndErrorContainer: styled.div`

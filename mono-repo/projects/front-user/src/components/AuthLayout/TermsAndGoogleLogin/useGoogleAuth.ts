@@ -2,8 +2,10 @@ import { useRouter } from 'next/router';
 import { useGoogleLogin } from '@react-oauth/google';
 import { postData } from 'src/shared';
 import postAccessToken from 'src/features/Auth/services/postAccessToken';
+import { useState } from 'react';
 
 export function useGoogleAuth() {
+  const [googleAuthError, SetGoogleAuthError] = useState('');
   const router = useRouter();
 
   const loginWithGoogle = useGoogleLogin({
@@ -15,15 +17,16 @@ export function useGoogleAuth() {
 
         if (response?.accessToken) {
           postAccessToken({ accessToken: response.accessToken });
-          router.push('/');
+          await router.push('/');
         }
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.error('Erro ao autenticar com Google:', err);
-        alert('Erro ao entrar com o Google');
+        SetGoogleAuthError('Erro ao entrar com Google. Tente novamente!');
       }
     },
     flow: 'auth-code',
   });
 
-  return { loginWithGoogle };
+  return { loginWithGoogle, googleAuthError };
 }

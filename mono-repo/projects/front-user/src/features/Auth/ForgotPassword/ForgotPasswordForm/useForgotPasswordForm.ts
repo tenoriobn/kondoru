@@ -11,17 +11,20 @@ export function useForgotPasswordForm({ setShowForgotPasswordForm }: ShowForgotP
   });
 
   const onSubmit = async (data: forgotPasswordValues) => {
-    try {
-      const response =  await postData('user/forgot-password', data);
+    try {      
+      const response =  await postData('user/forgot-passwords', data);
 
-      if (response) {
-        methods.reset();
+      if (response?.token) {
         setShowForgotPasswordForm(false);
+        methods.reset();
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      
       methods.setError('root', {
         type: 'manual',
-        message: String(error) || 'Erro ao realizar login.',
+        message: 'Erro ao tentar recuperar senha. Tente novamente!',
       });
     }
   };

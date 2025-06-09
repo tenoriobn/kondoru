@@ -4,11 +4,12 @@ import { useLoginForm } from './useLoginForm';
 import EmailIcon from 'public/icons/email.svg';
 import LockIcon from 'public/icons/lock.svg';
 import { InputGroup, InputPassword, InputField } from 'src/components/Inputs';
-import { AuthButton } from 'src/styles';
+import { AnimatedDots, AuthButton } from 'src/styles';
 
 export default function LoginForm() {
   const { methods, onSubmit } = useLoginForm();
   const formErrorMessage = methods.formState.errors.root?.message;
+  const isSubmitting = methods.formState.isSubmitting;
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
@@ -28,7 +29,9 @@ export default function LoginForm() {
       </InputGroup>
 
       <ForgotPasswordLink />
-      <AuthButton>Entrar</AuthButton>
+      <AuthButton disabled={isSubmitting}>
+        {isSubmitting ? <>Entrando<AnimatedDots /></> : 'Entrar'}
+      </AuthButton>
     </Form>
   );
 }

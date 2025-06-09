@@ -18,33 +18,32 @@ export function useRegisterForm({ setShowRegisterForm }: RegisterFormStateProps)
     try {
       const { dateOfBirth, passwordConfirmation, ...rest } = data;
 
-      const response =  await postData('user', {
-        ...rest, 
-        date_of_birth: dateOfBirth,
-      });
+      const response =  await postData('user', { ...rest, date_of_birth: dateOfBirth, });
 
       if (response?.accessToken) {
         await handleRegisterSuccess(response.accessToken);
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      
       methods.setError('root', {
         type: 'manual',
-        message: String(error) || 'Erro ao realizar login.',
+        message: 'Erro ao realizar cadastro. Tente novamente!',
       });
     }
   };
 
   const handleRegisterSuccess = async (accessToken: string) => {
     postAccessToken({ accessToken });
-    methods.reset();
     setShowRegisterForm(false);
-
     handleRedirect();
   };
 
   const handleRedirect = () => {
-    setTimeout(() => {
-      router.push('/auth/login/');
+    setTimeout(async () => {
+      await router.push('/auth/login/');
+      methods.reset();
       setShowRegisterForm(true);
     }, 3000);
   };

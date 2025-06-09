@@ -32,5 +32,10 @@ export const AuthButton = styled(FormButton)`
   max-width: max-content;
   width: 100%;
   padding: 1rem 2rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.white};
+    cursor: not-allowed;
+  }
 `;
