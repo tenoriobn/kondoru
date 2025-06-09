@@ -14,7 +14,7 @@ export function usePasswordResetForm({passwordResetToken, setShowPasswordResetFo
   const router = useRouter();
 
   const onSubmit = async (data: resetPasswordFormValues) => {
-    try {
+    try {     
       const { password } = data;
 
       const response = await postData('user/reset-password', {
@@ -23,19 +23,22 @@ export function usePasswordResetForm({passwordResetToken, setShowPasswordResetFo
       });
 
       if (response) {
-        methods.reset();
         setShowPasswordResetForm(false);
 
         setTimeout(async () => {
           await router.push('/auth/login/');
+          methods.reset();
           setShowPasswordResetForm(true);
         }, 3000);
       }
       
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      
       methods.setError('root', {
         type: 'manual',
-        message: String(error) || 'Erro ao realizar login.',
+        message: 'Erro ao resetar senha. Tente novamente!',
       });
     }
   };

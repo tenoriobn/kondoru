@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import EmailIcon from 'public/icons/email.svg';
-import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { useNewsletterForm } from './useNewsletterForm';
 import { SetShowNewsletterFormProps } from '../footer.type';
-import { FormButton, Input, Label, LabelLine } from 'src/styles';
+import { FormButton, Input, InputErrorMessage, Label, LabelLine } from 'src/styles';
 
 const Styled = {
   Form: styled.form`

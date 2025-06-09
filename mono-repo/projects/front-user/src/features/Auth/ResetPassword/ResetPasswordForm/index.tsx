@@ -1,13 +1,14 @@
-import LockIcon from 'public/icons/lock.svg';
 import Form from 'components/Form';
+import LockIcon from 'public/icons/lock.svg';
 import { usePasswordResetForm } from './useResetPasswordForm';
 import { ResetPasswordFormProps } from './ResetPasswordForm.type';
 import { InputGroup, InputPassword } from 'src/components/Inputs';
-import { AuthButton } from 'src/styles';
+import { AnimatedDots, AuthButton } from 'src/styles';
 
 export default function PasswordResetForm({ passwordResetToken, setShowPasswordResetForm }: ResetPasswordFormProps) {
   const { methods, onSubmit } = usePasswordResetForm({ passwordResetToken, setShowPasswordResetForm });
   const formErrorMessage = methods.formState.errors.root?.message;
+  const isSubmitting = methods.formState.isSubmitting;
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
@@ -25,7 +26,9 @@ export default function PasswordResetForm({ passwordResetToken, setShowPasswordR
         />
       </InputGroup>
 
-      <AuthButton>Redefinir Senha</AuthButton>
+      <AuthButton disabled={isSubmitting}>
+        {isSubmitting ? <>Redefinindo Senha<AnimatedDots /></> : 'Redefinir Senha'}
+      </AuthButton>
     </Form>
   );
 }

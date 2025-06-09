@@ -20,13 +20,16 @@ export function useLoginForm() {
       if (response?.accessToken) {
         postAccessToken({ accessToken: response?.accessToken });
 
-        router.push('/');
+        await router.push('/');
         methods.reset();
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      
       methods.setError('root', {
         type: 'manual',
-        message: String(error) || 'Erro ao realizar login.',
+        message: 'Erro ao realizar login. Tente novamente!',
       });
     }
   };

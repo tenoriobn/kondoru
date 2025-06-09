@@ -141,8 +141,7 @@ class UserService {
       expires_at: expiresAt,
     });
 
-    const resetUrl = `Token para trocar senha: ${token}`;
-    return resetUrl;
+    return { token };
   };
 
   async verifyResetToken(token: string) {

@@ -1,8 +1,7 @@
-import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { InputProps } from 'src/components/Inputs/input.type';
 import styled from 'styled-components';
 import { useInputDate } from './useInputDate';
-import { Input, InputContainer, InputDateStyles, Label, LabelLine } from 'src/styles';
+import { Input, InputContainer, InputDateStyles, InputErrorMessage, Label, LabelLine } from 'src/styles';
 
 const Styled = {
   Label: styled(Label)`
@@ -20,7 +19,7 @@ const Styled = {
 };
 
 export function InputDate({ id, label, icon }: InputProps) {
-  const { field, fieldState, inputRef, handleLabelClick } = useInputDate(id);
+  const { field, fieldState, inputRef, handleLabelClick, isSubmitting } = useInputDate(id);
 
   return (
     <InputContainer>
@@ -31,6 +30,7 @@ export function InputDate({ id, label, icon }: InputProps) {
         <Styled.InputBase
           id={id}
           type='date'
+          disabled={isSubmitting}
           value={field.value || ''}
           onChange={field.onChange}
           onClick={handleLabelClick}

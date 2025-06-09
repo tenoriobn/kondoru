@@ -1,10 +1,9 @@
-import InputErrorMessage from 'src/components/Inputs/InputErrorMessage';
 import { useFieldValidation } from '../useFieldValidation';
 import { InputTextProps } from './inputText.type';
-import { Input, InputContainer, Label, LabelLine } from 'src/styles';
+import { Input, InputContainer, InputErrorMessage, Label, LabelLine } from 'src/styles';
 
 export function InputField({ id, label, icon, type }: InputTextProps) {
-  const { register, fieldErrorMessage } = useFieldValidation(id);
+  const { register, fieldErrorMessage, isSubmitting } = useFieldValidation(id);
 
   return (
     <InputContainer>
@@ -16,6 +15,7 @@ export function InputField({ id, label, icon, type }: InputTextProps) {
           id={id}
           placeholder=""
           type={type}
+          disabled={isSubmitting}
           {...register(id)}
           $errorMessage={!!fieldErrorMessage}
         />

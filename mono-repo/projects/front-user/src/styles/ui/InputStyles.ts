@@ -42,6 +42,10 @@ export const Label = styled.label<StyledProps>`
       stroke: ${({ $errorMessage, theme }) => theme.colors[$errorMessage ? 'red' : 'white']};
     }
   }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+  }
 `;
 
 export const Input = styled.input<StyledProps>`

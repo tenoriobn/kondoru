@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import GoogleIcon from 'public/icons/google.svg';
-import { AuthButton } from 'src/styles';
-import { useGoogleLogin } from '@react-oauth/google';
-import { useRouter } from 'next/router';
-import { postData } from 'src/shared';
+import { AuthButton, ErrorMessage } from 'src/styles';
 import { useGoogleAuth } from './useGoogleAuth';
 
 const Styled = {
@@ -39,18 +36,29 @@ const Styled = {
     }
   `,
 
+  GoogleLoginContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+  `,
+
   GoogleLogin: styled(AuthButton)`
     display: grid;
     grid-template-columns: repeat(2, auto);
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    max-width: 100%;
+    max-width: 100%!important;
+  `,
+
+  ErrorMessage: styled(ErrorMessage)`
+    text-align: center;
   `,
 };
 
 export default function TermsAndGoogleLogin() {
-  const { loginWithGoogle } = useGoogleAuth();
+  const { loginWithGoogle, googleAuthError} = useGoogleAuth();
 
   return (
     <Styled.TermsAndGoogleLogin>
@@ -58,10 +66,14 @@ export default function TermsAndGoogleLogin() {
         Ao continuar, você aceita os <span>Termos de uso</span> e <span>Política de privacidade</span>, acorda em receber comunicações da <span>Kondoru</span>, afirma ter mais de 18 anos e permite o compartilhamento de seus dados nas interações com a plataforma.
       </Styled.Terms>
 
-      <Styled.GoogleLogin onClick={() => loginWithGoogle()}>
-        <GoogleIcon />
-        Entrar com Google
-      </Styled.GoogleLogin>
+      <Styled.GoogleLoginContainer>
+        <Styled.GoogleLogin onClick={() => loginWithGoogle()}>
+          <GoogleIcon />
+          Entrar com Google
+        </Styled.GoogleLogin>
+
+        {googleAuthError && <Styled.ErrorMessage>{googleAuthError}</Styled.ErrorMessage>}
+      </Styled.GoogleLoginContainer>
     </Styled.TermsAndGoogleLogin>
   );
 }

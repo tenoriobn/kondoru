@@ -2,7 +2,10 @@ import { useRef } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
 
 export function useInputDate(name: string) {
-  const { control } = useFormContext();
+  const { 
+    control,
+    formState: { isSubmitting },
+  } = useFormContext();
   const { field, fieldState } = useController({ name, control, defaultValue: '' });
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -17,5 +20,6 @@ export function useInputDate(name: string) {
     fieldState,
     inputRef,
     handleLabelClick,
+    isSubmitting
   };
 }
