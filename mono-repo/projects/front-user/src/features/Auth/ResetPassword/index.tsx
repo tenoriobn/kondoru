@@ -23,30 +23,30 @@ export default function PasswordResetScreen({ isValid, passwordResetToken }: Res
     );
   }
 
+  if (!isValid) {
+    return (
+      <AuthLayout>
+        <StatusMessage
+          message='Token inválido ou expirado!'
+          icon={AlertErrorIcon}
+          color="red"
+        />
+        <AuthFooter
+          message="Ainda deseja recuperar a senha?"
+          linkText="Clique aqui"
+          linkHref="/auth/recuperar-senha"
+        />
+      </AuthLayout>
+    );
+  }
+
   return (
     <AuthLayout>
-      {isValid ? (
-        <>
-          <AuthDivider label='Digite a nova senha que deseja utilizar' />
-          <PasswordResetForm 
-            passwordResetToken={passwordResetToken} 
-            setShowPasswordResetForm={setShowPasswordResetForm}
-          />
-        </>
-      ) : (
-        <>
-          <StatusMessage
-            message='Token inválido ou expirado!'
-            icon={AlertErrorIcon}
-            color="red"
-          />
-          <AuthFooter
-            message="Ainda deseja recuperar a senha?"
-            linkText="Clique aqui"
-            linkHref="/auth/recuperar-senha"
-          />
-        </>
-      )}
+      <AuthDivider label='Digite a nova senha que deseja utilizar' />
+      <PasswordResetForm 
+        passwordResetToken={passwordResetToken} 
+        setShowPasswordResetForm={setShowPasswordResetForm}
+      />
     </AuthLayout>
   );
 }

@@ -8,23 +8,22 @@ import CheckIcon from 'public/icons/check.svg';
 export default function ForgotPasswordScreen() {
   const [showForgotPasswordForm, setShowForgotPasswordForm] = useState(true);
 
-  return (
-    <AuthLayout>
-      {showForgotPasswordForm ? (
-        <>        
-          <AuthDivider 
-            label='Digite o e-mail cadastrado para redefinir sua senha'
-          />
-
-          <ForgotPasswordForm setShowForgotPasswordForm={setShowForgotPasswordForm} />
-        </>
-      ) : (
+  if (!showForgotPasswordForm) {
+    return (
+      <AuthLayout>
         <StatusMessage
           message='Um link de redefinição foi enviado para o seu e-mail.'
           icon={CheckIcon}
           color="green"
         />
-      )}      
+      </AuthLayout>
+    );
+  }
+
+  return (
+    <AuthLayout>
+      <AuthDivider label='Digite o e-mail cadastrado para redefinir sua senha' />
+      <ForgotPasswordForm setShowForgotPasswordForm={setShowForgotPasswordForm} />   
     </AuthLayout>
   );
 }

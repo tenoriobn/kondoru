@@ -1,14 +1,13 @@
-* Implementar TYPESCRIPT no projeto;
-  OK - Verificar se os arquivos do Models também vira `.ts`
-  OK - Verificar se Migrations vai vir como `.ts`
-  OK - Implementar tratamento de erro correto e retorno de mensagem como "Campo Phone obrigatório";
-  OK - Fazer com que ao atualizar dados o "validate: false" dos services não deixe atualizar para dados "vazio"
-  OK - Ajustar erro que trava terminal ao tentar fazer requisição com token vencido/invalido
-  - Ajustar tipagem correta, ex: em "const { roles, permissions } = req.body;" deve mostrar que são strings e não any
+  * Organizar projeto com arquitetura baseada em DDD e SOLID (inspirado no curso padrões de projeto)
 
 
-  - Refatorar nomes e lógica de Resetar senha/Conferir Token
-  - Remover autenticação de endpoints que devem ser públicas
-  - Limitar requisições das autenticações
-  - Evitar 2 cadastros com mesmo número de telefone/celular
+  * Limitar requisições das autenticações
+  * Evitar 2 cadastros com mesmo número de telefone/celular
+
+  
+
+
+
+  **PROMPT PARA ME AJUDAR NA ORGANIZAÇÃO DA ARQUITETURA**
+  "Estou trabalhando em uma aplicação backend com arquitetura inspirada em DDD e SOLID, estruturada em camadas como adapters, usecases, entities, dataSources, etc. Cada parte segue os princípios de separação de responsabilidade e inversão de dependência. Tenho controladores, validadores, interfaces, use cases e entidades organizados em pastas específicas, e uso padrões de projeto como Factory e Decorator. Quando eu falar de um arquivo, considere que ele pertence a essa estrutura. Me ajude a manter esse padrão."
   
