@@ -12,7 +12,7 @@ export function useForgotPasswordForm({ setShowForgotPasswordForm }: ShowForgotP
 
   const onSubmit = async (data: forgotPasswordValues) => {
     try {      
-      const response =  await postData('user/forgot-passwords', data);
+      const response =  await postData('user/forgot-password', data);
 
       if (response?.token) {
         setShowForgotPasswordForm(false);
