@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+}
+
+@theme {
+  --color-black-82: rgb(0 0 0 / 82%);
+  --color-white-80: rgb(212 215 217);
+
+  --color-slate-14: rgb(248 248 248 / 14%);
+  --color-slate-40: rgb(248 248 248 / 40%);
+
+  --color-gray-400: rgb(128 137 144);
+  --color-gray-50: rgb(128 137 144 / 50%);
+
+  --color-dark-slate-700: rgb(41 55 67);
+  --color-dark-slate-800: rgb(39 54 66);
+  --color-dark-slate-900: rgb(35 50 62);
+  --color-dark-slate-84: rgb(39 54 66 / 84%);
+  --color-dark-slate-58: rgb(36 51 63 / 58%);
+
+  --color-zinc-400: rgb(126 126 126);
+  --color-zinc-950: rgb(24 24 23);
+
+  --color-red: rgb(255 69 69 / 81%);
+  --color-green: rgb(9 163 9);
+
+  --background-image-gradient-dark-slate: linear-gradient(180deg, rgb(35 50 62) 0%, rgb(45 59 70) 100%);
+  --background-image-gradient-dark-slate-80: linear-gradient(rgb(35 50 62 / 80%), rgb(35 50 62 / 80%));
+}
