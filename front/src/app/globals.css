@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mint-500: oklch(0.72 0.11 178);
-}
-
-@theme {
   --color-black-82: rgb(0 0 0 / 82%);
   --color-white-80: rgb(212 215 217);
 
@@ -28,4 +24,10 @@
 
   --background-image-gradient-dark-slate: linear-gradient(180deg, rgb(35 50 62) 0%, rgb(45 59 70) 100%);
   --background-image-gradient-dark-slate-80: linear-gradient(rgb(35 50 62 / 80%), rgb(35 50 62 / 80%));
+}
+
+@layer base {
+  body {
+    font-family: var(--font-mulish), system-ui, sans-serif;
+  }
 }

@@ -6,27 +6,26 @@ on:
       - "front/**"
 
 jobs:
-  lint-and-typecheck:
+  validate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: "npm"
-          cache-dependency-path: front/package-lock.json
+          node-version: 24.11.1
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm ci
 
-      - name: Run ESLint
+      - name: Rodar Linter
         run: npm run lint
-
-      - name: Type check
-        run: npm run build -- --noEmit
 
       - name: Build
         run: npm run build
@@ -40,12 +39,12 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
+          working-directory: front
 
-      - name: Comment Preview URL on PR
+      - name: Comentar Preview no Pull Request
         if: success()
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: |
-            🚀 **Preview do Frontend**
-            
-            🔗 [Acessar preview da aplicação](${{ steps.vercel.outputs.preview-url }})
+            🚀 **Preview Deployment**:
+            ✅ [Acesse a preview da aplicação aqui](${{ steps.vercel.outputs.preview-url }})

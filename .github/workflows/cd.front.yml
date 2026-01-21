@@ -1,4 +1,4 @@
-name: CD · Frontend (Production)
+name: CD · Frontend (Produção)
 
 on:
   push:
@@ -11,13 +11,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-      - name: Deploy to Vercel (Production)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.11.1
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Deploy para Produção (Vercel)
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+          working-directory: front
           vercel-args: "--prod"
