@@ -9,10 +9,6 @@ jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: front
-
     steps:
       - uses: actions/checkout@v4
 
@@ -44,7 +40,6 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: front
 
       - name: Comment Preview URL on PR
         if: success()
