@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "text": "Inicio",
+    "href": "/"
+  },
+  {
+    "id": 2,
+    "text": "Imóveis",
+    "href": "/imoveis"
+  },
+  {
+    "id": 3,
+    "text": "Contato",
+    "href": "/contato"
+  },
+  {
+    "id": 4,
+    "text": "Sobre",
+    "href": "/sobre"
+  }
+]
