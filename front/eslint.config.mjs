@@ -1,51 +1,39 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
-import prettierConfig from "eslint-config-prettier";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import prettierConfig from 'eslint-config-prettier';
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
     rules: {
-      "no-console": "warn",
-      "eqeqeq": ["error", "always"],
-      "curly": ["error", "all"],
-      "prefer-const": "error",
-      "object-shorthand": ["error", "always"],
+      'no-console': 'warn',
+      eqeqeq: ['error', 'always'],
+      curly: ['error', 'all'],
+      'prefer-const': 'error',
+      'object-shorthand': ['error', 'always'],
 
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { "argsIgnorePattern": "^_" }
-      ],
-      "no-shadow": "off",
-      "@typescript-eslint/no-shadow": "error",
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-shadow': 'off',
+      '@typescript-eslint/no-shadow': 'error',
 
-      "no-var": "error",
-      "no-implicit-coercion": "warn",
-      "no-multi-spaces": "error",
-      "no-trailing-spaces": "error",
+      'no-var': 'error',
+      'no-multi-spaces': 'error',
+      'no-trailing-spaces': 'error',
 
-      "react/jsx-key": "error",
-      "react/self-closing-comp": "warn",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      'react/jsx-key': 'error',
+      'react/self-closing-comp': 'warn',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
 
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        { "prefer": "type-imports" }
-      ],
-      "@typescript-eslint/no-explicit-any": "warn",
+      '@typescript-eslint/consistent-type-imports': ['warn', { prefer: 'type-imports' }],
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
   prettierConfig,
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ]);
 
 export default eslintConfig;
