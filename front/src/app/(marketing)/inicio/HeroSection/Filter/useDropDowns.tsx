@@ -1,15 +1,5 @@
 import { useState, useRef } from 'react';
-import { useClickOutside } from 'src/hooks/useClickOutside';
-
-/**
- * Hook customizado para executar algumas funcionalidades relacionados ao DropDowns
- *
- * @handleToggleDropdown Abre/fecha o dropdown baseado no ID.
- * @handleSelectOption Atualiza o estado com a opção selecionada e fecha o dropdown.
- * @useClickOutside Fecha o dropdown ao clicar fora do container.
- *
- * @returns {object} - { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef }
- */
+import { useClickOutside } from 'src/hooks';
 
 function useDropdowns() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);

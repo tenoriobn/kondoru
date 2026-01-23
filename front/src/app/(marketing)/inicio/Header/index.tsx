@@ -1,19 +1,13 @@
 'use client';
+import Link from 'next/link';
+import Navbar from './Navbar';
+import AccessDropdown from './AccessDropdown';
+import { useHeaderMenu } from './useHeaderMenu';
 import Logo from 'public/icons/logotipo.svg';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
-import Navbar from './Navbar';
-import { useState } from 'react';
-import AccessDropdown from './AccessDropdown';
-import useWindowSize from 'src/hooks/useWindowSize';
-import useBodyOverflow from 'src/hooks/useBodyOverflow';
-import Link from 'next/link';
 
 export default function Header() {
-  const { isMobile } = useWindowSize();
-  const [isMenuActive, setIsMenuActive] = useState(false);
-
-  if (isMenuActive && isMobile === false) setIsMenuActive(false);
-  useBodyOverflow(isMobile ? isMenuActive : false);
+  const { isMobile, isMenuActive, setIsMenuActive } = useHeaderMenu();
 
   return (
     <header className="fixed flex items-center justify-center bg-dark-slate-800 w-full z-99">

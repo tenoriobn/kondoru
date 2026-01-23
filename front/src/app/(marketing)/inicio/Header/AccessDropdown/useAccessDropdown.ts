@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useClickOutside } from 'src/hooks/useClickOutside';
+import { useClickOutside } from 'src/hooks';
 
 export function useAccessDropdown() {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
