@@ -35,14 +35,13 @@ export default function AccessDropdown({ className }: AccessDropdownProps) {
 
       <ul
         id="access-dropdown"
-        hidden={!isOpenDropdown}
         onClick={handleToggle}
-        className={`absolute block rounded-xl shadow-md bottom-[calc(100%+12px)] left-0 right-0 z-10 w-full overflow-hidden transition-[max-height] duration-200 ease-in-out lgx:bottom-auto lgx:top-[calc(100%+12px)] divide-y divide-gray-50/25 ${isOpenDropdown ? 'max-h-[176.48px]' : 'max-h-0'}`}
+        className={`absolute block rounded-xl shadow-md bottom-[calc(100%+12px)] left-0 right-0 z-10 w-full overflow-hidden transition-[max-height] duration-300 ease-in-out lgx:bottom-auto lgx:top-[calc(100%+12px)] divide-y divide-gray-50/25 ${isOpenDropdown ? 'max-h-[176.48px]' : 'max-h-0'}`}
       >
         {accessLinks.map(({ href, label, Icon }) => (
           <li
             key={href}
-            className="bg-white text-xl hover:bg-white-80 active:bg-white transition duration-300 ease-in-out"
+            className="bg-white hover:bg-white-80 active:bg-white transition duration-300 ease-in-out"
           >
             <Link
               href={href}

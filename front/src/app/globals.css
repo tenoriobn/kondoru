@@ -36,8 +36,10 @@
 
   --radius-12: 3rem;
 
-  --breakpoint-xs: 375px;
-  --breakpoint-lgx: 992px;
+  --shadow-3xl: 4px 4px 5px rgb(0 0 0 / 40%);
+
+  --breakpoint-xs: 23.4375rem;
+  --breakpoint-lgx: 62rem;
 
   --container-6xl: 1192px;
 }
@@ -45,5 +47,32 @@
 @layer base {
   body {
     font-family: var(--font-mulish), system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  @keyframes enable-scroll {
+    to {
+      overflow-y: auto;
+    }
+  }
+
+  .animate-enable-scroll {
+    animation: enable-scroll 0s forwards;
+    animation-delay: 0.3s;
+  }
+
+  .dropdown-scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .dropdown-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-dark-slate-800);
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+
+  .dropdown-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-slate-14);
+    border-radius: 0.25rem;
   }
 }
