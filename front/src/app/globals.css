@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-black-82: rgb(0 0 0 / 82%);
@@ -22,8 +22,24 @@
   --color-red: rgb(255 69 69 / 81%);
   --color-green: rgb(9 163 9);
 
-  --background-image-gradient-dark-slate: linear-gradient(180deg, rgb(35 50 62) 0%, rgb(45 59 70) 100%);
-  --background-image-gradient-dark-slate-80: linear-gradient(rgb(35 50 62 / 80%), rgb(35 50 62 / 80%));
+  --background-image-gradient-dark-slate: linear-gradient(
+    180deg,
+    rgb(35 50 62) 0%,
+    rgb(45 59 70) 100%
+  );
+  --background-image-gradient-dark-slate-80: linear-gradient(
+    rgb(35 50 62 / 80%),
+    rgb(35 50 62 / 80%)
+  );
+  --background-image-header:
+    var(--background-image-gradient-dark-slate-80), url('/images/background-header.webp');
+
+  --radius-12: 3rem;
+
+  --breakpoint-xs: 375px;
+  --breakpoint-lgx: 992px;
+
+  --container-6xl: 1192px;
 }
 
 @layer base {
