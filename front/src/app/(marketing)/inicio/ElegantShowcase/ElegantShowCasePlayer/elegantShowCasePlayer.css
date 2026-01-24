@@ -1,0 +1,22 @@
+#player {
+  width: 100%;
+  max-width: 580px;
+  min-height: 332px !important;
+  height: 100% !important;
+
+  .pjscssed {
+    border-radius: 1.5rem;
+    width: 100%;
+  }
+
+  video {
+    object-fit: cover !important;
+    cursor: pointer !important;
+  }
+
+  video,
+  canvas,
+  img {
+    overflow: hidden !important;
+  }
+}
