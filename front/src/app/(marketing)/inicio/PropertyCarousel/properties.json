@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-1.webp",
+    "title": "Casa de Alto Padrão - 5 Quartos à Venda, 650 m² em Barra da Tijuca",
+    "location": "Rio de Janeiro - RJ"
+  },
+  {
+    "id": "2",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-2.webp",
+    "title": "Apartamento Moderno - 80 m² em Centro, São Paulo",
+    "location": "São Paulo - SP"
+  },
+  {
+    "id": "3",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-3.webp",
+    "title": "Condomínio de Luxo - 4 suítes e Vista para o Mar em Angra dos Reis",
+    "location": "Angra dos Reis - RJ"
+  },
+  {
+    "id": "4",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-4.webp",
+    "title": "Cobertura Duplex - 3 Quartos com Piscina Privativa em Vila Progredior",
+    "location": "São Bernardo do Campo - SP"
+  },
+  {
+    "id": "5",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-5.webp",
+    "title": "Casa de Campo - 6 Quartos e Lazer Completo em Campos do Jordão",
+    "location": "Campos do Jordão - SP"
+  },
+  {
+    "id": "6",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-6.webp",
+    "title": "Apartamento Amplo - 120 m² em Vila Isabel, próximo à Praia",
+    "location": "Rio de Janeiro - RJ"
+  }
+]

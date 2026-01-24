@@ -29,7 +29,7 @@ export default function Dropdown({
           ${isOpen ? 'bg-dark-slate-800' : 'bg-slate-40'}
         `}
       >
-        <span className="text-white-80 text-[1.25rem] whitespace-nowrap overflow-hidden text-ellipsis max-w-full cursor-pointer">
+        <span className="text-white-80 text-[1.25rem] text-left whitespace-nowrap overflow-hidden text-ellipsis max-w-full cursor-pointer">
           {selectedOption || label}
         </span>
 
