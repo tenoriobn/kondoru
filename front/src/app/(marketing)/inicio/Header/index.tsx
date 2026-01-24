@@ -22,7 +22,7 @@ export default function Header() {
           aria-expanded={isMenuActive}
           aria-controls="primary-navigation"
           onClick={() => setIsMenuActive(true)}
-          className="lgx:hidden text-gray-400 transition hover:text-white-80 active:scale-90"
+          className="lgx:hidden text-gray-400 transition duration-300 ease-in-out hover:text-white-80 active:scale-90"
         >
           <MobileMenuIcon aria-hidden="true" />
         </button>
