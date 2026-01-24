@@ -1,0 +1,19 @@
+.mySwiper .swiper-wrapper {
+  margin-bottom: 2rem;
+}
+
+.mySwiper .swiper-pagination {
+  position: relative;
+  top: 0;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  opacity: 1;
+  width: 1rem;
+  height: 1rem;
+  background: var(--color-gray-50);
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background: var(--color-dark-slate-84);
+}
