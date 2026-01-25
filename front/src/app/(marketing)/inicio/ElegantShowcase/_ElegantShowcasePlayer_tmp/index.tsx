@@ -1,4 +1,4 @@
-import './elegantShowcasePlayer.css';
+// import './elegantShowcasePlayer.css';
 import usePlayerScript from './usePlayerScript';
 
 export default function ElegantShowCasePlayer() {
