@@ -1,5 +1,4 @@
-'use client';
-// import ElegantShowcasePlayer from './ElegantShowCasePlayer';
+import ElegantShowCasePlayer from './ElegantShowcasePlayer';
 
 export default function ElegantShowcase() {
   return (
@@ -7,7 +6,7 @@ export default function ElegantShowcase() {
       aria-labelledby="elegant-showcase-title"
       className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
     >
-      {/* <ElegantShowcasePlayer /> */}
+      <ElegantShowCasePlayer />
 
       <div className="grid gap-4 max-w-145">
         <h2

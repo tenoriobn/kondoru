@@ -1,5 +1,6 @@
-// import './elegantShowcasePlayer.css';
+'use client';
 import usePlayerScript from './usePlayerScript';
+import './elegantShowcasePlayer.css';
 
 export default function ElegantShowCasePlayer() {
   usePlayerScript('./video/rio-perdido.mp4');
