@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "href": "/",
+    "name": "Camila Andrade",
+    "image": "/thumbnails/profile/camila.webp",
+    "testimony": "Agradeço pela atenção e dedicação ao longo de todo o processo. A equipe me ajudou a encontrar a casa dos meus sonhos com total segurança e rapidez."
+  },
+  {
+    "id": "2",
+    "href": "/",
+    "name": "André Moura",
+    "image": "/thumbnails/profile/andre.webp",
+    "testimony": "Recebi suporte completo e personalizado desde o início. A experiência foi ágil e eficiente, e consegui um excelente imóvel com ótimas condições."
+  },
+  {
+    "id": "3",
+    "href": "/",
+    "name": "Beatriz Corrêa",
+    "image": "/thumbnails/profile/beatriz.webp",
+    "testimony": "Todo o processo foi claro e sem surpresas. A equipe me deu todo o suporte necessário, e estou muito satisfeita com a escolha que fiz para o meu novo lar."
+  },
+  {
+    "id": "4",
+    "href": "/",
+    "name": "Lucas Ferreira",
+    "image": "/thumbnails/profile/lucas.webp",
+    "testimony": "A rapidez e a qualidade no atendimento me surpreenderam. Consegui encontrar um imóvel que atendesse às minhas expectativas de forma eficiente."
+  },
+  {
+    "id": "5",
+    "href": "/",
+    "name": "Aline Santos",
+    "image": "/thumbnails/profile/aline.webp",
+    "testimony": "Foi um processo tranquilo e totalmente seguro. A equipe me ajudou a entender todas as opções e consegui um ótimo imóvel dentro do meu orçamento."
+  },
+  {
+    "id": "6",
+    "href": "/",
+    "name": "Diogo Veras",
+    "image": "/thumbnails/profile/pedro.webp",
+    "testimony": "A transparência e o compromisso durante todo o processo me impressionaram. Fui bem orientado e encontrei uma excelente oportunidade de investimento."
+  },
+  {
+    "id": "7",
+    "href": "/",
+    "name": "João Ricardo",
+    "image": "/thumbnails/profile/joao.webp",
+    "testimony": "Fui atendido de forma muito atenciosa, com muita clareza nas explicações. Em pouco tempo, encontrei o imóvel ideal para as minhas necessidades."
+  }
+]

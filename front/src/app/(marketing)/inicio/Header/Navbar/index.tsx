@@ -29,7 +29,7 @@ export default function Navbar({ isMenuActive, setIsMenuActive, isMobile }: Navb
             type="button"
             aria-label="Fechar menu"
             onClick={() => setIsMenuActive(false)}
-            className="text-gray-400 transition hover:text-white-80 active:scale-90"
+            className="text-gray-400 transition duration-300 ease-in-out hover:text-white-80 active:scale-90"
           >
             <CloseIcon aria-hidden="true" />
           </button>
