@@ -1,12 +1,19 @@
-import ElegantShowcasePlayer from './ElegantShowcasePlayer';
+'use client';
+import ElegantShowcasePlayer from './ElegantShowCasePlayer';
 
 export default function ElegantShowcase() {
   return (
-    <section className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl">
+    <section
+      aria-labelledby="elegant-showcase-title"
+      className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
+    >
       <ElegantShowcasePlayer />
 
-      <div className="grid gap-4">
-        <h2 className="justify-self-center w-full text-center text-[1.5rem] font-[950] text-dark-slate-900 uppercase max-[521px]:max-w-82">
+      <div className="grid gap-4 max-w-145">
+        <h2
+          id="elegant-showcase-title"
+          className="justify-self-center w-full text-center text-[1.5rem] font-[950] text-dark-slate-900 uppercase max-[521px]:max-w-82"
+        >
           Viva a Elegância em <span className="whitespace-nowrap">Cada Detalhe</span>
         </h2>
 

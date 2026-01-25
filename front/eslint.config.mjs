@@ -35,7 +35,17 @@ const eslintConfig = defineConfig([
     },
   },
   prettierConfig,
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'public/scripts/playerjs.js']),
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'public/scripts/playerjs.js',
+    'playwright-report/**',
+    'playwright/.cache/**',
+    'coverage/**',
+    'test-results/**',
+  ]),
 ]);
 
 export default eslintConfig;

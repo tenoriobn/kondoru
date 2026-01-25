@@ -10,7 +10,12 @@ export default function NewsletterForm({ setShowNewsletterForm }: NewsletterForm
   });
 
   return (
-    <form className="grid gap-2 w-full" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="grid gap-2 w-full"
+      onSubmit={handleSubmit(onSubmit)}
+      aria-labelledby="footer-newsletter-title"
+      noValidate
+    >
       <label
         htmlFor="email"
         className={`
@@ -35,12 +40,13 @@ export default function NewsletterForm({ setShowNewsletterForm }: NewsletterForm
         />
 
         <div
+          aria-hidden="true"
           className={`
             absolute left-4 z-9 grid grid-cols-[24px_1fr] items-center gap-2 px-2 py-1.5 text-base font-normal text-gray-400 bg-dark-slate-800 transition-all duration-300 ease-in-out pointer-events-none md:text-xl peer-focus:-translate-y-9 peer-not-placeholder-shown:-translate-y-9 peer-autofill:-translate-y-9 
             ${!!errors.email ? ` peer-focus:text-red peer-not-placeholder-shown:text-red peer-autofill:text-red` : 'peer-focus:text-white peer-not-placeholder-shown:text-white peer-autofill:text-white'}
           `}
         >
-          <EmailIcon />
+          <EmailIcon aria-hidden="true" />
           E-mail
         </div>
 
@@ -53,14 +59,19 @@ export default function NewsletterForm({ setShowNewsletterForm }: NewsletterForm
           `}
         >
           {isSubmitting ? (
-            <LoadingIcon className="justify-self-center w-6 text-dark-slate-900" />
+            <LoadingIcon
+              aria-hidden="true"
+              className="justify-self-center w-6 text-dark-slate-900"
+            />
           ) : (
             'Assinar'
           )}
         </button>
       </label>
 
-      {errors.email?.message && <InputErrorMessage>{errors.email.message}</InputErrorMessage>}
+      {errors.email?.message && (
+        <InputErrorMessage id="email-error">{errors.email.message}</InputErrorMessage>
+      )}
     </form>
   );
 }
