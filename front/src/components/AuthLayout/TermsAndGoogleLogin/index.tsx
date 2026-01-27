@@ -2,8 +2,9 @@ import GoogleIcon from 'public/icons/google.svg';
 import Link from 'next/link';
 import { useGoogleAuth } from './useGoogleAuth';
 import ErrorMessage from 'src/components/ErrorMessage';
+import type { TermsAndGoogleLoginProps } from './termsAndGoogleLogin.type';
 
-export default function TermsAndGoogleLogin() {
+export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLoginProps) {
   const { loginWithGoogle, googleAuthError } = useGoogleAuth();
 
   return (
@@ -30,8 +31,9 @@ export default function TermsAndGoogleLogin() {
 
       <div className="flex flex-col gap-2 w-full">
         <button
+          disabled={isSubmitting}
           onClick={() => loginWithGoogle()}
-          className="cursor-pointer w-full max-w-full grid grid-cols-[repeat(2,auto)] items-center justify-center gap-2 px-8 py-4 mt-2 bg-gray-400 text-dark-slate-800 rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-out hover:bg-white-80 active:bg-white disabled:bg-white disabled:cursor-not-allowed"
+          className="cursor-pointer w-full max-w-full grid grid-cols-[repeat(2,auto)] items-center justify-center gap-2 px-8 py-4 mt-2 bg-gray-400 text-dark-slate-800 rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-out hover:bg-white-80 active:bg-white disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           <GoogleIcon />
           Entrar com Google
