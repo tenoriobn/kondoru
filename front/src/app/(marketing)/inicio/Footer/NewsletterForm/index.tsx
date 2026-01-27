@@ -58,7 +58,7 @@ export default function NewsletterForm({ setShowNewsletterForm }: NewsletterForm
             ${isSubmitting ? 'cursor-no-drop bg-white' : 'cursor-pointer bg-gray-400 hover:bg-white-80 active:bg-white'}
           `}
         >
-          {isSubmitting ? (
+          {!isSubmitting ? (
             <LoadingIcon
               aria-hidden="true"
               className="justify-self-center w-6 text-dark-slate-900"
