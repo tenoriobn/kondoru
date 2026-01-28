@@ -1,10 +1,9 @@
 'use client';
-import Link from 'next/link';
 import Navbar from './Navbar';
 import AccessDropdown from './AccessDropdown';
 import { useHeaderMenu } from './useHeaderMenu';
-import Logo from 'public/icons/logotipo.svg';
 import MobileMenuIcon from 'public/icons/menu-hamburguer.svg';
+import Logo from 'src/components/Logo';
 
 export default function Header() {
   const { isMobile, isMenuActive, setIsMenuActive } = useHeaderMenu();
@@ -12,9 +11,7 @@ export default function Header() {
   return (
     <header className="fixed flex items-center justify-center bg-dark-slate-800 w-full z-99">
       <div className="relative flex justify-between items-center mx-4 xs:mx-6 md:mx-16 py-6 max-w-6xl w-full">
-        <Link href="/" aria-label="Página inicial">
-          <Logo className="w-35 md:w-42" />
-        </Link>
+        <Logo />
 
         <button
           type="button"
