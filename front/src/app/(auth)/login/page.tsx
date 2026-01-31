@@ -1,18 +1,18 @@
 'use client';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import AuthDivider from 'src/components/AuthLayout/AuthDivider';
 import AuthLayout from 'src/components/AuthLayout';
 import TermsAndGoogleLogin from 'src/components/AuthLayout/TermsAndGoogleLogin';
 import AuthFooter from 'src/components/AuthLayout/AuthFooter';
 import { useLoginForm } from './useLoginForm';
 import FormLogin from './FormLogin';
+import GoogleAuthProvider from 'src/providers/GoogleAuthProvider';
 
 export default function Login() {
   const { methods, onSubmit } = useLoginForm();
   const isSubmitting = methods.formState.isSubmitting;
 
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+    <GoogleAuthProvider>
       <AuthLayout title="Entrar na sua conta" isSubmitting={isSubmitting}>
         <TermsAndGoogleLogin isSubmitting={isSubmitting} />
 
@@ -27,6 +27,6 @@ export default function Login() {
           isSubmitting={isSubmitting}
         />
       </AuthLayout>
-    </GoogleOAuthProvider>
+    </GoogleAuthProvider>
   );
 }
