@@ -5,7 +5,7 @@ import ArrowDownIcon from 'public/icons/arrow-down.svg';
 import UserIcon from 'public/icons/user.svg';
 import UserPlusIcon from 'public/icons/user-plus.svg';
 
-export default function AccessDropdown({ className }: AccessDropdownProps) {
+export default function AccessDropdown({ className, onItemClick }: AccessDropdownProps) {
   const { isOpenDropdown, dropdownRef, handleToggle } = useAccessDropdown();
 
   const accessLinks = [
@@ -45,6 +45,7 @@ export default function AccessDropdown({ className }: AccessDropdownProps) {
           >
             <Link
               href={href}
+              onClick={onItemClick}
               className="cursor-pointer flex items-center gap-2 text-xl text-dark-slate-900 font-medium py-3 px-6"
             >
               <Icon aria-hidden="true" />
