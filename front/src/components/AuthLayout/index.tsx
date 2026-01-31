@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import Logo from 'src/components/Logo';
-import ArrowLeftIcon from 'public/icons/arrow-left.svg';
+import Home from 'public/icons/home.svg';
 import type { AuthLayoutProps } from './authLayout.type';
 
 export default function AuthLayout({ children, title, isSubmitting }: AuthLayoutProps) {
@@ -20,7 +20,7 @@ export default function AuthLayout({ children, title, isSubmitting }: AuthLayout
               ${isSubmitting ? 'text-gray-300/60 cursor-not-allowed' : 'cursor-pointer hover:text-white-80 active:text-white'}
             `}
           >
-            <ArrowLeftIcon aria-hidden="true" /> <span>Voltar</span>
+            <Home aria-hidden="true" /> <span>Início</span>
           </button>
 
           <Logo />
