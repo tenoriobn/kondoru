@@ -12,7 +12,7 @@ export default function FormLogin({ methods, onSubmit, isSubmitting }: FormLogin
 
   return (
     <Form methods={methods} onSubmit={methods.handleSubmit(onSubmit)} noValidate>
-      <InputGroup formErrorMessage={formErrorMessage}>
+      <InputGroup legend="Dados de acesso" formErrorMessage={formErrorMessage}>
         <InputField id="email" type="email" label="E-mail" Icon={<EmailIcon />} />
         <InputPassword id="password" label="Senha" Icon={<LockIcon />} />
       </InputGroup>

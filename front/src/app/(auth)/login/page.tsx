@@ -13,7 +13,7 @@ export default function Login() {
 
   return (
     <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
-      <AuthLayout isSubmitting={isSubmitting}>
+      <AuthLayout title="Entrar na sua conta" isSubmitting={isSubmitting}>
         <TermsAndGoogleLogin isSubmitting={isSubmitting} />
 
         <AuthDivider label="ou entre com seu e-mail" />
