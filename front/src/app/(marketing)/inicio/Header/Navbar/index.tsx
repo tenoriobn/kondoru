@@ -50,7 +50,9 @@ export default function Navbar({ isMenuActive, setIsMenuActive, isMobile }: Navb
         ))}
       </ul>
 
-      {isMobile && <AccessDropdown className="lgx:hidden" />}
+      {isMobile && (
+        <AccessDropdown onItemClick={() => setIsMenuActive(false)} className="lgx:hidden" />
+      )}
     </nav>
   );
 }
