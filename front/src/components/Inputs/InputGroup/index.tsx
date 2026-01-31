@@ -1,8 +1,10 @@
 import type { InputGroupProps } from './inputGroup.type';
 
-export function InputGroup({ children, formErrorMessage }: InputGroupProps) {
+export function InputGroup({ legend, children, formErrorMessage }: InputGroupProps) {
   return (
-    <div className="grid gap-6 w-full">
+    <fieldset className="grid gap-6 w-full">
+      <legend className="sr-only">{legend}</legend>
+
       <div className="grid gap-10 w-full">{children}</div>
 
       {formErrorMessage && (
@@ -10,6 +12,6 @@ export function InputGroup({ children, formErrorMessage }: InputGroupProps) {
           {formErrorMessage}
         </span>
       )}
-    </div>
+    </fieldset>
   );
 }
