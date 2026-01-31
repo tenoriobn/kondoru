@@ -16,18 +16,15 @@ export function useFormRegister({ setShowRegisterForm }: UseFormRegisterProps) {
     try {
       console.log({ data });
 
+      await new Promise((resolve) => setTimeout(resolve, 300000));
+
       if (data) {
         setShowRegisterForm(false);
       }
-
-      // 🔥 SIMULA REQUEST
-      await new Promise((resolve) => setTimeout(resolve, 300000));
-
-      // sucesso fake
     } catch (error) {
       methods.setError('root', {
         type: 'manual',
-        message: 'Erro ao realizar login. Tente novamente!',
+        message: 'Erro ao realizar cadastro. Tente novamente!',
       });
     }
   };
