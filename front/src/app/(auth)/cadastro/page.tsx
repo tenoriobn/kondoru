@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import AuthLayout from 'src/components/AuthLayout';
 import AuthDivider from 'src/components/AuthLayout/AuthDivider';
 import AuthFooter from 'src/components/AuthLayout/AuthFooter';
@@ -11,8 +10,7 @@ import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
 
 export default function SignUp() {
-  const [showRegisterForm, setShowRegisterForm] = useState(true);
-  const { methods, onSubmit } = useFormRegister({ setShowRegisterForm });
+  const { methods, onSubmit, showRegisterForm } = useFormRegister();
   const isSubmitting = methods.formState.isSubmitting;
 
   if (!showRegisterForm) {

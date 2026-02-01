@@ -2,10 +2,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import type { ForgotPasswordData } from './forgotPasswordSchema';
 import { forgotPasswordSchema } from './forgotPasswordSchema';
-import type { UseFormForgotPasswordProps } from './forgotPassword.type';
+import { useState } from 'react';
 // import { useRouter } from 'next/navigation';
 
-export function useFormForgotPassword({ setShowForgotPasswordForm }: UseFormForgotPasswordProps) {
+export function useFormForgotPassword() {
+  const [showForgotPasswordForm, setShowForgotPasswordForm] = useState(true);
+
   const methods = useForm<ForgotPasswordData>({
     resolver: zodResolver(forgotPasswordSchema),
     mode: 'onTouched',
@@ -30,5 +32,5 @@ export function useFormForgotPassword({ setShowForgotPasswordForm }: UseFormForg
     }
   };
 
-  return { methods, onSubmit };
+  return { methods, onSubmit, showForgotPasswordForm };
 }
