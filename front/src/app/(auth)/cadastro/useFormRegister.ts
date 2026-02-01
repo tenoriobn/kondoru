@@ -1,10 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { registerSchema, type RegisterData } from './registerSchema';
-import type { UseFormRegisterProps } from './register.type';
+import { useState } from 'react';
 // import { useRouter } from 'next/navigation';
 
-export function useFormRegister({ setShowRegisterForm }: UseFormRegisterProps) {
+export function useFormRegister() {
+  const [showRegisterForm, setShowRegisterForm] = useState(true);
+
   const methods = useForm<RegisterData>({
     resolver: zodResolver(registerSchema),
     mode: 'onTouched',
@@ -29,5 +31,5 @@ export function useFormRegister({ setShowRegisterForm }: UseFormRegisterProps) {
     }
   };
 
-  return { methods, onSubmit };
+  return { methods, onSubmit, showRegisterForm };
 }
