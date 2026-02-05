@@ -1,4 +1,3 @@
-'use client';
 import { SwiperSlide } from 'swiper/react';
 import properties from './properties.json';
 import Carousel from 'src/components/Carousel';
