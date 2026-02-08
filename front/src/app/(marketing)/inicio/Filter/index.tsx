@@ -1,4 +1,3 @@
-'use client';
 import Dropdown from './Dropdown';
 import useDropdowns from './useDropDowns';
 import dropdowns from './dropdowns.json';

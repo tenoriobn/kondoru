@@ -1,4 +1,3 @@
-'use client';
 import usePlayerScript from './usePlayerScript';
 import './elegantShowcasePlayer.css';
 
