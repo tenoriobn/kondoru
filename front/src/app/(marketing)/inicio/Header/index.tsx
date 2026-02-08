@@ -1,3 +1,4 @@
+'use client';
 import Navbar from './Navbar';
 import AccessDropdown from './AccessDropdown';
 import { useHeaderMenu } from './useHeaderMenu';

@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
