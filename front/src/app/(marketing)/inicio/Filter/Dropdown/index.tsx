@@ -23,7 +23,7 @@ export default function Dropdown({
         title={selectedOption || label}
         onClick={onToggle}
         className={`
-          grid grid-cols-[1fr_auto] items-center justify-between gap-6 cursor-pointer border-r border-slate-14 rounded-12 relative h-full w-full px-6 py-2 transition-colors duration-300 ease-in-out hover:bg-dark-slate-900
+          grid grid-cols-[1fr_auto] items-center justify-between gap-6 cursor-pointer border-r border-slate-14 rounded-12 relative h-full w-full min-h-14 px-6 py-2 transition-colors duration-300 ease-in-out hover:bg-dark-slate-900
           md:rounded-none md:group-nth-of-type-[odd]:rounded-l-12 md:group-nth-of-type-[even]:rounded-r-12
           lgx:rounded-none lgx:group-first:rounded-l-12 lgx:group-not-first:rounded-none
           ${isOpen ? 'bg-dark-slate-800' : 'bg-slate-40'}

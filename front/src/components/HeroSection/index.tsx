@@ -9,9 +9,10 @@ export default function HeroSection({
   return (
     <section
       aria-labelledby="hero-title"
-      className={`bg-[url(/images/${backgroundImage})] bg-cover bg-top flex items-center justify-center`}
+      style={{ backgroundImage: `url(/images/${backgroundImage})` }}
+      className={`bg-cover bg-top flex items-center justify-center`}
     >
-      <div className="grid grid-rows-[minmax(300px,1fr)_344px] min-h-dvh pt-25.5 pb-25 w-full max-w-6xl mx-4 xs:mx-6 md:grid-rows-[minmax(388px,1fr)_248px] md:mx-16 lgx:px-0 lgx:mx-16 md:pb-32 lgx:grid-rows-[minmax(540px,1fr)_64px]">
+      <div className="grid grid-rows-[minmax(300px,1fr)_auto] min-h-dvh pt-25.5 pb-25 w-full max-w-6xl mx-4 xs:mx-6 md:grid-rows-[minmax(388px,1fr)_auto] md:mx-16 lgx:px-0 lgx:mx-16 md:pb-32 lgx:grid-rows-[minmax(540px,1fr)_auto]">
         <header className="flex flex-col justify-center items-center gap-8 py-22">
           <h1
             id="hero-title"
@@ -20,7 +21,7 @@ export default function HeroSection({
             {title}
           </h1>
 
-          <p className="text-white font-normal text-[clamp(.5rem,6.4vw,2rem)] leading-[clamp(.8rem,8vw,2.5rem)] text-center whitespace-pre-line">
+          <p className="text-white font-normal text-[clamp(.5rem,6.4vw,2rem)] leading-[clamp(.8rem,8vw,2.5rem)] text-center">
             {subtitle}
           </p>
         </header>

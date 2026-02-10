@@ -6,6 +6,7 @@
 
   --color-slate-14: rgb(248 248 248 / 14%);
   --color-slate-40: rgb(248 248 248 / 40%);
+  --color-slate-50: rgb(248 248 248 / 50%);
 
   --color-gray-400: rgb(128 137 144);
   --color-gray-50: rgb(128 137 144 / 50%);
@@ -32,7 +33,7 @@
     rgb(35 50 62 / 80%)
   );
   --background-image-header:
-    var(--background-image-gradient-dark-slate-80), url('/images/background-header.webp');
+    var(--background-image-gradient-dark-slate-80), url('/images/herosection-home-bg.webp');
 
   --radius-12: 3rem;
 
@@ -40,6 +41,7 @@
 
   --breakpoint-xs: 23.4375rem;
   --breakpoint-lgx: 62rem;
+  --breakpoint-6xl: 80rem;
 
   --container-6xl: 1192px;
 }

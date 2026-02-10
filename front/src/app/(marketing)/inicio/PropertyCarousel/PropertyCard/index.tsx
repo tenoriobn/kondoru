@@ -31,7 +31,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </h3>
 
           <address className="flex items-center gap-2 flex-nowrap overflow-hidden">
-            <LocationIcon aria-hidden="true" focusable="false" />
+            <LocationIcon
+              aria-hidden="true"
+              focusable="false"
+              className="text-dark-slate-58 w-4 h-5"
+            />
 
             <span
               title={property.location}

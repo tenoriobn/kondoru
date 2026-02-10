@@ -1,7 +1,24 @@
-export default function Contact() {
+import HeroSection from 'src/components/HeroSection';
+import ContactInfo from './ContactInfo';
+
+export default function Contacts() {
   return (
-    <div>
-      <p className="duration-300 text-2xl text-red-500">Pagina Contatos</p>
-    </div>
+    <>
+      <HeroSection
+        backgroundImage="herosection-contacts-bg.webp"
+        title="Contatos"
+        subtitle={
+          <>
+            <span className="block">Tire suas dúvidas e</span>
+
+            <span className="block">
+              descubra as soluções <span className="whitespace-nowrap">ideais para você</span>
+            </span>
+          </>
+        }
+      >
+        <ContactInfo />
+      </HeroSection>
+    </>
   );
 }
