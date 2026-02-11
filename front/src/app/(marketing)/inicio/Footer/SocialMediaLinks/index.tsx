@@ -8,6 +8,7 @@ export default function SocialMediaLinks() {
         {socialLinks.map((link) => (
           <li key={link.id}>
             <Link
+              rel="noopener noreferrer"
               href={link.href}
               target="_blank"
               aria-label={link.label}

@@ -6,6 +6,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <article>
       <Link
+        rel="noopener noreferrer"
         href={testimonial.href}
         aria-labelledby={`testimonial-title-${testimonial.id}`}
         className="cursor-pointer grid justify-items-center gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-60"

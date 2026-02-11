@@ -32,6 +32,7 @@ export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLogi
         </button>
         , acorda em receber comunicações da{' '}
         <Link
+          rel="noopener noreferrer"
           href={isSubmitting ? '#' : '/'}
           aria-disabled={isSubmitting}
           tabIndex={isSubmitting ? -1 : 0}

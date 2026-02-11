@@ -44,6 +44,7 @@ export default function AccessDropdown({ className, onItemClick }: AccessDropdow
             className="bg-white hover:bg-white-80 active:bg-white transition duration-300 ease-in-out"
           >
             <Link
+              rel="noopener noreferrer"
               href={href}
               onClick={onItemClick}
               className="cursor-pointer flex items-center gap-2 text-xl text-dark-slate-900 font-medium py-3 px-6"

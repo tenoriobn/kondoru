@@ -6,6 +6,7 @@ export default function AuthFooter({ message, linkText, linkHref, isSubmitting }
     <p className="text-gray-300/60 text-base md:text-xl font-light text-center mt-4">
       {message}{' '}
       <Link
+        rel="noopener noreferrer"
         href={isSubmitting ? '#' : linkHref}
         aria-disabled={isSubmitting}
         tabIndex={isSubmitting ? -1 : 0}
