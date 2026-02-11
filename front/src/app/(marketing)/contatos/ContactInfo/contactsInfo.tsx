@@ -27,10 +27,10 @@ export const contactsInfo = [
   {
     id: 'location',
     label: 'Localização',
-    value: 'R. Augusta, 1359 — SP',
+    value: 'Av. Paulista, 2084 — SP',
     action: {
       type: 'map',
-      href: 'https://www.google.com/maps?q=R.+Augusta,+1359,+São+Paulo',
+      href: 'https://www.google.com/maps?q=Av.+Paulista,+2084+-+Bela+Vista,+São+Paulo+-+SP,+01311-300',
     },
     icon: <LocationIcon aria-hidden="true" className="w-4 h-5 [&_path]:stroke-2" />,
   },
