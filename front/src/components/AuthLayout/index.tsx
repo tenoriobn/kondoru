@@ -9,7 +9,7 @@ export default function AuthLayout({ children, title, isSubmitting }: AuthLayout
 
   return (
     <main className="bg-[url(/images/herosection-home-bg.webp)] bg-cover bg-top bg-fixed grid place-items-center min-h-dvh p-4 xs:p-6 md:p-16">
-      <div className="bg-dark-slate-800 rounded-3xl border border-[rgba(189,189,189,0.16)] flex flex-col items-center justify-center gap-16 max-w-175 w-full p-4 sm:p-6 md:p-8">
+      <div className="bg-dark-slate-800 rounded-3xl border border-[rgba(189,189,189,0.16)] flex flex-col items-center justify-center gap-16 max-w-175 w-full p-4 xs:p-6 md:p-8">
         <header className="flex items-center justify-between gap-6 w-full">
           <button
             type="button"
