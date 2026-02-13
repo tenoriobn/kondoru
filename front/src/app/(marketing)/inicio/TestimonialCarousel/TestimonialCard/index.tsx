@@ -9,7 +9,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
         rel="noopener noreferrer"
         href={testimonial.href}
         aria-labelledby={`testimonial-title-${testimonial.id}`}
-        className="cursor-pointer grid justify-items-center gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-60"
+        className="cursor-pointer grid justify-items-center gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-75 active:opacity-60 active:scale-90"
       >
         <figure className="relative rounded-full w-30 h-30 mb-4 overflow-hidden">
           <Image

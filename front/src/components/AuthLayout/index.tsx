@@ -17,7 +17,7 @@ export default function AuthLayout({ children, title, isSubmitting }: AuthLayout
             onClick={() => router.push('/')}
             className={`
               flex items-center gap-2 bg-transparent text-gray-300/60 text-xl font-medium transition duration-300 ease-in-out
-              ${isSubmitting ? 'text-gray-300/60 cursor-not-allowed' : 'cursor-pointer hover:text-white-80 active:text-white'}
+              ${isSubmitting ? 'text-gray-300/60 cursor-not-allowed' : 'cursor-pointer hover:text-white-80 active:text-white active:scale-90'}
             `}
           >
             <Home aria-hidden="true" /> <span>Início</span>

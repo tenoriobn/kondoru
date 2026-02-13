@@ -10,8 +10,8 @@ export default function ForgotPasswordLink({ isSubmitting }: ForgotPasswordLinkP
         aria-disabled={isSubmitting}
         tabIndex={isSubmitting ? -1 : 0}
         className={`
-          text-base text-center underline font-light text-gray-300/60 transition duration-300 ease-in-out md:text-xl  
-          ${isSubmitting ? 'cursor-not-allowed' : 'hover:text-white-80 active:text-white'}
+          inline-block text-base text-center underline font-light text-gray-300/60 transition duration-300 ease-in-out md:text-xl  
+          ${isSubmitting ? 'cursor-not-allowed' : 'hover:text-white-80 active:text-white active:scale-90'}
         `}
       >
         Esqueceu a senha?

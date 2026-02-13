@@ -11,8 +11,8 @@ export default function AuthFooter({ message, linkText, linkHref, isSubmitting }
         aria-disabled={isSubmitting}
         tabIndex={isSubmitting ? -1 : 0}
         className={`
-          font-bold underline transition duration-300 ease-in-out
-          ${isSubmitting ? 'cursor-not-allowed' : 'hover:text-white-80 active:text-white'}
+          inline-block font-bold underline transition duration-300 ease-in-out
+          ${isSubmitting ? 'cursor-not-allowed' : 'hover:text-white-80 active:text-white active:scale-90'}
         `}
       >
         {linkText}

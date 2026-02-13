@@ -43,7 +43,7 @@ export default function Navbar({ isMenuActive, setIsMenuActive, isMobile }: Navb
               rel="noopener noreferrer"
               onClick={() => setIsMenuActive(false)}
               href={link.href}
-              className={`text-xl font-medium transition duration-300 ease-in-out ${pathname === link.href ? 'text-white' : 'text-gray-400 hover:text-white-80 active:text-white'}`}
+              className={`inline-block text-xl font-medium transition duration-300 ease-in-out ${pathname === link.href ? 'text-white' : 'text-gray-400 hover:text-white-80 active:text-white active:scale-90'}`}
             >
               {link.text}
             </Link>

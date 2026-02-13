@@ -28,7 +28,7 @@ export default function Filter() {
       <div className="flex justify-center h-full max-h-12 md:col-span-2  lgx:col-auto lgx:bg-slate-40 lgx:border-r lgx:border-slate-14 lgx:max-h-16 lgx:rounded-r-12 lgx:p-2">
         <button
           type="submit"
-          className="cursor-pointer bg-dark-slate-84 text-white text-base font-semibold rounded-full p-2 w-full h-12 transition-all duration-300 ease-in-out z-9 md:text-[1.25rem] md:max-w-62.5 hover:bg-dark-slate-900 active:bg-dark-slate-800"
+          className="cursor-pointer bg-dark-slate-84 text-white text-base font-semibold rounded-full p-2 w-full h-12 transition-all duration-300 ease-in-out z-9 md:text-[1.25rem] md:max-w-62.5 hover:bg-dark-slate-900 active:bg-dark-slate-800 active:scale-90"
         >
           Filtrar
         </button>

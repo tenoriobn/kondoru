@@ -21,7 +21,7 @@ export default function AccessDropdown({ className, onItemClick }: AccessDropdow
         aria-haspopup="true"
         aria-expanded={isOpenDropdown}
         aria-controls="access-dropdown"
-        className={`cursor-pointer relative flex justify-between items-center gap-2 bg-white rounded-12 py-3 px-8 w-full h-full transition duration-300 ease-in-out hover:bg-white-80 active:bg-white active:scale-90 ${isOpenDropdown ? 'bg-white-80' : ''}`}
+        className={`cursor-pointer relative flex justify-between items-center gap-2 bg-white rounded-12 py-3 px-8 w-full h-full transition duration-300 ease-in-out hover:bg-white-80 active:bg-white active:scale-90  ${isOpenDropdown ? 'bg-white-80' : ''}`}
       >
         <span className="text-xl text-dark-slate-900 font-medium whitespace-nowrap overflow-hidden text-ellipsis">
           Acessar
@@ -47,7 +47,7 @@ export default function AccessDropdown({ className, onItemClick }: AccessDropdow
               rel="noopener noreferrer"
               href={href}
               onClick={onItemClick}
-              className="cursor-pointer flex items-center gap-2 text-xl text-dark-slate-900 font-medium py-3 px-6"
+              className="cursor-pointer flex items-center gap-2 text-xl text-dark-slate-900 font-medium py-3 px-6 transition duration-300 ease-in-out active:scale-90"
             >
               <Icon aria-hidden="true" />
               {label}

@@ -7,7 +7,7 @@ export default function SocialContactIcons() {
         {socialContactIcons.map(({ id, label, href, icon }) => (
           <li
             key={id}
-            className="opacity-100 hover:opacity-90 active:opacity-75 transition-all duration-300 ease-in-out"
+            className="opacity-100 hover:opacity-90 active:opacity-75 active:scale-90 transition-all duration-300 ease-in-out"
           >
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
               {icon}
