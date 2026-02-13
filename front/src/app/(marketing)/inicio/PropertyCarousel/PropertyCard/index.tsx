@@ -7,6 +7,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <article>
       <Link
+        rel="noopener noreferrer"
         href={property.href}
         aria-labelledby={`property-title-${property.id}`}
         className="cursor-pointer grid gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-60"

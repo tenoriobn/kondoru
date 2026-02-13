@@ -5,6 +5,7 @@ export default function ForgotPasswordLink({ isSubmitting }: ForgotPasswordLinkP
   return (
     <nav aria-label="Recuperação de senha">
       <Link
+        rel="noopener noreferrer"
         href={isSubmitting ? '#' : '/recuperar-senha'}
         aria-disabled={isSubmitting}
         tabIndex={isSubmitting ? -1 : 0}

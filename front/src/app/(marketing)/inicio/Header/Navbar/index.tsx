@@ -21,7 +21,7 @@ export default function Navbar({ isMenuActive, setIsMenuActive, isMobile }: Navb
     >
       {isMobile && (
         <div className="flex justify-between items-center w-full lgx:hidden">
-          <Link href="/" aria-label="Página inicial">
+          <Link rel="noopener noreferrer" href="/" aria-label="Página inicial">
             <Logo className="w-35 md:w-42" />
           </Link>
 
@@ -40,6 +40,7 @@ export default function Navbar({ isMenuActive, setIsMenuActive, isMobile }: Navb
         {menuLinks.map((link) => (
           <li key={link.id}>
             <Link
+              rel="noopener noreferrer"
               onClick={() => setIsMenuActive(false)}
               href={link.href}
               className={`text-xl font-medium transition duration-300 ease-in-out ${pathname === link.href ? 'text-white' : 'text-gray-400 hover:text-white-80 active:text-white'}`}
