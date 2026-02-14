@@ -18,7 +18,7 @@ export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLogi
         <button
           type="button"
           disabled={isSubmitting}
-          className="underline font-bold cursor-pointer transition duration-300 ease-in-out hover:text-white-80 active:text-white disabled:text-gray-400 disabled:cursor-not-allowed"
+          className="underline font-bold cursor-pointer transition duration-300 ease-in-out hover:text-white-80 active:text-white active:scale-90 disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           Termos de uso
         </button>{' '}
@@ -26,7 +26,7 @@ export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLogi
         <button
           type="button"
           disabled={isSubmitting}
-          className="underline font-bold cursor-pointer transition duration-300 ease-in-out hover:text-white-80 active:text-white disabled:text-gray-400 disabled:cursor-not-allowed"
+          className="underline font-bold cursor-pointer transition duration-300 ease-in-out hover:text-white-80 active:text-white active:scale-90 disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           Política de privacidade
         </button>
@@ -37,8 +37,8 @@ export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLogi
           aria-disabled={isSubmitting}
           tabIndex={isSubmitting ? -1 : 0}
           className={`
-            underline font-bold transition duration-300 ease-in-out
-            ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer hover:text-white-80 active:text-white'}
+            inline-block underline font-bold transition duration-300 ease-in-out
+            ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer hover:text-white-80 active:text-white active:scale-90'}
           `}
         >
           Kondoru
@@ -52,7 +52,7 @@ export default function TermsAndGoogleLogin({ isSubmitting }: TermsAndGoogleLogi
           type="button"
           disabled={isSubmitting}
           onClick={() => loginWithGoogle()}
-          className="cursor-pointer w-full max-w-full grid grid-cols-[repeat(2,auto)] items-center justify-center gap-2 px-8 py-4 mt-2 bg-gray-400 text-dark-slate-800 rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-out hover:bg-white-80 active:bg-white disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="cursor-pointer w-full max-w-full grid grid-cols-[repeat(2,auto)] items-center justify-center gap-2 px-8 py-4 mt-2 bg-gray-400 text-dark-slate-800 rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-out hover:bg-white-80 active:bg-white active:scale-90 disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           <GoogleIcon aria-hidden="true" />
           <span>Entrar com Google</span>

@@ -23,14 +23,14 @@ export default function ContactInfo() {
               rounded-12 md:rounded-none
               md:max-6xl:odd:rounded-l-12 md:max-6xl:even:rounded-r-12
               6xl:first:rounded-l-12 6xl:last:rounded-r-12
-              hover:bg-slate-50 active:bg-dark-slate-900
+              hover:bg-slate-50 active:bg-dark-slate-900 
             "
             >
               <button
                 type="button"
                 onClick={() => openAction(action.href)}
                 aria-label={`${label}: ${value}`}
-                className="cursor-pointer grid place-items-center gap-1 py-4 px-6 text-white w-full"
+                className="cursor-pointer grid place-items-center gap-1 py-4 px-6 text-white w-full transition-all duration-300 ease-in-out active:scale-90 "
               >
                 <span className="flex items-center gap-2 text-2xl whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                   {icon}

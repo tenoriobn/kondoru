@@ -55,7 +55,7 @@ export default function NewsletterForm({ setShowNewsletterForm }: NewsletterForm
           disabled={isSubmitting}
           className={`
             w-full h-full max-w-28 p-2 rounded-full text-base font-semibold text-dark-slate-800 transition-all duration-300 ease-in-out md:max-w-33.5 md:text-xl
-            ${isSubmitting ? 'cursor-no-drop bg-white' : 'cursor-pointer bg-gray-400 hover:bg-white-80 active:bg-white'}
+            ${isSubmitting ? 'cursor-no-drop bg-white' : 'cursor-pointer bg-gray-400 hover:bg-white-80 active:bg-white active:scale-90'}
           `}
         >
           {isSubmitting ? (

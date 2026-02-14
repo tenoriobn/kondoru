@@ -12,7 +12,7 @@ export const contactsInfo = [
       type: 'email',
       href: 'mailto:contato@kondoru.com.br',
     },
-    icon: <EmailIcon aria-hidden="true" className="[&_path]:stroke-2" />,
+    icon: <EmailIcon aria-hidden="true" />,
   },
   {
     id: 'phone',
@@ -22,7 +22,7 @@ export const contactsInfo = [
       type: 'phone',
       href: 'tel:+5511999999999',
     },
-    icon: <PhoneIcon aria-hidden="true" className="[&_path]:stroke-2" />,
+    icon: <PhoneIcon aria-hidden="true" />,
   },
   {
     id: 'location',
@@ -32,7 +32,7 @@ export const contactsInfo = [
       type: 'map',
       href: 'https://www.google.com/maps?q=Av.+Paulista,+2084+-+Bela+Vista,+São+Paulo+-+SP,+01311-300',
     },
-    icon: <LocationIcon aria-hidden="true" className="w-4 h-5 [&_path]:stroke-2" />,
+    icon: <LocationIcon aria-hidden="true" />,
   },
   {
     id: 'businessHours',
@@ -42,6 +42,6 @@ export const contactsInfo = [
       type: 'whatsapp',
       href: 'https://wa.me/5511999999999?text=Olá! Gostaria de agendar um atendimento.',
     },
-    icon: <CalendarIcon aria-hidden="true" className="[&_path]:stroke-2" />,
+    icon: <CalendarIcon aria-hidden="true" />,
   },
 ];

@@ -10,25 +10,41 @@ export function InputField({ id, label, Icon, type }: InputTextProps) {
       <label
         htmlFor={id}
         className={`
-          relative flex items-center gap-2 cursor-text h-16 w-full px-6 py-4 bg-dark-slate-800 border-2 rounded-full transition-all duration-300 ease-in-out has-[input:disabled]:cursor-not-allowed
+          relative flex gap-2 cursor-text h-max w-full px-6 py-4 bg-dark-slate-800 border-2 transition-all duration-300 ease-in-out has-[input:disabled]:cursor-not-allowed
           ${!!fieldErrorMessage ? 'border-red has-[input:focus]:border-red has-[input:not(:placeholder-shown)]:border-red' : 'border-gray-400 has-[input:focus]:border-white has-[input:not(:placeholder-shown)]:border-white'}
+          ${type === 'textarea' ? 'rounded-12' : 'rounded-full items-center'}
         `}
       >
-        <input
-          id={id}
-          type={type}
-          disabled={isSubmitting}
-          {...register(id)}
-          autoComplete="email"
-          inputMode="email"
-          aria-invalid={!!fieldErrorMessage}
-          aria-describedby={!!fieldErrorMessage ? id : undefined}
-          placeholder=""
-          className={`
-            peer flex-1 w-full h-16 bg-transparent text-base font-normal text-white outline-none box-border md:text-xl  
+        {type === 'textarea' ? (
+          <textarea
+            id={id}
+            disabled={isSubmitting}
+            {...register(id)}
+            aria-invalid={!!fieldErrorMessage}
+            aria-describedby={!!fieldErrorMessage ? id : undefined}
+            placeholder=""
+            className={`
+            peer flex-1 w-full h-32 bg-transparent text-base font-normal text-white outline-none box-border resize-none md:text-xl whitespace-pre-line [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
             ${isSubmitting && 'cursor-no-drop'}
           `}
-        />
+          />
+        ) : (
+          <input
+            id={id}
+            type={type}
+            disabled={isSubmitting}
+            {...register(id)}
+            autoComplete="email"
+            inputMode="email"
+            aria-invalid={!!fieldErrorMessage}
+            aria-describedby={!!fieldErrorMessage ? id : undefined}
+            placeholder=""
+            className={`
+            peer flex-1 w-full h-7 bg-transparent text-base font-normal text-white outline-none box-border md:text-xl  
+            ${isSubmitting && 'cursor-no-drop'}
+          `}
+          />
+        )}
 
         <div
           aria-hidden="true"

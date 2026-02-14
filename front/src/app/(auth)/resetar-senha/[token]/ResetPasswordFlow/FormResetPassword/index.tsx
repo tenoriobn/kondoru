@@ -23,7 +23,7 @@ export default function FormResetPassword({
         disabled={isSubmitting}
         className={`
           w-full min-w-41.5 max-w-max py-4 px-8 rounded-full text-base font-semibold text-dark-slate-800 transition-all duration-300 ease-in-out md:text-xl
-          ${isSubmitting ? 'cursor-no-drop bg-white' : 'cursor-pointer bg-gray-400 hover:bg-white-80 active:bg-white'}
+          ${isSubmitting ? 'cursor-no-drop bg-white' : 'cursor-pointer bg-gray-400 hover:bg-white-80 active:bg-white active:scale-90'}
         `}
       >
         {isSubmitting ? (

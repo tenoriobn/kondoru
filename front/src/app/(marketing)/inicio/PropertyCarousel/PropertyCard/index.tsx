@@ -10,7 +10,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         rel="noopener noreferrer"
         href={property.href}
         aria-labelledby={`property-title-${property.id}`}
-        className="cursor-pointer grid gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-60"
+        className="cursor-pointer grid gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-75 active:opacity-60 active:scale-90"
       >
         <figure className="relative w-full aspect-[4/3.26] rounded-3xl overflow-hidden">
           <Image
