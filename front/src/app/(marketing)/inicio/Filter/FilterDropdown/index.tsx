@@ -1,7 +1,7 @@
 import ArrowDownIcon from 'public/icons/arrow-down.svg';
-import type { DropdownProps } from './dropdown.type';
+import type { FilterDropdownProps } from './filterDropdown.type';
 
-export default function Dropdown({
+export default function FilterDropdown({
   id,
   label,
   options,
@@ -9,7 +9,7 @@ export default function Dropdown({
   isOpen,
   onToggle,
   onSelect,
-}: DropdownProps) {
+}: FilterDropdownProps) {
   const listboxId = `${id}-listbox`;
 
   return (
@@ -44,7 +44,7 @@ export default function Dropdown({
         role="listbox"
         aria-labelledby={id}
         className={`
-          absolute left-0 right-0 z-10 block top-[calc(100%+12px)] bg-dark-slate-800 rounded-xl shadow-3xl transition-[max-height] duration-300 ease-in-out dropdown-scrollbar overflow-hidden 
+          absolute left-0 right-0 z-10 block top-[calc(100%+12px)] bg-dark-slate-800 rounded-xl shadow-3xl transition-[max-height] duration-300 ease-in-out dropdown-scrollbar [--scrollbar-thumb:var(--color-slate-14)] [--scrollbar-track:var(--color-dark-slate-800)] overflow-hidden 
           ${isOpen ? 'max-h-48 animate-enable-scroll' : 'max-h-0'}
         `}
       >

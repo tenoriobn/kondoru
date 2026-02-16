@@ -14,10 +14,7 @@ export const contactFormSchema = z.object({
       'Digite um número de telefone ou celular válido com DDD'
     ),
 
-  subject: z
-    .string()
-    .min(3, 'O assunto deve ter pelo menos 3 caracteres')
-    .max(150, 'Assunto muito longo!'),
+  subject: z.string().min(1, 'Selecione um assunto'),
 
   message: z
     .string()

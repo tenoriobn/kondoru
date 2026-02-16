@@ -1,4 +1,5 @@
 'use client';
+
 import Form from 'src/components/Form';
 import { InputGroup } from 'src/components/Inputs';
 import { InputField } from 'src/components/Inputs/InputField';
@@ -11,11 +12,20 @@ import LoadingIcon from 'public/icons/loading.svg';
 import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
 import { useContactForm } from './useContactForm';
+import { Dropdown } from 'src/components/Dropdown';
 
 export default function ContactForm() {
   const { methods, onSubmit, showContactForm } = useContactForm();
   const isSubmitting = methods.formState.isSubmitting;
   const formErrorMessage = methods.formState.errors.root?.message;
+
+  const subjectOptions = [
+    { value: 'duvida', text: 'Dúvida sobre imóveis' },
+    { value: 'anunciar', text: 'Quero anunciar um imóvel' },
+    { value: 'atendimento', text: 'Atendimento personalizado' },
+    { value: 'parcerias', text: 'Parcerias' },
+    { value: 'outros', text: 'Outros' },
+  ];
 
   return (
     <div
@@ -38,7 +48,13 @@ export default function ContactForm() {
               <InputField id="name" type="text" label="Nome completo" Icon={<UserIcon />} />
               <InputField id="email" type="email" label="E-mail" Icon={<EmailIcon />} />
               <InputField id="phone" type="tel" label="Telefone / Whatsapp" Icon={<PhoneIcon />} />
-              <InputField id="subject" type="text" label="Assunto" Icon={<SubjectIcon />} />
+              <Dropdown
+                name="subject"
+                label="Assunto"
+                icon={<SubjectIcon />}
+                options={subjectOptions}
+              />
+
               <InputField id="message" type="textarea" label="Mensagem" Icon={<MessageIcon />} />
             </InputGroup>
 
