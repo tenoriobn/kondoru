@@ -69,12 +69,12 @@
   }
 
   .dropdown-scrollbar::-webkit-scrollbar-track {
-    background: var(--color-dark-slate-800);
+    background: var(--scrollbar-track);
     border-radius: 0 0.25rem 0.25rem 0;
   }
 
   .dropdown-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--color-slate-14);
+    background: var(--scrollbar-thumb);
     border-radius: 0.25rem;
   }
 }

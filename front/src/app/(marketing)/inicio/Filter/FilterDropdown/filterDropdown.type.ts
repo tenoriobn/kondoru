@@ -1,4 +1,4 @@
-export interface DropdownProps {
+export interface FilterDropdownProps {
   id: string;
   label: string;
   options: string[];

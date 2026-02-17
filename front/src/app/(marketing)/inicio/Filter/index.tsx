@@ -1,10 +1,10 @@
-import Dropdown from './Dropdown';
-import useDropdowns from './useDropDowns';
-import dropdowns from './dropdowns.json';
+import FilterDropdown from './FilterDropdown';
+import filterOptions from './filterOptions.json';
+import useFilter from './useFilter';
 
 export default function Filter() {
   const { openDropdown, selectedOptions, handleToggleDropdown, handleSelectOption, dropdownRef } =
-    useDropdowns();
+    useFilter();
 
   return (
     <form
@@ -12,16 +12,16 @@ export default function Filter() {
       aria-label="Filtro de busca"
       className="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:items-center md:justify-center lgx:grid-cols-5 md:gap-y-7"
     >
-      {dropdowns.map((dropdown) => (
-        <Dropdown
-          key={dropdown.id}
-          id={dropdown.id}
-          label={dropdown.label}
-          options={dropdown.options}
-          selectedOption={selectedOptions[dropdown.id]}
-          isOpen={openDropdown === dropdown.id}
-          onToggle={() => handleToggleDropdown(dropdown.id)}
-          onSelect={(value) => handleSelectOption(dropdown.id, value)}
+      {filterOptions.map(({ id, label, options }) => (
+        <FilterDropdown
+          key={id}
+          id={id}
+          label={label}
+          options={options}
+          selectedOption={selectedOptions[id]}
+          isOpen={openDropdown === id}
+          onToggle={() => handleToggleDropdown(id)}
+          onSelect={(value) => handleSelectOption(id, value)}
         />
       ))}
 
