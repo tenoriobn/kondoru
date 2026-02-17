@@ -11,7 +11,11 @@ export function InputField({ id, label, Icon, type }: InputTextProps) {
         htmlFor={id}
         className={`
           relative flex gap-2 cursor-text h-max w-full px-6 py-4 bg-dark-slate-800 border-2 transition-all duration-300 ease-in-out has-[input:disabled]:cursor-not-allowed
-          ${!!fieldErrorMessage ? 'border-red has-[input:focus]:border-red has-[input:not(:placeholder-shown)]:border-red' : 'border-gray-400 has-[input:focus]:border-white has-[input:not(:placeholder-shown)]:border-white'}
+          ${
+            !!fieldErrorMessage
+              ? 'border-red has-[input:focus]:border-red has-[textarea:focus]:border-red has-[input:not(:placeholder-shown)]:border-red has-[textarea:not(:placeholder-shown)]:border-red'
+              : 'border-gray-400 has-[input:focus]:border-white has-[textarea:focus]:border-white has-[input:not(:placeholder-shown)]:border-white has-[textarea:not(:placeholder-shown)]:border-white'
+          }
           ${type === 'textarea' ? 'rounded-3xl' : 'rounded-full items-center'}
         `}
       >
@@ -49,9 +53,17 @@ export function InputField({ id, label, Icon, type }: InputTextProps) {
         <div
           aria-hidden="true"
           className={`
-            absolute left-4 z-9 grid grid-cols-[24px_1fr] items-center gap-2 px-2 py-1.5 text-base font-normal text-gray-400 bg-dark-slate-800 transition-all duration-300 ease-in-out pointer-events-none md:text-xl peer-focus:-translate-y-9 peer-not-placeholder-shown:-translate-y-9 peer-autofill:-translate-y-9 
-            ${!!fieldErrorMessage ? ` peer-focus:text-red peer-not-placeholder-shown:text-red peer-autofill:text-red` : 'peer-focus:text-white peer-not-placeholder-shown:text-white peer-autofill:text-white'}
-            ${type === 'textarea' ? 'peer-focus:-translate-y-9' : 'peer-focus:-translate-y-9'}
+            absolute left-4 z-9 grid grid-cols-[24px_1fr] items-center gap-2 px-2 py-1.5 text-base font-normal text-gray-400 bg-dark-slate-800 transition-all duration-300 ease-in-out pointer-events-none md:text-xl 
+            ${
+              !!fieldErrorMessage
+                ? ` peer-focus:text-red peer-not-placeholder-shown:text-red peer-autofill:text-red`
+                : 'peer-focus:text-white peer-not-placeholder-shown:text-white peer-autofill:text-white'
+            }
+            ${
+              type === 'textarea'
+                ? 'peer-focus:-translate-y-10.75 peer-not-placeholder-shown:-translate-y-10.75 peer-autofill:-translate-y-10.75'
+                : 'peer-focus:-translate-y-9 peer-not-placeholder-shown:-translate-y-9 peer-autofill:-translate-y-9'
+            }
           `}
         >
           {Icon}

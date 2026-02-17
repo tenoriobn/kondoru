@@ -1,8 +1,9 @@
 'use client';
-
 import Form from 'src/components/Form';
 import { InputGroup } from 'src/components/Inputs';
 import { InputField } from 'src/components/Inputs/InputField';
+import { useContactForm } from './useContactForm';
+import { Dropdown } from 'src/components/Dropdown';
 import UserIcon from 'public/icons/user.svg';
 import EmailIcon from 'public/icons/email.svg';
 import PhoneIcon from 'public/icons/phone.svg';
@@ -11,8 +12,6 @@ import MessageIcon from 'public/icons/message.svg';
 import LoadingIcon from 'public/icons/loading.svg';
 import StatusMessage from 'src/components/StatusMessage';
 import CheckIcon from 'public/icons/check.svg';
-import { useContactForm } from './useContactForm';
-import { Dropdown } from 'src/components/Dropdown';
 
 export default function ContactForm() {
   const { methods, onSubmit, showContactForm } = useContactForm();
@@ -20,11 +19,11 @@ export default function ContactForm() {
   const formErrorMessage = methods.formState.errors.root?.message;
 
   const subjectOptions = [
-    { value: 'duvida', text: 'Dúvida sobre imóveis' },
-    { value: 'anunciar', text: 'Quero anunciar um imóvel' },
-    { value: 'atendimento', text: 'Atendimento personalizado' },
-    { value: 'parcerias', text: 'Parcerias' },
-    { value: 'outros', text: 'Outros' },
+    { value: 'comprar', text: 'Comprar imóvel' },
+    { value: 'anunciar', text: 'Anunciar imóvel' },
+    { value: 'consultoria', text: 'Consultoria' },
+    { value: 'parceria', text: 'Parceria' },
+    { value: 'outro', text: 'Outro assunto' },
   ];
 
   return (
