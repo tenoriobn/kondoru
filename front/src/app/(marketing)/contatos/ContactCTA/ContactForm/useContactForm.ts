@@ -18,7 +18,7 @@ export function useContactForm() {
     try {
       console.log({ data });
 
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
       if (data) {
         setShowContactForm(false);
