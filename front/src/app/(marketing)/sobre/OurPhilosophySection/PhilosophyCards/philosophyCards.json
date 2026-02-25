@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "label": "Missão",
+    "value": "Conectar pessoas a decisões imobiliárias conscientes.",
+    "backgroundImage": "/images/mission.jpg"
+  },
+  {
+    "id": "2",
+    "label": "Visão",
+    "value": "Ser sinônimo de curadoria imobiliária.",
+    "backgroundImage": "/images/vision.jpg"
+  },
+  {
+    "id": "3",
+    "label": "Valores",
+    "value": "Agir com critério, transparência e compromisso.",
+    "backgroundImage": "/images/values.jpg"
+  }
+]
