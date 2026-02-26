@@ -29,7 +29,7 @@ export default function AccessDropdown({ className, onItemClick }: AccessDropdow
 
         <ArrowDownIcon
           aria-hidden="true"
-          className={`text-dark-slate-900 transition duration-300 ease-in-out ${isOpenDropdown ? 'rotate-180' : ''}`}
+          className={`text-dark-slate-900 w-4.5 h-2.5 stroke-2 transition duration-300 ease-in-out ${isOpenDropdown ? 'rotate-180' : ''}`}
         />
       </button>
 
