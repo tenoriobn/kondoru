@@ -1,8 +1,18 @@
+'use client';
+import ScrollWordReveal from 'src/components/ScrollWordReveal';
 import usePlayerScript from 'src/hooks/usePlayerScript';
 import 'src/styles/elegantShowcasePlayer.css';
 
 export default function AboutSection() {
   usePlayerScript('./video/about.mp4');
+
+  const text = `
+    A KondoRu nasceu com o propósito de simplificar e elevar a forma como as pessoas encontram
+    e se conectam a imóveis residenciais e comerciais. Acreditamos que escolher um lugar para
+    viver ou investir vai muito além de metragem ou localização.
+    Nosso foco está em oferecer uma experiência clara, moderna e humana, unindo tecnologia,
+    design e curadoria para apresentar imóveis que realmente fazem sentido para cada perfil.
+  `;
 
   return (
     <section
@@ -17,13 +27,12 @@ export default function AboutSection() {
           Quem somos
         </h2>
 
-        <p className="text-xl font-medium text-center text-dark-slate-84">
-          A KondoRu nasceu com o propósito de simplificar e elevar a forma como as pessoas encontram
-          e se conectam a imóveis residenciais e comerciais. Acreditamos que escolher um lugar para
-          viver ou investir vai muito além de metragem ou localização. <br />
-          Nosso foco está em oferecer uma experiência clara, moderna e humana, unindo tecnologia,
-          design e curadoria para apresentar imóveis que realmente fazem sentido para cada perfil.
-        </p>
+        <ScrollWordReveal
+          text={text}
+          className="text-xl font-medium text-center"
+          activeClassName="text-dark-slate-800"
+          inactiveClassName="text-gray-400"
+        />
       </div>
 
       <figure className="w-full h-full flex items-center justify-center">
