@@ -85,7 +85,7 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
             aria-hidden="true"
             focusable="false"
             className={`
-              z-50 transition-all duration-300 ease-in-out
+              w-4.5 h-2.5 stroke-2 z-50 transition-all duration-300 ease-in-out
               ${isOpen && 'rotate-180'}
               ${fieldErrorMessage ? 'text-red' : isOpen ? 'text-white' : 'text-gray-400'}
             `}

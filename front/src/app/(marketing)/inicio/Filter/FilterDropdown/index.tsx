@@ -35,7 +35,7 @@ export default function FilterDropdown({
 
         <ArrowDownIcon
           aria-hidden="true"
-          className={`transition-transform duration-300 ease-in-out text-white-80 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+          className={`w-4.5 h-2.5 stroke-2 transition-transform duration-300 ease-in-out text-white-80 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
         />
       </button>
 
