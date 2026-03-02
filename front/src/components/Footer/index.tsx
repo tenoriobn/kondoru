@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="grid items-center gap-y-8 mb-25 max-w-131.5 md:mb-32">
         {showNewsletterForm ? (
           <section aria-labelledby="footer-newsletter-title" className="grid items-center gap-y-8">
-            <p id="footer-newsletter-title" className="text-xl text-center text-white">
+            <p id="footer-newsletter-title" className="text-base md:text-xl text-center text-white">
               Inscreva-se para receber as melhores oportunidades e tendências no setor imobiliário
               direto no seu e-mail!
             </p>
@@ -37,7 +37,7 @@ export default function Footer() {
         <SocialMediaLinks />
       </div>
 
-      <small className="text-xl text-center text-white">
+      <small className="text-base md:text-xl text-center text-white">
         {year} © Todos os direitos reservados.
       </small>
     </footer>

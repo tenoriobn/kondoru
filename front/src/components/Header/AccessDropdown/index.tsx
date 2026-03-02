@@ -23,7 +23,7 @@ export default function AccessDropdown({ className, onItemClick }: AccessDropdow
         aria-controls="access-dropdown"
         className={`cursor-pointer relative flex justify-between items-center gap-2 bg-white rounded-12 py-3 px-8 w-full h-full transition duration-300 ease-in-out hover:bg-white-80 active:bg-white active:scale-90  ${isOpenDropdown ? 'bg-white-80' : ''}`}
       >
-        <span className="text-xl text-dark-slate-900 font-medium whitespace-nowrap overflow-hidden text-ellipsis">
+        <span className="text-xl text-dark-slate-900 font-semibold whitespace-nowrap overflow-hidden text-ellipsis">
           Acessar
         </span>
 

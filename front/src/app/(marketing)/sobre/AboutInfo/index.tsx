@@ -21,11 +21,11 @@ export default function AboutInfo() {
               6xl:first:rounded-l-12 6xl:last:rounded-r-12
             "
             >
-              <span className="text-2xl whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
+              <span className="text-xl md:text-2xl whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                 {label}
               </span>
 
-              <span className="text-xl">{value}</span>
+              <span className="text-base md:text-xl">{value}</span>
             </li>
           );
         })}

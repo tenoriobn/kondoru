@@ -13,8 +13,8 @@ export default function PhilosophyCards() {
               backgroundPosition: 'center',
             }}
           >
-            <h3 className="text-white text-2xl text-center font-bold mb-4">{label}</h3>
-            <p className="text-white text-xl text-center">{value}</p>
+            <h3 className="text-white text-xl md:text-2xl text-center font-bold mb-4">{label}</h3>
+            <p className="text-white text-base md:text-xl text-center">{value}</p>
           </article>
         </li>
       ))}

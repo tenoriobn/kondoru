@@ -97,7 +97,7 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
           id={listboxId}
           className={`
             select-none absolute left-0 right-0 z-10 block top-[calc(100%+12px)] bg-white rounded-xl shadow-md transition-[max-height] duration-300 ease-in-out dropdown-scrollbar overflow-hidden divide-y divide-gray-50/25 [--scrollbar-thumb:var(--color-gray-50)] [--scrollbar-track:var(--color-white)]
-            ${isOpen ? 'max-h-53 animate-enable-scroll' : 'max-h-0'}
+            ${isOpen ? 'max-h-49 md:max-h-53 animate-enable-scroll' : 'max-h-0'}
           `}
         >
           {options.map((option) => (
@@ -106,7 +106,7 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
               role="option"
               aria-selected={selectedValue === option.value}
               onClick={() => selectOption(option.value)}
-              className={`flex items-center gap-2 text-xl font-medium py-3 px-6 cursor-pointer text-dark-slate-900 transition duration-300 ease-in-out  ${selectedValue === option.value ? 'bg-gray-300' : 'hover:bg-gray-200 active:bg-gray-100'}`}
+              className={`flex items-center gap-2 text-base md:text-xl font-medium py-3 px-6 cursor-pointer text-dark-slate-900 transition duration-300 ease-in-out  ${selectedValue === option.value ? 'bg-gray-300' : 'hover:bg-gray-200 active:bg-gray-100'}`}
             >
               {option.text}
             </li>

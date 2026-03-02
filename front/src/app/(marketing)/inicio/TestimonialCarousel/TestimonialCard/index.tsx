@@ -25,14 +25,14 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
           <h3
             id={`testimonial-title-${testimonial.id}`}
             title={testimonial.name}
-            className="text-2xl font-extrabold text-center text-dark-slate-900 whitespace-nowrap overflow-hidden text-ellipsis"
+            className="text-xl md:text-2xl font-extrabold text-center text-dark-slate-900 whitespace-nowrap overflow-hidden text-ellipsis"
           >
             {testimonial.name}
           </h3>
 
           <p
             title={testimonial.testimony}
-            className="text-base font-medium text-center text-dark-slate-58"
+            className="text-base md:text-xl font-medium text-center text-dark-slate-58"
           >
             {testimonial.testimony}
           </p>

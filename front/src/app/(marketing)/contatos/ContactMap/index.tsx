@@ -16,7 +16,7 @@ export default function ContactMap() {
           className="w-full h-90 lg:h-123 rounded-3xl"
         />
 
-        <figcaption className="font-semibold italic text-xl text-center mt-4">
+        <figcaption className="font-semibold italic text-base md:text-xl text-center mt-4">
           Atendimento presencial sob agendamento.
         </figcaption>
       </figure>
