@@ -21,7 +21,7 @@ export default function FAQ() {
 
         <button
           type="button"
-          className="cursor-pointer w-full max-w-full grid place-items-center gap-2 px-8 py-4 bg-dark-slate-800 text-white rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-outhover:bg-gray-500 active:bg-gray-400 active:scale-90"
+          className="cursor-pointer w-full max-w-full grid place-items-center gap-2 px-8 py-4 bg-dark-slate-800 text-white rounded-full font-semibold text-base md:text-xl transition duration-300 ease-in-out hover:bg-gray-500 hover: active:bg-gray-400 active:scale-90"
         >
           Precisa de mais informações?
         </button>

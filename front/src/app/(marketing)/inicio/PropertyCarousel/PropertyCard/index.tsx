@@ -26,7 +26,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <h3
             id={`property-title-${property.id}`}
             title={property.title}
-            className="text-xl font-extrabold text-dark-slate-900 whitespace-nowrap overflow-hidden text-ellipsis"
+            className="text-xl md:text-2xl font-extrabold text-dark-slate-900 whitespace-nowrap overflow-hidden text-ellipsis"
           >
             {property.title}
           </h3>
