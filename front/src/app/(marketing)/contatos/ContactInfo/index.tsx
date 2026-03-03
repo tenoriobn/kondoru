@@ -32,12 +32,12 @@ export default function ContactInfo() {
                 aria-label={`${label}: ${value}`}
                 className="cursor-pointer grid place-items-center gap-1 py-4 px-6 text-white w-full transition-all duration-300 ease-in-out active:scale-90 "
               >
-                <span className="flex items-center gap-2 text-2xl whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
+                <span className="flex items-center gap-2 text-xl md:text-2xl whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                   {icon}
                   <span>{label}</span>
                 </span>
 
-                <span className="text-xl">{value}</span>
+                <span className="text-base md:text-xl">{value}</span>
               </button>
             </li>
           );

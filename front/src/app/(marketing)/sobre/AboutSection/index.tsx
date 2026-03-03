@@ -1,5 +1,6 @@
 'use client';
 import ScrollWordReveal from 'src/components/ScrollWordReveal';
+import { SectionTitle } from 'src/components/SectionTitle';
 import usePlayerScript from 'src/hooks/usePlayerScript';
 import 'src/styles/elegantShowcasePlayer.css';
 
@@ -19,17 +20,14 @@ export default function AboutSection() {
       aria-labelledby="about-section-title"
       className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
     >
-      <div className="grid gap-4 max-w-145">
-        <h2
-          id="about-section-title"
-          className="justify-self-center w-full text-center text-[1.5rem] font-black text-dark-slate-900 uppercase max-[521px]:max-w-82"
-        >
+      <div className="max-w-145">
+        <SectionTitle id="about-section-title" className="justify-self-center max-[521px]:max-w-82">
           Quem somos
-        </h2>
+        </SectionTitle>
 
         <ScrollWordReveal
           text={text}
-          className="text-xl font-medium text-center"
+          className="text-base md:text-xl font-medium text-center mt-4"
           activeClassName="text-dark-slate-800"
           inactiveClassName="text-gray-400"
         />

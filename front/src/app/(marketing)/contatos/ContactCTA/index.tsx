@@ -1,5 +1,7 @@
+import { SectionTitle } from 'src/components/SectionTitle';
 import ContactForm from './ContactForm';
 import SocialContactIcons from './SocialContactIcons';
+import { SectionText } from 'src/components/SectionText';
 
 export default function ContactCTA() {
   return (
@@ -8,17 +10,14 @@ export default function ContactCTA() {
       className="grid place-items-center gap-8 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
     >
       <div className="max-w-145">
-        <h2
-          id="contact-cta-title"
-          className="w-full text-center text-[1.5rem] font-black text-dark-slate-900 uppercase"
-        >
+        <SectionTitle id="contact-cta-title">
           Estamos prontos <span className="whitespace-nowrap">para ouvir você</span>
-        </h2>
+        </SectionTitle>
 
-        <p className="text-xl font-medium text-center text-dark-slate-84 mt-4">
+        <SectionText className="mt-4">
           Entre em contato conosco e descubra como podemos ajudar você a viver o melhor da vida, no
           lugar certo.
-        </p>
+        </SectionText>
 
         <SocialContactIcons />
       </div>
