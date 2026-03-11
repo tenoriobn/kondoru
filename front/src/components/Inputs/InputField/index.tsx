@@ -5,17 +5,21 @@ import type { InputTextProps } from './inputText.type';
 export function InputField({ id, label, Icon, type }: InputTextProps) {
   const { register, fieldErrorMessage, isSubmitting } = useFieldValidation(id);
 
+  const floatSpacing =
+    'has-[input:focus]:mt-4 has-[textarea:focus]:mt-4 has-[input:not(:placeholder-shown)]:mt-4 has-[textarea:not(:placeholder-shown)]:mt-4';
+
+  const borderState = fieldErrorMessage
+    ? 'border-red has-[input:focus]:border-red has-[textarea:focus]:border-red has-[input:not(:placeholder-shown)]:border-red has-[textarea:not(:placeholder-shown)]:border-red'
+    : 'border-gray-400 has-[input:focus]:border-white has-[textarea:focus]:border-white has-[input:not(:placeholder-shown)]:border-white has-[textarea:not(:placeholder-shown)]:border-white';
+
   return (
     <div className="grid gap-2 w-full">
       <label
         htmlFor={id}
         className={`
           relative flex gap-2 cursor-text h-max w-full px-6 py-4 bg-dark-slate-800 border-2 transition-all duration-300 ease-in-out has-[input:disabled]:cursor-not-allowed
-          ${
-            !!fieldErrorMessage
-              ? 'border-red has-[input:focus]:border-red has-[textarea:focus]:border-red has-[input:not(:placeholder-shown)]:border-red has-[textarea:not(:placeholder-shown)]:border-red'
-              : 'border-gray-400 has-[input:focus]:border-white has-[textarea:focus]:border-white has-[input:not(:placeholder-shown)]:border-white has-[textarea:not(:placeholder-shown)]:border-white'
-          }
+          ${floatSpacing}
+          ${borderState}
           ${type === 'textarea' ? 'rounded-3xl' : 'rounded-full items-center'}
         `}
       >

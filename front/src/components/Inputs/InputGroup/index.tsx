@@ -5,7 +5,7 @@ export function InputGroup({ legend, children, formErrorMessage }: InputGroupPro
     <fieldset className="grid gap-6 w-full">
       <legend className="sr-only">{legend}</legend>
 
-      <div className="grid gap-10 w-full">{children}</div>
+      <div className="grid gap-8 w-full">{children}</div>
 
       {formErrorMessage && (
         <span className="text-red-500 text-base font-light pl-6.5 self-start">
