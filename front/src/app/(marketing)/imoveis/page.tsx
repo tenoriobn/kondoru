@@ -1,6 +1,8 @@
 'use client';
 import HeroSection from 'src/components/HeroSection';
 import Filter from 'src/components/Filter';
+import PropertiesHeader from './PropertiesHeader';
+import PropertiesGrid from './PropertiesGrid';
 
 export default function Properties() {
   return (
@@ -19,6 +21,20 @@ export default function Properties() {
       >
         <Filter />
       </HeroSection>
+
+      <section
+        aria-labelledby="properties-results"
+        className="bg-white flex flex-col items-center relative mx-4 xs:mx-6 pt-0.5 mb-25 gap-25 md:mx-16 md:mb-32 md:gap-32"
+      >
+        <div className="w-full max-w-6xl">
+          <h2 id="properties-results" className="sr-only">
+            Lista de imóveis
+          </h2>
+
+          <PropertiesHeader />
+          <PropertiesGrid />
+        </div>
+      </section>
     </>
   );
 }
