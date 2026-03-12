@@ -6,7 +6,7 @@ import { useAdvancedFiltersForm } from './useAdvancedFiltersForm';
 import CloseIcon from 'public/icons/close.svg';
 import LocationIcon from 'public/icons/location.svg';
 import PropertyTypeCheckboxGroup from './PropertyTypeCheckboxGroup';
-import RangeFilter from './RangeField';
+import RangeControl from './RangeControl';
 import OptionButtons from './OptionButtons';
 import FilterSection from './FilterSection';
 
@@ -47,7 +47,7 @@ export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFilter
 
       <aside
         id="filters-panel"
-        className={`h-dvh bg-dark-slate-800 md:rounded-l-3xl md:border-l md:border-[rgba(189,189,189,0.16)] md:shadow-xl max-w-130 w-full absolute top-0 right-0 flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+        className={`h-dvh bg-dark-slate-800 md:rounded-l-3xl md:border-l md:border-[rgba(189,189,189,0.16)] md:shadow-xl md:max-w-130 w-full absolute top-0 right-0 flex flex-col transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
         <header className="flex items-center justify-between p-4 md:p-8 border-b border-[rgba(189,189,189,0.16)] shadow-sm shrink-0">
@@ -97,11 +97,25 @@ export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFilter
             </FilterSection>
 
             <FilterSection title="Faixa de Preço">
-              <RangeFilter minLabel="Mínimo" maxLabel="Máximo" />
+              <RangeControl
+                id="price-range"
+                minLabel="Mínimo"
+                maxLabel="Máximo"
+                minLimit={500}
+                maxLimit={25000}
+                prefix="R$"
+              />
             </FilterSection>
 
             <FilterSection title="Área do imóvel">
-              <RangeFilter minLabel="Mínimo m²" maxLabel="Máximo m²" />
+              <RangeControl
+                id="property-area"
+                minLabel="Mínimo m²"
+                maxLabel="Máximo m²"
+                minLimit={20}
+                maxLimit={1000}
+                suffix="m²"
+              />
             </FilterSection>
 
             <FilterSection title="Quartos">
@@ -127,7 +141,7 @@ export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFilter
         </div>
 
         <footer className="flex items-center gap-4 p-4 md:p-8 border-t border-[rgba(189,189,189,0.16)] shrink-0">
-          <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-white rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
+          <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rou rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
             Limpar
           </button>
 
