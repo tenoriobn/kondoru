@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AdvancedFiltersPanel from './AdvancedFiltersPanel';
 import { useBodyOverflow } from 'src/hooks';
 
-export default function PropertiesHeader() {
+export default function PropertiesFilters() {
   const [isAdvancedFiltersPanel, setIsAdvancedFiltersPanel] = useState(false);
   const totalProperties = 34;
 

@@ -1,5 +1,9 @@
+import type { UseFormReturn } from 'react-hook-form';
+import type { AdvancedFiltersPanelSchemaData } from '../advancedFiltersPanelSchema';
+
+type RangeFieldId = 'priceRange' | 'propertyArea';
 export interface RangeControlProps {
-  id: string;
+  id: RangeFieldId;
   minLabel: string;
   maxLabel: string;
   minLimit: number;
@@ -8,13 +12,16 @@ export interface RangeControlProps {
   initialMax?: number;
   prefix?: string;
   suffix?: string;
+  methods: UseFormReturn<AdvancedFiltersPanelSchemaData>;
 }
 
 export interface UseRangeControlParams {
+  id: RangeFieldId;
   minLimit: number;
   maxLimit: number;
   initialMin: number;
   initialMax: number;
   prefix?: string;
   suffix?: string;
+  methods: UseFormReturn<AdvancedFiltersPanelSchemaData>;
 }
