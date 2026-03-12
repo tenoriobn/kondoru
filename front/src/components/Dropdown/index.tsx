@@ -48,7 +48,7 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
               fieldErrorMessage
                 ? 'border-red'
                 : isOpen || selectedValue
-                  ? 'border-white'
+                  ? 'border-white mt-4'
                   : 'border-gray-400'
             }
           `}

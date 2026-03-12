@@ -10,13 +10,20 @@ export function InputPassword({ id, label, Icon }: InputProps) {
   const IconComponent = passwordView ? ViewIcon : NoViewIcon;
   const { register, fieldErrorMessage, isSubmitting } = useFieldValidation(id);
 
+  const floatSpacing = 'has-[input:focus]:mt-4 has-[input:not(:placeholder-shown)]:mt-4';
+
+  const borderState = fieldErrorMessage
+    ? 'border-red has-[input:focus]:border-red has-[input:not(:placeholder-shown)]:border-red'
+    : 'border-gray-400 has-[input:focus]:border-white has-[input:not(:placeholder-shown)]:border-white';
+
   return (
     <div className="grid gap-2 w-full">
       <label
         htmlFor={id}
         className={`
           relative flex items-center gap-2 cursor-text h-16 w-full px-6 py-4 bg-dark-slate-800 border-2 rounded-full transition-all duration-300 ease-in-out has-[input:disabled]:cursor-not-allowed
-          ${!!fieldErrorMessage ? 'border-red has-[input:focus]:border-red has-[input:not(:placeholder-shown)]:border-red' : 'border-gray-400 has-[input:focus]:border-white has-[input:not(:placeholder-shown)]:border-white'}
+          ${floatSpacing}
+          ${borderState}
         `}
       >
         <input
