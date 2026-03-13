@@ -1,7 +1,8 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+// const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function http<T>(input: RequestInfo, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${BASE_URL}${input}`, {
+  // const response = await fetch(`${BASE_URL}${input}`, {
+  const response = await fetch(`api/${input}`, {
     headers: {
       'Content-Type': 'application/json',
       ...init?.headers,

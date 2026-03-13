@@ -2,7 +2,7 @@
 import HeroSection from 'src/components/HeroSection';
 import Filter from 'src/components/Filter';
 import PropertiesFilters from './PropertiesFilters';
-import PropertiesGrid from './PropertiesGrid';
+import PropertiesList from './PropertiesList';
 
 export default function Properties() {
   return (
@@ -32,7 +32,7 @@ export default function Properties() {
           </h2>
 
           <PropertiesFilters />
-          <PropertiesGrid />
+          <PropertiesList />
         </div>
       </section>
     </>
