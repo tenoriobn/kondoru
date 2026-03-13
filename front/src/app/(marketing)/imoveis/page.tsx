@@ -1,7 +1,7 @@
 'use client';
 import HeroSection from 'src/components/HeroSection';
 import Filter from 'src/components/Filter';
-import PropertiesHeader from './PropertiesHeader';
+import PropertiesFilters from './PropertiesFilters';
 import PropertiesGrid from './PropertiesGrid';
 
 export default function Properties() {
@@ -31,7 +31,7 @@ export default function Properties() {
             Lista de imóveis
           </h2>
 
-          <PropertiesHeader />
+          <PropertiesFilters />
           <PropertiesGrid />
         </div>
       </section>

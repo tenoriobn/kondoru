@@ -5,4 +5,5 @@ export interface RangeInputProps {
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   onBlur: React.FocusEventHandler<HTMLInputElement>;
+  isSubmitting: boolean;
 }

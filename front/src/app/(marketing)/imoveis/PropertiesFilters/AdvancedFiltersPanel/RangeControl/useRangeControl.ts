@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import type { UseRangeControlParams } from './rangeControl.type';
 
 export function useRangeControl({
+  id,
   minLimit,
   maxLimit,
   initialMin,
   initialMax,
   prefix,
   suffix = '',
+  methods,
 }: UseRangeControlParams) {
   const [minVal, setMinVal] = useState(initialMin);
   const [maxVal, setMaxVal] = useState(initialMax);
@@ -33,8 +35,10 @@ export function useRangeControl({
   useEffect(() => {
     setMinInput(formatDisplay(minVal));
     setMaxInput(formatDisplay(maxVal));
+    methods.setValue(`${id}Min`, minVal, { shouldDirty: true });
+    methods.setValue(`${id}Max`, maxVal, { shouldDirty: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [minVal, maxVal]);
+  }, [minVal, maxVal, id, methods]);
 
   const handleBlur = (type: 'min' | 'max') => {
     let value = parseDisplay(type === 'min' ? minInput : maxInput);

@@ -1,35 +1,35 @@
 'use client';
-import { useState } from 'react';
+import type { AdvancedFiltersPanelProps } from './advancedFiltersPanel.type';
+import CloseIcon from 'public/icons/close.svg';
 import Form from 'src/components/Form';
 import { InputField } from 'src/components/Inputs/InputField';
-import { useAdvancedFiltersForm } from './useAdvancedFiltersForm';
-import CloseIcon from 'public/icons/close.svg';
-import LocationIcon from 'public/icons/location.svg';
+import FilterSection from './FilterSection';
 import PropertyTypeCheckboxGroup from './PropertyTypeCheckboxGroup';
 import RangeControl from './RangeControl';
 import OptionButtons from './OptionButtons';
-import FilterSection from './FilterSection';
-
-type AdvancedFiltersPanelProps = {
-  isOpen: boolean;
-  onClose: () => void;
-};
+import LocationIcon from 'public/icons/location.svg';
+import LoadingIcon from 'public/icons/loading.svg';
+import {
+  CONTRACT_OPTIONS,
+  PROPERTY_TYPES,
+  BEDROOM_OPTIONS,
+  BATHROOM_OPTIONS,
+  GARAGE_OPTIONS,
+  FURNISHED_OPTIONS,
+  METRO_OPTIONS,
+} from './propertyFilters';
+import { useAdvancedFiltersForm } from './useAdvancedFiltersForm';
 
 export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFiltersPanelProps) {
   const { methods, onSubmit } = useAdvancedFiltersForm();
-  const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>(['Apartamento']);
+  const isSubmitting = methods.formState.isSubmitting;
+  const contractType = methods.watch('contractType');
 
-  const PROPERTY_TYPES = ['Apartamento', 'Casa', 'Terreno', 'Comercial', 'Galpão', 'Sítio'];
-  const BEDROOM_OPTIONS = ['1+', '2+', '3+', '4+'];
-  const BATHROOM_OPTIONS = ['1+', '2+', '3+', '4+'];
-  const GARAGE_OPTIONS = ['N/A', '1+', '2+', '3+', '4+'];
-  const FURNISHED_OPTIONS = ['N/A', 'Sim', 'Não'];
-  const METRO_OPTIONS = ['N/A', 'Sim', 'Não'];
-
-  function handleTogglePropertyType(type: string) {
-    setSelectedPropertyTypes((prev) =>
-      prev.includes(type) ? prev.filter((item) => item !== type) : [...prev, type]
-    );
+  function handleContractType(type: 'sale' | 'rent') {
+    methods.setValue('contractType', type, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   }
 
   return (
@@ -64,6 +64,7 @@ export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFilter
 
         <div className="flex-1 overflow-y-auto dropdown-scrollbar [--scrollbar-thumb:var(--color-slate-14)] [--scrollbar-track:var(--color-dark-slate-800)]">
           <Form
+            id="advanced-filters-form"
             className="p-4 md:p-8 grid gap-8"
             methods={methods}
             onSubmit={methods.handleSubmit(onSubmit)}
@@ -78,75 +79,105 @@ export default function AdvancedFiltersPanel({ isOpen, onClose }: AdvancedFilter
 
             <FilterSection title="Contrato">
               <div className="flex gap-4">
-                <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-white rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
-                  Venda
-                </button>
-
-                <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
-                  Aluguel
-                </button>
+                {CONTRACT_OPTIONS.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    disabled={isSubmitting}
+                    onClick={() => handleContractType(option.value)}
+                    className={`
+                      text-base md:text-xl text-dark-slate-900 font-semibold rounded-12 py-3 px-8 w-full
+                      transition duration-300 
+                      ${contractType === option.value ? 'bg-white' : 'bg-gray-50'}
+                      ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-white-80 active:bg-white active:scale-90'}
+                    `}
+                  >
+                    {option.label}
+                  </button>
+                ))}
               </div>
             </FilterSection>
 
             <FilterSection title="Tipo do Imóvel">
-              <PropertyTypeCheckboxGroup
-                types={PROPERTY_TYPES}
-                selectedTypes={selectedPropertyTypes}
-                onToggle={handleTogglePropertyType}
-              />
+              <PropertyTypeCheckboxGroup types={PROPERTY_TYPES} methods={methods} />
             </FilterSection>
 
             <FilterSection title="Faixa de Preço">
               <RangeControl
-                id="price-range"
+                id="priceRange"
                 minLabel="Mínimo"
                 maxLabel="Máximo"
                 minLimit={500}
                 maxLimit={25000}
                 prefix="R$"
+                methods={methods}
               />
             </FilterSection>
 
-            <FilterSection title="Área do imóvel">
+            <FilterSection title="Área do Imóvel">
               <RangeControl
-                id="property-area"
+                id="propertyArea"
                 minLabel="Mínimo m²"
                 maxLabel="Máximo m²"
                 minLimit={20}
                 maxLimit={1000}
                 suffix="m²"
+                methods={methods}
               />
             </FilterSection>
 
             <FilterSection title="Quartos">
-              <OptionButtons options={BEDROOM_OPTIONS} />
+              <OptionButtons name="bedrooms" options={BEDROOM_OPTIONS} methods={methods} />
             </FilterSection>
 
             <FilterSection title="Banheiros">
-              <OptionButtons options={BATHROOM_OPTIONS} />
+              <OptionButtons name="bathrooms" options={BATHROOM_OPTIONS} methods={methods} />
             </FilterSection>
 
             <FilterSection title="Vagas de Garagem">
-              <OptionButtons options={GARAGE_OPTIONS} />
+              <OptionButtons name="garageSpots" options={GARAGE_OPTIONS} methods={methods} />
             </FilterSection>
 
             <FilterSection title="Mobiliado">
-              <OptionButtons options={FURNISHED_OPTIONS} />
+              <OptionButtons name="furnished" options={FURNISHED_OPTIONS} methods={methods} />
             </FilterSection>
 
             <FilterSection title="Próximo ao Metrô">
-              <OptionButtons options={METRO_OPTIONS} />
+              <OptionButtons name="nearMetro" options={METRO_OPTIONS} methods={methods} />
             </FilterSection>
           </Form>
         </div>
 
         <footer className="flex items-center gap-4 p-4 md:p-8 border-t border-[rgba(189,189,189,0.16)] shrink-0">
-          <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rou rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
+          <button
+            type="button"
+            onClick={() => methods.reset()}
+            disabled={isSubmitting}
+            className={`
+              text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rou rounded-12 py-3 px-8 w-full transition duration-300 
+              ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-white-80 active:bg-white active:scale-90'}
+            `}
+          >
             Limpar
           </button>
 
-          <button className="cursor-pointer text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rounded-12 py-3 px-8 w-full transition duration-300 hover:bg-white-80 active:bg-white active:scale-90">
-            Aplicar
+          <button
+            type="submit"
+            form="advanced-filters-form"
+            disabled={isSubmitting}
+            className={`
+              text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rounded-12 py-3 px-8 w-full transition duration-300
+              ${isSubmitting ? 'bg-white cursor-not-allowed' : 'cursor-pointer hover:bg-white-80 active:bg-white active:scale-90'}
+            `}
+          >
+            {isSubmitting ? (
+              <LoadingIcon
+                aria-hidden="true"
+                className="justify-self-center w-6 text-dark-slate-900"
+              />
+            ) : (
+              'Aplicar'
+            )}
           </button>
         </footer>
       </aside>
