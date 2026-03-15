@@ -24,12 +24,8 @@ export function useAdvancedFiltersForm() {
   });
 
   const onSubmit = async (data: AdvancedFiltersPanelSchemaData) => {
-    const payload = {
-      ...data,
-    };
-
     try {
-      console.log({ payload });
+      console.log({ data });
 
       await new Promise((resolve) => setTimeout(resolve, 300000));
     } catch (error) {

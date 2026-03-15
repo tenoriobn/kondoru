@@ -1,0 +1,194 @@
+[
+  {
+    "id": "1",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-1.webp",
+    "title": "Casa de Alto Padrão - 5 Quartos à Venda",
+    "location": "Rio de Janeiro - RJ",
+    "price": "R$ 3.450.000 + IPTU"
+  },
+  {
+    "id": "2",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-2.webp",
+    "title": "Apartamento Moderno - 80 m²",
+    "location": "São Paulo - SP",
+    "price": "R$ 820.000 + condomínio"
+  },
+  {
+    "id": "3",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-3.webp",
+    "title": "Condomínio de Luxo - Vista Mar",
+    "location": "Angra dos Reis - RJ",
+    "price": "R$ 5.900.000 + IPTU"
+  },
+  {
+    "id": "4",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-4.webp",
+    "title": "Cobertura Duplex com Piscina",
+    "location": "São Bernardo do Campo - SP",
+    "price": "R$ 1.250.000 + condomínio"
+  },
+  {
+    "id": "5",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-5.webp",
+    "title": "Casa de Campo - 6 Quartos",
+    "location": "Campos do Jordão - SP",
+    "price": "R$ 2.750.000 + IPTU"
+  },
+  {
+    "id": "6",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-6.webp",
+    "title": "Apartamento Amplo - 120 m²",
+    "location": "Rio de Janeiro - RJ",
+    "price": "R$ 950.000 + condomínio"
+  },
+  {
+    "id": "7",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-1.webp",
+    "title": "Casa com Área Gourmet",
+    "location": "Rio de Janeiro - RJ",
+    "price": "R$ 3.780.000 + IPTU"
+  },
+  {
+    "id": "8",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-2.webp",
+    "title": "Apartamento com Varanda",
+    "location": "São Paulo - SP",
+    "price": "R$ 890.000 + condomínio"
+  },
+  {
+    "id": "9",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-3.webp",
+    "title": "Cobertura Vista Mar",
+    "location": "Angra dos Reis - RJ",
+    "price": "R$ 6.200.000 + IPTU"
+  },
+  {
+    "id": "10",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-4.webp",
+    "title": "Cobertura Duplex Moderna",
+    "location": "Curitiba - PR",
+    "price": "R$ 1.450.000 + condomínio"
+  },
+  {
+    "id": "11",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-5.webp",
+    "title": "Casa de Campo Luxo",
+    "location": "Campos do Jordão - SP",
+    "price": "R$ 3.200.000 + IPTU"
+  },
+  {
+    "id": "12",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-6.webp",
+    "title": "Apartamento 3 Quartos",
+    "location": "Belo Horizonte - MG",
+    "price": "R$ 780.000 + condomínio"
+  },
+  {
+    "id": "13",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-1.webp",
+    "title": "Casa Alto Padrão Vista Lago",
+    "location": "Brasília - DF",
+    "price": "R$ 4.200.000 + IPTU"
+  },
+  {
+    "id": "14",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-2.webp",
+    "title": "Apartamento Compacto Moderno",
+    "location": "São Paulo - SP",
+    "price": "R$ 650.000 + condomínio"
+  },
+  {
+    "id": "15",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-3.webp",
+    "title": "Cobertura Vista Panorâmica",
+    "location": "Florianópolis - SC",
+    "price": "R$ 2.900.000 + IPTU"
+  },
+  {
+    "id": "16",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-4.webp",
+    "title": "Cobertura Duplex Premium",
+    "location": "Porto Alegre - RS",
+    "price": "R$ 1.850.000 + condomínio"
+  },
+  {
+    "id": "17",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-5.webp",
+    "title": "Casa de Campo Moderna",
+    "location": "Gramado - RS",
+    "price": "R$ 2.500.000 + IPTU"
+  },
+  {
+    "id": "18",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-6.webp",
+    "title": "Apartamento Centro Histórico",
+    "location": "Salvador - BA",
+    "price": "R$ 720.000 + condomínio"
+  },
+  {
+    "id": "19",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-1.webp",
+    "title": "Casa Luxo Condomínio Fechado",
+    "location": "Campinas - SP",
+    "price": "R$ 3.950.000 + IPTU"
+  },
+  {
+    "id": "20",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-2.webp",
+    "title": "Apartamento Novo",
+    "location": "São Paulo - SP",
+    "price": "R$ 810.000 + condomínio"
+  },
+  {
+    "id": "21",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-3.webp",
+    "title": "Cobertura Luxo Frente Mar",
+    "location": "Balneário Camboriú - SC",
+    "price": "R$ 7.200.000 + IPTU"
+  },
+  {
+    "id": "22",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-4.webp",
+    "title": "Cobertura Duplex Moderna",
+    "location": "Recife - PE",
+    "price": "R$ 1.300.000 + condomínio"
+  },
+  {
+    "id": "23",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-5.webp",
+    "title": "Casa Campo Premium",
+    "location": "Petrópolis - RJ",
+    "price": "R$ 2.900.000 + IPTU"
+  },
+  {
+    "id": "24",
+    "href": "/",
+    "imgSrc": "/thumbnails/property/property-6.webp",
+    "title": "Apartamento Vista Parque",
+    "location": "Curitiba - PR",
+    "price": "R$ 880.000 + condomínio"
+  }
+]
