@@ -10,4 +10,5 @@ export interface OptionButtonsProps {
   name: Path<AdvancedFiltersPanelSchemaData>;
   options: Option[];
   methods: UseFormReturn<AdvancedFiltersPanelSchemaData>;
+  isLoading: boolean;
 }

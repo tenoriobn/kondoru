@@ -2,8 +2,9 @@ import InputErrorMessage from 'src/components/InputErrorMessage';
 import { useFieldValidation } from '../useFieldValidation';
 import type { InputTextProps } from './inputText.type';
 
-export function InputField({ id, label, Icon, type }: InputTextProps) {
+export function InputField({ id, label, Icon, type, isLoading }: InputTextProps) {
   const { register, fieldErrorMessage, isSubmitting } = useFieldValidation(id);
+  const isDisabled = isLoading || isSubmitting;
 
   const floatSpacing =
     'has-[input:focus]:mt-4 has-[textarea:focus]:mt-4 has-[input:not(:placeholder-shown)]:mt-4 has-[textarea:not(:placeholder-shown)]:mt-4';
@@ -26,21 +27,21 @@ export function InputField({ id, label, Icon, type }: InputTextProps) {
         {type === 'textarea' ? (
           <textarea
             id={id}
-            disabled={isSubmitting}
+            disabled={isDisabled}
             {...register(id)}
             aria-invalid={!!fieldErrorMessage}
             aria-describedby={!!fieldErrorMessage ? id : undefined}
             placeholder=""
             className={`
             peer flex-1 w-full h-32 bg-transparent text-base font-normal text-white outline-none box-border resize-none md:text-xl whitespace-pre-line [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-            ${isSubmitting && 'cursor-no-drop'}
+            ${isDisabled && 'cursor-no-drop'}
           `}
           />
         ) : (
           <input
             id={id}
             type={type}
-            disabled={isSubmitting}
+            disabled={isDisabled}
             {...register(id)}
             autoComplete="email"
             inputMode="email"
@@ -49,7 +50,7 @@ export function InputField({ id, label, Icon, type }: InputTextProps) {
             placeholder=""
             className={`
             peer flex-1 w-full h-7 bg-transparent text-base font-normal text-white outline-none box-border md:text-xl  
-            ${isSubmitting && 'cursor-no-drop'}
+            ${isDisabled && 'cursor-no-drop'}
           `}
           />
         )}

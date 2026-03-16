@@ -1,4 +1,4 @@
-import type { PropertySortType } from '../propertiesFilters.type';
+import type { PropertySortType } from './propertySort.type';
 
 export const PROPERTY_SORT_OPTIONS: {
   label: string;

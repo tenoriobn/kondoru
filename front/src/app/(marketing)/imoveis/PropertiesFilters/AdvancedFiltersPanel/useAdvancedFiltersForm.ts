@@ -4,14 +4,14 @@ import type { AdvancedFiltersPanelSchemaData } from './advancedFiltersPanelSchem
 import { advancedFiltersPanelSchema } from './advancedFiltersPanelSchema';
 
 export function useAdvancedFiltersForm() {
-  const methods = useForm<AdvancedFiltersPanelSchemaData>({
+  return useForm<AdvancedFiltersPanelSchemaData>({
     resolver: zodResolver(advancedFiltersPanelSchema),
     mode: 'onTouched',
     defaultValues: {
       location: '',
-      contractType: 'sale',
+      contractType: 'rent',
       propertyTypes: [],
-      priceRangeMin: 500,
+      priceRangeMin: 5000,
       priceRangeMax: 25000,
       propertyAreaMin: 20,
       propertyAreaMax: 1000,
@@ -22,19 +22,4 @@ export function useAdvancedFiltersForm() {
       nearMetro: 'na',
     },
   });
-
-  const onSubmit = async (data: AdvancedFiltersPanelSchemaData) => {
-    try {
-      console.log({ data });
-
-      await new Promise((resolve) => setTimeout(resolve, 300000));
-    } catch (error) {
-      methods.setError('root', {
-        type: 'manual',
-        message: 'Erro ao realizar cadastro. Tente novamente!',
-      });
-    }
-  };
-
-  return { methods, onSubmit };
 }

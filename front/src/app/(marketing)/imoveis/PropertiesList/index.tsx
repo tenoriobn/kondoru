@@ -4,11 +4,15 @@ import Image from 'next/image';
 import LocationIcon from 'public/icons/location.svg';
 import PropertiesListSkeleton from './PropertiesListSkeleton';
 import Pagination from 'src/components/Pagination';
-import { usePropertiesList } from './usePropertiesList';
+import type { PropertiesListProps } from './propertiesList.type';
 
-export default function PropertiesList() {
-  const { properties, page, setPage, totalPages, isLoading } = usePropertiesList();
-
+export default function PropertiesList({
+  properties,
+  page,
+  setPage,
+  totalPages,
+  isLoading,
+}: PropertiesListProps) {
   if (isLoading) {
     return <PropertiesListSkeleton />;
   }

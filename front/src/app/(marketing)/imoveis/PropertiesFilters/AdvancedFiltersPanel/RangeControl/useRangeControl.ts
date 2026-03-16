@@ -40,6 +40,11 @@ export function useRangeControl({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minVal, maxVal, id, methods]);
 
+  useEffect(() => {
+    setMinVal(minLimit);
+    setMaxVal(maxLimit);
+  }, [minLimit, maxLimit]);
+
   const handleBlur = (type: 'min' | 'max') => {
     let value = parseDisplay(type === 'min' ? minInput : maxInput);
 

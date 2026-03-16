@@ -4,8 +4,9 @@ import type { PropertyTypeCheckboxGroupProps } from './propertyTypeCheckboxGroup
 export default function PropertyTypeCheckboxGroup({
   types,
   methods,
+  isLoading,
 }: PropertyTypeCheckboxGroupProps) {
-  const isSubmitting = methods.formState.isSubmitting;
+  const isDisabled = isLoading || methods.formState.isSubmitting;
   const selectedTypes = methods.watch('propertyTypes') ?? [];
 
   function handleTogglePropertyType(value: string) {
@@ -29,14 +30,14 @@ export default function PropertyTypeCheckboxGroup({
         return (
           <label
             key={type.value}
-            className={`flex items-center select-none ${isSubmitting ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+            className={`flex items-center select-none ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
           >
             <input
               type="checkbox"
               className="peer sr-only"
               checked={isChecked}
               onChange={() => handleTogglePropertyType(type.value)}
-              disabled={isSubmitting}
+              disabled={isDisabled}
             />
 
             <div
