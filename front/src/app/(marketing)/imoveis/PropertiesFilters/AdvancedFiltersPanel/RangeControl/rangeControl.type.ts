@@ -12,6 +12,7 @@ export interface RangeControlProps {
   initialMax?: number;
   prefix?: string;
   suffix?: string;
+  isLoading?: boolean;
   methods: UseFormReturn<AdvancedFiltersPanelSchemaData>;
 }
 

@@ -9,4 +9,5 @@ export interface PropertyTypeOption {
 export interface PropertyTypeCheckboxGroupProps {
   types: PropertyTypeOption[];
   methods: UseFormReturn<AdvancedFiltersPanelSchemaData>;
+  isLoading: boolean;
 }

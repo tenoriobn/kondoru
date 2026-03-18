@@ -3,8 +3,11 @@ import HeroSection from 'src/components/HeroSection';
 import Filter from 'src/components/Filter';
 import PropertiesFilters from './PropertiesFilters';
 import PropertiesList from './PropertiesList';
+import { usePropertiesSearch } from './usePropertiesSearch';
 
 export default function Properties() {
+  const search = usePropertiesSearch();
+
   return (
     <>
       <HeroSection
@@ -31,8 +34,19 @@ export default function Properties() {
             Lista de imóveis
           </h2>
 
-          <PropertiesFilters />
-          <PropertiesList />
+          <PropertiesFilters
+            onApplyFilters={search.applyFilters}
+            onSortChange={search.changeSort}
+            isLoading={search.isLoading}
+          />
+
+          <PropertiesList
+            properties={search.properties}
+            page={search.page}
+            setPage={search.setPage}
+            totalPages={search.totalPages}
+            isLoading={search.isLoading}
+          />
         </div>
       </section>
     </>
