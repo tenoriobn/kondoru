@@ -25,6 +25,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-br">
+      <head>
+        <link rel="preload" as="image" href="/images/herosection-home-bg.avif" />
+      </head>
+
       <body className={`${mulish.variable}`}>{children}</body>
     </html>
   );

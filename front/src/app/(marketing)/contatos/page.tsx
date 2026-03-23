@@ -8,7 +8,7 @@ export default function Contacts() {
   return (
     <>
       <HeroSection
-        backgroundImage="herosection-contacts-bg.webp"
+        backgroundImage="herosection-contacts-bg.avif"
         title="Contatos"
         subtitle={
           <>

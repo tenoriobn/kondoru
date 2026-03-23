@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <HeroSection
-        backgroundImage="herosection-about-bg.webp"
+        backgroundImage="herosection-about-bg.avif"
         title="Sobre"
         subtitle={
           <span className="block max-md:max-w-114.25">
