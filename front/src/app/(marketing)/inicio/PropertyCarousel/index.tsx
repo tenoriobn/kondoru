@@ -2,10 +2,11 @@ import { SwiperSlide } from 'swiper/react';
 import properties from './properties.json';
 import Carousel from 'src/components/Carousel';
 import PropertyCard from './PropertyCard';
+import Section from 'src/components/Section';
 
 export default function PropertyCarousel() {
   return (
-    <section className="w-full max-w-6xl" aria-label="Lista de Imóveis">
+    <Section aria-label="Lista de Imóveis">
       <Carousel>
         <ul role="list">
           {properties.map((property) => (
@@ -15,6 +16,6 @@ export default function PropertyCarousel() {
           ))}
         </ul>
       </Carousel>
-    </section>
+    </Section>
   );
 }

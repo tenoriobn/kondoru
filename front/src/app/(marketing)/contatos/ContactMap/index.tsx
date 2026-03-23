@@ -1,6 +1,8 @@
+import Section from 'src/components/Section';
+
 export default function ContactMap() {
   return (
-    <section aria-labelledby="contact-map-title" className="w-full max-w-6xl">
+    <Section aria-labelledby="contact-map-title">
       <h2 id="contact-map-title" className="sr-only">
         Localização da Kondoru
       </h2>
@@ -20,6 +22,6 @@ export default function ContactMap() {
           Atendimento presencial sob agendamento.
         </figcaption>
       </figure>
-    </section>
+    </Section>
   );
 }

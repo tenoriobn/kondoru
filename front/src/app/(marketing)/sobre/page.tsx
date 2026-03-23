@@ -4,6 +4,7 @@ import AboutInfo from './AboutInfo';
 import AboutSection from './AboutSection';
 import OurPhilosophySection from './OurPhilosophySection';
 import FAQ from './FAQ';
+import PageContainer from 'src/components/PageContainer';
 
 export default function About() {
   return (
@@ -23,11 +24,11 @@ export default function About() {
         <AboutInfo />
       </HeroSection>
 
-      <div className="bg-white flex flex-col items-center relative mx-4 xs:mx-6 pt-0.5 mb-25 gap-25 md:mx-16 md:mb-32 md:gap-32">
+      <PageContainer>
         <AboutSection />
         <OurPhilosophySection />
         <FAQ />
-      </div>
+      </PageContainer>
     </>
   );
 }

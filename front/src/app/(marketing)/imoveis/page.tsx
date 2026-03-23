@@ -4,6 +4,8 @@ import Filter from 'src/components/Filter';
 import PropertiesFilters from './PropertiesFilters';
 import PropertiesList from './PropertiesList';
 import { usePropertiesSearch } from './usePropertiesSearch';
+import PageContainer from 'src/components/PageContainer';
+import Section from 'src/components/Section';
 
 export default function Properties() {
   const search = usePropertiesSearch();
@@ -25,11 +27,8 @@ export default function Properties() {
         <Filter />
       </HeroSection>
 
-      <section
-        aria-labelledby="properties-results"
-        className="bg-white flex flex-col items-center relative mx-4 xs:mx-6 pt-0.5 mb-25 gap-25 md:mx-16 md:mb-32 md:gap-32"
-      >
-        <div className="w-full max-w-6xl">
+      <PageContainer>
+        <Section aria-labelledby="properties-results">
           <h2 id="properties-results" className="sr-only">
             Lista de imóveis
           </h2>
@@ -47,8 +46,8 @@ export default function Properties() {
             totalPages={search.totalPages}
             isLoading={search.isLoading}
           />
-        </div>
-      </section>
+        </Section>
+      </PageContainer>
     </>
   );
 }

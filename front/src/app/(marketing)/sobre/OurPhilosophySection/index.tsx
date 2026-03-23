@@ -1,10 +1,11 @@
 import { SectionTitle } from 'src/components/SectionTitle';
 import PhilosophyCards from './PhilosophyCards';
 import { SectionText } from 'src/components/SectionText';
+import Section from 'src/components/Section';
 
 export default function OurPhilosophySection() {
   return (
-    <section aria-labelledby="our-philosophy-section-title" className="w-full max-w-6xl">
+    <Section aria-labelledby="our-philosophy-section-title">
       <div className="mb-8">
         <SectionTitle
           id="our-philosophy-section-title"
@@ -20,6 +21,6 @@ export default function OurPhilosophySection() {
       </div>
 
       <PhilosophyCards />
-    </section>
+    </Section>
   );
 }

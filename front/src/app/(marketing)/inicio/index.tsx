@@ -4,6 +4,7 @@ import Filter from 'src/components/Filter';
 import PropertyCarousel from './PropertyCarousel';
 import ElegantShowcase from './ElegantShowcase';
 import TestimonialCarousel from './TestimonialCarousel';
+import PageContainer from 'src/components/PageContainer';
 
 export default function HomePage() {
   return (
@@ -20,11 +21,11 @@ export default function HomePage() {
         <Filter />
       </HeroSection>
 
-      <div className="bg-white flex flex-col items-center relative mx-4 xs:mx-6 pt-0.5 mb-25 gap-25 md:mx-16 md:mb-32 md:gap-32">
+      <PageContainer>
         <PropertyCarousel />
         <ElegantShowcase />
         <TestimonialCarousel />
-      </div>
+      </PageContainer>
     </>
   );
 }

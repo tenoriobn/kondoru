@@ -1,10 +1,11 @@
 import { SectionTitle } from 'src/components/SectionTitle';
 import FaqAccordion from './FaqAccordion';
 import { SectionText } from 'src/components/SectionText';
+import Section from 'src/components/Section';
 
 export default function FAQ() {
   return (
-    <section
+    <Section
       aria-labelledby="faq-section-title"
       className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
     >
@@ -28,6 +29,6 @@ export default function FAQ() {
       </div>
 
       <FaqAccordion />
-    </section>
+    </Section>
   );
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ArrowLeftIcon from 'public/icons/arrow-left.svg';
+import Section from 'src/components/Section';
 
 export default function NotFound() {
   return (
@@ -10,9 +11,9 @@ export default function NotFound() {
         style={{ backgroundImage: `url(/images/herosection-404-bg.webp)` }}
       />
 
-      <section
+      <Section
         aria-labelledby="hero-title"
-        className="relative grid w-full max-w-6xl mx-4 xs:mx-6 md:mx-16 lgx:px-0 lgx:mx-16 pt-25.5 pb-25 md:pb-32"
+        className="relative grid mx-4 xs:mx-6 md:mx-16 lgx:px-0 lgx:mx-16 pt-25.5 pb-25 md:pb-32"
       >
         <header className="flex flex-col items-center justify-center gap-8 py-22 text-center">
           <h1
@@ -42,7 +43,7 @@ export default function NotFound() {
             Voltar para o início
           </Link>
         </header>
-      </section>
+      </Section>
     </main>
   );
 }
