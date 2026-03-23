@@ -2,6 +2,7 @@ import HeroSection from 'src/components/HeroSection';
 import ContactInfo from './ContactInfo';
 import ContactMap from './ContactMap';
 import ContactCTA from './ContactCTA';
+import PageContainer from 'src/components/PageContainer';
 
 export default function Contacts() {
   return (
@@ -22,10 +23,10 @@ export default function Contacts() {
         <ContactInfo />
       </HeroSection>
 
-      <div className="bg-white flex flex-col items-center relative mx-4 xs:mx-6 pt-0.5 mb-25 gap-25 md:mx-16 md:mb-32 md:gap-32">
+      <PageContainer>
         <ContactMap />
         <ContactCTA />
-      </div>
+      </PageContainer>
     </>
   );
 }

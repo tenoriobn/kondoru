@@ -21,10 +21,6 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
 
   return (
     <div className="grid gap-2 w-full" ref={dropdownRef}>
-      <label htmlFor={name} className="sr-only">
-        {label}
-      </label>
-
       <div className="relative">
         <input
           type="hidden"
@@ -38,6 +34,7 @@ export function Dropdown({ name, label, icon, options }: DropdownProps) {
           type="button"
           onClick={toggle}
           disabled={isSubmitting}
+          aria-label={label}
           aria-haspopup="listbox"
           aria-expanded={isOpen}
           aria-controls={listboxId}

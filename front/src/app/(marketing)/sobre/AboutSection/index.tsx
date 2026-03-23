@@ -1,5 +1,6 @@
 'use client';
 import ScrollWordReveal from 'src/components/ScrollWordReveal';
+import Section from 'src/components/Section';
 import { SectionTitle } from 'src/components/SectionTitle';
 import usePlayerScript from 'src/hooks/usePlayerScript';
 import 'src/styles/elegantShowcasePlayer.css';
@@ -16,9 +17,9 @@ export default function AboutSection() {
   `;
 
   return (
-    <section
+    <Section
       aria-labelledby="about-section-title"
-      className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
+      className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))]"
     >
       <div className="max-w-145">
         <SectionTitle id="about-section-title" className="justify-self-center max-[521px]:max-w-82">
@@ -40,6 +41,6 @@ export default function AboutSection() {
           aria-label="Vídeo demonstrativo de uma residência de luxo, exibindo arquitetura e acabamentos sofisticados"
         />
       </figure>
-    </section>
+    </Section>
   );
 }

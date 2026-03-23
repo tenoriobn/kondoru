@@ -2,12 +2,13 @@ import { SectionTitle } from 'src/components/SectionTitle';
 import ContactForm from './ContactForm';
 import SocialContactIcons from './SocialContactIcons';
 import { SectionText } from 'src/components/SectionText';
+import Section from 'src/components/Section';
 
 export default function ContactCTA() {
   return (
-    <section
+    <Section
       aria-labelledby="contact-cta-title"
-      className="grid place-items-center gap-8 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
+      className="grid place-items-center gap-8 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))]"
     >
       <div className="max-w-145">
         <SectionTitle id="contact-cta-title">
@@ -23,6 +24,6 @@ export default function ContactCTA() {
       </div>
 
       <ContactForm />
-    </section>
+    </Section>
   );
 }

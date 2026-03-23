@@ -1,3 +1,4 @@
+import Section from 'src/components/Section';
 import { SectionText } from 'src/components/SectionText';
 import { SectionTitle } from 'src/components/SectionTitle';
 import usePlayerScript from 'src/hooks/usePlayerScript';
@@ -7,9 +8,9 @@ export default function ElegantShowcase() {
   usePlayerScript('./video/rio-perdido.mp4');
 
   return (
-    <section
+    <Section
       aria-labelledby="elegant-showcase-title"
-      className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))] w-full max-w-6xl"
+      className="grid items-center justify-items-center gap-8 h-full min-h-124 md:grid-cols-[repeat(auto-fit,minmax(388px,1fr))]"
     >
       <div className="max-w-145">
         <SectionTitle
@@ -33,6 +34,6 @@ export default function ElegantShowcase() {
           aria-label="Vídeo demonstrativo de uma residência de luxo, exibindo arquitetura e acabamentos sofisticados"
         />
       </figure>
-    </section>
+    </Section>
   );
 }
