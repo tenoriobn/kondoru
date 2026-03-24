@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection
-        backgroundImage="herosection-home-bg.webp"
+        backgroundImage="herosection-home-bg.avif"
         title="KondoRu"
         subtitle={
           <>

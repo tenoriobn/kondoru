@@ -8,7 +8,7 @@ export default function NotFound() {
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-cover bg-top"
-        style={{ backgroundImage: `url(/images/herosection-404-bg.webp)` }}
+        style={{ backgroundImage: `url(/images/herosection-404-bg.avif)` }}
       />
 
       <Section

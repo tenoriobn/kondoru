@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { HeroSectionProps } from './herosection.type';
 
 export default function HeroSection({
@@ -9,9 +10,17 @@ export default function HeroSection({
   return (
     <section
       aria-labelledby="hero-title"
-      style={{ backgroundImage: `url(/images/${backgroundImage})` }}
-      className={`bg-cover bg-top flex items-center justify-center`}
+      className="relative flex items-center justify-center overflow-hidden"
     >
+      <Image
+        src={`/images/${backgroundImage}`}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-top -z-10"
+      />
+
       <div className="grid grid-rows-[minmax(300px,1fr)_auto] min-h-dvh pt-25.5 pb-25 w-full max-w-6xl mx-4 xs:mx-6 md:grid-rows-[minmax(388px,1fr)_auto] md:mx-16 lgx:px-0 lgx:mx-16 md:pb-32 lgx:grid-rows-[minmax(540px,1fr)_auto]">
         <header className="flex flex-col justify-center items-center gap-8 py-22">
           <h1

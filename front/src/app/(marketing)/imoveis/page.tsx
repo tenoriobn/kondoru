@@ -13,7 +13,7 @@ export default function Properties() {
   return (
     <>
       <HeroSection
-        backgroundImage="herosection-properties-bg.webp"
+        backgroundImage="herosection-properties-bg.avif"
         title="Imóveis"
         subtitle={
           <span className="block max-md:max-w-114.25">
