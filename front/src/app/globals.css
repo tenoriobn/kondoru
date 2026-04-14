@@ -33,7 +33,7 @@
     rgb(35 50 62 / 80%)
   );
   --background-image-header:
-    var(--background-image-gradient-dark-slate-80), url('/images/herosection-home-bg.webp');
+    var(--background-image-gradient-dark-slate-80), url('/images/herosection-home-bg.avif');
 
   --radius-12: 3rem;
 
