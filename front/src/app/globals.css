@@ -28,12 +28,23 @@
     rgb(35 50 62) 0%,
     rgb(45 59 70) 100%
   );
+
   --background-image-gradient-dark-slate-80: linear-gradient(
     rgb(35 50 62 / 80%),
     rgb(35 50 62 / 80%)
   );
+
   --background-image-header:
     var(--background-image-gradient-dark-slate-80), url('/images/herosection-home-bg.avif');
+
+  --background-image-gradient-hero: linear-gradient(
+    180deg,
+    #273642 13.05%,
+    rgba(39, 54, 66, 0.85) 24.52%,
+    rgba(39, 54, 66, 0) 77%,
+    rgba(142, 150, 156, 0.895652) 88.5%,
+    #ffffff 99%
+  );
 
   --radius-12: 3rem;
 
