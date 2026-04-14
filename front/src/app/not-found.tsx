@@ -7,8 +7,10 @@ export default function NotFound() {
     <main className="relative flex items-center justify-center min-h-dvh">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-top"
-        style={{ backgroundImage: `url(/images/herosection-404-bg.avif)` }}
+        className="absolute inset-0 bg-dark-slate-800 bg-cover bg-center"
+        style={{
+          backgroundImage: `var(--background-image-gradient-hero), url(/images/herosection-404-bg.avif)`,
+        }}
       />
 
       <Section
