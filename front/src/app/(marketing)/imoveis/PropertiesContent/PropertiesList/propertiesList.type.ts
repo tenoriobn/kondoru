@@ -1,5 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
-
 export interface Property {
   id: string;
   href: string;
@@ -22,7 +20,7 @@ export interface PropertiesResponse {
 export interface PropertiesListProps {
   properties: Property[];
   page: number;
-  setPage: Dispatch<SetStateAction<number>>;
+  setPage: (page: number) => void;
   totalPages: number;
   isLoading: boolean;
 }

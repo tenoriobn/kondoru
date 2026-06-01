@@ -18,10 +18,9 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "public/*": ["public/*"],
-      "src/*": ["src/*"]
+      "public/*": ["./public/*"],
+      "src/*": ["./src/*"]
     }
   },
   "include": [

@@ -5,6 +5,10 @@ on:
     paths:
       - "front/**"
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -36,21 +40,23 @@ jobs:
       - name: Rodar Testes e2e
         run: npm run test:e2e
 
+      - name: Instalar Vercel CLI
+        run: npm i -g vercel
+
       - name: Deploy Preview (Vercel)
         id: vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: front
+        run: |
+          vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+          vercel build --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} > deploy.txt
 
-      - name: Comentar Preview no Pull Request
-        if: success()
+          echo "preview_url=$(cat deploy.txt)" >> $GITHUB_OUTPUT
+
+      - name: Comentar Preview no PR
         uses: marocchino/sticky-pull-request-comment@v2
         with:
+          recreate: true
           message: |
-            🚀 **Preview Deployment**:
-            ✅ [Acesse a preview da aplicação aqui](${{ steps.vercel.outputs.preview-url }})
+            🚀 **Preview Deployment**
+
+            🔗 ${{ steps.vercel.outputs.preview_url }}

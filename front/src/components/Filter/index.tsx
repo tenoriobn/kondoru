@@ -1,3 +1,4 @@
+'use client';
 import FilterDropdown from './FilterDropdown';
 import filterOptions from './filterOptions.json';
 import useFilter from './useFilter';
