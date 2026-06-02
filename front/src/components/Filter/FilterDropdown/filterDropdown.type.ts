@@ -4,6 +4,7 @@ export interface FilterDropdownProps {
   options: string[];
   selectedOption: string;
   isOpen: boolean;
+  canClear?: boolean;
   onToggle: () => void;
   onSelect: (value: string) => void;
 }

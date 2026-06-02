@@ -9,7 +9,7 @@ export default function PropertiesContent() {
   const search = usePropertiesSearch();
 
   return (
-    <PageContainer>
+    <PageContainer className="pt-29 md:pt-41">
       <Section aria-labelledby="properties-results">
         <h2 id="properties-results" className="sr-only">
           Lista de imóveis

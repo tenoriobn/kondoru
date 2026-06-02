@@ -7,10 +7,12 @@ export default function FilterDropdown({
   options,
   selectedOption,
   isOpen,
+  canClear,
   onToggle,
   onSelect,
 }: FilterDropdownProps) {
   const listboxId = `${id}-listbox`;
+  const showClearOption = canClear && selectedOption;
 
   return (
     <div className="group relative w-full h-full max-h-14 lgx:max-h-16">
@@ -48,13 +50,13 @@ export default function FilterDropdown({
           ${isOpen ? 'max-h-48 animate-enable-scroll' : 'max-h-0'}
         `}
       >
-        {selectedOption && (
+        {showClearOption && (
           <li
             role="option"
             aria-selected="false"
             title="Limpar Filtro"
             onClick={() => onSelect('')}
-            className={`cursor-pointer text-white-80 py-3 px-6 transition duration-300 ease-in-out hover:bg-slate-40 hover:text-white`}
+            className="cursor-pointer text-white-80 py-3 px-6 transition duration-300 ease-in-out hover:bg-slate-40 hover:text-white"
           >
             Limpar Filtro
           </li>
