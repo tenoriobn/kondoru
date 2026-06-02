@@ -1,6 +1,6 @@
 'use client';
 import HeroSection from 'src/components/HeroSection';
-import Filter from 'src/components/Filter';
+import Filter from './Filter';
 import PropertyCarousel from './PropertyCarousel';
 import ElegantShowcase from './ElegantShowcase';
 import TestimonialCarousel from './TestimonialCarousel';

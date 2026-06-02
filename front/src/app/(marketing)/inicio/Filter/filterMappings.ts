@@ -1,11 +1,5 @@
 export const FILTER_OPTIONS = [
   {
-    id: 'localidade',
-    label: 'Localidade',
-    options: ['Centro', 'Zona Sul', 'Zona Norte', 'Zona Leste', 'Zona Oeste', 'Metropolitana'],
-  },
-
-  {
     id: 'contrato',
     label: 'Contrato',
     options: ['Venda', 'Aluguel'],
@@ -21,6 +15,12 @@ export const FILTER_OPTIONS = [
     id: 'preco',
     label: 'Preço',
     options: [],
+  },
+
+  {
+    id: 'localidade',
+    label: 'Localidade',
+    options: ['Centro', 'Zona Sul', 'Zona Norte', 'Zona Leste', 'Zona Oeste', 'Metropolitana'],
   },
 ] as const;
 

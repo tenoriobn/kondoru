@@ -3,14 +3,11 @@ import { useSearchParams, useRouter } from 'next/navigation';
 
 import { httpGet } from 'src/services';
 
-import type {
-  PropertiesResponse,
-  Property,
-} from './PropertiesContent/PropertiesList/propertiesList.type';
+import type { PropertiesResponse, Property } from './PropertiesList/propertiesList.type';
 
-import type { AdvancedFiltersPanelSchemaData } from './PropertiesContent/PropertiesFilters/AdvancedFiltersPanel/advancedFiltersPanelSchema';
+import type { AdvancedFiltersPanelSchemaData } from './PropertiesFilters/AdvancedFiltersPanel/advancedFiltersPanelSchema';
 
-import type { PropertySortType } from './PropertiesContent/PropertiesFilters/PropertySort/propertySort.type';
+import type { PropertySortType } from './PropertiesFilters/PropertySort/propertySort.type';
 
 export function usePropertiesSearch() {
   const router = useRouter();

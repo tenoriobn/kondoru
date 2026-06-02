@@ -18,7 +18,9 @@ import {
   GARAGE_OPTIONS,
   FURNISHED_OPTIONS,
   METRO_OPTIONS,
+  DEFAULT_FILTERS,
 } from './propertyFilters';
+import { useContractPriceRange } from './useContractPriceRange';
 
 export default function AdvancedFiltersPanel({
   isOpen,
@@ -27,6 +29,7 @@ export default function AdvancedFiltersPanel({
   isLoading,
 }: AdvancedFiltersPanelProps) {
   const methods = useAdvancedFiltersForm();
+  useContractPriceRange(methods);
   const { watch, setValue, reset, handleSubmit } = methods;
   const contractType = watch('contractType');
 
@@ -183,7 +186,14 @@ export default function AdvancedFiltersPanel({
         <footer className="flex items-center gap-4 p-4 md:p-8 border-t border-[rgba(189,189,189,0.16)] shrink-0">
           <button
             type="button"
-            onClick={() => reset()}
+            onClick={() => {
+              reset(DEFAULT_FILTERS);
+
+              methods.setValue('contractType', 'rent');
+
+              methods.setValue('priceRangeMin', 500);
+              methods.setValue('priceRangeMax', 25000);
+            }}
             disabled={isLoading}
             className={`text-base md:text-xl text-dark-slate-900 font-semibold bg-gray-50 rounded-12 py-3 px-8 w-full transition ${
               isLoading

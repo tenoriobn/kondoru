@@ -1,4 +1,5 @@
 import type { propertyFiltersOption } from './advancedFiltersPanel.type';
+import type { AdvancedFiltersPanelSchemaData } from './advancedFiltersPanelSchema';
 
 export const CONTRACT_OPTIONS: propertyFiltersOption<'sale' | 'rent'>[] = [
   { label: 'Venda', value: 'sale' },
@@ -47,3 +48,26 @@ export const METRO_OPTIONS: propertyFiltersOption<'na' | 'yes' | 'no'>[] = [
   { label: 'Sim', value: 'yes' },
   { label: 'Não', value: 'no' },
 ] as const;
+
+export const DEFAULT_FILTERS: AdvancedFiltersPanelSchemaData = {
+  location: '',
+
+  contractType: 'rent',
+
+  propertyTypes: [],
+
+  priceRangeMin: 500,
+  priceRangeMax: 25000,
+
+  propertyAreaMin: 20,
+  propertyAreaMax: 1000,
+
+  bedrooms: '1+',
+  bathrooms: '1+',
+
+  garageSpots: 'na',
+
+  furnished: 'na',
+
+  nearMetro: 'na',
+};

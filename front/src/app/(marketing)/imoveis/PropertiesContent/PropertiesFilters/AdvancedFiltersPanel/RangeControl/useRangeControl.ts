@@ -1,21 +1,19 @@
-import { useState, useEffect } from 'react';
 import type { UseRangeControlParams } from './rangeControl.type';
 
 export function useRangeControl({
   id,
   minLimit,
   maxLimit,
-  initialMin,
-  initialMax,
   prefix,
   suffix = '',
   methods,
 }: UseRangeControlParams) {
-  const [minVal, setMinVal] = useState(initialMin);
-  const [maxVal, setMaxVal] = useState(initialMax);
+  const minVal = methods.watch(`${id}Min`) ?? minLimit;
+  const maxVal = methods.watch(`${id}Max`) ?? maxLimit;
 
-  const [minInput, setMinInput] = useState<string>('');
-  const [maxInput, setMaxInput] = useState<string>('');
+  const safeMinVal = Math.min(Math.max(minVal, minLimit), maxLimit);
+
+  const safeMaxVal = Math.min(Math.max(maxVal, minLimit), maxLimit);
 
   const formatDisplay = (val: number): string => {
     const formatted = val.toLocaleString('pt-BR');
@@ -27,48 +25,51 @@ export function useRangeControl({
     return formatted;
   };
 
-  const parseDisplay = (str: string) => {
-    const numeric = str.replace(/[^\d]/g, '');
+  const parseDisplay = (value: string) => {
+    const numeric = value.replace(/[^\d]/g, '');
+
     return parseInt(numeric, 10) || 0;
   };
 
-  useEffect(() => {
-    setMinInput(formatDisplay(minVal));
-    setMaxInput(formatDisplay(maxVal));
-    methods.setValue(`${id}Min`, minVal, { shouldDirty: true });
-    methods.setValue(`${id}Max`, maxVal, { shouldDirty: true });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [minVal, maxVal, id, methods]);
+  const handleMinChange = (value: number) => {
+    methods.setValue(`${id}Min`, Math.min(value, maxVal), {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  };
 
-  useEffect(() => {
-    setMinVal(minLimit);
-    setMaxVal(maxLimit);
-  }, [minLimit, maxLimit]);
+  const handleMaxChange = (value: number) => {
+    methods.setValue(`${id}Max`, Math.max(value, minVal), {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  };
 
-  const handleBlur = (type: 'min' | 'max') => {
-    let value = parseDisplay(type === 'min' ? minInput : maxInput);
+  const handleBlur = (type: 'min' | 'max', displayValue: string) => {
+    let value = parseDisplay(displayValue);
 
     if (type === 'min') {
       if (value < minLimit) value = minLimit;
       if (value > maxVal) value = maxVal;
 
-      setMinVal(value);
-      setMinInput(formatDisplay(value));
-    } else {
-      if (value > maxLimit) value = maxLimit;
-      if (value < minVal) value = minVal;
+      handleMinChange(value);
 
-      setMaxVal(value);
-      setMaxInput(formatDisplay(value));
+      return;
     }
+
+    if (value > maxLimit) value = maxLimit;
+    if (value < minVal) value = minVal;
+
+    handleMaxChange(value);
   };
 
-  const getPercent = (value: number) =>
-    Math.round(((value - minLimit) / (maxLimit - minLimit)) * 100);
+  const getPercent = (value: number) => ((value - minLimit) / (maxLimit - minLimit)) * 100;
 
   const handleTrackClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
+
     const clickX = e.clientX - rect.left;
+
     const percent = clickX / rect.width;
 
     const value = Math.round(minLimit + percent * (maxLimit - minLimit));
@@ -77,27 +78,21 @@ export function useRangeControl({
     const distToMax = Math.abs(value - maxVal);
 
     if (distToMin < distToMax) {
-      const newMin = Math.min(value, maxVal);
-      setMinVal(newMin);
+      handleMinChange(value);
     } else {
-      const newMax = Math.max(value, minVal);
-      setMaxVal(newMax);
+      handleMaxChange(value);
     }
   };
 
   return {
-    minVal,
-    maxVal,
+    minVal: safeMinVal,
+    maxVal: safeMaxVal,
 
-    minInput,
-    maxInput,
+    minDisplay: formatDisplay(safeMinVal),
+    maxDisplay: formatDisplay(safeMaxVal),
 
-    setMinVal,
-    setMaxVal,
-
-    setMinInput,
-    setMaxInput,
-
+    handleMinChange,
+    handleMaxChange,
     handleBlur,
     handleTrackClick,
     getPercent,

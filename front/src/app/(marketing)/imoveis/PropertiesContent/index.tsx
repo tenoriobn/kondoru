@@ -2,7 +2,7 @@
 import Section from 'src/components/Section';
 import PropertiesFilters from './PropertiesFilters';
 import PropertiesList from './PropertiesList';
-import { usePropertiesSearch } from '../usePropertiesSearch';
+import { usePropertiesSearch } from './usePropertiesSearch';
 import PageContainer from 'src/components/PageContainer';
 
 export default function PropertiesContent() {
