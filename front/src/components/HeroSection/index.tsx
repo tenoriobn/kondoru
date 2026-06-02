@@ -9,7 +9,7 @@ export default function HeroSection({
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative flex items-center justify-center overflow-hidden bg-dark-slate-800 bg-cover bg-top"
+      className="relative flex items-center justify-center  bg-dark-slate-800 bg-cover bg-top"
       style={{
         backgroundImage: `var(--background-image-gradient-hero), url(/images/${backgroundImage})`,
       }}

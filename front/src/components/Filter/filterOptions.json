@@ -4,9 +4,7 @@
     "label": "Contrato",
     "options": [
       "Venda",
-      "Aluguel",
-      "Temporada",
-      "Permuta"
+      "Aluguel"
     ]
   },
   {
@@ -18,8 +16,7 @@
       "Terreno",
       "Comercial",
       "Galpão",
-      "Sítio",
-      "Chácara"
+      "Sítio"
     ]
   },
   {

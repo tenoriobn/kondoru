@@ -1,33 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+
 import { httpGet } from 'src/services';
-import type { PropertiesResponse, Property } from './PropertiesList/propertiesList.type';
-import type { AdvancedFiltersPanelSchemaData } from './PropertiesFilters/AdvancedFiltersPanel/advancedFiltersPanelSchema';
-import type { PropertySortType } from './PropertiesFilters/PropertySort/propertySort.type';
+
+import type {
+  PropertiesResponse,
+  Property,
+} from './PropertiesContent/PropertiesList/propertiesList.type';
+
+import type { AdvancedFiltersPanelSchemaData } from './PropertiesContent/PropertiesFilters/AdvancedFiltersPanel/advancedFiltersPanelSchema';
+
+import type { PropertySortType } from './PropertiesContent/PropertiesFilters/PropertySort/propertySort.type';
 
 export function usePropertiesSearch() {
-  const [filters, setFilters] = useState<Partial<AdvancedFiltersPanelSchemaData>>({});
-  const [sort, setSort] = useState<PropertySortType>('');
-  const [page, setPage] = useState(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [properties, setProperties] = useState<Property[]>([]);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+
+  const page = Number(searchParams.get('page') ?? '1');
 
   useEffect(() => {
     async function fetchProperties() {
       try {
         setIsLoading(true);
 
-        const params = new URLSearchParams({
-          page: String(page),
-          limit: '6',
-          sort,
-          ...Object.fromEntries(Object.entries(filters).map(([k, v]) => [k, String(v)])),
-        });
-
-        const response = await httpGet<PropertiesResponse>(`/properties?${params.toString()}`);
-
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        const response = await httpGet<PropertiesResponse>(
+          `/properties?${searchParams.toString()}`
+        );
 
         setProperties(response.data);
         setTotalPages(response.meta.totalPages);
@@ -37,27 +39,55 @@ export function usePropertiesSearch() {
     }
 
     fetchProperties();
-  }, [page, sort, filters]);
+  }, [searchParams]);
 
-  async function applyFilters(data: AdvancedFiltersPanelSchemaData) {
-    setPage(1);
-    setFilters(data);
-    await new Promise((resolve) => setTimeout(resolve, 300000));
+  function applyFilters(data: AdvancedFiltersPanelSchemaData) {
+    const params = new URLSearchParams(searchParams);
+
+    Object.entries(data).forEach(([key, value]) => {
+      if (value === undefined || value === null || value === '') {
+        params.delete(key);
+        return;
+      }
+
+      params.set(key, String(value));
+    });
+
+    params.set('page', '1');
+
+    router.replace(`/imoveis?${params.toString()}`);
   }
 
   function changeSort(value: PropertySortType) {
-    setPage(1);
-    setSort(value);
+    const params = new URLSearchParams(searchParams);
+
+    if (value) {
+      params.set('sort', value);
+    } else {
+      params.delete('sort');
+    }
+
+    params.set('page', '1');
+
+    router.replace(`/imoveis?${params.toString()}`);
+  }
+
+  function setPage(pages: number) {
+    const params = new URLSearchParams(searchParams);
+
+    params.set('page', String(pages));
+
+    router.replace(`/imoveis?${params.toString()}`);
   }
 
   return {
     properties,
     page,
-    setPage,
     totalPages,
     isLoading,
 
     applyFilters,
     changeSort,
+    setPage,
   };
 }
