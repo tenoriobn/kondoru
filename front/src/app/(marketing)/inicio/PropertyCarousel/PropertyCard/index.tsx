@@ -1,20 +1,20 @@
 import Link from 'next/link';
-import type { PropertyCardProps } from './propertyCard.type';
 import LocationIcon from 'public/icons/location.svg';
 import Image from 'next/image';
+import type { PropertyCardProps } from './propertyCard.type';
 
 export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <article>
       <Link
         rel="noopener noreferrer"
-        href={property.href}
+        href={property.slug}
         aria-labelledby={`property-title-${property.id}`}
         className="cursor-pointer grid gap-y-4 max-w-100.25 md:max-w-94 transition duration-300 ease-in-out hover:opacity-75 active:opacity-60 active:scale-90"
       >
         <figure className="relative w-full aspect-[4/3.26] rounded-3xl overflow-hidden">
           <Image
-            src={property.imgSrc}
+            src={property.thumbnail}
             alt={property.title}
             fill
             className="object-cover"
@@ -39,10 +39,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             />
 
             <span
-              title={property.location}
+              title={property.location.city}
               className="w-full text-base font-medium text-dark-slate-58 whitespace-nowrap overflow-hidden text-ellipsis"
             >
-              {property.location}
+              {property.location.city}
             </span>
           </address>
         </div>

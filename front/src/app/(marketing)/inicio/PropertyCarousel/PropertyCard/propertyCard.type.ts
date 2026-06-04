@@ -1,11 +1,4 @@
-export interface PropertyCard {
-  id: string;
-  href: string;
-  imgSrc: string;
-  title: string;
-  location: string;
-}
-
+import type { PropertyDetails } from 'src/app/(marketing)/imoveis/PropertiesContent/PropertiesList/propertiesList.type';
 export interface PropertyCardProps {
-  property: PropertyCard;
+  property: PropertyDetails;
 }

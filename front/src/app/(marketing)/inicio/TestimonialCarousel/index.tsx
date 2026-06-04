@@ -1,3 +1,4 @@
+'use client';
 import { SwiperSlide } from 'swiper/react';
 import testimonials from './testimonials.json';
 import Carousel from 'src/components/Carousel';

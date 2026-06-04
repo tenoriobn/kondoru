@@ -2,14 +2,14 @@
 import Section from 'src/components/Section';
 import PropertiesFilters from './PropertiesFilters';
 import PropertiesList from './PropertiesList';
-import { usePropertiesSearch } from '../usePropertiesSearch';
+import { usePropertiesSearch } from './usePropertiesSearch';
 import PageContainer from 'src/components/PageContainer';
 
 export default function PropertiesContent() {
   const search = usePropertiesSearch();
 
   return (
-    <PageContainer>
+    <PageContainer className="pt-29 md:pt-41">
       <Section aria-labelledby="properties-results">
         <h2 id="properties-results" className="sr-only">
           Lista de imóveis
@@ -19,6 +19,7 @@ export default function PropertiesContent() {
           onApplyFilters={search.applyFilters}
           onSortChange={search.changeSort}
           isLoading={search.isLoading}
+          totalItems={search.totalItems}
         />
 
         <PropertiesList

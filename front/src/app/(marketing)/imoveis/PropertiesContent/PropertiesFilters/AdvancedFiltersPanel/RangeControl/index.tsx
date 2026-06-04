@@ -10,8 +10,6 @@ export default function RangeControl({
   maxLabel,
   minLimit,
   maxLimit,
-  initialMin = minLimit,
-  initialMax = maxLimit,
   prefix,
   suffix = '',
   methods,
@@ -20,16 +18,25 @@ export default function RangeControl({
   const {
     minVal,
     maxVal,
-    minInput,
-    maxInput,
-    setMinVal,
-    setMaxVal,
-    setMinInput,
-    setMaxInput,
+
+    minDisplay,
+    maxDisplay,
+
+    handleMinChange,
+    handleMaxChange,
+
     handleBlur,
     handleTrackClick,
+
     getPercent,
-  } = useRangeControl({ id, minLimit, maxLimit, initialMin, initialMax, prefix, suffix, methods });
+  } = useRangeControl({
+    id,
+    minLimit,
+    maxLimit,
+    prefix,
+    suffix,
+    methods,
+  });
 
   const isDisabled = isLoading || methods.formState.isSubmitting;
 
@@ -41,20 +48,20 @@ export default function RangeControl({
         <RangeInput
           id={`${id}Min`}
           label={minLabel}
-          value={minInput}
+          value={minDisplay}
           isSubmitting={isDisabled}
-          onChange={(e) => setMinInput(e.target.value)}
-          onBlur={() => handleBlur('min')}
+          onChange={() => {}}
+          onBlur={(e) => handleBlur('min', e.target.value)}
           icon={<ArrowDownIcon className="w-4.5 h-2.5 stroke-2" />}
         />
 
         <RangeInput
           id={`${id}Max`}
           label={maxLabel}
-          value={maxInput}
+          value={maxDisplay}
           isSubmitting={isDisabled}
-          onChange={(e) => setMaxInput(e.target.value)}
-          onBlur={() => handleBlur('max')}
+          onChange={() => {}}
+          onBlur={(e) => handleBlur('max', e.target.value)}
           icon={<ArrowDownIcon className="w-4.5 h-2.5 stroke-2 -rotate-180" />}
         />
       </div>
@@ -77,10 +84,7 @@ export default function RangeControl({
           min={minLimit}
           max={maxLimit}
           value={minVal}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            const value = Math.min(Number(e.target.value), maxVal);
-            setMinVal(value);
-          }}
+          onChange={(e) => handleMinChange(Number(e.target.value))}
           disabled={isDisabled}
           className={`
             z-40 absolute w-full h-0 appearance-none pointer-events-none outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:mt-0 [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,0,0,0.3)]
@@ -101,10 +105,7 @@ export default function RangeControl({
           min={minLimit}
           max={maxLimit}
           value={maxVal}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            const value = Math.max(Number(e.target.value), minVal);
-            setMaxVal(value);
-          }}
+          onChange={(e) => handleMaxChange(Number(e.target.value))}
           disabled={isDisabled}
           className={`
             z-40 absolute w-full h-0 appearance-none pointer-events-none outline-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:mt-0 [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:relative [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(0,0,0,0.3)]
