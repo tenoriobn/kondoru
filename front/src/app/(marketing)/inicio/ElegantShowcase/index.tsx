@@ -1,3 +1,4 @@
+'use client';
 import Section from 'src/components/Section';
 import { SectionText } from 'src/components/SectionText';
 import { SectionTitle } from 'src/components/SectionTitle';

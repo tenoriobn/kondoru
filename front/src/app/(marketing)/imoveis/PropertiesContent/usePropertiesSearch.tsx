@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-
 import { httpGet } from 'src/services';
-
-import type { PropertiesResponse, Property } from './PropertiesList/propertiesList.type';
-
+import type { PropertiesResponse, PropertyDetails } from './PropertiesList/propertiesList.type';
 import type { AdvancedFiltersPanelSchemaData } from './PropertiesFilters/AdvancedFiltersPanel/advancedFiltersPanelSchema';
-
 import type { PropertySortType } from './PropertiesFilters/PropertySort/propertySort.type';
 
 export function usePropertiesSearch() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [properties, setProperties] = useState<Property[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
+  const [response, setResponse] = useState<PropertiesResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const page = Number(searchParams.get('page') ?? '1');
@@ -24,12 +19,9 @@ export function usePropertiesSearch() {
       try {
         setIsLoading(true);
 
-        const response = await httpGet<PropertiesResponse>(
-          `/properties?${searchParams.toString()}`
-        );
+        const result = await httpGet<PropertiesResponse>(`/properties?${searchParams.toString()}`);
 
-        setProperties(response.data);
-        setTotalPages(response.meta.totalPages);
+        setResponse(result);
       } finally {
         setIsLoading(false);
       }
@@ -38,49 +30,61 @@ export function usePropertiesSearch() {
     fetchProperties();
   }, [searchParams]);
 
+  const updateSearchParams = useCallback(
+    (updater: (params: URLSearchParams) => void) => {
+      const params = new URLSearchParams(searchParams);
+
+      updater(params);
+
+      router.replace(`/imoveis?${params.toString()}`);
+    },
+    [router, searchParams]
+  );
+
   function applyFilters(data: AdvancedFiltersPanelSchemaData) {
-    const params = new URLSearchParams(searchParams);
+    updateSearchParams((params) => {
+      Object.entries(data).forEach(([key, value]) => {
+        const isEmpty =
+          value === undefined ||
+          value === null ||
+          value === '' ||
+          (Array.isArray(value) && value.length === 0);
 
-    Object.entries(data).forEach(([key, value]) => {
-      if (value === undefined || value === null || value === '') {
-        params.delete(key);
-        return;
-      }
+        if (isEmpty) {
+          params.delete(key);
+          return;
+        }
 
-      params.set(key, String(value));
+        params.set(key, Array.isArray(value) ? value.join(',') : String(value));
+      });
+
+      params.set('page', '1');
     });
-
-    params.set('page', '1');
-
-    router.replace(`/imoveis?${params.toString()}`);
   }
 
   function changeSort(value: PropertySortType) {
-    const params = new URLSearchParams(searchParams);
+    updateSearchParams((params) => {
+      if (value) {
+        params.set('sort', value);
+      } else {
+        params.delete('sort');
+      }
 
-    if (value) {
-      params.set('sort', value);
-    } else {
-      params.delete('sort');
-    }
-
-    params.set('page', '1');
-
-    router.replace(`/imoveis?${params.toString()}`);
+      params.set('page', '1');
+    });
   }
 
-  function setPage(pages: number) {
-    const params = new URLSearchParams(searchParams);
-
-    params.set('page', String(pages));
-
-    router.replace(`/imoveis?${params.toString()}`);
+  function setPage(newPage: number) {
+    updateSearchParams((params) => {
+      params.set('page', String(newPage));
+    });
   }
 
   return {
-    properties,
+    properties: response?.data ?? ([] as PropertyDetails[]),
+    totalPages: response?.meta.totalPages ?? 1,
+    totalItems: response?.meta.totalItems ?? 0,
     page,
-    totalPages,
     isLoading,
 
     applyFilters,

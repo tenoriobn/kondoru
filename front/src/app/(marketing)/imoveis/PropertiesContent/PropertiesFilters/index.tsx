@@ -8,6 +8,7 @@ import type { PropertiesFiltersProps } from './propertiesFilters.type';
 import type { PropertySortType } from './PropertySort/propertySort.type';
 
 export default function PropertiesFilters({
+  totalItems,
   onApplyFilters,
   onSortChange,
   isLoading,
@@ -17,7 +18,6 @@ export default function PropertiesFilters({
   const [selectedSort, setSelectedSort] = useState<PropertySortType>('');
 
   const sortRef = useRef<HTMLDivElement>(null);
-  const totalProperties = 12;
 
   useClickOutside(sortRef, () => setIsSortOpen(false));
   useBodyOverflow(isFiltersOpen);
@@ -34,7 +34,7 @@ export default function PropertiesFilters({
         aria-live="polite"
         className="order-2 md:order-1 text-gray-600 text-base md:text-xl font-medium"
       >
-        {totalProperties} imóveis encontrados
+        {totalItems > 0 && `${totalItems} imóveis encontrados      `}
       </p>
 
       <div className="order-1 md:order-2 flex flex-wrap items-center gap-2 xs:gap-4 md:gap-8">

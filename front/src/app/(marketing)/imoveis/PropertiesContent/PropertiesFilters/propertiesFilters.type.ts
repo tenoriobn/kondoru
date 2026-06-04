@@ -5,4 +5,5 @@ export interface PropertiesFiltersProps {
   onApplyFilters: (filters: AdvancedFiltersPanelSchemaData) => void;
   onSortChange: (sort: PropertySortType) => void;
   isLoading: boolean;
+  totalItems: number;
 }

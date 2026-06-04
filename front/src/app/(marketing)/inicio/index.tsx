@@ -1,4 +1,3 @@
-'use client';
 import HeroSection from 'src/components/HeroSection';
 import Filter from './Filter';
 import PropertyCarousel from './PropertyCarousel';
@@ -6,7 +5,13 @@ import ElegantShowcase from './ElegantShowcase';
 import TestimonialCarousel from './TestimonialCarousel';
 import PageContainer from 'src/components/PageContainer';
 
-export default function HomePage() {
+type PropertiesPageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function HomePage({ searchParams }: PropertiesPageProps) {
+  await searchParams;
+
   return (
     <>
       <HeroSection

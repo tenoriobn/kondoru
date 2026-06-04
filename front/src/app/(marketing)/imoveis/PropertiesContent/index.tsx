@@ -19,6 +19,7 @@ export default function PropertiesContent() {
           onApplyFilters={search.applyFilters}
           onSortChange={search.changeSort}
           isLoading={search.isLoading}
+          totalItems={search.totalItems}
         />
 
         <PropertiesList
